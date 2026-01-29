@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "ListFiles",
+      "MakeDirectory",
+      "MoveFile",
+      "WebFetch",
+      "Find",
+      "Git",
+      "git",
+      "git status",
+      "git diff",
+      "git add",
+      "git commit",
+      "git push",
+      "git pull",
+      "Bash",
+      "Bash(mkdir -p *)",
+      "Bash(mkdir *)",
+      "Bash(rm -rf *)",
+      "Bash(rm *)",
+      "Bash(git *)",
+      "Bash(grep *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(ls *)",
+      "Bash(cd *)",
+      "Bash(mv *)",
+      "Bash(cp *)",
+      "Bash(cat *)",
+      "Bash(touch *)",
+      "Bash(find *)",
+      "Bash(node *)",
+      "Bash(powershell *)",
+      "Bash(powershell.exe *)"
+    ]
+  }
+}
