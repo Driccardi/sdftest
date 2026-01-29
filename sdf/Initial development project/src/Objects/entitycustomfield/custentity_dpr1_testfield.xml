@@ -1,0 +1,15 @@
+<entitycustomfield scriptid="custentity_dpr1_testfield">
+  <label>Memo-test</label>
+  <description>test field</description>
+  <fieldtype>TEXTAREA</fieldtype>
+  <displaytype>NORMAL</displaytype>
+  <storevalue>T</storevalue>
+  <appliestocontact>F</appliestocontact>
+  <appliestocustomer>T</appliestocustomer>
+  <appliestoemployee>F</appliestoemployee>
+  <appliestoentity>T</appliestoentity>
+  <appliestopartner>F</appliestopartner>
+  <appliestopricelist>F</appliestopricelist>
+  <appliestovendor>F</appliestovendor>
+  <showinlist>F</showinlist>
+</entitycustomfield>

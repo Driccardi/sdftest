@@ -1,0 +1,42 @@
+<translationcollection scriptid="custcollectiontranslations_chart_56_25eadb968da74b428f3cb8f">
+  <defaultlanguage>en_US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_chart_56_25eadb968da74b428f3cb8f.chart_name_206_12]</name>
+  <strings>
+    <string scriptid="chart_measure_206_7">
+      <defaulttranslation>&amp;gt;90 Days</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_measure_206_8">
+      <defaulttranslation>1-30 Days</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_legend_axis_206_9">
+      <defaulttranslation>Amount Due</defaulttranslation>
+      <description>Chart legend axis</description>
+    </string>
+    <string scriptid="chart_title_206_10">
+      <defaulttranslation>A/R Aging Buckets</defaulttranslation>
+      <description>Chart title</description>
+    </string>
+    <string scriptid="chart_measure_206_11">
+      <defaulttranslation>Current</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_name_206_12">
+      <defaulttranslation>Aging Buckets</defaulttranslation>
+      <description>Chart name</description>
+    </string>
+    <string scriptid="chart_measure_206_13">
+      <defaulttranslation>31-60 Days</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_measure_206_14">
+      <defaulttranslation>61-90 Days</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_category_axis_206_15">
+      <defaulttranslation>Aging Bucket</defaulttranslation>
+      <description>Chart category axis</description>
+    </string>
+  </strings>
+</translationcollection>

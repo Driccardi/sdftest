@@ -1,0 +1,24 @@
+<centercategory scriptid="custcentercategory4044">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1252]</centertab>
+  <label>Tools</label>
+  <links>
+    <link>
+      <linkid>LIST_SUPPORTCASE</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Mass Email Cases</linklabel>
+      <linkobject>[scriptid=custlink_8_t2382796_224]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_1_t2382796_979]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

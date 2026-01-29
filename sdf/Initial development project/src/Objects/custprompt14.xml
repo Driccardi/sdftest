@@ -1,0 +1,49 @@
+<prompt scriptid="custprompt14">
+  <action>-2</action>
+  <description>ContractIQ Generation</description>
+  <fieldid>custbody_contract_iq</fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language>en</language>
+  <languagevariant></languagevariant>
+  <maxtokens>1000</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>ContractIQ</name>
+  <preamble></preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>TEXTENHANCE</prompttype>
+  <recordtype>estimate</recordtype>
+  <temperature>0.2</temperature>
+  <template>I am a sales rep that is adding a change order to an existing contract (master sales order). Some items of the contract might have been billed and fulfilled. 
+
+The change order has lines as follows: Item ABC with CO quantity of -7; the original contract quantity is 20 of which 15 have been billed and 8 have been fulfilled. For item DEF the CO quantity is -5 and the original quantity is 12 and all have been billed and fulfilled. 
+
+What is the impact of this change order on my contract? Use the logic below. 
+
+Definitions:
+- Original Commitment: Quantity on the original MSO line.
+- CO Line: Change Order line representing a quantity change. Positive = addition; Negative = reduction.
+- Effective Commitment: Calculated dynamically: Original Commitment + sum(all CO Quantities). Not stored as a separate field.
+- Fulfilled Quantity: Units already shipped/delivered.
+- Billed Quantity: Units already invoiced/billed.
+- Supporting Transactions: Operational adjustments triggered by negative CO lines: credits for over-billed units, returns/RMAs for over-fulfilled units, and paired fulfillment + matching RMA to constrain future fulfillment.
+
+
+Conceptual Flow:
+- Receive CO line → Append to master contract
+- Is CO Quantity positive?
+- Yes: addition → no further action
+- No: reduction →
+  a. Compute Effective Commitment dynamically
+  b. If Billed &gt; Effective → issue credits
+  c. If Fulfilled &gt; Effective → generate returns/RMAs
+  d. If Original &gt; Effective → create Guardrail transaction pair as described below.
+
+Guardrail to prevent future over-fulfillment:
+- If Original Commitment &gt; Effective Commitment (after credits/RMAs above), create:
+  - A fulfillment transaction for the difference (Original – greater of (Effective, Fulfilled))
+  - An immediately matching RMA transaction for the same difference.
+- This pair constrains the fulfillable quantity to the lower Effective Commitment and prevents erroneous future fulfillment.
+</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

@@ -1,0 +1,9 @@
+<advancedpdftemplate scriptid="custtmpl_208_td2949688_768" standard="STDTMPLCUSTINVC">
+  <description></description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>F</preferred>
+  <printtype>TRANSACTION</printtype>
+  <title>GPT Generated Invoice Template 02</title>
+  <trantype>CUSTINVC</trantype>
+</advancedpdftemplate>

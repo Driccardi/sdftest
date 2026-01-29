@@ -1,0 +1,109 @@
+<customlist scriptid="customlist_mdm_fieldtypes">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Field Types</name>
+  <customvalues>
+    <customvalue scriptid="val_433255_td2957806_798">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>CHECKBOX</value>
+    </customvalue>
+    <customvalue scriptid="val_433256_td2957806_864">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>BOOLEAN</value>
+    </customvalue>
+    <customvalue scriptid="val_433257_td2957806_458">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>TEXT</value>
+    </customvalue>
+    <customvalue scriptid="val_433258_td2957806_115">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>STRING</value>
+    </customvalue>
+    <customvalue scriptid="val_433259_td2957806_716">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>SELECT</value>
+    </customvalue>
+    <customvalue scriptid="val_433260_td2957806_482">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>MULTISELECT</value>
+    </customvalue>
+    <customvalue scriptid="val_433261_td2957806_580">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>PRIMARYKEY</value>
+    </customvalue>
+    <customvalue scriptid="val_433262_td2957806_758">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>SUBLIST</value>
+    </customvalue>
+    <customvalue scriptid="val_433263_td2957806_627">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>EMAIL</value>
+    </customvalue>
+    <customvalue scriptid="val_433264_td2957806_890">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>PHONE</value>
+    </customvalue>
+    <customvalue scriptid="val_433265_td2957806_403">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>CURRENCY</value>
+    </customvalue>
+    <customvalue scriptid="val_433266_td2957806_743">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>TEXTAREA</value>
+    </customvalue>
+    <customvalue scriptid="val_433267_td2957806_896">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>LONGTEXT</value>
+    </customvalue>
+    <customvalue scriptid="val_433268_td2957806_790">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>RICHTEXT</value>
+    </customvalue>
+    <customvalue scriptid="val_433269_td2957806_814">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>HTML</value>
+    </customvalue>
+    <customvalue scriptid="val_433270_td2957806_514">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>INTEGER</value>
+    </customvalue>
+    <customvalue scriptid="val_433271_td2957806_462">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>FLOAT</value>
+    </customvalue>
+    <customvalue scriptid="val_433272_td2957806_456">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>POSCURRENCY</value>
+    </customvalue>
+    <customvalue scriptid="val_433273_td2957806_127">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>DATE</value>
+    </customvalue>
+    <customvalue scriptid="val_433274_td2957806_738">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>DATETIME</value>
+    </customvalue>
+  </customvalues>
+</customlist>

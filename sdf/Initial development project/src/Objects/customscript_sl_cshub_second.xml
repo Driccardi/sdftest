@@ -1,0 +1,904 @@
+<suitelet scriptid="customscript_sl_cshub_second">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | SL | CS Hub Second</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_sl_cshub_second.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_casetype">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Case Type</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>[scriptid=customrecord_cshub_caseactions]</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_sl_sec_casestatusnative">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Status (native NS field) to set on newly created case if different from default preference.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Status (native NS field) to set on newly created case if different from default preference.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Case Status (Native)</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-132</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_no_trsctn_error">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>No transactions found.</defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>No Transaction Found Error Message</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_pre_sbmt_vldtn_1">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Pre-Submit Validation 1 Error</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_pre_sbmt_vldtn_2">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Pre-Submit Validation 2 Error</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_stale_standby_msg">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Stale Data Processing Standby Message</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nscs_cshub_sl_name">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Suitelet Name</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_client_script_path">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</defaultvalue>
+      <description>Relative path of client script file to execute on suitelet</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Relative path of client script file to execute on suitelet</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Client Script Path</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_transaction_search_1">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Transaction saved search to find transactions eligible for CSHUB processing. If using RSQ, then the default search will filter transactions with RSQ update timestamp less than case step last modified.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Transaction saved search to find transactions eligible for CSHUB processing. If using RSQ, then the default search will filter transactions with RSQ update timestamp less than case step last modified.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Lookup Search 1</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_transaction_search_2">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Transaction search used to populate the suitelet sublist</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Transaction search used to populate the suitelet sublist</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Lookup Search 2</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_transaction_search_3">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Lookup Search 3</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_transaction_type_search">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Type ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_brh_number_search">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Alternate Transaction Number Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_main_no_result_msg">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>No Result Message</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cs_hub_etail_field_id_sl">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Line Key</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_page_size">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Page Size</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_action_details">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CLOBTEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Action Details</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_help">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>URL</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Help</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cs_hub_appeasement_item">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Appeasement Item Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_default_receipt_location">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Default Header Receipt Location</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-103</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_sl_sec_rsqmrscript">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customscript_mr_cshub_updatersq]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>M/R script to run when RSQ update is required.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>M/R script to run when RSQ update is required.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Update RSQ M/R Script</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-417</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_sl_sec_rsqmrdeployment">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>M/R deployment to run when RSQ update is required.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>M/R deployment to run when RSQ update is required.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Update RSQ M/R Deployment</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_70iaw3">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type iA/W3 Replacement along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Result Message</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_60product]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - iA / W3</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 70 iA W3</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_90service">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Service along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Result Message</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_90service]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Service</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 90 Service</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_64repair">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Repair along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Results</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_64repair]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Repair</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 64 Repair</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_50homedamage">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Home Damage along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed. &#xd;
+Enter the claim amount, if known, in the main section. Otherwise leave the amount blank.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Results</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_2_4]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Error 1</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Error 2</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Home Damage</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 50 Home Damage</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_65repairwcog">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Repair With COG along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No results.</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_64repair]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Repair w/COG</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 65 Repair w/COG</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_67priceadjust">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Price Adjustment along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No results.</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_64repair]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Price Adjustment</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 67 Price Adjustment</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_80zucora">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Zucora along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Result Message</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_60product]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Zucora</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 80 Zucora</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_sec_60product">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cs_hub_appeasement_item>[scriptid=customsearch_cshub_appeasementitems]</custscript_cs_hub_appeasement_item>
+      <custscript_cshub_sl_sec_casestatusnative>[ACCOUNT_SPECIFIC_VALUE]</custscript_cshub_sl_sec_casestatusnative>
+      <custscript_cshub_sl_sec_rsqmrdeployment>customdeploy_cshub_mr_updatersq</custscript_cshub_sl_sec_rsqmrdeployment>
+      <custscript_cshub_sl_sec_rsqmrscript>[scriptid=customscript_mr_cshub_updatersq]</custscript_cshub_sl_sec_rsqmrscript>
+      <custscript_ns_client_script_path>/SuiteScripts/nscs_cshub/nscs_cs_cshub_second.js</custscript_ns_client_script_path>
+      <custscript_ns_cs_hub_etail_field_id_sl>custcol_cshub_associatedlineid</custscript_ns_cs_hub_etail_field_id_sl>
+      <custscript_ns_cshub_action_details>Upon submit, the system will create a Case of type Product along with the associated checklist of steps required to resolve the case.&#xd;
+Ensure you select a reason in the sublist for each line that should be processed.&#xd;
+Enter the quantity and amount if applicable for each line selected.</custscript_ns_cshub_action_details>
+      <custscript_ns_cshub_brh_number_search>[scriptid=customsearch_cshub_alternatetrannumber]</custscript_ns_cshub_brh_number_search>
+      <custscript_ns_cshub_help></custscript_ns_cshub_help>
+      <custscript_ns_cshub_main_no_result_msg>No Result Message</custscript_ns_cshub_main_no_result_msg>
+      <custscript_ns_cshub_page_size></custscript_ns_cshub_page_size>
+      <custscript_ns_default_receipt_location></custscript_ns_default_receipt_location>
+      <custscript_ns_transaction_search_1>[scriptid=customsearch_cshub_tranlkp_1]</custscript_ns_transaction_search_1>
+      <custscript_ns_transaction_search_2>[scriptid=customsearch_cshub_tranlkp_s2_60product]</custscript_ns_transaction_search_2>
+      <custscript_ns_transaction_search_3>[scriptid=customsearch_cshub_tranlkp_3_2]</custscript_ns_transaction_search_3>
+      <custscript_ns_transaction_type_search>CustInvc</custscript_ns_transaction_type_search>
+      <custscript_nscs_cshub_casetype></custscript_nscs_cshub_casetype>
+      <custscript_nscs_cshub_no_trsctn_error>No transactions found.</custscript_nscs_cshub_no_trsctn_error>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_1>Pre-Submit Validation 1 Error</custscript_nscs_cshub_pre_sbmt_vldtn_1>
+      <custscript_nscs_cshub_pre_sbmt_vldtn_2>Pre-Submit Validation 2 Error</custscript_nscs_cshub_pre_sbmt_vldtn_2>
+      <custscript_nscs_cshub_sl_name>CSHUB Action - Product</custscript_nscs_cshub_sl_name>
+      <custscript_nscs_cshub_stale_standby_msg>RSQ Update In Progress. Please wait for auto-refresh.</custscript_nscs_cshub_stale_standby_msg>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Second - 60 Exch Ret Resel</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

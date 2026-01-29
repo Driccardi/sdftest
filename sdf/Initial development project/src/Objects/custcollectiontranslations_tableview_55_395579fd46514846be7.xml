@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_tableview_55_395579fd46514846be7">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_tableview_55_395579fd46514846be7.tableview_name_206_4]</name>
+  <strings>
+    <string scriptid="tableview_name_206_4">
+      <defaulttranslation>SuiteSuccess A/R Aging</defaulttranslation>
+      <description>Name in tableView</description>
+    </string>
+  </strings>
+</translationcollection>

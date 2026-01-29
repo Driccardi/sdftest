@@ -1,0 +1,19 @@
+<customlist scriptid="customlistcustomlist_mattress">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>T</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Mattress</name>
+  <customvalues>
+    <customvalue scriptid="val_63296_t2164843_886">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>M</value>
+    </customvalue>
+    <customvalue scriptid="val_63297_t2164843_163">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>B</value>
+    </customvalue>
+  </customvalues>
+</customlist>

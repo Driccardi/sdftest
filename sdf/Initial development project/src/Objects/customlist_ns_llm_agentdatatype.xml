@@ -1,0 +1,44 @@
+<customlist scriptid="customlist_ns_llm_agentdatatype">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Prompt Response Data Type</name>
+  <customvalues>
+    <customvalue scriptid="val_390696_td2949688_103">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>TEXT</value>
+    </customvalue>
+    <customvalue scriptid="val_390697_td2949688_343">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>HTML</value>
+    </customvalue>
+    <customvalue scriptid="val_390698_td2949688_388">
+      <abbreviation>X</abbreviation>
+      <isinactive>F</isinactive>
+      <value>XML</value>
+    </customvalue>
+    <customvalue scriptid="val_390699_td2949688_817">
+      <abbreviation>J</abbreviation>
+      <isinactive>F</isinactive>
+      <value>JSON</value>
+    </customvalue>
+    <customvalue scriptid="val_390700_td2949688_493">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>CSV</value>
+    </customvalue>
+    <customvalue scriptid="val_390701_td2949688_766">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>INTEGER</value>
+    </customvalue>
+    <customvalue scriptid="val_390702_td2949688_913">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>RECORD OBJECT</value>
+    </customvalue>
+  </customvalues>
+</customlist>

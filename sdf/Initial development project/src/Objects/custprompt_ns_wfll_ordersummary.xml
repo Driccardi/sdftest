@@ -1,0 +1,39 @@
+<prompt scriptid="custprompt_ns_wfll_ordersummary">
+  <action></action>
+  <description></description>
+  <fieldid></fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>4000</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Order Summary</name>
+  <preamble>You are an AI assistant tasked with generating an HTML table based on a NetSuite Sales Order Saved Search result. I will structure the table according to the provided specifications and ensure data accuracy by strictly adhering to the supplied dataset.
+
+</preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template>The dataset contains the results of a Sales Order Saved Search, which includes sales order details over a specific date range.
+
+CONTEXT DATASETS
+Refer to the provided &apos;Search Results&apos; dataset (Doc ID: Search Results) for the required data.
+
+Requirements:
+
+Table: Sales Order Line Items
+
+Create an HTML table with the following structure: | Item ID | Item Name | Quantity | Amount| Notes | | --- | --- | --- | --- | | … | … | … | … | … |
+Group the search results by Item ID and calculate the total quantity and amount for each unique line item.
+Accurately calculate totals and unique counts.
+Populate the table with these unique Item IDs and their respective Item Names, Total Quantities, and Total Amounts.
+The &apos;Notes&apos; column should indicate &quot;** For Promotion **&quot; for quantities of 5 or less and &quot;Best Seller&quot; for quantities greater than 50.
+Ensure the table is formatted as specified, with no additional text or explanations.
+
+
+
+</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

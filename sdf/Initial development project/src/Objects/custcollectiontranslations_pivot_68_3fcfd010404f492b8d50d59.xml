@@ -1,0 +1,18 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_68_3fcfd010404f492b8d50d59">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_68_3fcfd010404f492b8d50d59.report_name_268_3]</name>
+  <strings>
+    <string scriptid="report_name_268_3">
+      <defaulttranslation>Qrtly Bill Spend by Sub &amp; Dept</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+    <string scriptid="report_row_axis_268_4">
+      <defaulttranslation>Department</defaulttranslation>
+      <description>Row Axis in pivot</description>
+    </string>
+    <string scriptid="report_measure_268_5">
+      <defaulttranslation>Spent Amount</defaulttranslation>
+      <description>Measure in pivot</description>
+    </string>
+  </strings>
+</translationcollection>

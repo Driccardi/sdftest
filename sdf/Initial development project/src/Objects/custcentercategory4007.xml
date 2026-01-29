@@ -1,0 +1,51 @@
+<centercategory scriptid="custcentercategory4007">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1247]</centertab>
+  <label>Tools</label>
+  <links>
+    <link>
+      <linkid>LIST_CONTACT</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_10_t2382796_456]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>View Contact Groups</linklabel>
+      <linkobject>[scriptid=customsearch_esc_contact_grp_search]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linkid>ADMI_IMPORTCSV</linkid>
+      <linklabel>Import Assistant</linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linkid>ADMI_SAVEDIMPORTS</linkid>
+      <linklabel>View Saved Imports</linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_8_t2382796_224]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_9_t2382796_386]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linkid>LIST_SALESCAMPAIGN</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

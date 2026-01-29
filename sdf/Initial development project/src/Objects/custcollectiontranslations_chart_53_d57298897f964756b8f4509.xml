@@ -1,0 +1,22 @@
+<translationcollection scriptid="custcollectiontranslations_chart_53_d57298897f964756b8f4509">
+  <defaultlanguage>en_US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_chart_53_d57298897f964756b8f4509.chart_name_188_19]</name>
+  <strings>
+    <string scriptid="chart_category_axis_188_17">
+      <defaulttranslation>Vendor (Entity)</defaulttranslation>
+      <description>Chart category axis</description>
+    </string>
+    <string scriptid="chart_title_188_18">
+      <defaulttranslation>Top Vendors by Amount Due</defaulttranslation>
+      <description>Chart title</description>
+    </string>
+    <string scriptid="chart_name_188_19">
+      <defaulttranslation>Top Vendors by Amount Due</defaulttranslation>
+      <description>Chart name</description>
+    </string>
+    <string scriptid="chart_legend_axis_188_20">
+      <defaulttranslation>Total Amount Due</defaulttranslation>
+      <description>Chart legend axis</description>
+    </string>
+  </strings>
+</translationcollection>

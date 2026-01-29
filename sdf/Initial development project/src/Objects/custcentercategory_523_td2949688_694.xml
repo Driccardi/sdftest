@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_523_td2949688_694">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab1265]</centertab>
+  <label>Data Migration</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_ns_migration_tracker]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

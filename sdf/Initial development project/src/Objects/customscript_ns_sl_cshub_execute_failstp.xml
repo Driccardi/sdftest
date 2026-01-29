@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_sl_cshub_execute_failstp">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | SL | CSHUB Execute Failed Step</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_sl_cshub_executeFailedStep.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_sl_cshub_execute_failstp">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CSHUB Execute Failed Step</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

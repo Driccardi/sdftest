@@ -1,0 +1,31 @@
+<suitelet scriptid="customscript_de_mass_field_update">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>DE Mass Field Update</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 315889/MFU-MainPage_SL.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_de_mass_field_update">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>ERROR</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>DE Mass Field Update</title>
+      <links>
+        <link>
+          <linkcategory>BASICSETUPCUSTOM</linkcategory>
+          <linklabel>Mass Field Update</linklabel>
+        </link>
+      </links>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

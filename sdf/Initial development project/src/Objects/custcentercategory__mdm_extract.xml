@@ -1,0 +1,25 @@
+<centercategory scriptid="custcentercategory__mdm_extract">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_mdm_dmtab]</centertab>
+  <label>Extract</label>
+  <links>
+    <link>
+      <linklabel>Load MDM CSVs</linklabel>
+      <linkobject>[scriptid=customscript_mdm_su_loadcsvs.customdeploymdm_su_loadcsvs2]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Download GE Brand</linklabel>
+      <linkobject>[scriptid=customscript_ns_sl_zipxmlchunker.customdeploy_ns_sl_zipxmlchunker]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>All pricing Nodes</linklabel>
+      <linkobject>[scriptid=customscript_ns_sl_zipxmlchunker.customdeploy_ns_sl_xmlchunker2]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

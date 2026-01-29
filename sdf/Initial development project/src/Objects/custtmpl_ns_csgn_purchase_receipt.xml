@@ -1,0 +1,9 @@
+<advancedpdftemplate scriptid="custtmpl_ns_csgn_purchase_receipt" standard="STDTMPLPURCHORD">
+  <description>This PDF Template is used to provide a Purchase Order items and quantity reference for receipt confirmation when a Consignment Purchase Order is made to a Consignment Location.</description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <printtype>TRANSACTION</printtype>
+  <title>Consignment Purchase Receipt Template</title>
+  <trantype>PURCHORD</trantype>
+</advancedpdftemplate>

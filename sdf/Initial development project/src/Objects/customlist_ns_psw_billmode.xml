@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_psw_billmode">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Bill Mode</name>
+  <customvalues>
+    <customvalue scriptid="val_181141_td2949688_810">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Agency Bill</value>
+    </customvalue>
+    <customvalue scriptid="val_181142_td2949688_206">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Broker Bill</value>
+    </customvalue>
+    <customvalue scriptid="val_181143_td2949688_477">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Direct Bill</value>
+    </customvalue>
+  </customvalues>
+</customlist>

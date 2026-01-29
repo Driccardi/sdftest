@@ -1,0 +1,600 @@
+<mapreducescript scriptid="customscript_mr_cshub_custdeposit">
+  <description>Creates Customer Deposit based on Sales Order saved search</description>
+  <isinactive>F</isinactive>
+  <name>NS | MR | CSHUB Create Customer Deposit</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_mr_cshub_createCustomerDeposit.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_search_so">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_cshub_mr_so_for_cd_7021]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Sales Order Search</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Sales Order Search</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Sales Order Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_depacc">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Account to use on Customer Deposit</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Account to use on Customer Deposit</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Deposit Account</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-112</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_paymethod">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Payment option to use on Customer Deposit</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Payment option to use on Customer Deposit</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Payment Method</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-537</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_cas_search">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_cshub_ue_002_caseactionstep]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Saved Search to use to find Action Step</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Saved Search to use to find Action Step</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Action Step Saved Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_usecaseamt">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Checkbox to indicate whether to use transaction amount or case amount. Checked when using Case Amount.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Checkbox to indicate whether to use transaction amount or case amount. Checked when using Case Amount.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Use Case Amount</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_stepid">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>CSHUB Case Action Step ID</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>CSHUB Case Action Step ID</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Action Step ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_exptrantype">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>CUSTOMERDEPOSIT</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Expected Transaction Type</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Expected Transaction Type</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Expected Transaction Type</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-100</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createcd_transaction">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Single transaction on which to execute MR</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Single transaction on which to execute MR</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Single Transaction</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_cd">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Check box to indicate that this execution is a manually triggered re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Check box to indicate that this execution is a manually triggered re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecutesearch_cd">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Case Action Step based search for re-execution of specific step.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Case Action Step based search for re-execution of specific step.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Saved Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_casid_cd">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Internal ID of Case Action Step for re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Internal ID of Case Action Step for re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Id</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_custdep7021">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 70.2.1</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_7">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_10">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 10</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_custdep7021_sch">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 70.2.1 - Scheduled</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_4">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 4</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_custdep8111">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 81.1.1</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_6">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 6</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_8">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 8</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_9">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 9</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_custdeposit_5">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createcd_cas_search></custscript_cshub_mr_createcd_cas_search>
+      <custscript_cshub_mr_createcd_depacc></custscript_cshub_mr_createcd_depacc>
+      <custscript_cshub_mr_createcd_exptrantype></custscript_cshub_mr_createcd_exptrantype>
+      <custscript_cshub_mr_createcd_paymethod></custscript_cshub_mr_createcd_paymethod>
+      <custscript_cshub_mr_createcd_search_so></custscript_cshub_mr_createcd_search_so>
+      <custscript_cshub_mr_createcd_stepid></custscript_cshub_mr_createcd_stepid>
+      <custscript_cshub_mr_createcd_transaction></custscript_cshub_mr_createcd_transaction>
+      <custscript_cshub_mr_createcd_usecaseamt>F</custscript_cshub_mr_createcd_usecaseamt>
+      <custscript_cshub_mr_reexecute_casid_cd></custscript_cshub_mr_reexecute_casid_cd>
+      <custscript_cshub_mr_reexecute_cd>F</custscript_cshub_mr_reexecute_cd>
+      <custscript_cshub_mr_reexecutesearch_cd></custscript_cshub_mr_reexecutesearch_cd>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Customer Deposit 5</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-25</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

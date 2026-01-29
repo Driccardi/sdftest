@@ -1,0 +1,18 @@
+<bundleinstallationscript scriptid="customscript_scm_bundle_installation">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SCM Bundle Installation</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteBundles/Bundle 47193/src/2.0/scm/scripts/bi/WD_SCM_BI_Setup.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_scm_bundle_installation">
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>SCM Bundle Installation</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</bundleinstallationscript>

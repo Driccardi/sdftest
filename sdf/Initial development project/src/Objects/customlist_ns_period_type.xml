@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_period_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Period Type</name>
+  <customvalues>
+    <customvalue scriptid="val_188770_td2949688_216">
+      <abbreviation>Y</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Year</value>
+    </customvalue>
+    <customvalue scriptid="val_188771_td2949688_570">
+      <abbreviation>Q</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Quarter</value>
+    </customvalue>
+    <customvalue scriptid="val_188772_td2949688_708">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Month</value>
+    </customvalue>
+  </customvalues>
+</customlist>

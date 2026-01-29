@@ -1,0 +1,32 @@
+<suitelet scriptid="customscript_de_p2p_management_main_sl">
+  <defaultfunction>p2p_main_suitelet</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>-DE Procure to Pay Management Main SL</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 267426/P2P_Main_SL.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_de_p2p_management_main_sl">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>-DE Procure to Pay Management Main SL</title>
+      <links>
+        <link>
+          <linkcategory>BASICSETUPCUSTOM</linkcategory>
+          <linklabel>Procure To Pay Management</linklabel>
+        </link>
+      </links>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

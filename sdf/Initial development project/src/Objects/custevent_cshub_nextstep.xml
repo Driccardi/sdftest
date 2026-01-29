@@ -1,0 +1,50 @@
+<crmcustomfield scriptid="custevent_cshub_nextstep">
+  <accesslevel>2</accesslevel>
+  <appliesperkeyword>F</appliesperkeyword>
+  <appliestocampaign>F</appliestocampaign>
+  <appliestocase>T</appliestocase>
+  <appliestoevent>F</appliestoevent>
+  <appliestomfgprojecttask>F</appliestomfgprojecttask>
+  <appliestophonecall>F</appliestophonecall>
+  <appliestoprojecttask>F</appliestoprojecttask>
+  <appliestoresourceallocation>F</appliestoresourceallocation>
+  <appliestosolution>F</appliestosolution>
+  <appliestotask>F</appliestotask>
+  <applyformatting>F</applyformatting>
+  <availableexternally>F</availableexternally>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>CSHUB next step to complete based on the step ID array</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>CSHUB next step to complete based on the step ID array</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <label>CSHUB Next Step</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>NO_ACTION</onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>[scriptid=customrecord_cshub_caseactionstep]</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom>[scriptid=customrecord_cshub_caseactions.custrecord_cshcd_caseactions_step_parent]</sourcefrom>
+  <sourcelist>[scriptid=custevent_cshub_case_type]</sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>CRMSYSTEMINFORMATION</subtab>
+</crmcustomfield>

@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_dmdl_status">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>DM Decision Log Status</name>
+  <customvalues>
+    <customvalue scriptid="val_396809_td2949688_251">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Initiated</value>
+    </customvalue>
+    <customvalue scriptid="val_396810_td2949688_418">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Approved</value>
+    </customvalue>
+    <customvalue scriptid="val_396811_td2949688_530">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rejected</value>
+    </customvalue>
+    <customvalue scriptid="val_396812_td2949688_671">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Superseded</value>
+    </customvalue>
+    <customvalue scriptid="val_396813_td2949688_314">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Cancelled</value>
+    </customvalue>
+  </customvalues>
+</customlist>

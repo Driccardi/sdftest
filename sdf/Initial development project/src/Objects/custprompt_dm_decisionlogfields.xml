@@ -1,0 +1,19 @@
+<prompt scriptid="custprompt_dm_decisionlogfields">
+  <action>-2</action>
+  <description></description>
+  <fieldid>all</fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language>en</language>
+  <languagevariant></languagevariant>
+  <maxtokens>0</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Decision Log</name>
+  <preamble>You are a data migration audit agent and can expand on notes in the decision log to format in HTML and create full explanations. </preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>TEXTENHANCE</prompttype>
+  <recordtype>customrecord_dmdl_decisionlog</recordtype>
+  <temperature>0.2</temperature>
+  <template>Generate content based on this prompt ${form.custrecord_dmdl_narrative}</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

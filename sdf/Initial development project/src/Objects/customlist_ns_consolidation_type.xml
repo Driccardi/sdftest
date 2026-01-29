@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_consolidation_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Consolidation Type List</name>
+  <customvalues>
+    <customvalue scriptid="val_591388_td2877251_747">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Consolidation</value>
+    </customvalue>
+    <customvalue scriptid="val_591389_td2877251_674">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Equity</value>
+    </customvalue>
+  </customvalues>
+</customlist>

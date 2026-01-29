@@ -1,0 +1,7 @@
+<customlist scriptid="customlist_mdm_maptransformrules">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Transform Rules</name>
+</customlist>

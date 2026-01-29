@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_ns_imptkit_data">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_csvimportool]</centertab>
+  <label>Data</label>
+  <links>
+    <link>
+      <linklabel>Project Import Type Imported</linklabel>
+      <linkobject>[scriptid=customrecord_ps_imptypimp]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

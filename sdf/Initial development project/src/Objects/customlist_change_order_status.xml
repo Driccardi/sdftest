@@ -1,0 +1,49 @@
+<customlist scriptid="customlist_change_order_status">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Change Order Status</name>
+  <customvalues>
+    <customvalue scriptid="val_54667_t1247005_164">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Development</value>
+    </customvalue>
+    <customvalue scriptid="val_54668_t1247005_728">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Reviewed</value>
+    </customvalue>
+    <customvalue scriptid="val_54669_t1247005_966">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Approved</value>
+    </customvalue>
+    <customvalue scriptid="val_54670_t1247005_814">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rejected</value>
+    </customvalue>
+    <customvalue scriptid="val_54671_t1247005_654">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Deferred</value>
+    </customvalue>
+    <customvalue scriptid="val_54672_t1247005_324">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Executed</value>
+    </customvalue>
+    <customvalue scriptid="val_54673_t1247005_950">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Completed</value>
+    </customvalue>
+    <customvalue scriptid="val_54674_t1247005_342">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Required</value>
+    </customvalue>
+  </customvalues>
+</customlist>

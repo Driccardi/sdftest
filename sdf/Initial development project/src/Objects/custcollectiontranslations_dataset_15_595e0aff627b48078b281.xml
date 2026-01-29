@@ -1,0 +1,14 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_15_595e0aff627b48078b281">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_15_595e0aff627b48078b281.dataset_name_340_1]</name>
+  <strings>
+    <string scriptid="dataset_name_340_1">
+      <defaulttranslation>NSPSW Item Receipts (LC Analysis)</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+    <string scriptid="dataset_description_340_2">
+      <defaulttranslation>Item Receipt Dataset for Landed Cost Analysis</defaulttranslation>
+      <description>Description of a dataset</description>
+    </string>
+  </strings>
+</translationcollection>

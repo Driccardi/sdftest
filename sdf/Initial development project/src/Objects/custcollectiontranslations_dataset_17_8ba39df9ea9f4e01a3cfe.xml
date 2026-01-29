@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_17_8ba39df9ea9f4e01a3cfe">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_17_8ba39df9ea9f4e01a3cfe.dataset_name_362_1]</name>
+  <strings>
+    <string scriptid="dataset_name_362_1">
+      <defaulttranslation>Open Sales Orders for RAG</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

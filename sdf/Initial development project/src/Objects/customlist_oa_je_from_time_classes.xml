@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_oa_je_from_time_classes">
+  <description>Where classifications reside when creating journal entries from time entries</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>SPP: JE From Time Classes</name>
+  <customvalues>
+    <customvalue scriptid="value_1_660883_822">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Header</value>
+    </customvalue>
+    <customvalue scriptid="value_2_660883_822">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Line</value>
+    </customvalue>
+  </customvalues>
+</customlist>

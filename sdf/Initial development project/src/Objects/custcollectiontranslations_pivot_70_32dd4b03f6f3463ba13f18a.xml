@@ -1,0 +1,18 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_70_32dd4b03f6f3463ba13f18a">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_70_32dd4b03f6f3463ba13f18a.report_name_268_13]</name>
+  <strings>
+    <string scriptid="report_measure_268_11">
+      <defaulttranslation>Sales Amount</defaulttranslation>
+      <description>Measure in pivot</description>
+    </string>
+    <string scriptid="report_row_axis_268_12">
+      <defaulttranslation>Item</defaulttranslation>
+      <description>Row Axis in pivot</description>
+    </string>
+    <string scriptid="report_name_268_13">
+      <defaulttranslation>Top 5 Customers by Sales &amp; Item</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+  </strings>
+</translationcollection>

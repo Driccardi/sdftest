@@ -1,0 +1,55 @@
+<centercategory scriptid="custcentercategory_ebp_clas_setup">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ebp_payments_clas]</centertab>
+  <label>Setup</label>
+  <links>
+    <link>
+      <linklabel>Bank Details</linklabel>
+      <linkobject>[scriptid=customrecord_2663_bank_details]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Zengin Bank Fee Schedule</linklabel>
+      <linkobject>[scriptid=customrecord_11724_bank_fee_sched]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment Aggregation</linklabel>
+      <linkobject>[scriptid=customrecord_2663_payment_aggregation]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment File Templates</linklabel>
+      <linkobject>[scriptid=customrecord_2663_payment_file_format]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Electronic Payments Preferences</linklabel>
+      <linkobject>[scriptid=customscript_2663_preference_s.customdeploy_2663_preference_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment Queue</linklabel>
+      <linkobject>[scriptid=customsearch_ep_payment_queue]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment Schedule</linklabel>
+      <linkobject>[scriptid=customrecord_2663_payment_schedule]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment File Template Requests</linklabel>
+      <linkobject>[scriptid=customsearch_12194_file_template_request]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

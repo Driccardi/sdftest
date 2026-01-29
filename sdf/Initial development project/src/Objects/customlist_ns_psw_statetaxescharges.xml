@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_psw_statetaxescharges">
+  <description>This is the additional charge for the Agency Bill</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>State Taxes and Charges</name>
+  <customvalues>
+    <customvalue scriptid="val_181144_td2949688_825">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Fire Marshall Tax</value>
+    </customvalue>
+    <customvalue scriptid="val_181145_td2949688_949">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hurricane Catastrophe Assessment</value>
+    </customvalue>
+    <customvalue scriptid="val_181146_td2949688_848">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Stamping Fee Rate</value>
+    </customvalue>
+    <customvalue scriptid="val_181147_td2949688_965">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Surplus Lines Tax Rate</value>
+    </customvalue>
+    <customvalue scriptid="val_181148_td2949688_119">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Wind Pool Fee</value>
+    </customvalue>
+  </customvalues>
+</customlist>

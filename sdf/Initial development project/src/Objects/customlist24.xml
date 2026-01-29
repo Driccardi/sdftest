@@ -1,0 +1,84 @@
+<customlist scriptid="customlist24">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>T</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Colors</name>
+  <customvalues>
+    <customvalue scriptid="val_63278_t2164843_171">
+      <abbreviation>AQ</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Aqua</value>
+    </customvalue>
+    <customvalue scriptid="val_63279_t2164843_838">
+      <abbreviation>BL</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Blue</value>
+    </customvalue>
+    <customvalue scriptid="val_63280_t2164843_236">
+      <abbreviation>CP</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Crepe</value>
+    </customvalue>
+    <customvalue scriptid="val_63281_t2164843_490">
+      <abbreviation>CR</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Crimson</value>
+    </customvalue>
+    <customvalue scriptid="val_63282_t2164843_119">
+      <abbreviation>FO</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Forest</value>
+    </customvalue>
+    <customvalue scriptid="val_63283_t2164843_324">
+      <abbreviation>GR</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Green</value>
+    </customvalue>
+    <customvalue scriptid="val_63284_t2164843_860">
+      <abbreviation>GY</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Grey</value>
+    </customvalue>
+    <customvalue scriptid="val_63285_t2164843_158">
+      <abbreviation>HP</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hot Pink</value>
+    </customvalue>
+    <customvalue scriptid="val_63286_t2164843_919">
+      <abbreviation>MA</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Magenta</value>
+    </customvalue>
+    <customvalue scriptid="val_63287_t2164843_226">
+      <abbreviation>PL</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Plum</value>
+    </customvalue>
+    <customvalue scriptid="val_63288_t2164843_897">
+      <abbreviation>PU</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Punch</value>
+    </customvalue>
+    <customvalue scriptid="val_63289_t2164843_218">
+      <abbreviation>RD</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Red</value>
+    </customvalue>
+    <customvalue scriptid="val_63290_t2164843_777">
+      <abbreviation>RO</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rose</value>
+    </customvalue>
+    <customvalue scriptid="val_63291_t2164843_172">
+      <abbreviation>RU</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rust</value>
+    </customvalue>
+    <customvalue scriptid="val_63292_t2164843_272">
+      <abbreviation>TL</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Teal</value>
+    </customvalue>
+  </customvalues>
+</customlist>

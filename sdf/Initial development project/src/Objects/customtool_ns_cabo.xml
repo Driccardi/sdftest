@@ -1,0 +1,6 @@
+<tool scriptid="customtool_ns_cabo">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>NS | CABO | MCP File Handler</name>
+  <rpcschema>[/SuiteScripts/ns_to_cabo_filetool.schema.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/ns_to_cabo_filetool.js]</scriptfile>
+</tool>

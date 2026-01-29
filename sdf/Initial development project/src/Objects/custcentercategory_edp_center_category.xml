@@ -1,0 +1,25 @@
+<centercategory scriptid="custcentercategory_edp_center_category">
+  <center>BASIC</center>
+  <centertab>BASICCENTERLISTS</centertab>
+  <label>Effective Date Pricing</label>
+  <links>
+    <link>
+      <linklabel>Price Update</linklabel>
+      <linkobject>[scriptid=customrecord_edp_price_update]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Item Category</linklabel>
+      <linkobject>[scriptid=customrecord_edp_item_category]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Price Update Error Messages Summary</linklabel>
+      <linkobject>[scriptid=customsearch_edp_error_messages_summary]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

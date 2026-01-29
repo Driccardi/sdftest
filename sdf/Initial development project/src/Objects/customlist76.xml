@@ -1,0 +1,34 @@
+<customlist scriptid="customlist76">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>NS UAT Language</name>
+  <customvalues>
+    <customvalue scriptid="val_59511_t1195985_200">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Chinese</value>
+    </customvalue>
+    <customvalue scriptid="val_59509_t1195985_304">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>English (US)</value>
+    </customvalue>
+    <customvalue scriptid="val_59512_t1195985_309">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>French</value>
+    </customvalue>
+    <customvalue scriptid="val_59513_t1195985_101">
+      <abbreviation>G</abbreviation>
+      <isinactive>F</isinactive>
+      <value>German</value>
+    </customvalue>
+    <customvalue scriptid="val_59510_t1195985_160">
+      <abbreviation>J</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Japanese</value>
+    </customvalue>
+  </customvalues>
+</customlist>

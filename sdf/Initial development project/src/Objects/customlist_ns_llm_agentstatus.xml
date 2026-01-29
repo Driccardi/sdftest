@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_llm_agentstatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Agent Statuses</name>
+  <customvalues>
+    <customvalue scriptid="val_390972_td2949688_297">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>ONLINE</value>
+    </customvalue>
+    <customvalue scriptid="val_390973_td2949688_984">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>OFFLINE</value>
+    </customvalue>
+    <customvalue scriptid="val_390974_td2949688_582">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>DEPRECIATED</value>
+    </customvalue>
+    <customvalue scriptid="val_390975_td2949688_609">
+      <abbreviation>Q</abbreviation>
+      <isinactive>F</isinactive>
+      <value>QUARANTINED</value>
+    </customvalue>
+  </customvalues>
+</customlist>

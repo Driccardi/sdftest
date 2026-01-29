@@ -1,0 +1,9 @@
+<mapreducescript scriptid="customscript_nscs_mr_itemusagetype">
+  <description>Sets Item Usage Type on item records.</description>
+  <isinactive>F</isinactive>
+  <name>NS | MR | Item Usage Type</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_itemUsageType.js]</scriptfile>
+</mapreducescript>

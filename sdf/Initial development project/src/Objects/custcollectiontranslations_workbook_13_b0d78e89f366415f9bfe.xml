@@ -1,0 +1,14 @@
+<translationcollection scriptid="custcollectiontranslations_workbook_13_b0d78e89f366415f9bfe">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_workbook_13_b0d78e89f366415f9bfe.workbook_name_268_1]</name>
+  <strings>
+    <string scriptid="workbook_name_268_1">
+      <defaulttranslation>SS RT PRM US - SuiteSuccess Transaction Workbook</defaulttranslation>
+      <description>Name in workbook</description>
+    </string>
+    <string scriptid="workbook_description_268_2">
+      <defaulttranslation>The SuiteSuccess Transactions Workbook includes several pre-built charts and pivots which primarily analyze a variety of revenue and spending metrics. Using this workbook will enable customers to dig into trends such as: Top Vendors and departmental spend with each vendor and Top Customers and their associated items/services purchased</defaulttranslation>
+      <description>Description of a workbook</description>
+    </string>
+  </strings>
+</translationcollection>

@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_adminsamestoresales">
+  <center>BASIC</center>
+  <centertab>BASICCENTERSETUP</centertab>
+  <label translate="T">[scriptid=custcollection_same_store_sales.oj_custcentercategory_adminsamestoresales_label]</label>
+  <links>
+    <link>
+      <linklabel translate="T">[scriptid=custcollection_same_store_sales.oj_custcentercategory_adminsamestoresales_l_0_0_l_1_0_linklabel]</linklabel>
+      <linkobject>[scriptid=customscript_sss_cal_preferences.customdeploy_sss_sl_cal_preferences]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_sss_calendar]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

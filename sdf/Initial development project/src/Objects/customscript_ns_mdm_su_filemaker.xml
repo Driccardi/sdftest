@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_mdm_su_filemaker">
+  <description>API for File Creation via Client-Side Scripting</description>
+  <isinactive>F</isinactive>
+  <name>MDM | SU | Filemaker</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/mdm/mdm_su_filemaker.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_mdm_su_filemaker">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>MDM | SU | Filemaker</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

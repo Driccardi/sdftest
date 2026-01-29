@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_mdm_mapdirection">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Map Direction</name>
+  <customvalues>
+    <customvalue scriptid="val_433201_td2957806_632">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Extract &amp;gt; Transform</value>
+    </customvalue>
+    <customvalue scriptid="val_433202_td2957806_264">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Transform &amp;gt; Load</value>
+    </customvalue>
+  </customvalues>
+</customlist>

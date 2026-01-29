@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_mdm_transformstatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Transform Status</name>
+  <customvalues>
+    <customvalue scriptid="val_433089_td2957806_836">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Started</value>
+    </customvalue>
+    <customvalue scriptid="val_433090_td2957806_537">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Process</value>
+    </customvalue>
+    <customvalue scriptid="val_433091_td2957806_138">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Complete</value>
+    </customvalue>
+  </customvalues>
+</customlist>

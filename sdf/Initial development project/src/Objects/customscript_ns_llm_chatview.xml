@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_llm_chatview">
+  <description>Only works if chat logging is on.</description>
+  <isinactive>F</isinactive>
+  <name>NS | LLM | Chat Viewer</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_sl_llm_chatviewer.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_llm_chatviewer">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>NS | LLM | Chat Viewer</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

@@ -1,0 +1,249 @@
+<customlist scriptid="customlist_gr_list_make">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Make</name>
+  <customvalues>
+    <customvalue scriptid="val_62978_6991337_152">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Acura</value>
+    </customvalue>
+    <customvalue scriptid="val_62970_6991337_256">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Alfa Romeo</value>
+    </customvalue>
+    <customvalue scriptid="val_62969_6991337_204">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Audi</value>
+    </customvalue>
+    <customvalue scriptid="val_1636236_6991337_632">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Bentley</value>
+    </customvalue>
+    <customvalue scriptid="val_62945_6991337_187">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>BMW</value>
+    </customvalue>
+    <customvalue scriptid="val_62963_6991337_392">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Buick</value>
+    </customvalue>
+    <customvalue scriptid="val_62968_6991337_956">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Cadillac</value>
+    </customvalue>
+    <customvalue scriptid="val_62961_6991337_518">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Chevrolet</value>
+    </customvalue>
+    <customvalue scriptid="val_62975_6991337_801">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Chrysler</value>
+    </customvalue>
+    <customvalue scriptid="val_62948_6991337_143">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Dodge</value>
+    </customvalue>
+    <customvalue scriptid="val_62946_6991337_690">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Fiat</value>
+    </customvalue>
+    <customvalue scriptid="val_62947_6991337_741">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Ford</value>
+    </customvalue>
+    <customvalue scriptid="val_62980_6991337_840">
+      <abbreviation>G</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Genesis</value>
+    </customvalue>
+    <customvalue scriptid="val_62951_6991337_772">
+      <abbreviation>G</abbreviation>
+      <isinactive>F</isinactive>
+      <value>GMC</value>
+    </customvalue>
+    <customvalue scriptid="val_62953_6991337_627">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Honda</value>
+    </customvalue>
+    <customvalue scriptid="val_142625_6991337_751">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hummer</value>
+    </customvalue>
+    <customvalue scriptid="val_62952_6991337_311">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hyundai</value>
+    </customvalue>
+    <customvalue scriptid="val_62981_6991337_619">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Infiniti</value>
+    </customvalue>
+    <customvalue scriptid="val_62958_6991337_848">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Isuzu</value>
+    </customvalue>
+    <customvalue scriptid="val_62967_6991337_670">
+      <abbreviation>J</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Jaguar</value>
+    </customvalue>
+    <customvalue scriptid="val_62964_6991337_540">
+      <abbreviation>J</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Jeep</value>
+    </customvalue>
+    <customvalue scriptid="val_62957_6991337_949">
+      <abbreviation>K</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Kia</value>
+    </customvalue>
+    <customvalue scriptid="val_2926697_6991337_232">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Lamborghini</value>
+    </customvalue>
+    <customvalue scriptid="val_62965_6991337_659">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Land Rover</value>
+    </customvalue>
+    <customvalue scriptid="val_62976_6991337_597">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Lexus</value>
+    </customvalue>
+    <customvalue scriptid="val_62962_6991337_445">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Lincoln</value>
+    </customvalue>
+    <customvalue scriptid="val_1388851_6991337_111">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Maserati</value>
+    </customvalue>
+    <customvalue scriptid="val_62973_6991337_867">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Mazda</value>
+    </customvalue>
+    <customvalue scriptid="val_62954_6991337_991">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Mercedes-Benz</value>
+    </customvalue>
+    <customvalue scriptid="val_63478_6991337_944">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Mini</value>
+    </customvalue>
+    <customvalue scriptid="val_62966_6991337_385">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Mitsubishi</value>
+    </customvalue>
+    <customvalue scriptid="val_62956_6991337_906">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Nissan</value>
+    </customvalue>
+    <customvalue scriptid="val_62972_6991337_195">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Oldsmobile</value>
+    </customvalue>
+    <customvalue scriptid="val_1908504_6991337_287">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Polestar</value>
+    </customvalue>
+    <customvalue scriptid="val_62971_6991337_604">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Pontiac</value>
+    </customvalue>
+    <customvalue scriptid="val_62950_6991337_252">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Porsche</value>
+    </customvalue>
+    <customvalue scriptid="val_1651962_6991337_532">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rivian</value>
+    </customvalue>
+    <customvalue scriptid="val_2241364_6991337_129">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rolls Royce</value>
+    </customvalue>
+    <customvalue scriptid="val_62977_6991337_569">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>SAAB</value>
+    </customvalue>
+    <customvalue scriptid="val_142626_6991337_585">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Saturn</value>
+    </customvalue>
+    <customvalue scriptid="val_62982_6991337_348">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Scion</value>
+    </customvalue>
+    <customvalue scriptid="val_595297_6991337_860">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Smart</value>
+    </customvalue>
+    <customvalue scriptid="val_62959_6991337_139">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Subaru</value>
+    </customvalue>
+    <customvalue scriptid="val_62955_6991337_628">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Suzuki</value>
+    </customvalue>
+    <customvalue scriptid="val_62974_6991337_182">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Tesla</value>
+    </customvalue>
+    <customvalue scriptid="val_62949_6991337_612">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Toyota</value>
+    </customvalue>
+    <customvalue scriptid="val_62960_6991337_857">
+      <abbreviation>V</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Volkswagen</value>
+    </customvalue>
+    <customvalue scriptid="val_62979_6991337_394">
+      <abbreviation>V</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Volvo</value>
+    </customvalue>
+  </customvalues>
+</customlist>

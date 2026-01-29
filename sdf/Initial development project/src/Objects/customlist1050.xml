@@ -1,0 +1,24 @@
+<customlist scriptid="customlist1050">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Bill Frequency</name>
+  <customvalues>
+    <customvalue scriptid="val_330804_td2949688_193">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Daily</value>
+    </customvalue>
+    <customvalue scriptid="val_330805_td2949688_965">
+      <abbreviation>W</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Weekly</value>
+    </customvalue>
+    <customvalue scriptid="val_330806_td2949688_815">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Monthly</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_ns_qrls">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_qrltab]</centertab>
+  <label>List</label>
+  <links>
+    <link>
+      <linklabel>Generated QRLs</linklabel>
+      <linkobject>[scriptid=customrecord_ns_qrl]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

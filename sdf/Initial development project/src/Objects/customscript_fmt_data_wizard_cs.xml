@@ -1,0 +1,20 @@
+<clientscript scriptid="customscript_fmt_data_wizard_cs">
+  <description></description>
+  <fieldchangedfunction>dataWizard_FieldChanged</fieldchangedfunction>
+  <isinactive>F</isinactive>
+  <lineinitfunction></lineinitfunction>
+  <name>***DataWizard CS</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <pageinitfunction></pageinitfunction>
+  <postsourcingfunction></postsourcingfunction>
+  <recalcfunction></recalcfunction>
+  <saverecordfunction>dataWizard_SaveRecord</saverecordfunction>
+  <scriptfile>[/SuiteBundles/Bundle 93203/dataWizard_CS.js]</scriptfile>
+  <validatedeletefunction></validatedeletefunction>
+  <validatefieldfunction></validatefieldfunction>
+  <validateinsertfunction></validateinsertfunction>
+  <validatelinefunction></validatelinefunction>
+</clientscript>

@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_ps_action_item_priority">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NetSuite PS AI Priority</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1195985_512">
+      <abbreviation>(</abbreviation>
+      <isinactive>F</isinactive>
+      <value>(3) Low</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1195985_512">
+      <abbreviation>(</abbreviation>
+      <isinactive>F</isinactive>
+      <value>(2) Medium</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1195985_512">
+      <abbreviation>(</abbreviation>
+      <isinactive>F</isinactive>
+      <value>(1) High</value>
+    </customvalue>
+  </customvalues>
+</customlist>

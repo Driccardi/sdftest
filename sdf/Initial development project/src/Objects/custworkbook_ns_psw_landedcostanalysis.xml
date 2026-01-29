@@ -1,0 +1,79 @@
+<!-- Do not modify the contents of the SDF XML definition structure located under "CDATA" section of this XML, as this may corrupt the Workbook/Dataset data when you deploy the modified object to your NetSuite account. !-->
+<workbook scriptid="custworkbook_ns_psw_landedcostanalysis">
+  <name translate="T">[scriptid=custcollectiontranslations_workbook_15_7803547b3c2348448346.workbook_name_343_1]</name>
+  <dependencies>
+    <dependency>[scriptid=custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a.report_name_343_2]</dependency>
+    <dependency>[scriptid=custdataset_ns_psw_itemreceipts_lcanalysis]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a.report_measure_355_4]</dependency>
+    <dependency>[scriptid=custdataset_ns_psw_costcategories_lcanalysis]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_workbook_15_7803547b3c2348448346.workbook_description_347_1]</dependency>
+  </dependencies>
+  <definition><![CDATA[<root>
+<Workbook>
+  <_T_>workbook</_T_>
+  <id type="null"/>
+  <scriptId type="null"/>
+  <applicationId type="null"/>
+  <version>1.1.1</version>
+  <name>
+    <translationScriptId>custcollectiontranslations_workbook_15_7803547b3c2348448346.workbook_name_343_1</translationScriptId>
+  </name>
+  <audience>
+    <AudienceItems type="array"/>
+    <isPublic type="boolean">false</isPublic>
+  </audience>
+  <ownerId>2111</ownerId>
+  <description>
+    <translationScriptId>custcollectiontranslations_workbook_15_7803547b3c2348448346.workbook_description_347_1</translationScriptId>
+  </description>
+  <dataViewIDs type="array"/>
+  <pivotIDs type="array">
+    <_ITEM_>custpivot75_17296372037024604113</_ITEM_>
+  </pivotIDs>
+  <chartIDs type="array"/>
+</Workbook>
+<pivots type="array">
+  <_ITEM_>
+    <_T_>pivot</_T_>
+    <id type="null"/>
+    <scriptId>custpivot75_17296372037024604113</scriptId>
+    <applicationId type="null"/>
+    <version>1.2021.2</version>
+    <name>
+      <translationScriptId>custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a.report_name_343_2</translationScriptId>
+    </name>
+    <workbook>custworkbook_ns_psw_landedcostanalysis</workbook>
+    <datasets type="array">
+      <_ITEM_>custdataset_ns_psw_costcategories_lcanalysis</_ITEM_>
+      <_ITEM_>custdataset_ns_psw_itemreceipts_lcanalysis</_ITEM_>
+    </datasets>
+    <datasetLink>custdslink4_17296372069773549927</datasetLink>
+    <format>{"view":{},"layoutItem":{}}</format>
+    <order>0</order>
+    <definition>&lt;root>&lt;version>1&lt;/version>&lt;rowAxis>&lt;dimensionTree>&lt;_T_>section&lt;/_T_>&lt;id>35&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;_T_>dataDimension&lt;/_T_>&lt;id>31&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;_T_>dataDimension&lt;/_T_>&lt;id>32&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;_T_>dataDimension&lt;/_T_>&lt;id>33&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;_T_>dataDimension&lt;/_T_>&lt;id>34&lt;/id>&lt;items type="array">&lt;_ITEM_>&lt;id>7&lt;/id>&lt;expression>&lt;function>dateTimeProperty&lt;/function>&lt;args>&lt;dateTime>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>dateType&lt;/_T_>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>trandate&lt;/fieldId>&lt;/args>&lt;/dateTime>&lt;hierarchy>month&lt;/hierarchy>&lt;property>year&lt;/property>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/items>&lt;/_ITEM_>&lt;/children>&lt;items type="array">&lt;_ITEM_>&lt;id>2&lt;/id>&lt;expression>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>textType&lt;/_T_>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>tranid&lt;/fieldId>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/items>&lt;/_ITEM_>&lt;/children>&lt;items type="array">&lt;_ITEM_>&lt;id>4&lt;/id>&lt;expression>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_transactionlines.location&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.location&lt;/fieldId>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/items>&lt;/_ITEM_>&lt;/children>&lt;items type="array">&lt;_ITEM_>&lt;id>3&lt;/id>&lt;expression>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_transactionlines.item&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.item&lt;/fieldId>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/items>&lt;/_ITEM_>&lt;/children>&lt;/dimensionTree>&lt;sorting type="array">&lt;_ITEM_>&lt;_T_>sortDefinition&lt;/_T_>&lt;sortedNodes>&lt;_T_>reportNodePathSelector&lt;/_T_>&lt;selectors type="array">&lt;_ITEM_>&lt;_T_>descendantOrSelfNodesSelector&lt;/_T_>&lt;/_ITEM_>&lt;_ITEM_>&lt;_T_>dimensionSelector&lt;/_T_>&lt;dimension>&lt;ref>34&lt;/ref>&lt;/dimension>&lt;/_ITEM_>&lt;/selectors>&lt;/sortedNodes>&lt;sortBy type="array">&lt;_ITEM_>&lt;_T_>sortByDataDimensionItem&lt;/_T_>&lt;dataDimensionItem>&lt;ref>7&lt;/ref>&lt;/dataDimensionItem>&lt;comparator>&lt;_T_>numberComparator&lt;/_T_>&lt;/comparator>&lt;/_ITEM_>&lt;/sortBy>&lt;/_ITEM_>&lt;/sorting>&lt;/rowAxis>&lt;columnAxis>&lt;dimensionTree>&lt;_T_>section&lt;/_T_>&lt;id>37&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;_T_>dataDimension&lt;/_T_>&lt;id>36&lt;/id>&lt;children type="array">&lt;_ITEM_>&lt;ref>6&lt;/ref>&lt;/_ITEM_>&lt;/children>&lt;items type="array">&lt;_ITEM_>&lt;id>1&lt;/id>&lt;expression>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_transactionlines.landedcostcategory&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.landedcostcategory&lt;/fieldId>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/items>&lt;/_ITEM_>&lt;/children>&lt;/dimensionTree>&lt;uiSettings>&lt;headerAlwaysVisible type="boolean">true&lt;/headerAlwaysVisible>&lt;/uiSettings>&lt;/columnAxis>&lt;measures type="array">&lt;_ITEM_>&lt;_T_>dataMeasure&lt;/_T_>&lt;id>6&lt;/id>&lt;label>&lt;function>translate&lt;/function>&lt;args>&lt;translationId>custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a.report_measure_355_4&lt;/translationId>&lt;/args>&lt;/label>&lt;aggregation>sum&lt;/aggregation>&lt;expression>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>currencyType&lt;/_T_>&lt;convertible type="boolean">true&lt;/convertible>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.netamount&lt;/fieldId>&lt;/args>&lt;/expression>&lt;/_ITEM_>&lt;/measures>&lt;/root></definition>
+  </_ITEM_>
+</pivots>
+<charts type="array"/>
+<dataViews type="array"/>
+<datasetLinks type="array">
+  <_ITEM_>
+    <_T_>dsLink</_T_>
+    <id type="null"/>
+    <scriptId>custdslink4_17296372069773549927</scriptId>
+    <applicationId type="null"/>
+    <version>1.2021.2</version>
+    <name type="null"/>
+    <workbook>custworkbook_ns_psw_landedcostanalysis</workbook>
+    <datasets type="array">
+      <_ITEM_>custdataset_ns_psw_costcategories_lcanalysis</_ITEM_>
+      <_ITEM_>custdataset_ns_psw_itemreceipts_lcanalysis</_ITEM_>
+    </datasets>
+    <mapping>&lt;root>&lt;_T_>reportDataSourceExpressionMapping&lt;/_T_>&lt;expressions type="array">&lt;_ITEM_ type="array">&lt;_ITEM_>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_transactionlines.accountingimpact.account&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.accountingimpact.account&lt;/fieldId>&lt;/args>&lt;/_ITEM_>&lt;_ITEM_>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_account&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_costcategories_lcanalysis&lt;/dataSourceId>&lt;fieldId>account&lt;/fieldId>&lt;/args>&lt;/_ITEM_>&lt;/_ITEM_>&lt;_ITEM_ type="array">&lt;_ITEM_>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_transactionlines.landedcostcategory&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_itemreceipts_lcanalysis&lt;/dataSourceId>&lt;fieldId>transactionlines.landedcostcategory&lt;/fieldId>&lt;/args>&lt;/_ITEM_>&lt;_ITEM_>&lt;function>field&lt;/function>&lt;args>&lt;type>&lt;_T_>recordType&lt;/_T_>&lt;id>record_itemcosttype&lt;/id>&lt;/type>&lt;dataSourceId>custdataset_ns_psw_costcategories_lcanalysis&lt;/dataSourceId>&lt;fieldId>itemcosttype&lt;/fieldId>&lt;/args>&lt;/_ITEM_>&lt;/_ITEM_>&lt;/expressions>&lt;/root></mapping>
+  </_ITEM_>
+</datasetLinks>
+</root>]]></definition>
+  <pivots>
+    <pivot scriptid="custpivot75_17296372037024604113">
+    </pivot>
+  </pivots>
+</workbook>

@@ -1,0 +1,49 @@
+<customlist scriptid="customlistcustomlist_sizes">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>T</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Sizes</name>
+  <customvalues>
+    <customvalue scriptid="val_63300_t2164843_741">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>S</value>
+    </customvalue>
+    <customvalue scriptid="val_63301_t2164843_368">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>M</value>
+    </customvalue>
+    <customvalue scriptid="val_63302_t2164843_866">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>L</value>
+    </customvalue>
+    <customvalue scriptid="val_63303_t2164843_872">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>T</value>
+    </customvalue>
+    <customvalue scriptid="val_63304_t2164843_239">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>F</value>
+    </customvalue>
+    <customvalue scriptid="val_63305_t2164843_492">
+      <abbreviation>Q</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Q</value>
+    </customvalue>
+    <customvalue scriptid="val_63306_t2164843_362">
+      <abbreviation>K</abbreviation>
+      <isinactive>F</isinactive>
+      <value>K</value>
+    </customvalue>
+    <customvalue scriptid="val_173779_t2562987_527">
+      <abbreviation>XL</abbreviation>
+      <isinactive>F</isinactive>
+      <value>XL</value>
+    </customvalue>
+  </customvalues>
+</customlist>

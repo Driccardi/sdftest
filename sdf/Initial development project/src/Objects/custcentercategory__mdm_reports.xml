@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory__mdm_reports">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_mdm_dmtab]</centertab>
+  <label>Reports</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_dmdl_decisionlog]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

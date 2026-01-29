@@ -1,0 +1,26 @@
+<usereventscript scriptid="customscript_ue_cshub_starttranupdates">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | UE | CSHUB Start Tran Updates</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_ue_cshub_starttranupdates.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ue_cshub_starttranupd_case">
+      <allemployees>F</allemployees>
+      <alllocalizationcontexts>T</alllocalizationcontexts>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <executioncontext>CSVIMPORT|CUSTOMMASSUPDATE|DEBUGGER|MAPREDUCE|OTHER|RESTWEBSERVICES|SCHEDULED|SUITELET|USEREVENT|USERINTERFACE|WEBSERVICES|WORKFLOW</executioncontext>
+      <isdeployed>F</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <recordtype>SUPPORTCASE</recordtype>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>TESTING</status>
+    </scriptdeployment>
+  </scriptdeployments>
+</usereventscript>

@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory4049">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1255]</centertab>
+  <label>Marketing</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custcentertab1264]</linkobject>
+      <linktasktype>CARD</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custcentertab1260]</linkobject>
+      <linktasktype>CARD</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

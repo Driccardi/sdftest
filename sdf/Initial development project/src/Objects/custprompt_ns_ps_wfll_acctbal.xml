@@ -1,0 +1,124 @@
+<prompt scriptid="custprompt_ns_ps_wfll_acctbal">
+  <action></action>
+  <description>Create a string to be used in an automated email to the customer notifying them of their account balance. </description>
+  <fieldid></fieldid>
+  <frequencypenalty>0.1</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>4000</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Customer Account Balance Email</name>
+  <preamble></preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template>CRITICAL: Output ONLY the HTML code. Do not include any explanations, comments, or wrapper text.
+RESPONSE FORMAT: Begin directly with  and end with 
+NO MARKDOWN: Do not wrap the HTML in code blocks or backticks.
+You are an HTML code generator. Your sole function is to output valid HTML/CSS code.
+ROLE: HTML Code Generator
+OUTPUT: Raw HTML only
+RESTRICTIONS: No explanations, no commentary, no additional text
+
+Expected output structure:
+
+
+[HTML content here]
+
+
+Generate the email following this exact structure with no additional text.
+
+Generate a professional full HTML and CSS email body for customer account balance notifications. The email should be marketing-heavy while clearly conveying account information.
+
+
+CUSTOMER DATA VARIABLES:
+- Customer Name: ${companyname}
+- Account Number: ${account_number}
+- Current Balance: ${balance}
+- Past Due Amount: ${overduebalance}
+- Unbilled Order Amount ${unbilledorders}
+- Days Past Due: ${daysoverdue}
+- Standard Payment Terms: ${terms}
+- Primary Currency: ${currency}
+- Credit Limit:  ${creditlimit}
+
+CONDITIONAL LOGIC:
+- If current balance ( ${balance} )&gt; 0: Include balance details, payment information, and urgency messaging
+- If current balance ( ${balance} ) = 0: Thank customer for paid-in-full status
+- If past due amount  ( ${overduebalance} )&gt; 0: Add urgent payment messaging and penalty warnings and do not suggest any promotions
+- If days overdue ${daysoverdue}  &gt; 7: Emphasize urgency with bold styling and do not suggest any promotions
+
+EMAIL STRUCTURE REQUIREMENTS:
+
+**HEADER SECTION:**
+- Company logo placeholder
+- Eye-catching promotional banner
+- Personalized greeting with customer name
+- Account number reference
+
+**BODY SECTION:**
+- Account balance information (styled prominently)
+- Payment details if balance exists
+- Promotional content (minimum 40% of body content)
+- Call-to-action buttons for shopping and payments
+- Current promotions section
+
+**FOOTER SECTION:**
+- Contact information
+- Social media links
+- Unsubscribe link
+- Legal disclaimers
+
+DESIGN REQUIREMENTS:
+- Professional, modern HTML design
+- Mobile-responsive layout
+- Brand-consistent color scheme (use placeholder colors)
+- Clear hierarchy with headings and sections
+- Marketing elements should be visually prominent
+- Use tables for email client compatibility
+
+TONE AND MESSAGING:
+- Professional yet friendly
+- Marketing-forward approach
+- Create urgency for overdue accounts without being aggressive
+- Celebratory tone for paid-in-full accounts
+- Always include promotional opportunities
+
+PROMOTIONAL ELEMENTS TO INCLUDE:
+- Weekly promotions section
+- &quot;Shop Online at Genius Industries&quot; messaging - https://geniusindustries.com
+- Cross-sell opportunities
+- Loyalty program mentions
+- Special offers for account holders
+
+IF  Current Balance: ${balance} = 0 THEN
+- Use &quot;PAID IN FULL&quot; success styling (green accents)
+- Focus 60% on promotional content
+- Add loyalty rewards messaging
+
+IF Days Overdue: ${daysoverdue} &gt; 0 THEN
+- Use urgent styling (red/orange accents)
+- Add penalty warning callout box
+- Include multiple payment options
+
+IF Days Overdue  ${daysoverdue} &gt; 3 THEN
+- Add &quot;URGENT&quot; badges
+- Use countdown timer styling
+- Emphasize immediate action needed
+
+Generate the complete HTML email body with inline CSS styling for maximum email client compatibility.
+
+DO NOT include:
+- Explanatory text before or after the HTML
+- Code block markers (```)
+- Comments like &quot;Here&apos;s the HTML:&quot; or &quot;This code will...&quot;
+- Any sentences or paragraphs
+- Markdown formatting
+
+Start your response immediately with: 
+End your response with: 
+Nothing else should appear in your response.</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

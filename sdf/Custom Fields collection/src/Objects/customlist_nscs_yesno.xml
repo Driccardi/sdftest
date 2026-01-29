@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_nscs_yesno">
+  <description>Yes / No</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NSCS | Yes No</name>
+  <customvalues>
+    <customvalue scriptid="nscs_yes">
+      <abbreviation>Y</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Yes</value>
+    </customvalue>
+    <customvalue scriptid="nscs_no">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>No</value>
+    </customvalue>
+  </customvalues>
+</customlist>

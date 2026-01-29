@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_oa_billing_rules">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>SPP Billing Rules</name>
+  <customvalues>
+    <customvalue scriptid="value_4_660883_822">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Do not export</value>
+    </customvalue>
+    <customvalue scriptid="value_1_660883_822">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Time</value>
+    </customvalue>
+    <customvalue scriptid="value_2_660883_822">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Fixed fee % complete</value>
+    </customvalue>
+    <customvalue scriptid="value_3_660883_822">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Fixed fee on date or milestone</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,189 @@
+<customlist scriptid="customlist_gr_list_endyear">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>End Year</name>
+  <customvalues>
+    <customvalue scriptid="val_361144_6991337_sb2_204">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1995</value>
+    </customvalue>
+    <customvalue scriptid="val_361162_6991337_sb2_176">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1996</value>
+    </customvalue>
+    <customvalue scriptid="val_361163_6991337_sb2_437">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1997</value>
+    </customvalue>
+    <customvalue scriptid="val_361164_6991337_sb2_568">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1998</value>
+    </customvalue>
+    <customvalue scriptid="val_361165_6991337_sb2_777">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1999</value>
+    </customvalue>
+    <customvalue scriptid="val_361166_6991337_sb2_417">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2000</value>
+    </customvalue>
+    <customvalue scriptid="val_361167_6991337_sb2_993">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2001</value>
+    </customvalue>
+    <customvalue scriptid="val_361168_6991337_sb2_803">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2002</value>
+    </customvalue>
+    <customvalue scriptid="val_361169_6991337_sb2_756">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2003</value>
+    </customvalue>
+    <customvalue scriptid="val_361170_6991337_sb2_741">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2004</value>
+    </customvalue>
+    <customvalue scriptid="val_361171_6991337_sb2_630">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2005</value>
+    </customvalue>
+    <customvalue scriptid="val_361172_6991337_sb2_239">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2006</value>
+    </customvalue>
+    <customvalue scriptid="val_361173_6991337_sb2_432">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2007</value>
+    </customvalue>
+    <customvalue scriptid="val_361174_6991337_sb2_278">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2008</value>
+    </customvalue>
+    <customvalue scriptid="val_361175_6991337_sb2_750">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2009</value>
+    </customvalue>
+    <customvalue scriptid="val_361176_6991337_sb2_342">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2010</value>
+    </customvalue>
+    <customvalue scriptid="val_361177_6991337_sb2_500">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2011</value>
+    </customvalue>
+    <customvalue scriptid="val_361178_6991337_sb2_449">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2012</value>
+    </customvalue>
+    <customvalue scriptid="val_361194_6991337_sb2_816">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2013</value>
+    </customvalue>
+    <customvalue scriptid="val_361195_6991337_sb2_476">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2014</value>
+    </customvalue>
+    <customvalue scriptid="val_361196_6991337_sb2_787">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2015</value>
+    </customvalue>
+    <customvalue scriptid="val_361197_6991337_sb2_152">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2016</value>
+    </customvalue>
+    <customvalue scriptid="val_361198_6991337_sb2_758">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2017</value>
+    </customvalue>
+    <customvalue scriptid="val_361199_6991337_sb2_362">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2018</value>
+    </customvalue>
+    <customvalue scriptid="val_361200_6991337_sb2_397">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2019</value>
+    </customvalue>
+    <customvalue scriptid="val_361201_6991337_sb2_707">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2020</value>
+    </customvalue>
+    <customvalue scriptid="val_361202_6991337_sb2_421">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2021</value>
+    </customvalue>
+    <customvalue scriptid="val_361203_6991337_sb2_566">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2022</value>
+    </customvalue>
+    <customvalue scriptid="val_361204_6991337_sb2_429">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2023</value>
+    </customvalue>
+    <customvalue scriptid="val_763212_6991337_971">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2024</value>
+    </customvalue>
+    <customvalue scriptid="val_763213_6991337_710">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2025</value>
+    </customvalue>
+    <customvalue scriptid="val_763214_6991337_692">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2026</value>
+    </customvalue>
+    <customvalue scriptid="val_763215_6991337_614">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2027</value>
+    </customvalue>
+    <customvalue scriptid="val_763216_6991337_560">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2028</value>
+    </customvalue>
+    <customvalue scriptid="val_763217_6991337_990">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2029</value>
+    </customvalue>
+    <customvalue scriptid="val_763218_6991337_530">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2030</value>
+    </customvalue>
+  </customvalues>
+</customlist>

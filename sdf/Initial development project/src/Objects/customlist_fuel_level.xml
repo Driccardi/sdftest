@@ -1,0 +1,49 @@
+<customlist scriptid="customlist_fuel_level">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Fuel Level</name>
+  <customvalues>
+    <customvalue scriptid="val_190649_td2949688_863">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Full</value>
+    </customvalue>
+    <customvalue scriptid="val_190650_td2949688_613">
+      <abbreviation>7</abbreviation>
+      <isinactive>F</isinactive>
+      <value>7/8</value>
+    </customvalue>
+    <customvalue scriptid="val_190651_td2949688_469">
+      <abbreviation>3</abbreviation>
+      <isinactive>F</isinactive>
+      <value>3/4</value>
+    </customvalue>
+    <customvalue scriptid="val_190652_td2949688_279">
+      <abbreviation>5</abbreviation>
+      <isinactive>F</isinactive>
+      <value>5/8</value>
+    </customvalue>
+    <customvalue scriptid="val_190653_td2949688_837">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1/2</value>
+    </customvalue>
+    <customvalue scriptid="val_190654_td2949688_135">
+      <abbreviation>3</abbreviation>
+      <isinactive>F</isinactive>
+      <value>3/8</value>
+    </customvalue>
+    <customvalue scriptid="val_190655_td2949688_207">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1/4</value>
+    </customvalue>
+    <customvalue scriptid="val_190656_td2949688_237">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1/8</value>
+    </customvalue>
+  </customvalues>
+</customlist>

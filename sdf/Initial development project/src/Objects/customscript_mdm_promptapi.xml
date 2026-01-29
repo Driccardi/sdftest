@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_mdm_promptapi">
+  <description>Handles the evaluation of prompt actions from the browser asynchronously, as direct client access to evaluatePrompt is restricted.</description>
+  <isinactive>F</isinactive>
+  <name>MDM | Prompt API</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/mdm/lib/mdm_su_evalprompt.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_mdm_promptapi">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>MDM | Prompt API</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

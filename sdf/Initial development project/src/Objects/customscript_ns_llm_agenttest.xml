@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_llm_agenttest">
+  <description>Handles testing agent behavior</description>
+  <isinactive>F</isinactive>
+  <name>NS | LLM | Agent Tester</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_sl_llm_agenttester.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_llm_agenttest">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>TESTING</status>
+      <title>NS | LLM | Agent Tester</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

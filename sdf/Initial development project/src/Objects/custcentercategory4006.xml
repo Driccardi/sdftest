@@ -1,0 +1,29 @@
+<centercategory scriptid="custcentercategory4006">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1247]</centertab>
+  <label>Reports</label>
+  <links>
+    <link>
+      <linkid>REPO_162</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linkid>REPO_133</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_7_t2382796_842]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>View All Reports</linklabel>
+      <linkobject>[scriptid=custcentertab1251]</linkobject>
+      <linktasktype>CARD</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

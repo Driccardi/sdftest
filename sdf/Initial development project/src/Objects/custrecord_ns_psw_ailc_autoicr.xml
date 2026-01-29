@@ -1,0 +1,48 @@
+<othercustomfield scriptid="custrecord_ns_psw_ailc_autoicr">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Zero-value Inventory Cost Revaluation transaction created by the system.</description>
+  <displayheight></displayheight>
+  <displaytype>LOCKED</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <help>Zero-value Inventory Cost Revaluation transaction created by the system.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <label>Auto Zero-Value ICR</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>SET_NULL</onparentdelete>
+  <rectype>-506</rectype>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>-30</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <customfieldfilters>
+    <customfieldfilter>
+      <fldcomparefield></fldcomparefield>
+      <fldfilter>STDBODYTRANTYPE</fldfilter>
+      <fldfilterchecked></fldfilterchecked>
+      <fldfiltercomparetype>EQ</fldfiltercomparetype>
+      <fldfilternotnull>F</fldfilternotnull>
+      <fldfilternull>F</fldfilternull>
+      <fldfiltersel>INVENTORYCOSTREVALUATION</fldfiltersel>
+      <fldfilterval></fldfilterval>
+    </customfieldfilter>
+  </customfieldfilters>
+</othercustomfield>

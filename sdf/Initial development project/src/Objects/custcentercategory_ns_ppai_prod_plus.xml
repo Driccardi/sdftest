@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_ns_ppai_prod_plus">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_ppai_promopack_tab]</centertab>
+  <label>Production Plus</label>
+  <links>
+    <link>
+      <linklabel>Production Plus Record</linklabel>
+      <linkobject>[scriptid=customrecord_nsra_ppr]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Bulk Production Plus</linklabel>
+      <linkobject>[scriptid=customscript_ns_sl_mass_production_plus.customdeploy_ns_sl_mass_production_plus]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

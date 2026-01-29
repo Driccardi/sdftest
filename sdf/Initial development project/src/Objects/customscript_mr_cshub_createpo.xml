@@ -1,0 +1,669 @@
+<mapreducescript scriptid="customscript_mr_cshub_createpo">
+  <description>Creates Purchase Order based on CSHUB Case Action Step</description>
+  <isinactive>F</isinactive>
+  <name>NS | MR | CSHUB Create Purchase Order</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_mr_cshub_createPurchaseOrder.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_search">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_cshub_mr_createpo5007]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>CSHUB Case Action Step saved search</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>CSHUB Case Action Step saved search</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>CAS Saved Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_stepid">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>CSHUB Case Action Step current step ID for this action</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>CSHUB Case Action Step current step ID for this action</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>CAS Action Identifier</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_linekey">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Field ID to use to identify associated lines</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Field ID to use to identify associated lines</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Associated Line Field ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_vendor">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Default vendor to use on transaction</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Default vendor to use on transaction</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Default Vendor</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-3</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_employee">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Default employee to use on transaction</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Default employee to use on transaction</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Default Employee</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-4</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_item">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Default item to use on transaction</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Default item to use on transaction</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Default Item</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-10</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_memo">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Default memo for transaction</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Default memo for transaction</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Memo</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_customform">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Custom form to use for transaction</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Custom form to use for transaction</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Transaction Custom Form</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-171</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_po_transaction">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Single transaction on which to execute MR</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Single transaction on which to execute MR</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Single Transaction</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_po">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Check box to indicate that this execution is a manually triggered re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Check box to indicate that this execution is a manually triggered re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecutesearch_po">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Case Action Step based search for re-execution of specific step.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Case Action Step based search for re-execution of specific step.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Saved Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_casid_po">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Internal ID of Case Action Step for re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Internal ID of Case Action Step for re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Id</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo6503">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB 65.0.3 Create Purchase Order</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo6503_sch">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB 65.0.3 Create Purchase Order Scheduled</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <daily>
+          <everyxdays>1</everyxdays>
+          <repeat>PT15M</repeat>
+          <startdate>2025-03-20</startdate>
+          <starttime>12:00:00Z</starttime>
+        </daily>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo6">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order 6</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo7">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order 7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo8211">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB 82.1.1 Create Parts Purchase Order</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo_schd_5007">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order Scheduled 50.0.7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <daily>
+          <everyxdays>1</everyxdays>
+          <repeat>PT15M</repeat>
+          <startdate>2025-02-12</startdate>
+          <starttime>06:00:00Z</starttime>
+        </daily>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo6411">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB 64.1.1 Create Purchase Order</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo5007">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order On Demand 50.0.7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo8">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order 8</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo9">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order 9</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createpo10">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_po_customform></custscript_cshub_mr_po_customform>
+      <custscript_cshub_mr_po_employee></custscript_cshub_mr_po_employee>
+      <custscript_cshub_mr_po_item></custscript_cshub_mr_po_item>
+      <custscript_cshub_mr_po_linekey></custscript_cshub_mr_po_linekey>
+      <custscript_cshub_mr_po_memo></custscript_cshub_mr_po_memo>
+      <custscript_cshub_mr_po_search></custscript_cshub_mr_po_search>
+      <custscript_cshub_mr_po_stepid></custscript_cshub_mr_po_stepid>
+      <custscript_cshub_mr_po_transaction></custscript_cshub_mr_po_transaction>
+      <custscript_cshub_mr_po_vendor></custscript_cshub_mr_po_vendor>
+      <custscript_cshub_mr_reexecute_casid_po></custscript_cshub_mr_reexecute_casid_po>
+      <custscript_cshub_mr_reexecute_po>F</custscript_cshub_mr_reexecute_po>
+      <custscript_cshub_mr_reexecutesearch_po></custscript_cshub_mr_reexecutesearch_po>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Purchase Order 10</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-07</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

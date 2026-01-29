@@ -1,0 +1,64 @@
+<customlist scriptid="customlist_ns_psw_typeofpolicytrxn">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Type of Policy Transaction</name>
+  <customvalues>
+    <customvalue scriptid="val_181149_td2949688_939">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Agency Commission</value>
+    </customvalue>
+    <customvalue scriptid="val_181150_td2949688_924">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Broker Commission</value>
+    </customvalue>
+    <customvalue scriptid="val_181151_td2949688_304">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Carrier Payment</value>
+    </customvalue>
+    <customvalue scriptid="val_181152_td2949688_916">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hurricane Catastrophe Assessment</value>
+    </customvalue>
+    <customvalue scriptid="val_181153_td2949688_252">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Invoice Insured</value>
+    </customvalue>
+    <customvalue scriptid="val_181154_td2949688_526">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Others (1)</value>
+    </customvalue>
+    <customvalue scriptid="val_181155_td2949688_613">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Others (2)</value>
+    </customvalue>
+    <customvalue scriptid="val_181156_td2949688_624">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Stamping Fee Rate</value>
+    </customvalue>
+    <customvalue scriptid="val_181157_td2949688_861">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Surplus Line Tax</value>
+    </customvalue>
+    <customvalue scriptid="val_183791_td2949688_328">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Agency Fee</value>
+    </customvalue>
+    <customvalue scriptid="val_184143_td2949688_809">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Broker Fee</value>
+    </customvalue>
+  </customvalues>
+</customlist>

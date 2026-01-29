@@ -1,0 +1,24 @@
+<scheduledscript scriptid="customscript992">
+  <description>Testing if you can cross site eval with javascript loaded from a source account.</description>
+  <isinactive>F</isinactive>
+  <name>NS | SC | Eval-test</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/eval_test.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy1">
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | SC | Eval-test</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-03-28</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

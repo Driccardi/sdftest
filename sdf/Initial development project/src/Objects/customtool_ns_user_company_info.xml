@@ -1,0 +1,16 @@
+<tool scriptid="customtool_ns_user_company_info">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>User and Company Information</name>
+  <rpcschema>[/SuiteScripts/ns_user_company_info.schema.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/ns_user_company_info.js]</scriptfile>
+  <permissions>
+    <permission>
+      <permkey>LIST_EMPLOYEE</permkey>
+      <permlevel>VIEW</permlevel>
+    </permission>
+    <permission>
+      <permkey>LIST_SUBSIDIARY</permkey>
+      <permlevel>VIEW</permlevel>
+    </permission>
+  </permissions>
+</tool>

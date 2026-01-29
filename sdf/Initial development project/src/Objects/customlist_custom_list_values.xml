@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_custom_list_values">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Custom list values</name>
+  <customvalues>
+    <customvalue scriptid="val_186297_td2879875_118">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Body</value>
+    </customvalue>
+    <customvalue scriptid="val_186298_td2879875_921">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Sublist</value>
+    </customvalue>
+  </customvalues>
+</customlist>

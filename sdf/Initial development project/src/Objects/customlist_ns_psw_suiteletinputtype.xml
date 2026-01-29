@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_psw_suiteletinputtype">
+  <description>NSPSW Suitelet Input Type</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>NSPSW Suitelet Input Type</name>
+  <customvalues>
+    <customvalue scriptid="nspsw_suitelet_input_checkbox">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Check Box</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_suitelet_input_date">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Date</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_suitelet_input_number">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Number</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_suitelet_input_radio">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Radio Button</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_suitelet_input_text">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Text</value>
+    </customvalue>
+  </customvalues>
+</customlist>

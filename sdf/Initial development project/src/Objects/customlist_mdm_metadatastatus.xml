@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_mdm_metadatastatus">
+  <description>List of available metadata status</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Metadata Record Status</name>
+  <customvalues>
+    <customvalue scriptid="val_433077_td2957806_214">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Loaded</value>
+    </customvalue>
+    <customvalue scriptid="val_433078_td2957806_829">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Loaded</value>
+    </customvalue>
+  </customvalues>
+</customlist>

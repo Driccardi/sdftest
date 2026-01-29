@@ -1,0 +1,180 @@
+<scheduledscript scriptid="customscript_ns_llm_msg_queue">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | LLM | Agent Message Queue</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/ns_sc_llm_liveagent.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_ns_llm_queuemsg">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth>40</displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CLOBTEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Input message object</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue02">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 2</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue03">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 3</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue05">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 5</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue06">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 6</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue10">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 10</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue08">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 8</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue01">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue04">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 4</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue09">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 9</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_llm_msg_queue07">
+      <custscript_ns_llm_queuemsg></custscript_ns_llm_queuemsg>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>NS | LLM | Agent Message Queue 7</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-07-18</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript977">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>GGNS TEST</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>F</notifyowner>
+  <notifyuser>T</notifyuser>
+  <scriptfile>[/SuiteScripts/nspsw_initializeCustomList/Suitelet.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy1">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>TESTING</status>
+      <title>GGNS TEST</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

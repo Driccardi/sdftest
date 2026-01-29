@@ -1,0 +1,83 @@
+<suitelet scriptid="customscript_nspsw_su_landedcostanalysis">
+  <description>Suitelet to update Landed Cost Analysis saved search based on cost categories.</description>
+  <isinactive>F</isinactive>
+  <name>NSPSW | SU | Landed Cost Analysis</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>F</notifyowner>
+  <notifyuser>T</notifyuser>
+  <scriptfile>[/SuiteScripts/nspsw_landed_cost_analysis/nspsw_sl_landed_cost_analysis.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_nspsw_su_ss_landedcostcat">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_ns_psw_cost_categories]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Suitelet parameter to identify the saved search used to get Landed Cost Categories.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Suitelet parameter to identify the saved search used to get Landed Cost Categories.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>NSPSW SS Cost Categories</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_nspsw_su_ss_landedanalysis">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_ns_psw_landedcostanalysis]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Suitelet parameter to identify the saved search used for Landed Cost Analysis.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Suitelet parameter to identify the saved search used for Landed Cost Analysis.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>NSPSW SS Cost Analysis</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_nspsw_su_landedcostanalysis">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_nspsw_su_ss_landedanalysis>[scriptid=customsearch_ns_psw_landedcostanalysis]</custscript_nspsw_su_ss_landedanalysis>
+      <custscript_nspsw_su_ss_landedcostcat>[scriptid=customsearch_ns_psw_cost_categories]</custscript_nspsw_su_ss_landedcostcat>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>NSPSW | SU | Landed Cost Analysis</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

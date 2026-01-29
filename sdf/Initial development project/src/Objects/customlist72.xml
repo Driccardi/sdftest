@@ -1,0 +1,34 @@
+<customlist scriptid="customlist72">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NS UAT Markets</name>
+  <customvalues>
+    <customvalue scriptid="val_51688_t1195985_995">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Standard</value>
+    </customvalue>
+    <customvalue scriptid="val_51689_t1195985_387">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Premium</value>
+    </customvalue>
+    <customvalue scriptid="val_51690_t1195985_726">
+      <abbreviation>U</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Up Market</value>
+    </customvalue>
+    <customvalue scriptid="val_51691_t1195985_736">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Starter</value>
+    </customvalue>
+    <customvalue scriptid="val_62525_t1195985_313">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Starter Services/Products</value>
+    </customvalue>
+  </customvalues>
+</customlist>

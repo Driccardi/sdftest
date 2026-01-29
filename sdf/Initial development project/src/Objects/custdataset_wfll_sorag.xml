@@ -1,0 +1,284 @@
+<!-- Do not modify the contents of the SDF XML definition structure located under "CDATA" section of this XML, as this may corrupt the Workbook/Dataset data when you deploy the modified object to your NetSuite account. !-->
+<dataset scriptid="custdataset_wfll_sorag">
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_17_8ba39df9ea9f4e01a3cfe.dataset_name_362_1]</name>
+  <dependencies>
+    <dependency>[scriptid=custbody_stc_amount_after_discount]</dependency>
+  </dependencies>
+  <definition><![CDATA[<root>
+<_T_>dataSet</_T_>
+<id type="null"/>
+<scriptId type="null"/>
+<applicationId type="null"/>
+<version type="string">0.1</version>
+<name>
+  <translationScriptId>custcollectiontranslations_dataset_17_8ba39df9ea9f4e01a3cfe.dataset_name_362_1</translationScriptId>
+</name>
+<audience>
+  <AudienceItems type="array"/>
+  <isPublic type="boolean">false</isPublic>
+</audience>
+<ownerId>2116</ownerId>
+<description type="null"/>
+<baseRecord>
+  <id>transaction</id>
+  <label>Transaction</label>
+</baseRecord>
+<columns type="array">
+  <_ITEM_>
+    <columnId>1</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>trandate</id>
+      <label>Date</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>trandate</uniqueId>
+    </field>
+    <alias>trandate</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>2</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>memo</id>
+      <label>Memo</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>memo</uniqueId>
+    </field>
+    <alias>memo</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>8</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>amountunbilled</id>
+      <label>Amount (Unbilled Receivable)</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>amountunbilled</uniqueId>
+    </field>
+    <alias>amountunbilled</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>9</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>custbody_stc_amount_after_discount</id>
+      <label>Amount after discount</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>custbody_stc_amount_after_discount</uniqueId>
+    </field>
+    <alias>custbody_stc_amount_after_discount</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>4</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>tranid</id>
+      <label>Document Number/ID</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>tranid</uniqueId>
+    </field>
+    <alias>tranid</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>6</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>type</id>
+      <label>Type</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>type</uniqueId>
+    </field>
+    <alias>type</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>7</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>foreigntotal</id>
+      <label>Total Amount (Transaction Currency)</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>foreigntotal</uniqueId>
+    </field>
+    <alias>foreigntotal</alias>
+  </_ITEM_>
+</columns>
+<criteria>
+  <_T_>condition</_T_>
+  <operator>
+    <code>AND</code>
+  </operator>
+  <children type="array">
+    <_ITEM_>
+      <_T_>filter</_T_>
+      <operator>
+        <code>ANY_OF</code>
+      </operator>
+      <meta>
+        <subType>values</subType>
+        <selectorType>field-values</selectorType>
+      </meta>
+      <expressions type="array">
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd</value>
+          </value>
+          <label>Sales Order</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+      </expressions>
+      <field>
+        <_T_>fieldReference</_T_>
+        <id>type</id>
+        <label>Type</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array"/>
+        </joinTrail>
+        <uniqueId>type</uniqueId>
+      </field>
+      <targetFieldContext>
+        <name>IDENTIFIER</name>
+      </targetFieldContext>
+      <fieldStateName>display</fieldStateName>
+      <caseSensitive type="boolean">false</caseSensitive>
+    </_ITEM_>
+    <_ITEM_>
+      <_T_>filter</_T_>
+      <operator>
+        <code>ANY_OF</code>
+      </operator>
+      <meta>
+        <subType>values</subType>
+        <selectorType>field-values</selectorType>
+      </meta>
+      <expressions type="array">
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd:D</value>
+          </value>
+          <label>Sales Order : Partially Fulfilled</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd:A</value>
+          </value>
+          <label>Sales Order : Pending Approval</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd:F</value>
+          </value>
+          <label>Sales Order : Pending Billing</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd:E</value>
+          </value>
+          <label>Sales Order : Pending Billing/Partially Fulfilled</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>SalesOrd:B</value>
+          </value>
+          <label>Sales Order : Pending Fulfillment</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+      </expressions>
+      <field>
+        <_T_>fieldReference</_T_>
+        <id>status</id>
+        <label>Status</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array"/>
+        </joinTrail>
+        <uniqueId>status</uniqueId>
+      </field>
+      <targetFieldContext>
+        <name>IDENTIFIER</name>
+      </targetFieldContext>
+      <fieldStateName>display</fieldStateName>
+      <caseSensitive type="boolean">false</caseSensitive>
+    </_ITEM_>
+  </children>
+  <meta type="null"/>
+  <field type="null"/>
+  <targetFieldContext>
+    <name>DEFAULT</name>
+  </targetFieldContext>
+  <fieldStateName type="null"/>
+</criteria>
+<formulas type="array"/>
+</root>]]></definition>
+</dataset>

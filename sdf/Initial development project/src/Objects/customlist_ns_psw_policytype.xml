@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_psw_policytype">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Policy Type</name>
+  <customvalues>
+    <customvalue scriptid="val_181162_td2949688_450">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Allied Health</value>
+    </customvalue>
+    <customvalue scriptid="val_181163_td2949688_503">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Management Liability</value>
+    </customvalue>
+    <customvalue scriptid="val_181164_td2949688_690">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Specialty Property Policy</value>
+    </customvalue>
+    <customvalue scriptid="val_181165_td2949688_499">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Transactional Liability</value>
+    </customvalue>
+  </customvalues>
+</customlist>

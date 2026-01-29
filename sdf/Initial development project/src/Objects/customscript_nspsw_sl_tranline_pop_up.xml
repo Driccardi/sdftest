@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_nspsw_sl_tranline_pop_up">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NSPSW | SL| Transaction Line Pop-Up</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nspsw_transaction_line_pop_up/nspsw_sl_transaction_line_pop_up.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_nspsw_sl_tranline_pop_up">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>NSPSW | SL| Transaction Line Pop-Up</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

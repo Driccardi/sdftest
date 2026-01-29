@@ -1,0 +1,31 @@
+<centercategory scriptid="custcentercategory_ns_imptkit_config">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_csvimportool]</centertab>
+  <label>Configuration</label>
+  <links>
+    <link>
+      <linklabel>Project Import Type</linklabel>
+      <linkobject>[scriptid=customrecord_ps_imptyp]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Project Import Type Field</linklabel>
+      <linkobject>[scriptid=customrecord_ps_imptypfld]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Project Import Type Dtafw Step</linklabel>
+      <linkobject>[scriptid=customrecord_ps_dfstep]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Project Import Dataflw Mapping</linklabel>
+      <linkobject>[scriptid=customrecord_ps_dfmap]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

@@ -1,0 +1,10 @@
+<centertab scriptid="custcentertab_ns_psw_policy_data">
+  <allcustomers>F</allcustomers>
+  <allemployees>F</allemployees>
+  <allpartners>F</allpartners>
+  <allroles>T</allroles>
+  <allvendors>F</allvendors>
+  <audslctrole></audslctrole>
+  <center>ALL</center>
+  <label>Policy</label>
+</centertab>

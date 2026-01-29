@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory199">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab123]</centertab>
+  <label>SuiteQL</label>
+  <links>
+    <link>
+      <linklabel>SuiteLet</linklabel>
+      <linkobject>[scriptid=customscript_rfi_suiteql.customdeploy_rfi_suiteql]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

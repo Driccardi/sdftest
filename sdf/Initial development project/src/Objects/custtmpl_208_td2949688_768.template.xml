@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+  <head>
+    <!-- Mint Mobile‑ised fonts -->
+    <link name="NotoSans" type="font" subtype="truetype"
+          src="${nsfont.NotoSans_Regular}"
+          src-bold="${nsfont.NotoSans_Bold}"
+          src-italic="${nsfont.NotoSans_Italic}"
+          src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2"/>
+    <style type="text/css">
+      * { font-family: NotoSans, sans-serif; }
+
+      /* brand palette (legacy‑safe) */
+      .mint-bg   { background-color:#2ED07A; color:#ffffff; }
+      .mint-txt  { color:#2ED07A; }
+      .mint-dark { background-color:#018153; color:#ffffff; }
+
+      table            { font-size:9pt; table-layout:fixed; }
+      th               { padding:5px 6px 3px; font-size:8pt; font-weight:bold; background-color:#e3e3e3; color:#333; }
+      td               { padding:4px 6px; }
+      td p             { align:left; }
+
+      /* header / footer tweaks */
+      table.header td  { font-size:10pt; }
+      span.title       { font-size:28pt; }
+      span.companyname { font-size:16pt; font-weight:bold; }
+      span.mint-tag    { font-size:8pt; color:#555; }
+
+      /* totals mint box */
+      td.totalboxtop,
+      td.totalboxmid,
+      td.totalboxbot   { background-color:#2ED07A; color:#ffffff; }
+      td.totalboxmid   { font-size:28pt; padding-top:12px; }
+      td.totalboxbot   { font-weight:bold; }
+
+      /* promo row */
+      tr.promorow      { background-color:#e6fff4; }
+
+      /* address label */
+      td.addressheader { font-size:8pt; padding-top:6px; padding-bottom:2px; }
+    </style>
+
+    <macrolist>
+      <macro id="nlheader">
+        <table class="header" style="width:100%;">
+          <tr>
+            <td rowspan="3">
+              <#if companyInformation.logoUrl?length != 0>
+                <@filecabinet nstype="image" style="float:left;margin:7px" src="${companyInformation.logoUrl}" />
+              </#if>
+              <span class="companyname">${companyInformation.companyName}</span><br/>
+              <span class="nameandaddress">${companyInformation.addressText}</span><br/>
+              <span class="mint-tag">The smarter wireless choice – you just saved a mint!</span>
+            </td>
+            <td align="right"><span class="title">${record@title}</span></td>
+          </tr>
+          <tr><td align="right"><span class="number">#${record.tranid}</span></td></tr>
+          <tr><td align="right">${record.trandate}</td></tr>
+        </table>
+      </macro>
+
+      <macro id="nlfooter">
+        <table class="footer" style="width:100%;">
+          <tr>
+            <!-- QR code nested in a square shape for visual border -->
+            <td valign="top" style="padding:0;">
+              <shape width="64" height="64" border="1" overflow="hidden">
+                <barcode codetype="qrcode" value="${record.tranid}" width="60" height="60"/>
+              </shape>
+            </td>
+            <td align="right" valign="top"><pagenumber/> of <totalpages/></td>
+          </tr>
+        </table>
+      </macro>
+    </macrolist>
+  </head>
+
+  <!-- body -->
+  <body header="nlheader" header-height="12%" footer="nlfooter"
+        footer-height="80pt" padding="0.5in 0.5in 0.5in 0.5in"
+        size="letter-landscape">
+
+    <!-- Bill‑to pane + Mint totals -->
+    <table style="width:100%;margin-top:10px;">
+      <tr>
+        <td class="addressheader" colspan="6"><b>${record.billaddress@label}</b></td>
+        <td class="totalboxtop mint-bg" colspan="5"><b>Plan&nbsp;Total</b></td>
+      </tr>
+
+      <tr>
+        <td class="address" colspan="6" rowspan="4">${record.billaddress}</td>
+        <td class="totalboxmid mint-bg" align="right" colspan="5">${record.total}</td>
+      </tr>
+
+      <!-- prominent due date -->
+      <tr>
+        <td class="totalboxbot mint-bg" align="right" colspan="5"><b>Due&nbsp;Date:</b> ${record.duedate}</td>
+      </tr>
+
+      <!-- monthly payment line -->
+      <tr>
+        <td class="totalboxbot mint-bg" align="right" colspan="5"><b>Monthly&nbsp;Payment:</b> ${record.custbody_monthly_rate}</td>
+      </tr>
+
+      <!-- term summary -->
+      <tr>
+        <td class="totalboxbot mint-dark" align="right" colspan="5">For&nbsp;<b>${record.custbody_term_months}</b>&nbsp;months – paid in&nbsp;advance</td>
+      </tr>
+    </table>
+
+    <!-- plan meta (partner removed) -->
+    <table class="body" style="width:100%;margin-top:10px;">
+      <tr>
+        <th>${record.terms@label}</th>
+        <th>${record.otherrefnum@label}</th>
+        <th>${record.salesrep@label}</th>
+      </tr>
+      <tr>
+        <td>${record.terms}</td>
+        <td>${record.otherrefnum}</td>
+        <td>${record.salesrep}</td>
+      </tr>
+    </table>
+
+    <!-- items -->
+    <#if record.item?has_content>
+      <table class="itemtable" style="width:100%;margin-top:10px;">
+        <!-- start items -->
+        <#list record.item as item>
+          <#if item_index==0>
+            <thead>
+              <tr>
+                <th colspan="3" align="center">${item.quantity@label}</th>
+                <th colspan="12">${item.item@label}</th>
+                <th colspan="3">${item.options@label}</th>
+                <th colspan="4" align="right">${item.rate@label}</th>
+                <th colspan="4" align="right">${item.amount@label}</th>
+              </tr>
+            </thead>
+          </#if>
+          <tr>
+            <td colspan="3" align="center">${item.quantity}</td>
+            <td colspan="12"><span class="itemname">${item.item}</span><br/>${item.description}</td>
+            <td colspan="3">${item.options}</td>
+            <td colspan="4" align="right">${item.rate}</td>
+            <td colspan="4" align="right">${item.amount}</td>
+          </tr>
+        </#list>
+        <!-- end items -->
+      </table>
+      <hr/>
+    </#if>
+
+    <!-- totals / promo -->
+    <table class="total" style="width:100%;margin-top:10px;">
+      <tr class="promorow">
+        <td colspan="4"></td>
+        <td align="right"><b>Promotion&nbsp;(${record.custbody_promo_code})</b></td>
+        <td align="right">-${record.custbody_promo_discount}</td>
+      </tr>
+
+      <tr>
+        <td colspan="4"></td>
+        <td align="right"><b>${record.subtotal@label}</b></td>
+        <td align="right">${record.subtotal}</td>
+      </tr>
+      <tr>
+        <td colspan="4"></td>
+        <td align="right"><b>${record.taxtotal@label}&nbsp;(${record.taxrate}%)</b></td>
+        <td align="right">${record.taxtotal}</td>
+      </tr>
+      <tr class="totalrow">
+        <td colspan="4"></td>
+        <td align="right"><b>${record.total@label}</b></td>
+        <td align="right">${record.total}</td>
+      </tr>
+    </table>
+
+  </body>
+</pdf>

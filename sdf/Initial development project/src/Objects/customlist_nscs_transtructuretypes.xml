@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_nscs_transtructuretypes">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NSCS | Transaction Structures</name>
+  <customvalues>
+    <customvalue scriptid="nscs_tst_flat">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Flat</value>
+    </customvalue>
+    <customvalue scriptid="nscs_tst_hierarchical">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hierarchical</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_ts_issue_type_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NetSuite TS Issue Type Listing</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1195985_512">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Defect</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1195985_512">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Enhancement</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1195985_512">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Task</value>
+    </customvalue>
+  </customvalues>
+</customlist>

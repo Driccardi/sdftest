@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory__mdm_load">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_mdm_dmtab]</centertab>
+  <label>Load</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_mdm_csvload]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

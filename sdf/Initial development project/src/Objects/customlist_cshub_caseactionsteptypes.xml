@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_cshub_caseactionsteptypes">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>CSHUB Case Action Step Types</name>
+  <customvalues>
+    <customvalue scriptid="cshub_cast_configuration">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Confirguration</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cast_detail">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Case Detail Action Steps</value>
+    </customvalue>
+  </customvalues>
+</customlist>

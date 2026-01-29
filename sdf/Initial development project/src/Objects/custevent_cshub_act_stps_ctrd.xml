@@ -1,0 +1,51 @@
+<crmcustomfield scriptid="custevent_cshub_act_stps_ctrd">
+  <accesslevel>2</accesslevel>
+  <appliesperkeyword>F</appliesperkeyword>
+  <appliestocampaign>F</appliestocampaign>
+  <appliestocase>T</appliestocase>
+  <appliestoevent>F</appliestoevent>
+  <appliestomfgprojecttask>F</appliestomfgprojecttask>
+  <appliestophonecall>F</appliestophonecall>
+  <appliestoprojecttask>F</appliestoprojecttask>
+  <appliestoresourceallocation>F</appliestoresourceallocation>
+  <appliestosolution>F</appliestosolution>
+  <appliestotask>F</appliestotask>
+  <applyformatting>F</applyformatting>
+  <availableexternally>F</availableexternally>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Checkbox to indicate all CSHUB Case Action Steps associated with CSHUB Case Type have been created. Exclusively for script use. NOT intended for user interaction.</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>CHECKBOX</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>Used and set exclusively by scripts to evaluate if Action Step (custom record) needed to process the case (based on case type) have been created or are pending creation.&#xd;
+There is no expected user interface to this field.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <label>CSHUB Action Steps Created</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete></onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype></selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>CRMSYSTEMINFORMATION</subtab>
+</crmcustomfield>

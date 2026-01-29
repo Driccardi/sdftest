@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_genurl_actions">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Gen URL actions</name>
+  <customvalues>
+    <customvalue scriptid="val_178071_td2949688_769">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>POST TO SUITELET</value>
+    </customvalue>
+    <customvalue scriptid="val_178072_td2949688_869">
+      <abbreviation>G</abbreviation>
+      <isinactive>F</isinactive>
+      <value>GET SUITELET</value>
+    </customvalue>
+    <customvalue scriptid="val_178073_td2949688_205">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>DISPLAY PDF</value>
+    </customvalue>
+    <customvalue scriptid="val_178074_td2949688_790">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>REDIRECT</value>
+    </customvalue>
+  </customvalues>
+</customlist>

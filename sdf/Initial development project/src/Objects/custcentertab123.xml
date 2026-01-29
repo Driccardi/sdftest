@@ -1,0 +1,10 @@
+<centertab scriptid="custcentertab123">
+  <allcustomers>F</allcustomers>
+  <allemployees>T</allemployees>
+  <allpartners>T</allpartners>
+  <allroles>T</allroles>
+  <allvendors>F</allvendors>
+  <audslctrole></audslctrole>
+  <center>BASIC</center>
+  <label>SuiteQL</label>
+</centertab>

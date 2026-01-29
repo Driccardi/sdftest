@@ -1,0 +1,18 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_14_2fd0492eb4a94c66b1c37">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_14_2fd0492eb4a94c66b1c37.dataset_name_336_1]</name>
+  <strings>
+    <string scriptid="dataset_name_336_1">
+      <defaulttranslation>NSPSW Cost Categories (LC Analysis)</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+    <string scriptid="dataset_description_336_2">
+      <defaulttranslation>Cost Categories Dataset for Landed Cost Analysis</defaulttranslation>
+      <description>Description of a dataset</description>
+    </string>
+    <string scriptid="dataset_field_336_3">
+      <defaulttranslation>Account_Internal_ID</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

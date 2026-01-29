@@ -1,0 +1,23 @@
+<bundleinstallationscript scriptid="customscript_snav_bundle_install">
+  <afterinstallfunction>OnAfterInstall</afterinstallfunction>
+  <afterupdatefunction>OnAfterUpdate</afterupdatefunction>
+  <beforeinstallfunction>beforeInstall</beforeinstallfunction>
+  <beforeuninstallfunction></beforeuninstallfunction>
+  <beforeupdatefunction>beforeUpdate</beforeupdatefunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>Subsidiary Navigator Bundle Install</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteBundles/Bundle 44281/com.netsuite.subnav/src/snav-bundle-install.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_snav_bundle_install">
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>Subsidiary Navigator Bundle Install</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</bundleinstallationscript>

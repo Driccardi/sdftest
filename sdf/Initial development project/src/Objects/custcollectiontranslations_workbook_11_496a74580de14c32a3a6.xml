@@ -1,0 +1,14 @@
+<translationcollection scriptid="custcollectiontranslations_workbook_11_496a74580de14c32a3a6">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_workbook_11_496a74580de14c32a3a6.workbook_name_206_1]</name>
+  <strings>
+    <string scriptid="workbook_name_206_1">
+      <defaulttranslation>SS RT PRM US - SuiteSuccess A/R Aging</defaulttranslation>
+      <description>Name in workbook</description>
+    </string>
+    <string scriptid="workbook_description_206_2">
+      <defaulttranslation>Utilize this workbook to analyze typical A/R aging trends, with pre-built chart snapshots and detailed pivots to view more granular data</defaulttranslation>
+      <description>Description of a workbook</description>
+    </string>
+  </strings>
+</translationcollection>

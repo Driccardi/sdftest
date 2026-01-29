@@ -1,0 +1,527 @@
+<mapreducescript scriptid="customscript_mr_cshub_appeasementcm">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | MR | CSHUB Create Appeasement CM</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_mr_cshub_appeasementcm.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_cshub_cm_apps_srch">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_cshub_mr_csact_appeasement]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Case Action Step search for appeasement</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Case Action Step search for appeasement</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Credit Memo Base Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_cm_apps_act_id">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>0</defaultvalue>
+      <description>Current Action Step value for case action step</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth>40</displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Action Identifier</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_trantype">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>creditmemo</defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth>40</displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Trans Type</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_line_item">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>custcol_cshub_associatedlineid</defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth>40</displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Assocaited Line Key Field ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_appeasementcmform">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Custom form to use for creating the appeasement CM</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Custom form to use for creating the appeasement CM</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Credit Memo Custom Form</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-171</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_appcm_transaction">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Single transaction on which to execute MR</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Single transaction on which to execute MR</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Single Transaction</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecutesearch_acm">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Case Action Step based search for re-execution of specific step.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Case Action Step based search for re-execution of specific step.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Saved Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_acm">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Check box to indicate that this execution is a manually triggered re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Check box to indicate that this execution is a manually triggered re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_reexecute_casid_acm">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Internal ID of Case Action Step for re-execution.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Internal ID of Case Action Step for re-execution.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Re-Execute CAS Id</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm5">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 5</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm4">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 4</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm6">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 6</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm7">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm9">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 9</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm_5003">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement On Demand 50.0.3</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2025-02-04</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appcm_sched_5003">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement Scheduled 50.0.3</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <daily>
+          <everyxdays>1</everyxdays>
+          <repeat>PT15M</repeat>
+          <startdate>2025-02-12</startdate>
+          <starttime>06:00:00Z</starttime>
+        </daily>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm8">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 8</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_mr_cshub_appeasementcm10">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_cm_apps_act_id></custscript_cshub_cm_apps_act_id>
+      <custscript_cshub_cm_apps_srch></custscript_cshub_cm_apps_srch>
+      <custscript_cshub_line_item></custscript_cshub_line_item>
+      <custscript_cshub_mr_appcm_transaction></custscript_cshub_mr_appcm_transaction>
+      <custscript_cshub_mr_appeasementcmform></custscript_cshub_mr_appeasementcmform>
+      <custscript_cshub_mr_reexecute_acm>F</custscript_cshub_mr_reexecute_acm>
+      <custscript_cshub_mr_reexecute_casid_acm></custscript_cshub_mr_reexecute_casid_acm>
+      <custscript_cshub_mr_reexecutesearch_acm></custscript_cshub_mr_reexecutesearch_acm>
+      <custscript_cshub_trantype></custscript_cshub_trantype>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Appeasement CM 10</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-07-12</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

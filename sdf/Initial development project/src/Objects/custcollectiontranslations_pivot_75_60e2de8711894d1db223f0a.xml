@@ -1,0 +1,14 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_75_60e2de8711894d1db223f0a.report_name_343_2]</name>
+  <strings>
+    <string scriptid="report_name_343_2">
+      <defaulttranslation>LC Analysis</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+    <string scriptid="report_measure_355_4">
+      <defaulttranslation>Amount</defaulttranslation>
+      <description>Measure in pivot</description>
+    </string>
+  </strings>
+</translationcollection>

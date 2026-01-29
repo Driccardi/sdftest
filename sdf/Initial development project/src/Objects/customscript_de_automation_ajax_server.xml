@@ -1,0 +1,26 @@
+<suitelet scriptid="customscript_de_automation_ajax_server">
+  <defaultfunction>automation_ajax_suitelet</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>-DE Automation AJAX Server SL</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 267426/Automation_AJAX.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_de_automation_ajax_server">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>-DE Automation AJAX Server SL</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

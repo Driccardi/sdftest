@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_llm_agentchat">
+  <description>Message broker for Agents</description>
+  <isinactive>F</isinactive>
+  <name>NS | LLM | Live Agent Handler</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_sl_llm_liveagent.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_llm_agentchat">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>ONLINE_FORM_USER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | LLM | Live Agent Handler</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

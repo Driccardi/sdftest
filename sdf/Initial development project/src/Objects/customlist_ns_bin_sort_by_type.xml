@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_bin_sort_by_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Bin Sort By Type</name>
+  <customvalues>
+    <customvalue scriptid="val_390456_td2949688_237">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Sequence Number</value>
+    </customvalue>
+    <customvalue scriptid="val_390457_td2949688_440">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Bin Name</value>
+    </customvalue>
+  </customvalues>
+</customlist>

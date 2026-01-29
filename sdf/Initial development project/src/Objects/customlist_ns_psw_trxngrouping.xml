@@ -1,0 +1,59 @@
+<customlist scriptid="customlist_ns_psw_trxngrouping">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Transaction Grouping</name>
+  <customvalues>
+    <customvalue scriptid="val_181166_td2949688_495">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>A</value>
+    </customvalue>
+    <customvalue scriptid="val_181167_td2949688_381">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>B</value>
+    </customvalue>
+    <customvalue scriptid="val_181168_td2949688_243">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>C</value>
+    </customvalue>
+    <customvalue scriptid="val_181169_td2949688_347">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>D</value>
+    </customvalue>
+    <customvalue scriptid="val_181170_td2949688_582">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>E</value>
+    </customvalue>
+    <customvalue scriptid="val_181171_td2949688_233">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>F</value>
+    </customvalue>
+    <customvalue scriptid="val_181172_td2949688_335">
+      <abbreviation>G</abbreviation>
+      <isinactive>F</isinactive>
+      <value>G</value>
+    </customvalue>
+    <customvalue scriptid="val_181173_td2949688_945">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>H</value>
+    </customvalue>
+    <customvalue scriptid="val_181174_td2949688_518">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>I</value>
+    </customvalue>
+    <customvalue scriptid="val_181175_td2949688_243">
+      <abbreviation>J</abbreviation>
+      <isinactive>F</isinactive>
+      <value>J</value>
+    </customvalue>
+  </customvalues>
+</customlist>

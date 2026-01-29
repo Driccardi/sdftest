@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_rental_typee">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Rental Type</name>
+  <customvalues>
+    <customvalue scriptid="val_190640_td2949688_137">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rental Start</value>
+    </customvalue>
+    <customvalue scriptid="val_190641_td2949688_896">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Rental End</value>
+    </customvalue>
+  </customvalues>
+</customlist>

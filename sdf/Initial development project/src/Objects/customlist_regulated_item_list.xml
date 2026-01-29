@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_regulated_item_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Regulated Item List</name>
+  <customvalues>
+    <customvalue scriptid="val_278585_td2982761_187">
+      <abbreviation>Y</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Yes</value>
+    </customvalue>
+    <customvalue scriptid="val_278586_td2982761_605">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>No</value>
+    </customvalue>
+  </customvalues>
+</customlist>

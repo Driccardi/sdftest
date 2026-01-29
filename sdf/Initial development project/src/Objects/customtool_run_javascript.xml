@@ -1,0 +1,6 @@
+<tool scriptid="customtool_run_javascript">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>Run JavaScript MCP Tool</name>
+  <rpcschema>[/SuiteScripts/runJavaScriptTool.schema.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/runJavaScriptTool.js]</scriptfile>
+</tool>

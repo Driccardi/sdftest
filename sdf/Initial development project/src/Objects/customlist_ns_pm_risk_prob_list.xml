@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_pm_risk_prob_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NetSuite PM Risk Prob. List</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1195985_512">
+      <abbreviation>0</abbreviation>
+      <isinactive>F</isinactive>
+      <value>0%</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1195985_512">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>25%</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1195985_512">
+      <abbreviation>5</abbreviation>
+      <isinactive>F</isinactive>
+      <value>50%</value>
+    </customvalue>
+    <customvalue scriptid="value_4_t1195985_512">
+      <abbreviation>7</abbreviation>
+      <isinactive>F</isinactive>
+      <value>75%</value>
+    </customvalue>
+    <customvalue scriptid="value_5_t1195985_512">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>100%</value>
+    </customvalue>
+  </customvalues>
+</customlist>

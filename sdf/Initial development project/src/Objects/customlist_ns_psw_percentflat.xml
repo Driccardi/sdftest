@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_psw_percentflat">
+  <description>Percent or Flat Rate</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Percent or Flat</name>
+  <customvalues>
+    <customvalue scriptid="val_181160_td2949688_468">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Flat Rate</value>
+    </customvalue>
+    <customvalue scriptid="val_181161_td2949688_713">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Percent</value>
+    </customvalue>
+  </customvalues>
+</customlist>

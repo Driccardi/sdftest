@@ -1,0 +1,52 @@
+<crmcustomfield scriptid="custevent_cshub_case_tran">
+  <accesslevel>2</accesslevel>
+  <appliesperkeyword>F</appliesperkeyword>
+  <appliestocampaign>F</appliestocampaign>
+  <appliestocase>T</appliestocase>
+  <appliestoevent>F</appliestoevent>
+  <appliestomfgprojecttask>F</appliestomfgprojecttask>
+  <appliestophonecall>F</appliestophonecall>
+  <appliestoprojecttask>F</appliestoprojecttask>
+  <appliestoresourceallocation>F</appliestoresourceallocation>
+  <appliestosolution>F</appliestosolution>
+  <appliestotask>F</appliestotask>
+  <applyformatting>F</applyformatting>
+  <availableexternally>F</availableexternally>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Used and set exclusively by scripts to track the transaction against which the case has been created.&#xd;
+There is no expected user interface to this field.</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>Used and set exclusively by scripts to track the transaction against which the case has been created.&#xd;
+There is no expected user interface to this field.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>T</isparent>
+  <label>CSHUB Case Transaction</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>SET_NULL</onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>-30</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>CRMMAIN</subtab>
+</crmcustomfield>

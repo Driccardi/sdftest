@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_psw_yesno">
+  <description>Yes / No list</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NSPSW Yes / No</name>
+  <customvalues>
+    <customvalue scriptid="nspsw_yes">
+      <abbreviation>Y</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Yes</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_no">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>No</value>
+    </customvalue>
+  </customvalues>
+</customlist>

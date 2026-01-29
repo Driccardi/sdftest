@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ps_field_mapby">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>PS Import Tool Field Map By</name>
+  <customvalues>
+    <customvalue scriptid="val_3254643_td2967079_971">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>External Id</value>
+    </customvalue>
+    <customvalue scriptid="val_3254644_td2967079_678">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Internal Id</value>
+    </customvalue>
+    <customvalue scriptid="val_3254645_td2967079_748">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Name</value>
+    </customvalue>
+  </customvalues>
+</customlist>

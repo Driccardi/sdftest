@@ -1,0 +1,26 @@
+<suitelet scriptid="customscript_record_eradicator_popup">
+  <defaultfunction>eradicator_popup</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>**Record Eradicator Popup</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 253046/Record_Eradicator.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_record_eradicator_popup">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>**Record Eradicator Popup</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

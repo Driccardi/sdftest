@@ -1,0 +1,9 @@
+<advancedpdftemplate scriptid="custtmpl_ns_csgn_slip_qrcode" standard="STDTMPLEMPTY">
+  <description>version 14 was the version i had before it got messed up on if5013 and didnt work.</description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>F</preferred>
+  <printtype>PACKINGSLIP</printtype>
+  <title>Consignment Packing Slip Template (With QR Code)</title>
+  <trantype>CUSTINVC</trantype>
+</advancedpdftemplate>

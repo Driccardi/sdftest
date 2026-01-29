@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_llm_agenttype">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>LLM Agent Types</name>
+  <customvalues>
+    <customvalue scriptid="val_390719_td2949688_692">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Respond</value>
+    </customvalue>
+    <customvalue scriptid="val_390720_td2949688_163">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Execute</value>
+    </customvalue>
+    <customvalue scriptid="val_390721_td2949688_759">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Decide</value>
+    </customvalue>
+    <customvalue scriptid="val_390722_td2949688_284">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Plan</value>
+    </customvalue>
+    <customvalue scriptid="val_390750_td2949688_706">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Evaluate</value>
+    </customvalue>
+  </customvalues>
+</customlist>

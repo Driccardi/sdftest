@@ -1,0 +1,12 @@
+<emailtemplate scriptid="custemailtmpl_ns_csgn_consign_email">
+  <addcompanyaddress>F</addcompanyaddress>
+  <addunsubscribelink>F</addunsubscribelink>
+  <description></description>
+  <isinactive>F</isinactive>
+  <isprivate>F</isprivate>
+  <mediaitem></mediaitem>
+  <name>Customer Consignment</name>
+  <recordtype>TRANSACTION</recordtype>
+  <subject>Consignment - Confirm Inventory</subject>
+  <usesmedia>F</usesmedia>
+</emailtemplate>

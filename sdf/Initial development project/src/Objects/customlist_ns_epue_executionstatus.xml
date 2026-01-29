@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_epue_executionstatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Execution Status</name>
+  <customvalues>
+    <customvalue scriptid="val_183947_td2949688_878">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Progress</value>
+    </customvalue>
+    <customvalue scriptid="val_183948_td2949688_648">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Complete</value>
+    </customvalue>
+    <customvalue scriptid="val_183949_td2949688_780">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Error</value>
+    </customvalue>
+    <customvalue scriptid="val_190853_td2949688_285">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Cancelled</value>
+    </customvalue>
+  </customvalues>
+</customlist>

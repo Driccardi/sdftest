@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_ps_uat_status_listing">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NetSuite PS UAT Item Status</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1195985_512">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Yet Started</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1195985_512">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Progress</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1195985_512">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Failed</value>
+    </customvalue>
+    <customvalue scriptid="value_4_t1195985_512">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>On Hold</value>
+    </customvalue>
+    <customvalue scriptid="value_5_t1195985_512">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Passed</value>
+    </customvalue>
+  </customvalues>
+</customlist>

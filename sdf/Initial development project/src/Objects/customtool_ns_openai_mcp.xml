@@ -1,0 +1,6 @@
+<tool scriptid="customtool_ns_openai_mcp">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>OpenAI MCP Integration</name>
+  <rpcschema>[/SuiteScripts/ns_openai_mcp_tool.schema.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/ns_openai_mcp_tool.js]</scriptfile>
+</tool>

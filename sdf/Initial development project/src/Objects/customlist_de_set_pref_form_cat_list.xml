@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_de_set_pref_form_cat_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>***Set Pref Form Category List</name>
+  <customvalues>
+    <customvalue scriptid="val_79547_t1882421_545">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Order To Cash</value>
+    </customvalue>
+    <customvalue scriptid="val_79548_t1882421_667">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Procure To Pay</value>
+    </customvalue>
+    <customvalue scriptid="val_89388_t2190255_917">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Finance</value>
+    </customvalue>
+    <customvalue scriptid="val_89389_t2190255_281">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Inventory</value>
+    </customvalue>
+    <customvalue scriptid="val_170611_t2553329_760">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Other</value>
+    </customvalue>
+  </customvalues>
+</customlist>

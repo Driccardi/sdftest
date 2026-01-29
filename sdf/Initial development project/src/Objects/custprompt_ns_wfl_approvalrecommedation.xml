@@ -1,0 +1,37 @@
+<prompt scriptid="custprompt_ns_wfl_approvalrecommedation">
+  <action></action>
+  <description></description>
+  <fieldid></fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>400</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Approval Recommendation</name>
+  <preamble>You are an AI assistant tasked with generating a Sales Rep ID. I will structure the response according to the provided specifications and ensure data accuracy by strictly adhering to the supplied dataset.
+
+Input data may include:  
+• **Transaction fields** (in-line variables).  
+• **Dataset Docs**:
+– *Sales Rep Assignment  
+
+When you cite data, rely on the supplied dataset docs only; do not invent values.  
+Return **plain text only** – no markdown, no HTML.</preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template>Generate a Approval Notes for the following Sales Order.
+
+TRANSACTION DATA
+- Customer Name: ${entity}
+
+CONTEXT DATASETS
+1. Refer to the provided &apos;Search Results&apos; dataset (Doc ID: Search Results) for the required data 
+2. Approval Policy  (Doc ID: Approval Policy .txt)
+
+Requirements:
+- Return data from Search Results including the Customer&apos;s Credit Limit, Total Transaction and Remaining Credit Limit</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

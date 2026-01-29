@@ -1,0 +1,34 @@
+<translationcollection scriptid="custcollectiontranslations_chart_64_c02d74b64afa4487a4492bc">
+  <defaultlanguage>en_US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_chart_64_c02d74b64afa4487a4492bc.chart_name_268_22]</name>
+  <strings>
+    <string scriptid="chart_name_268_22">
+      <defaulttranslation>Top 5 Vendors by Bill Spend &amp; Dept</defaulttranslation>
+      <description>Chart name</description>
+    </string>
+    <string scriptid="chart_title_268_23">
+      <defaulttranslation>Top 5 Vendors by Bill Spend &amp;amp; Dept</defaulttranslation>
+      <description>Chart title</description>
+    </string>
+    <string scriptid="chart_legend_axis_268_24">
+      <defaulttranslation>Vendor</defaulttranslation>
+      <description>Chart legend axis</description>
+    </string>
+    <string scriptid="chart_measure_268_25">
+      <defaulttranslation>Spend Amount</defaulttranslation>
+      <description>Measure in chart</description>
+    </string>
+    <string scriptid="chart_legend_item_268_26">
+      <defaulttranslation>Department</defaulttranslation>
+      <description>Chart legend item</description>
+    </string>
+    <string scriptid="chart_category_axis_268_27">
+      <defaulttranslation>Total Spend</defaulttranslation>
+      <description>Chart category axis</description>
+    </string>
+    <string scriptid="chart_subtitle_268_28">
+      <defaulttranslation>Last Fiscal Year</defaulttranslation>
+      <description>Chart subtitle</description>
+    </string>
+  </strings>
+</translationcollection>

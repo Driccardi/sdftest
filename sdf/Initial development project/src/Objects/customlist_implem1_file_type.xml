@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_implem1_file_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NS DMT File Type</name>
+  <customvalues>
+    <customvalue scriptid="val_26060_6718498_385">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Complete Data File</value>
+    </customvalue>
+    <customvalue scriptid="val_26061_6718498_707">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Sample Data File</value>
+    </customvalue>
+    <customvalue scriptid="val_26077_6718498_330">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Delta Data File</value>
+    </customvalue>
+  </customvalues>
+</customlist>

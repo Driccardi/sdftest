@@ -1,0 +1,6 @@
+<tool scriptid="customtool_nspro_openai_mcp">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>OpenAI MCP | NetSuite Search Fetch</name>
+  <rpcschema>[/SuiteScripts/nspro_ct_schema_openaisf.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/nspro_ct_openaisf.js]</scriptfile>
+</tool>

@@ -1,0 +1,40 @@
+<prompt scriptid="custprompt_ns_wfll_categorychooser">
+  <action></action>
+  <description></description>
+  <fieldid></fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>400</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Category Chooser</name>
+  <preamble>You are an AI assistant tasked with generating a Sales Rep ID. I will structure the response according to the provided specifications and ensure data accuracy by strictly adhering to the supplied dataset.
+
+Input data may include:  
+• **Transaction fields** (in-line variables).  
+• **Dataset Docs**:
+– *Sales Rep Assignment  
+
+When you cite data, rely on the supplied dataset docs only; do not invent an Sales Rep ID or Sales Rep name.  
+Return **plain text only** – no markdown, no HTML.
+</preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template>Generate a Sales Rep ID for the following Sales Order.
+
+TRANSACTION DATA
+- Customer Name: ${companyname}
+- Sales Order Amount: ${total}
+- Subsidiary: ${subsidiary}
+
+CONTEXT DATASETS
+1.Sales Rep Assignment  (Doc ID: Sales Rep Assignment.txt)
+
+Requirements:
+- Return Sales Rep ID where Sales Order Amount is equal or greater than Minimum Amount and Sales Order Amount is less than or equal to Maximum Amount. 
+- Return Sales Rep ID only</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

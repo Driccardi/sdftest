@@ -1,0 +1,28 @@
+<transactionForm scriptid="custform_ss_rt_prm_picking_ticket" standard="STANDARDPICKINGTICKET">
+  <name>SS RT PRM - Picking Ticket</name>
+  <recordType>INVOICE</recordType>
+  <inactive>F</inactive>
+  <preferred>T</preferred>
+  <mainFields>
+    <defaultFieldGroup/>
+  </mainFields>
+  <tabs>
+    <tab>
+      <id>TRANSACTIONSHIPPING</id>
+      <label>Shipping</label>
+      <visible>T</visible>
+      <fieldGroups>
+        <defaultFieldGroup/>
+      </fieldGroups>
+      <subItems/>
+    </tab>
+  </tabs>
+  <disclaimer/>
+  <emailMessageTemplate>USE_DEFAULT</emailMessageTemplate>
+  <printingType>
+    <advanced>
+      <printTemplate>[scriptid=custtmpl_103_td2949688_740]</printTemplate>
+      <emailTemplate>STDTMPLPICKINGTICKET</emailTemplate>
+    </advanced>
+  </printingType>
+</transactionForm>

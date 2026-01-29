@@ -1,0 +1,24 @@
+<customlist scriptid="customlist1023">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>UOM</name>
+  <customvalues>
+    <customvalue scriptid="val_188794_td2949688_177">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Pallet</value>
+    </customvalue>
+    <customvalue scriptid="val_188795_td2949688_113">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Case</value>
+    </customvalue>
+    <customvalue scriptid="val_188796_td2949688_884">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Each</value>
+    </customvalue>
+  </customvalues>
+</customlist>

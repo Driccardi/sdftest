@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_ns_csvimporttool">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_csvimportool]</centertab>
+  <label>Process</label>
+  <links>
+    <link>
+      <linklabel>Import Data</linklabel>
+      <linkobject>[scriptid=customscript_ns_sl_projdataimptoolkt_imp.customdeploy_ns_sl_projdataimptoolkt_imp]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Process Data</linklabel>
+      <linkobject>[scriptid=customscript_ns_sl_projdataimptoolkt_pcs.customdeploy_ns_sl_projdataimptoolkt_pcs]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

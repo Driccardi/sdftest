@@ -1,0 +1,39 @@
+<customlist scriptid="customlist_mdm_recordstage">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Record Stages</name>
+  <customvalues>
+    <customvalue scriptid="val_433119_td2957806_905">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Extract</value>
+    </customvalue>
+    <customvalue scriptid="val_433120_td2957806_520">
+      <abbreviation>T</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Transform</value>
+    </customvalue>
+    <customvalue scriptid="val_433121_td2957806_979">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Clean</value>
+    </customvalue>
+    <customvalue scriptid="val_433122_td2957806_974">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Load</value>
+    </customvalue>
+    <customvalue scriptid="val_433123_td2957806_111">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Expunge</value>
+    </customvalue>
+    <customvalue scriptid="val_433124_td2957806_955">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Permanent Error</value>
+    </customvalue>
+  </customvalues>
+</customlist>

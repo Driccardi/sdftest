@@ -1,0 +1,5 @@
+<subtab scriptid="custtab_ns_csgn_inventory_cons">
+  <parent></parent>
+  <tabtype>ENTITY</tabtype>
+  <title>Inventory Consignment</title>
+</subtab>

@@ -1,0 +1,29 @@
+<customlist scriptid="customlist1049">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Rental Rates per</name>
+  <customvalues>
+    <customvalue scriptid="val_330798_td2949688_937">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Day</value>
+    </customvalue>
+    <customvalue scriptid="val_330797_td2949688_123">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hour</value>
+    </customvalue>
+    <customvalue scriptid="val_330800_td2949688_942">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Month</value>
+    </customvalue>
+    <customvalue scriptid="val_330799_td2949688_407">
+      <abbreviation>W</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Week</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,28 @@
+<transactionForm scriptid="custform_nsps_consign_to_pick" standard="STANDARDPICKINGTICKET">
+  <name>Consignment Transfer Receipt Check-in Slip (DO NOT USE!!!!)</name>
+  <recordType>INVOICE</recordType>
+  <inactive>F</inactive>
+  <preferred>F</preferred>
+  <mainFields>
+    <defaultFieldGroup/>
+  </mainFields>
+  <tabs>
+    <tab>
+      <id>TRANSACTIONSHIPPING</id>
+      <label>Shipping</label>
+      <visible>T</visible>
+      <fieldGroups>
+        <defaultFieldGroup/>
+      </fieldGroups>
+      <subItems/>
+    </tab>
+  </tabs>
+  <disclaimer>DO NOT USE</disclaimer>
+  <emailMessageTemplate>USE_DEFAULT</emailMessageTemplate>
+  <printingType>
+    <advanced>
+      <printTemplate>[scriptid=custtmpl_ns_consinv_rectemp]</printTemplate>
+      <emailTemplate>[scriptid=custtmpl_ns_consinv_rectemp]</emailTemplate>
+    </advanced>
+  </printingType>
+</transactionForm>

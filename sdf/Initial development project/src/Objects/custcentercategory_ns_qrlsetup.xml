@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_ns_qrlsetup">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_qrltab]</centertab>
+  <label>Setup</label>
+  <links>
+    <link>
+      <linklabel>View QRL Setups</linklabel>
+      <linkobject>[scriptid=customrecord_ns_qrl_setup]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>New QRL Setup</linklabel>
+      <linkobject>[scriptid=customrecord_ns_qrl_setup]</linkobject>
+      <linktasktype>EDIT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

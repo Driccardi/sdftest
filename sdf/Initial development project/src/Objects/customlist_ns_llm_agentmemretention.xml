@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_llm_agentmemretention">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Agent Memory Retention</name>
+  <customvalues>
+    <customvalue scriptid="val_390727_td2949688_588">
+      <abbreviation>n</abbreviation>
+      <isinactive>F</isinactive>
+      <value>NONE</value>
+    </customvalue>
+    <customvalue scriptid="val_390728_td2949688_623">
+      <abbreviation>e</abbreviation>
+      <isinactive>F</isinactive>
+      <value>EPHEMERAL</value>
+    </customvalue>
+    <customvalue scriptid="val_390729_td2949688_828">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>RECORD</value>
+    </customvalue>
+    <customvalue scriptid="val_390730_td2949688_612">
+      <abbreviation>v</abbreviation>
+      <isinactive>F</isinactive>
+      <value>VECTORSTORE</value>
+    </customvalue>
+  </customvalues>
+</customlist>

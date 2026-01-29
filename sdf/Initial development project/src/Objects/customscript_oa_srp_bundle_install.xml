@@ -1,0 +1,18 @@
+<bundleinstallationscript scriptid="customscript_oa_srp_bundle_install">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SPP integration bundle install 2.1</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteBundles/Bundle 369637/OA_SRP_bundle-install.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeployoa_srp_bundle_install_deploy">
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>SPP integration bundle install</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</bundleinstallationscript>

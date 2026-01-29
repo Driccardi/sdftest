@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory__mdm_transform">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_mdm_dmtab]</centertab>
+  <label>Transform</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_mdm_transformtable]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

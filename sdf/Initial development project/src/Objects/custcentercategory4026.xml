@@ -1,0 +1,12 @@
+<centercategory scriptid="custcentercategory4026">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1251]</centertab>
+  <label>Saved Reports</label>
+  <links>
+    <link>
+      <linkid>REPO_CUST_PAGE</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

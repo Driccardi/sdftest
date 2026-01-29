@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_tableview_51_6ceffd75bfd7405f8ae">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_tableview_51_6ceffd75bfd7405f8ae.tableview_name_188_3]</name>
+  <strings>
+    <string scriptid="tableview_name_188_3">
+      <defaulttranslation>A/P Aging</defaulttranslation>
+      <description>Name in tableView</description>
+    </string>
+  </strings>
+</translationcollection>

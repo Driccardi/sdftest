@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_psw_filetaxesyesno">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>File Taxes (Y/N)</name>
+  <customvalues>
+    <customvalue scriptid="val_181158_td2949688_833">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>No</value>
+    </customvalue>
+    <customvalue scriptid="val_181159_td2949688_625">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Yes</value>
+    </customvalue>
+  </customvalues>
+</customlist>

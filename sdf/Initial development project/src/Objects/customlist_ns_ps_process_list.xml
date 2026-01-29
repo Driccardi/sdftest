@@ -1,0 +1,784 @@
+<customlist scriptid="customlist_ns_ps_process_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>NetSuite PS Business Process</name>
+  <customvalues>
+    <customvalue scriptid="val_390279_td2949688_265">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>192 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390280_td2949688_160">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>193 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390277_td2949688_603">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>194 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390281_td2949688_907">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>198 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390282_td2949688_433">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>199 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390289_td2949688_827">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>208 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390286_td2949688_496">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>209 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390287_td2949688_660">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>214 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390285_td2949688_798">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>228 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390291_td2949688_282">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>239 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390293_td2949688_589">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>244 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390292_td2949688_328">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>246 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390290_td2949688_101">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>262 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390283_td2949688_771">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>299 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390284_td2949688_718">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>300 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390278_td2949688_527">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>301 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390288_td2949688_769">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>302 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_390294_td2949688_843">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>303 - PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_51818_t1195985_387">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Add On - FAM</value>
+    </customvalue>
+    <customvalue scriptid="val_54224_t1195985_647">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Add On - Marketplace</value>
+    </customvalue>
+    <customvalue scriptid="val_51817_t1195985_592">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Add On - OW</value>
+    </customvalue>
+    <customvalue scriptid="val_53248_t1195985_195">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Add ons</value>
+    </customvalue>
+    <customvalue scriptid="val_54033_t1195985_807">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Add-On - ACH_EFT</value>
+    </customvalue>
+    <customvalue scriptid="val_53138_t1195985_934">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Additional Cases</value>
+    </customvalue>
+    <customvalue scriptid="val_62713_t1195985_498">
+      <abbreviation>A</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Adjustments</value>
+    </customvalue>
+    <customvalue scriptid="val_62650_t1195985_451">
+      <abbreviation>A</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Administrative Setup</value>
+    </customvalue>
+    <customvalue scriptid="val_53137_t1195985_827">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Adv. Inventory Mgmt (Add-On)</value>
+    </customvalue>
+    <customvalue scriptid="val_62709_t1195985_168">
+      <abbreviation>A</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Appendix - Advanced Electronic Bank Payments</value>
+    </customvalue>
+    <customvalue scriptid="val_62700_t1195985_444">
+      <abbreviation>B</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Base Budget</value>
+    </customvalue>
+    <customvalue scriptid="val_62705_t1195985_209">
+      <abbreviation>B</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Budget Update</value>
+    </customvalue>
+    <customvalue scriptid="val_62703_t1195985_172">
+      <abbreviation>B</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Budgeting and Analysis</value>
+    </customvalue>
+    <customvalue scriptid="value_9_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Call to Resolution</value>
+    </customvalue>
+    <customvalue scriptid="val_62667_t1195985_880">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Call to Resolution</value>
+    </customvalue>
+    <customvalue scriptid="value_12_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Configuration / Customization</value>
+    </customvalue>
+    <customvalue scriptid="val_62671_t1195985_171">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Contract Manufacturing</value>
+    </customvalue>
+    <customvalue scriptid="val_62691_t1195985_539">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ Configurator</value>
+    </customvalue>
+    <customvalue scriptid="val_62695_t1195985_169">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ Ecommerce Integration</value>
+    </customvalue>
+    <customvalue scriptid="val_62692_t1195985_772">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ Guided Selling</value>
+    </customvalue>
+    <customvalue scriptid="val_62693_t1195985_257">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ Manufacturing</value>
+    </customvalue>
+    <customvalue scriptid="val_62694_t1195985_643">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ Proposal Generator</value>
+    </customvalue>
+    <customvalue scriptid="val_62696_t1195985_322">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CPQ SuiteCommerce Integration</value>
+    </customvalue>
+    <customvalue scriptid="val_62714_t1195985_519">
+      <abbreviation>C</abbreviation>
+      <isinactive>T</isinactive>
+      <value>CRM</value>
+    </customvalue>
+    <customvalue scriptid="val_59864_t1195985_260">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Data Migration - Complete</value>
+    </customvalue>
+    <customvalue scriptid="val_59807_t1195985_592">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Data Migration - Sample</value>
+    </customvalue>
+    <customvalue scriptid="val_58980_t1195985_569">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>De la Compra al Pago</value>
+    </customvalue>
+    <customvalue scriptid="val_58978_t1195985_337">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>De la Config. al Inventario</value>
+    </customvalue>
+    <customvalue scriptid="val_58979_t1195985_310">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>De la Orden a la Cobranza</value>
+    </customvalue>
+    <customvalue scriptid="val_58981_t1195985_745">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Del Registro al Reporte</value>
+    </customvalue>
+    <customvalue scriptid="val_62669_t1195985_431">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Demand Planning</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Design to Build</value>
+    </customvalue>
+    <customvalue scriptid="val_62653_t1195985_178">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Design to Build</value>
+    </customvalue>
+    <customvalue scriptid="val_62706_t1195985_666">
+      <abbreviation>D</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Drill Options</value>
+    </customvalue>
+    <customvalue scriptid="val_62672_t1195985_376">
+      <abbreviation>e</abbreviation>
+      <isinactive>T</isinactive>
+      <value>eComm: Item Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62674_t1195985_974">
+      <abbreviation>e</abbreviation>
+      <isinactive>T</isinactive>
+      <value>eComm: Promotions</value>
+    </customvalue>
+    <customvalue scriptid="val_62673_t1195985_776">
+      <abbreviation>e</abbreviation>
+      <isinactive>T</isinactive>
+      <value>eComm: Web to Order</value>
+    </customvalue>
+    <customvalue scriptid="val_62658_t1195985_121">
+      <abbreviation>e</abbreviation>
+      <isinactive>T</isinactive>
+      <value>eCommerce and Marketplace Integration</value>
+    </customvalue>
+    <customvalue scriptid="val_53236_t1195985_164">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Electronic Payments</value>
+    </customvalue>
+    <customvalue scriptid="val_62715_t1195985_476">
+      <abbreviation>E</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Employee Hiring Process</value>
+    </customvalue>
+    <customvalue scriptid="val_62716_t1195985_210">
+      <abbreviation>E</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Employee Record Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62651_t1195985_620">
+      <abbreviation>F</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Financial Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62717_t1195985_984">
+      <abbreviation>F</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Financial Management (French)</value>
+    </customvalue>
+    <customvalue scriptid="val_53136_t1195985_179">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Fixed Asset Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62668_t1195985_885">
+      <abbreviation>F</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Fixed Asset Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62718_t1195985_840">
+      <abbreviation>F</abbreviation>
+      <isinactive>T</isinactive>
+      <value>French Process Area Translated</value>
+    </customvalue>
+    <customvalue scriptid="val_62655_t1195985_582">
+      <abbreviation>F</abbreviation>
+      <isinactive>T</isinactive>
+      <value>French Process Area Translation</value>
+    </customvalue>
+    <customvalue scriptid="val_62719_t1195985_441">
+      <abbreviation>G</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Glossary</value>
+    </customvalue>
+    <customvalue scriptid="val_62720_t1195985_292">
+      <abbreviation>G</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Goal Creation</value>
+    </customvalue>
+    <customvalue scriptid="val_62721_t1195985_598">
+      <abbreviation>G</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Goal Management Process</value>
+    </customvalue>
+    <customvalue scriptid="val_54864_t1195985_515">
+      <abbreviation>H</abbreviation>
+      <isinactive>T</isinactive>
+      <value>HCM</value>
+    </customvalue>
+    <customvalue scriptid="value_10_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Hire to Pay (Payroll)</value>
+    </customvalue>
+    <customvalue scriptid="val_62704_t1195985_599">
+      <abbreviation>I</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Incremental Update – Revenue and Gross Margin</value>
+    </customvalue>
+    <customvalue scriptid="val_54408_t1195985_269">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Intercompany Transactions</value>
+    </customvalue>
+    <customvalue scriptid="val_62711_t1195985_494">
+      <abbreviation>I</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Intercompany Transfer - Brazil</value>
+    </customvalue>
+    <customvalue scriptid="val_53709_t1195985_712">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Lead to Cash_Return to Credit</value>
+    </customvalue>
+    <customvalue scriptid="value_4_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Lead to Quote</value>
+    </customvalue>
+    <customvalue scriptid="val_62654_t1195985_431">
+      <abbreviation>L</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Lead to Quote</value>
+    </customvalue>
+    <customvalue scriptid="val_52990_t1195985_212">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Manufacturing</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Marketing to ROI</value>
+    </customvalue>
+    <customvalue scriptid="val_62661_t1195985_694">
+      <abbreviation>M</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Marketing to ROI</value>
+    </customvalue>
+    <customvalue scriptid="val_62649_t1195985_533">
+      <abbreviation>M</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Master Data Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62698_t1195985_699">
+      <abbreviation>N</abbreviation>
+      <isinactive>T</isinactive>
+      <value>NSPB Sync - SetUp</value>
+    </customvalue>
+    <customvalue scriptid="val_62699_t1195985_749">
+      <abbreviation>N</abbreviation>
+      <isinactive>T</isinactive>
+      <value>NSPB Sync Portlet View and Tasks</value>
+    </customvalue>
+    <customvalue scriptid="val_62710_t1195985_303">
+      <abbreviation>O</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Optional Add-Ons - Social Impact</value>
+    </customvalue>
+    <customvalue scriptid="val_52950_t1195985_333">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Order to Cash</value>
+    </customvalue>
+    <customvalue scriptid="val_62656_t1195985_276">
+      <abbreviation>O</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Order to Cash</value>
+    </customvalue>
+    <customvalue scriptid="value_7_t1247005_146">
+      <abbreviation>O</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Order to Cash_Return to Credit</value>
+    </customvalue>
+    <customvalue scriptid="val_51715_t1195985_503">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Organisation Structure</value>
+    </customvalue>
+    <customvalue scriptid="value_13_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Other</value>
+    </customvalue>
+    <customvalue scriptid="val_62722_t1195985_339">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Performance Management Overview</value>
+    </customvalue>
+    <customvalue scriptid="val_62662_t1195985_441">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Plan to Produce</value>
+    </customvalue>
+    <customvalue scriptid="val_62723_t1195985_651">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Processing Payroll</value>
+    </customvalue>
+    <customvalue scriptid="val_58810_t1195985_908">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Processus Achats_Retours</value>
+    </customvalue>
+    <customvalue scriptid="val_58813_t1195985_752">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Processus Comptables</value>
+    </customvalue>
+    <customvalue scriptid="val_58811_t1195985_250">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Processus Conception Article</value>
+    </customvalue>
+    <customvalue scriptid="val_58812_t1195985_812">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Processus Ventes_Retours</value>
+    </customvalue>
+    <customvalue scriptid="val_62659_t1195985_740">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Procure to Pay</value>
+    </customvalue>
+    <customvalue scriptid="val_52951_t1195985_381">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Procure to Pay</value>
+    </customvalue>
+    <customvalue scriptid="value_6_t1247005_146">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Procure to Pay_Return to Debit</value>
+    </customvalue>
+    <customvalue scriptid="val_62697_t1195985_788">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Program Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62665_t1195985_339">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Project Costing</value>
+    </customvalue>
+    <customvalue scriptid="value_8_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Project to Cash</value>
+    </customvalue>
+    <customvalue scriptid="val_62663_t1195985_907">
+      <abbreviation>P</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Project to Cash</value>
+    </customvalue>
+    <customvalue scriptid="val_53237_t1195985_182">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Project to Cash (Add-On)</value>
+    </customvalue>
+    <customvalue scriptid="val_51984_t1195985_114">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Projects</value>
+    </customvalue>
+    <customvalue scriptid="val_62724_t1195985_904">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Promotions</value>
+    </customvalue>
+    <customvalue scriptid="val_390227_td2949688_423">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>PSWare</value>
+    </customvalue>
+    <customvalue scriptid="val_62685_t1195985_962">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Assign In-Process Inspection</value>
+    </customvalue>
+    <customvalue scriptid="val_62684_t1195985_395">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Assign Inspections</value>
+    </customvalue>
+    <customvalue scriptid="val_62683_t1195985_636">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Configuration</value>
+    </customvalue>
+    <customvalue scriptid="val_62688_t1195985_833">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - High Volume Sampling</value>
+    </customvalue>
+    <customvalue scriptid="val_62687_t1195985_468">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Performing In-Process Inspections</value>
+    </customvalue>
+    <customvalue scriptid="val_62686_t1195985_694">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Performing Incoming Inspections</value>
+    </customvalue>
+    <customvalue scriptid="val_62690_t1195985_320">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Reporting</value>
+    </customvalue>
+    <customvalue scriptid="val_62689_t1195985_679">
+      <abbreviation>Q</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Quality - Workflows</value>
+    </customvalue>
+    <customvalue scriptid="value_1_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Record to Report</value>
+    </customvalue>
+    <customvalue scriptid="val_62652_t1195985_917">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Record to Report</value>
+    </customvalue>
+    <customvalue scriptid="val_62725_t1195985_568">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Reporting</value>
+    </customvalue>
+    <customvalue scriptid="val_62701_t1195985_692">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Reporting &amp; Analytics</value>
+    </customvalue>
+    <customvalue scriptid="val_53710_t1195985_547">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Resource to Project</value>
+    </customvalue>
+    <customvalue scriptid="val_62664_t1195985_564">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Resource to Project</value>
+    </customvalue>
+    <customvalue scriptid="val_62657_t1195985_815">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Return to Credit</value>
+    </customvalue>
+    <customvalue scriptid="val_62660_t1195985_526">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Return to Debit</value>
+    </customvalue>
+    <customvalue scriptid="val_62666_t1195985_431">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Revenue Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62726_t1195985_413">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Reversals</value>
+    </customvalue>
+    <customvalue scriptid="val_62727_t1195985_290">
+      <abbreviation>R</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Review Process</value>
+    </customvalue>
+    <customvalue scriptid="val_54407_t1195985_165">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>SCIS</value>
+    </customvalue>
+    <customvalue scriptid="val_62728_t1195985_490">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Separation</value>
+    </customvalue>
+    <customvalue scriptid="val_53682_t1195985_117">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Serialised/ Lot No  and Matrix</value>
+    </customvalue>
+    <customvalue scriptid="val_62729_t1195985_961">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Ship Central</value>
+    </customvalue>
+    <customvalue scriptid="val_62707_t1195985_518">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Smart View</value>
+    </customvalue>
+    <customvalue scriptid="val_62708_t1195985_793">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Solution Setup and Planning</value>
+    </customvalue>
+    <customvalue scriptid="val_62730_t1195985_819">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>SuiteCommerce MyAccount</value>
+    </customvalue>
+    <customvalue scriptid="val_62670_t1195985_676">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Supply Planning</value>
+    </customvalue>
+    <customvalue scriptid="value_11_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>System Administration / Setup</value>
+    </customvalue>
+    <customvalue scriptid="val_62702_t1195985_182">
+      <abbreviation>S</abbreviation>
+      <isinactive>T</isinactive>
+      <value>System Maintenance</value>
+    </customvalue>
+    <customvalue scriptid="val_62731_t1195985_583">
+      <abbreviation>T</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Time Off Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62712_t1195985_285">
+      <abbreviation>V</abbreviation>
+      <isinactive>T</isinactive>
+      <value>Vendor Returns</value>
+    </customvalue>
+    <customvalue scriptid="value_5_t1247005_146">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Web to Order</value>
+    </customvalue>
+    <customvalue scriptid="val_62675_t1195985_332">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Configuration</value>
+    </customvalue>
+    <customvalue scriptid="val_62680_t1195985_546">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Inventory (Bin Replenishment)</value>
+    </customvalue>
+    <customvalue scriptid="val_62682_t1195985_224">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Inventory (Cycle Count)</value>
+    </customvalue>
+    <customvalue scriptid="val_62681_t1195985_708">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Inventory Management</value>
+    </customvalue>
+    <customvalue scriptid="val_62677_t1195985_236">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Order Release</value>
+    </customvalue>
+    <customvalue scriptid="val_62679_t1195985_959">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Packing/Shipping</value>
+    </customvalue>
+    <customvalue scriptid="val_62678_t1195985_973">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Picking</value>
+    </customvalue>
+    <customvalue scriptid="val_62676_t1195985_571">
+      <abbreviation>W</abbreviation>
+      <isinactive>T</isinactive>
+      <value>WMS - Receiving &amp; Putaway</value>
+    </customvalue>
+    <customvalue scriptid="val_53683_t1195985_581">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>Work Orders and Assemblies</value>
+    </customvalue>
+    <customvalue scriptid="val_59281_t1195985_292">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>レコードからレポ－トへ</value>
+    </customvalue>
+    <customvalue scriptid="val_59559_t1195985_391">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>凭证到报表</value>
+    </customvalue>
+    <customvalue scriptid="val_59246_t1195985_245">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>注文から入金・支払まで</value>
+    </customvalue>
+    <customvalue scriptid="val_59237_t1195985_362">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>設計から構築</value>
+    </customvalue>
+    <customvalue scriptid="val_59262_t1195985_983">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>調達から支払まで</value>
+    </customvalue>
+    <customvalue scriptid="val_59523_t1195985_929">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>订单到收款_客户退货</value>
+    </customvalue>
+    <customvalue scriptid="val_59515_t1195985_435">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>设计到创建</value>
+    </customvalue>
+    <customvalue scriptid="val_59540_t1195985_408">
+      <abbreviation></abbreviation>
+      <isinactive>T</isinactive>
+      <value>采购到付款_退货到供应商</value>
+    </customvalue>
+  </customvalues>
+</customlist>

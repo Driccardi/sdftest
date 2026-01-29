@@ -1,0 +1,14 @@
+<customlist scriptid="customlist_ns_otu_actions">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>OTU Actions</name>
+  <customvalues>
+    <customvalue scriptid="val_177821_td2949688_518">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Receive</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_bin_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Bin Type</name>
+  <customvalues>
+    <customvalue scriptid="val_390409_td2949688_190">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Picking</value>
+    </customvalue>
+    <customvalue scriptid="val_390410_td2949688_529">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Storage</value>
+    </customvalue>
+    <customvalue scriptid="val_390411_td2949688_700">
+      <abbreviation>W</abbreviation>
+      <isinactive>F</isinactive>
+      <value>WIP</value>
+    </customvalue>
+  </customvalues>
+</customlist>

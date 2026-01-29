@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_psw_allocationtype">
+  <description>Percentage or Amount based allocation.</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>NSPSW Allocation Type</name>
+  <customvalues>
+    <customvalue scriptid="nspsw_amount">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Amount</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_percent">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Percent</value>
+    </customvalue>
+  </customvalues>
+</customlist>

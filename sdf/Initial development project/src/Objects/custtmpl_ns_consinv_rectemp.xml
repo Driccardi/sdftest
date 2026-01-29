@@ -1,0 +1,10 @@
+<advancedpdftemplate scriptid="custtmpl_ns_consinv_rectemp" standard="STDTMPLPICKINGTICKET">
+  <description>DO NOT USE THIS !!! NOT NEEDED !!!&#xd;
+We are not going to generate pick tickets for consignment because after items are shipped, they are no longer committed and cannot be picked, so the pick ticket would show up as empty.</description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>F</preferred>
+  <printtype>PICKINGTICKET</printtype>
+  <title>(DO NOT USE) Consignment Receipt Check-in Template (DO NOT USE!!)</title>
+  <trantype>CUSTINVC</trantype>
+</advancedpdftemplate>

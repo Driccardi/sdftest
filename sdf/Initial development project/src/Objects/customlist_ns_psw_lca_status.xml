@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_psw_lca_status">
+  <description>Status of Landed Cost Allocation record - Not Started, In Progress, Completed, Error.</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NSPSW LCA Status</name>
+  <customvalues>
+    <customvalue scriptid="nspsw_lca_status_notstarted">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Started</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_lca_status_inprogress">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Progress</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_lca_status_completed">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Completed</value>
+    </customvalue>
+    <customvalue scriptid="nspsw_lca_status_error">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Error</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,59 @@
+<customlist scriptid="customlist_ns_fspk_field_types">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>FSPK Field Types</name>
+  <customvalues>
+    <customvalue scriptid="val_180522_td2949688_382">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Checkbox</value>
+    </customvalue>
+    <customvalue scriptid="val_180518_td2949688_711">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Currency</value>
+    </customvalue>
+    <customvalue scriptid="val_180523_td2949688_855">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>File</value>
+    </customvalue>
+    <customvalue scriptid="val_180517_td2949688_578">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Float</value>
+    </customvalue>
+    <customvalue scriptid="val_180516_td2949688_658">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Free Form Text</value>
+    </customvalue>
+    <customvalue scriptid="val_180524_td2949688_898">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Hidden</value>
+    </customvalue>
+    <customvalue scriptid="val_180519_td2949688_427">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Integer</value>
+    </customvalue>
+    <customvalue scriptid="val_180520_td2949688_344">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Long Text</value>
+    </customvalue>
+    <customvalue scriptid="val_180544_td2949688_672">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Phone</value>
+    </customvalue>
+    <customvalue scriptid="val_180521_td2949688_333">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Radio</value>
+    </customvalue>
+  </customvalues>
+</customlist>

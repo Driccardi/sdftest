@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_mdm_validationrules">
+  <description>Holds different types of validation rules</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Validation Rules</name>
+  <customvalues>
+    <customvalue scriptid="val_433221_td2957806_546">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Phone</value>
+    </customvalue>
+    <customvalue scriptid="val_433222_td2957806_632">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Email</value>
+    </customvalue>
+    <customvalue scriptid="val_433223_td2957806_251">
+      <abbreviation>U</abbreviation>
+      <isinactive>F</isinactive>
+      <value>URL</value>
+    </customvalue>
+    <customvalue scriptid="val_433224_td2957806_814">
+      <abbreviation>Z</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Zip Code</value>
+    </customvalue>
+    <customvalue scriptid="val_433279_td2957806_754">
+      <abbreviation>U</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Under 100 Characters</value>
+    </customvalue>
+  </customvalues>
+</customlist>

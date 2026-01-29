@@ -1,0 +1,7 @@
+<customlist scriptid="customlist_ns_psw_billingcompany">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Billing Company</name>
+</customlist>

@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_526_td2949688_436">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab1265]</centertab>
+  <label>Test Issues</label>
+  <links>
+    <link>
+      <linklabel>Test Issues</linklabel>
+      <linkobject>[scriptid=customrecord_ns_ts_test_issue]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

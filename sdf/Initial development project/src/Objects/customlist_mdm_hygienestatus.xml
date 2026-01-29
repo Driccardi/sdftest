@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_mdm_hygienestatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Hygiene Status</name>
+  <customvalues>
+    <customvalue scriptid="val_433095_td2957806_486">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Started</value>
+    </customvalue>
+    <customvalue scriptid="val_433096_td2957806_852">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Process</value>
+    </customvalue>
+    <customvalue scriptid="val_433097_td2957806_509">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Completed</value>
+    </customvalue>
+  </customvalues>
+</customlist>

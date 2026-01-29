@@ -1,0 +1,155 @@
+<!-- Do not modify the contents of the SDF XML definition structure located under "CDATA" section of this XML, as this may corrupt the Workbook/Dataset data when you deploy the modified object to your NetSuite account. !-->
+<dataset scriptid="custdataset_ns_wfll_promos">
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_16_e4fb2edbb51f4c31a6646.dataset_name_360_2]</name>
+  <dependencies>
+  </dependencies>
+  <definition><![CDATA[<root>
+<_T_>dataSet</_T_>
+<id type="null"/>
+<scriptId type="null"/>
+<applicationId type="null"/>
+<version type="string">0.1</version>
+<name>
+  <translationScriptId>custcollectiontranslations_dataset_16_e4fb2edbb51f4c31a6646.dataset_name_360_2</translationScriptId>
+</name>
+<audience>
+  <AudienceItems type="array"/>
+  <isPublic type="boolean">true</isPublic>
+</audience>
+<ownerId>2116</ownerId>
+<description type="null"/>
+<baseRecord>
+  <id>promotioncode</id>
+  <label>Promotion</label>
+</baseRecord>
+<columns type="array">
+  <_ITEM_>
+    <columnId>1</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>name</id>
+      <label>Name</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>name</uniqueId>
+    </field>
+    <alias>name</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>6</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>description</id>
+      <label>Description</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>description</uniqueId>
+    </field>
+    <alias>description</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>7</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>code</id>
+      <label>Coupon Code</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>promotioncodeinstances</id>
+            <targetRecordType>promotioncodecouponinstances</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>promotioncodeinstances.code</uniqueId>
+    </field>
+    <alias>code</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>3</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>applydiscounttotype</id>
+      <label>Apply Discount To</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>applydiscounttotype</uniqueId>
+    </field>
+    <alias>applydiscounttotype</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>4</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>enddate</id>
+      <label>End Date</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>enddate</uniqueId>
+    </field>
+    <alias>enddate</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>5</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>promotiontype</id>
+      <label>Promotion Type</label>
+      <joinTrail>
+        <baseRecord>
+          <id>promotioncode</id>
+          <label>Promotion</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>promotiontype</uniqueId>
+    </field>
+    <alias>promotiontype</alias>
+  </_ITEM_>
+</columns>
+<criteria>
+  <_T_>condition</_T_>
+  <operator>
+    <code>AND</code>
+  </operator>
+  <children type="array"/>
+  <meta type="null"/>
+  <field type="null"/>
+  <targetFieldContext>
+    <name>DEFAULT</name>
+  </targetFieldContext>
+  <fieldStateName type="null"/>
+</criteria>
+<formulas type="array"/>
+</root>]]></definition>
+</dataset>

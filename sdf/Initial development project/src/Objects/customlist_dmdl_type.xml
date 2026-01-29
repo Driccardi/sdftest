@@ -1,0 +1,49 @@
+<customlist scriptid="customlist_dmdl_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>DM Decision Type</name>
+  <customvalues>
+    <customvalue scriptid="val_396817_td2949688_423">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Mapping Rule Decision</value>
+    </customvalue>
+    <customvalue scriptid="val_396818_td2949688_492">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Custom Transformation Decision</value>
+    </customvalue>
+    <customvalue scriptid="val_396819_td2949688_284">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Exception</value>
+    </customvalue>
+    <customvalue scriptid="val_396820_td2949688_989">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Financial Adjustment</value>
+    </customvalue>
+    <customvalue scriptid="val_396821_td2949688_923">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Cutover</value>
+    </customvalue>
+    <customvalue scriptid="val_396822_td2949688_481">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Data Quality</value>
+    </customvalue>
+    <customvalue scriptid="val_396823_td2949688_981">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Reconciliation Variance </value>
+    </customvalue>
+    <customvalue scriptid="val_396824_td2949688_497">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Access Control</value>
+    </customvalue>
+  </customvalues>
+</customlist>

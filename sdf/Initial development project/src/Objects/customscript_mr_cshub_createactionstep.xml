@@ -1,0 +1,283 @@
+<mapreducescript scriptid="customscript_mr_cshub_createactionstep">
+  <description>Creates CSHUB Case Action Steps after case creation / modification. Triggered by UE.</description>
+  <isinactive>F</isinactive>
+  <name>NS | MR | CS Hub Create Case Action</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_mr_cshub_createactionsteps.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_ns_cs_hub_crt_actn_001_srch">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Case Action Steps Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshubcase_action_arr">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Case Action Step Array Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_mr_createactionstep_cid">
+      <accesslevel>2</accesslevel>
+      <applyformatting>T</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Case ID to process via MR</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>INTEGER</fieldtype>
+      <help>Case ID to process via MR</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Specific Case Id</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep2">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 2</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep3">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 3</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep5">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 5</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep7">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 7</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep8">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 8</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep9">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 9</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_ns_mr_cs_hub_case_actn_stp">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Actions</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep4">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 4</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_cshub_mr_createactionstep6">
+      <buffersize>1</buffersize>
+      <concurrencylimit>1</concurrencylimit>
+      <custscript_cshub_mr_createactionstep_cid></custscript_cshub_mr_createactionstep_cid>
+      <custscript_ns_cs_hub_crt_actn_001_srch>[scriptid=customsearch_cshub_ue_001_caseactionstep]</custscript_ns_cs_hub_crt_actn_001_srch>
+      <custscript_ns_cshubcase_action_arr>[scriptid=customsearch_cshub_ue_002_caseactionst_2]</custscript_ns_cshubcase_action_arr>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>NS | MR | CSHUB Create Case Action Steps 6</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-20</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

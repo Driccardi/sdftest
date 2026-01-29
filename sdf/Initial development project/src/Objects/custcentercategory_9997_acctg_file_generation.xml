@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_9997_acctg_file_generation">
+  <center>ACCOUNTCENTER</center>
+  <centertab>[scriptid=custcentertab_ebp_payments_acct]</centertab>
+  <label>Bank File Generation</label>
+  <links>
+    <link>
+      <linklabel>Generate Bill Payment File</linklabel>
+      <linkobject>[scriptid=customscript_9997_eft_file_generation.customdeploy_9997_eft_file_generation]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Generate Customer Payment File</linklabel>
+      <linkobject>[scriptid=customscript_9997_eft_file_generation.customdeploy_9997_dd_file_generation]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

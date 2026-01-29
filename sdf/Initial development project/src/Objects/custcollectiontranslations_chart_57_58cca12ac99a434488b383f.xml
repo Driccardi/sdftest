@@ -1,0 +1,22 @@
+<translationcollection scriptid="custcollectiontranslations_chart_57_58cca12ac99a434488b383f">
+  <defaultlanguage>en_US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_chart_57_58cca12ac99a434488b383f.chart_name_206_18]</name>
+  <strings>
+    <string scriptid="chart_title_206_19">
+      <defaulttranslation>Top 5 Customers by Amount Due</defaulttranslation>
+      <description>Chart title</description>
+    </string>
+    <string scriptid="chart_legend_axis_206_16">
+      <defaulttranslation>Amount</defaulttranslation>
+      <description>Chart legend axis</description>
+    </string>
+    <string scriptid="chart_category_axis_206_17">
+      <defaulttranslation>Customer</defaulttranslation>
+      <description>Chart category axis</description>
+    </string>
+    <string scriptid="chart_name_206_18">
+      <defaulttranslation>Top 5 Customers by Amount Due</defaulttranslation>
+      <description>Chart name</description>
+    </string>
+  </strings>
+</translationcollection>

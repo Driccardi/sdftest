@@ -1,0 +1,26 @@
+<restlet scriptid="customscript_oa_get_field_info">
+  <deletefunction></deletefunction>
+  <description></description>
+  <getfunction></getfunction>
+  <isinactive>F</isinactive>
+  <name>oa_get_field_info</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <postfunction>get_field_info</postfunction>
+  <putfunction></putfunction>
+  <scriptfile>[/SuiteBundles/Bundle 369637/restlets/oa_get_field_info.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_oa_get_field_info">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <status>RELEASED</status>
+      <title>SuiteProjects Pro: Get field info</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</restlet>

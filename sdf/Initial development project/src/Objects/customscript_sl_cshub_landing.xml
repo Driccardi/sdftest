@@ -1,0 +1,433 @@
+<suitelet scriptid="customscript_sl_cshub_landing">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | SL | CS Hub Landing</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nscs_cshub/nscs_sl_cshub_landing.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_ns_suitelet_copy_name">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>CSHUB Landing -</defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth>40</displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Suitelet Name</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_suitelet_copy_search">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection>[scriptid=customsearch_cshub_landing_details]</defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Saved search to be used to populate details sublist on landing suitelet</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Saved search to be used to populate details sublist on landing suitelet</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Suitelet Search</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-119</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_copy_client_script_path">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</defaultvalue>
+      <description>Relative path of client script file to be used in landing page.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Relative path of client script file to be used in landing page.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Client Script Path</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_case_action_type">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Case Action Type</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>[scriptid=customrecord_cshub_caseactions]</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cs_hub_action_sl_scrp_id">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>customscript_sl_cshub_second</defaultvalue>
+      <description>Script ID of Suitelet to be triggered upon selection of transaction in landing page.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Script ID of Suitelet to be triggered upon selection of transaction in landing page.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>CS Hub Action Suitelet Script ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cs_hub_action_sl_deploy_id">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Script ID of deployment to be triggered upon selection of transaction in landing page.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Script ID of deployment to be triggered upon selection of transaction in landing page.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>CS Hub Action Suitelet Deployment ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_action">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>URL of second suitelet with custscript_intTranID appended to allow inclusion of the tranid from selected sublist line.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>URL of second suitelet with custscript_intTranID appended to allow inclusion of the tranid from selected sublist line.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>CS Hub Action URL</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_ns_cshub_no_result_msg">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue>No invoices under this criteria.</defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>No Result Message</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_cshub_landing_actionimageurl">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>URL of image file used for click action in CSHUB landing page sublist</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>URL of image file used for click action in CSHUB landing page sublist</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Action Image URL</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_90service">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_90service</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=8&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No transactions found with saved search criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Service</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_norsq]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - 90 Service</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_70iaw3">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_70iaw3</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=6&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No transactions found with saved search criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Product</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_4_2]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - iA / W3</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_60product">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_60product</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=5&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No transactions found with saved search criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Product</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_4_2]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Exch Ret Resel</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_repairwcog">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_65repairwcog</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=11&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No invoices under this criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Repair w/COG</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_norsq]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Repair w/COG</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_50homedamage">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_50homedamage</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=3&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No invoices under this criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Home Damage</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_3]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Home Damage</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_repair">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_64repair</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=9&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No invoices under this criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Repair</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_norsq]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Repair</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_80zucora">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_80zucora</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=7&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No transactions found with saved search criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Zucora</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_4_2]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Zucora</title>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_sl_cshub_land_priceadjust">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>F</allroles>
+      <audslctrole>ADMINISTRATOR</audslctrole>
+      <custscript_cshub_landing_actionimageurl>https://8453683-sb1.app.netsuite.com/core/media/media.nl?id=495856&amp;c=8453683_SB1&amp;h=ty8V1uKsAEtZGeXbz9bpOQ87pcB1wwwPTM2VynZN7Jslw6Ft</custscript_cshub_landing_actionimageurl>
+      <custscript_ns_case_action_type></custscript_ns_case_action_type>
+      <custscript_ns_copy_client_script_path>SuiteScripts/nscs_cshub/nscs_cs_cshub_landing.js</custscript_ns_copy_client_script_path>
+      <custscript_ns_cs_hub_action_sl_deploy_id>customdeploy_sl_cshub_sec_67priceadjust</custscript_ns_cs_hub_action_sl_deploy_id>
+      <custscript_ns_cs_hub_action_sl_scrp_id>customscript_sl_cshub_second</custscript_ns_cs_hub_action_sl_scrp_id>
+      <custscript_ns_cshub_action>https://8453683-sb1.app.netsuite.com/app/site/hosting/scriptlet.nl?script=3767&amp;deploy=10&amp;custscript_intTranID=</custscript_ns_cshub_action>
+      <custscript_ns_cshub_no_result_msg>No invoices under this criteria.</custscript_ns_cshub_no_result_msg>
+      <custscript_ns_suitelet_copy_name>CSHUB Landing - Price Adjustment</custscript_ns_suitelet_copy_name>
+      <custscript_ns_suitelet_copy_search>[scriptid=customsearch_cshub_landing_details_norsq]</custscript_ns_suitelet_copy_search>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>NS | SL | CS Hub Landing - Price Adjustment</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

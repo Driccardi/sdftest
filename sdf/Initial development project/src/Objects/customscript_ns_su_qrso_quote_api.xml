@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ns_su_qrso_quote_api">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS SU Display Quotes API</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_SU_QRSO_quote_api.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_su_qrso_quote_api">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>NS SU Display Quotes API</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

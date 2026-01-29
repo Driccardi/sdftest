@@ -1,0 +1,5 @@
+<subtab scriptid="custtabtest_child_ibs">
+  <parent></parent>
+  <tabtype>TRANSACTION</tabtype>
+  <title>TEST CHILD IBS</title>
+</subtab>

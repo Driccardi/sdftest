@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_cshub_glrc_reasontypes">
+  <description>Reason Types for Inventory Adjustment Reason Codes</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>CSHUB GL Reason Types</name>
+  <customvalues>
+    <customvalue scriptid="cshub_glrc_reasontype_nonshortage">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Non-Shortage</value>
+    </customvalue>
+    <customvalue scriptid="cshub_glrc_reasontype_notapplicable">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Applicable</value>
+    </customvalue>
+    <customvalue scriptid="cshub_glrc_reasontype_shortage">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Shortage</value>
+    </customvalue>
+  </customvalues>
+</customlist>

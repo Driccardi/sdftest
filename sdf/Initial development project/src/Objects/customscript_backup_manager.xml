@@ -1,0 +1,26 @@
+<suitelet scriptid="customscript_backup_manager">
+  <defaultfunction>backupManager_suitelet</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>**Backup Manager</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 93203/Backup_Manager.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_backup_manager">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>**Backup Manager</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

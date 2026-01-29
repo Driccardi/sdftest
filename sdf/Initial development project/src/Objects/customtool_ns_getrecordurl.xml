@@ -1,0 +1,6 @@
+<tool scriptid="customtool_ns_getrecordurl">
+  <exposeto3rdpartyagents>T</exposeto3rdpartyagents>
+  <name>NS | Get Record URL</name>
+  <rpcschema>[/SuiteScripts/ns_getrecordurl.schema.json]</rpcschema>
+  <scriptfile>[/SuiteScripts/ns_getrecordurl.js]</scriptfile>
+</tool>

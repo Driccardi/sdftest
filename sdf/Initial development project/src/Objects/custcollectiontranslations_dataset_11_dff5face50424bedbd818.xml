@@ -1,0 +1,62 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_11_dff5face50424bedbd818">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_11_dff5face50424bedbd818.dataset_name_238_12]</name>
+  <strings>
+    <string scriptid="dataset_formula_238_1">
+      <defaulttranslation>Department Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_2">
+      <defaulttranslation>Mainline Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_3">
+      <defaulttranslation>Amount (Abs Value)</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_4">
+      <defaulttranslation>Net Amount</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_5">
+      <defaulttranslation>MainLine Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_6">
+      <defaulttranslation>Line Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_7">
+      <defaulttranslation>Location Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_8">
+      <defaulttranslation>Line# Difference</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_10">
+      <defaulttranslation>&gt;=15K</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_238_11">
+      <defaulttranslation>Class Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_name_238_12">
+      <defaulttranslation>SS RT PRM US - SuiteSuccess Transactions Dataset</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_13">
+      <defaulttranslation>Line Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_14">
+      <defaulttranslation>Mainline Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_238_15">
+      <defaulttranslation>Line Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

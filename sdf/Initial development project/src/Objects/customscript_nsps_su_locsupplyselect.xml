@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_nsps_su_locsupplyselect">
+  <description>This script handle the data query and push of data to the matching client script for selecting transfer inventory in a sales order</description>
+  <isinactive>F</isinactive>
+  <name>NSPS | SU | Supply Selector</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/nsps_su_supplylocselect.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_nsps_su_locsupplyselect">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>TESTING</status>
+      <title>NSPS | SU | Supply Selector</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

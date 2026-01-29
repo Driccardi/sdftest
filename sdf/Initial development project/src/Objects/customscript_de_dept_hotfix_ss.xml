@@ -1,0 +1,24 @@
+<scheduledscript scriptid="customscript_de_dept_hotfix_ss">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>DE Department Hotfix SS</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/DE Department Hotfix/DE_Dept_Hotfix_SS.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_de_dept_hotfix_ss">
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>DE Department Hotfix SS</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2019-12-05</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

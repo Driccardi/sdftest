@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_54_97ced8e45c9d49878fe93be">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_54_97ced8e45c9d49878fe93be.report_name_188_5]</name>
+  <strings>
+    <string scriptid="report_name_188_5">
+      <defaulttranslation>A/P Pivot Summary</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+  </strings>
+</translationcollection>

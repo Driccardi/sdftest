@@ -1,0 +1,23 @@
+<sublist scriptid="custsublisttest_ibs_sublist">
+  <assemblybuild>F</assemblybuild>
+  <customtransactions></customtransactions>
+  <deposit>F</deposit>
+  <depositapplication>F</depositapplication>
+  <expensereport>F</expensereport>
+  <field></field>
+  <fulfillmentrequest>F</fulfillmentrequest>
+  <inventoryadjustment>F</inventoryadjustment>
+  <itemfulfillment>F</itemfulfillment>
+  <itemreceipt>F</itemreceipt>
+  <journal>F</journal>
+  <label>IBS sublist</label>
+  <opportunity>F</opportunity>
+  <payment>F</payment>
+  <purchase>T</purchase>
+  <sale>F</sale>
+  <savedsearch>[scriptid=customsearch_test_ibs_sublist]</savedsearch>
+  <storepickup>F</storepickup>
+  <sublisttype>TRANSACTION</sublisttype>
+  <tab></tab>
+  <vendorpayment>F</vendorpayment>
+</sublist>

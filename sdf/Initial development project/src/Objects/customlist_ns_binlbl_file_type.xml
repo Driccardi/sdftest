@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_binlbl_file_type">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Bin Lable File Type</name>
+  <customvalues>
+    <customvalue scriptid="val_390419_td2949688_919">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>PDF</value>
+    </customvalue>
+    <customvalue scriptid="val_390420_td2949688_446">
+      <abbreviation>Z</abbreviation>
+      <isinactive>F</isinactive>
+      <value>ZPL</value>
+    </customvalue>
+  </customvalues>
+</customlist>

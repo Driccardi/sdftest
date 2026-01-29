@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_fspk_psfaction_param_src">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>FSPK Form Action Parameter Src</name>
+  <customvalues>
+    <customvalue scriptid="val_184609_td2949688_584">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Static</value>
+    </customvalue>
+    <customvalue scriptid="val_184610_td2949688_639">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Form Field</value>
+    </customvalue>
+  </customvalues>
+</customlist>

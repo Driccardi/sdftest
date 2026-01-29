@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory__ns_llm_testmanager">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_llm_agentmanager]</centertab>
+  <label>Test Manager</label>
+  <links>
+    <link>
+      <linklabel>Agent Testing Suitelet</linklabel>
+      <linkobject>[scriptid=customscript_ns_llm_agenttest.customdeploy_ns_llm_agenttest]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

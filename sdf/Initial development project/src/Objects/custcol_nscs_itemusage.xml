@@ -1,0 +1,55 @@
+<transactioncolumncustomfield scriptid="custcol_nscs_itemusage">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <colbuild>F</colbuild>
+  <colexpense>F</colexpense>
+  <colexpensereport>F</colexpensereport>
+  <colgrouponinvoices>F</colgrouponinvoices>
+  <colinventoryadjustment>T</colinventoryadjustment>
+  <colitemfulfillment>T</colitemfulfillment>
+  <colitemfulfillmentorder>T</colitemfulfillmentorder>
+  <colitemreceipt>T</colitemreceipt>
+  <colitemreceiptorder>T</colitemreceiptorder>
+  <coljournal>F</coljournal>
+  <colkititem>T</colkititem>
+  <colopportunity>F</colopportunity>
+  <colpackingslip>F</colpackingslip>
+  <colpickingticket>F</colpickingticket>
+  <colprintflag>F</colprintflag>
+  <colpurchase>T</colpurchase>
+  <colreturnform>F</colreturnform>
+  <colsale>T</colsale>
+  <colstore>F</colstore>
+  <colstorehidden>F</colstorehidden>
+  <colstorepickup>F</colstorepickup>
+  <colstorewithgroups>T</colstorewithgroups>
+  <coltime>F</coltime>
+  <coltransferorder>T</coltransferorder>
+  <columncustomtransactions></columncustomtransactions>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Item Usage Type based on item record or set by script.</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <help>Item Usage Type based on item record or set by script. Values from NSCS Item Usage Type.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <label>Line Usage Type</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>NO_ACTION</onparentdelete>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>[scriptid=customrecord_nscs_itemusage]</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom>[scriptid=custitem_nscs_itemusage]</sourcefrom>
+  <sourcelist>STDCOLITEM</sourcelist>
+  <storevalue>T</storevalue>
+</transactioncolumncustomfield>

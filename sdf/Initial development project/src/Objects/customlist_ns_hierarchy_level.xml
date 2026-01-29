@@ -1,0 +1,34 @@
+<customlist scriptid="customlist_ns_hierarchy_level">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Hierarchy Level List</name>
+  <customvalues>
+    <customvalue scriptid="val_489016_td2877251_127">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1</value>
+    </customvalue>
+    <customvalue scriptid="val_489017_td2877251_618">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2</value>
+    </customvalue>
+    <customvalue scriptid="val_489018_td2877251_553">
+      <abbreviation>3</abbreviation>
+      <isinactive>F</isinactive>
+      <value>3</value>
+    </customvalue>
+    <customvalue scriptid="val_489019_td2877251_281">
+      <abbreviation>4</abbreviation>
+      <isinactive>F</isinactive>
+      <value>4</value>
+    </customvalue>
+    <customvalue scriptid="val_489020_td2877251_333">
+      <abbreviation>5</abbreviation>
+      <isinactive>F</isinactive>
+      <value>5</value>
+    </customvalue>
+  </customvalues>
+</customlist>

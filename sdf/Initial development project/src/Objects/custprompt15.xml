@@ -1,0 +1,32 @@
+<prompt scriptid="custprompt15">
+  <action></action>
+  <description></description>
+  <fieldid></fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>400</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>Testing1</name>
+  <preamble></preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template>You are an AI assistant that sets the PO based on transaction amount.
+
+TRANSACTION DATA
+- Customer Name: ${companyname}
+- Sales Order Amount: ${total}
+- Subsidiary: ${subsidiary}
+
+CONTEXT DATASET
+1. Sales Rep Assignment (Sales_Rep_Assignment.txt)
+
+REQUIREMENTS:
+- Return PO where Sales Order Amount is equal or greater than Minimum Amount and Sales Order Amount is less than or equal to Maximum Amount. 
+- Return PO Id only.
+</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

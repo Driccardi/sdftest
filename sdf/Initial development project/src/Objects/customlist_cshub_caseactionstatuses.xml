@@ -1,0 +1,39 @@
+<customlist scriptid="customlist_cshub_caseactionstatuses">
+  <description>Valid status values for CSHUB Case Action Step records.</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>CSHUB Case Action Step Status</name>
+  <customvalues>
+    <customvalue scriptid="cshub_cas_pending">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Pending</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cas_inprogress">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Progress</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cas_processed_success">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Processed - Success</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cas_processed_error">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Processed - Error</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cas_completed">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Completed</value>
+    </customvalue>
+    <customvalue scriptid="cshub_cas_closed">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Closed</value>
+    </customvalue>
+  </customvalues>
+</customlist>

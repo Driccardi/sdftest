@@ -1,0 +1,31 @@
+<suitelet scriptid="customscript_ns_su_tram_lookup">
+  <description>Handles lookups by Transaction amount</description>
+  <isinactive>F</isinactive>
+  <name>NS | SU | TRAM | Lookup</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_su_tram_lookup.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ns_su_tram_lookup">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>NS | SU | TRAM | Lookup</title>
+      <links>
+        <link>
+          <linkcategory>BASICTRANSACTIONSCUSTOM</linkcategory>
+          <linklabel>Search by Amount</linklabel>
+        </link>
+      </links>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

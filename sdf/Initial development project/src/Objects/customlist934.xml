@@ -1,0 +1,19 @@
+<customlist scriptid="customlist934">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>Rental Agreement Status</name>
+  <customvalues>
+    <customvalue scriptid="val_180077_td2949688_500">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Active</value>
+    </customvalue>
+    <customvalue scriptid="val_180078_td2949688_279">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Completed</value>
+    </customvalue>
+  </customvalues>
+</customlist>

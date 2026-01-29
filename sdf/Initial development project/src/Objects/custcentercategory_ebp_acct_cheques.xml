@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_ebp_acct_cheques">
+  <center>ACCOUNTCENTER</center>
+  <centertab>[scriptid=custcentertab_ebp_payments_acct]</centertab>
+  <label>Cheques</label>
+  <links>
+    <link>
+      <linklabel>Positive Pay</linklabel>
+      <linkobject>[scriptid=customscript_2663_payment_pp_selection_s.customdeploy_2663_payment_pp_selection_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

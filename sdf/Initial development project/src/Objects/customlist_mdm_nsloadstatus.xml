@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_mdm_nsloadstatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM NetSuite Load Status</name>
+  <customvalues>
+    <customvalue scriptid="val_433101_td2957806_123">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Started</value>
+    </customvalue>
+    <customvalue scriptid="val_433102_td2957806_925">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Process</value>
+    </customvalue>
+    <customvalue scriptid="val_433103_td2957806_130">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Error</value>
+    </customvalue>
+    <customvalue scriptid="val_433104_td2957806_635">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Complete</value>
+    </customvalue>
+  </customvalues>
+</customlist>

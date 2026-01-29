@@ -1,0 +1,25 @@
+<plugintype scriptid="customscript_tax_validator">
+  <class>TaxValidator</class>
+  <deploymentmodel>ALLOW_SINGLE</deploymentmodel>
+  <description></description>
+  <documentationfile></documentationfile>
+  <isinactive>F</isinactive>
+  <loglevel>DEBUG</loglevel>
+  <name>International Tax Report - Validator</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>T</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 43003/src/Plugin/tax_report_validate.js]</scriptfile>
+  <status>RELEASED</status>
+  <methods>
+    <method>
+      <description>Run the validation method</description>
+      <method>validate</method>
+    </method>
+    <method>
+      <description>Identity of the Plug-In</description>
+      <method>getId</method>
+    </method>
+  </methods>
+</plugintype>

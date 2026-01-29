@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_ibe_environment_types">
+  <description>Types of environments used for the implementation and testing of functionalities for a given engagement.</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Environment types</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1247005_146">
+      <abbreviation>Q</abbreviation>
+      <isinactive>F</isinactive>
+      <value>QA</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1247005_146">
+      <abbreviation>U</abbreviation>
+      <isinactive>F</isinactive>
+      <value>UAT</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1247005_146">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Production (Pre Go Live)</value>
+    </customvalue>
+    <customvalue scriptid="value_4_t1247005_146">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Production (Post Go Live)</value>
+    </customvalue>
+  </customvalues>
+</customlist>

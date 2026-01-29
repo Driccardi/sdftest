@@ -1,0 +1,10 @@
+<advancedpdftemplate scriptid="custtmpl_nsts_asset_rental_pdf_tmpl" standard="STDTMPLCR_ASSET_RENTAL_AGREEMENT">
+  <description></description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <printtype>CUSTOMRECORD</printtype>
+  <recordtype>[scriptid=customrecord_asset_rental_agreement]</recordtype>
+  <title>NS Asset Rental Agreement Redwood</title>
+  <trantype>CUSTOM</trantype>
+</advancedpdftemplate>

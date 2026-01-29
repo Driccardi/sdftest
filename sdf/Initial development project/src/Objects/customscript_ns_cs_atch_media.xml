@@ -1,0 +1,10 @@
+<clientscript scriptid="customscript_ns_cs_atch_media">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>NS | CS | ATCH | Attach to Media Sublist</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/ns_cs_atch_attachmedia.js]</scriptfile>
+</clientscript>

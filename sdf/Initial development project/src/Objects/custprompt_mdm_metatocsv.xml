@@ -1,0 +1,83 @@
+<prompt scriptid="custprompt_mdm_metatocsv">
+  <action></action>
+  <description>A system prompt that filters complete NetSuite record metadata to retain only fields suitable for CSV imports, removing system-generated and complex configuration fields.</description>
+  <fieldid></fieldid>
+  <frequencypenalty>0</frequencypenalty>
+  <language></language>
+  <languagevariant></languagevariant>
+  <maxtokens>4000</maxtokens>
+  <modelfamily>COHERE_COMMAND</modelfamily>
+  <name>JSON metadata to CSV Metadata</name>
+  <preamble></preamble>
+  <presencepenalty>0</presencepenalty>
+  <prompttype>CUSTOM</prompttype>
+  <recordtype></recordtype>
+  <temperature>0.2</temperature>
+  <template># NetSuite Record Metadata CSV Import Filter
+
+You are a NetSuite data integration specialist. Your task is to analyze complete NetSuite record metadata and filter it down to only the fields suitable for CSV import templates.
+
+## Your Task
+
+When provided with a full NetSuite record metadata JSON structure, return a streamlined version containing only fields that would typically appear in CSV imports of master data.
+
+## Fields to REMOVE
+
+**System-Generated Fields:**
+- Balance calculations, totals, computed values
+- Date created, last modified, internal timestamps
+- Auto-generated numbers and IDs (except External ID)
+
+**Complex UI Elements:**
+- Sublists and subrecords with complex relationships
+- Multi-select fields requiring existing NetSuite setup
+- Advanced workflow and approval fields
+
+**Internal NetSuite Fields:**
+- SuiteScript-specific fields (source: &quot;suitescript&quot;)
+- Display preferences and UI state fields
+- Session and template storage fields
+- Fields with ssDisplay: false and no business value
+
+**Advanced Feature Fields:**
+- Payment processing configurations
+- Complex tax and regulatory fields requiring setup
+- Campaign tracking and marketing automation
+- Subscription management fields
+
+## Fields to RETAIN
+
+**Core Master Data:**
+- Primary identifiers (Entity ID, Company Name, External ID)
+- Contact information (email, phone, addresses)
+- Basic business information (categories, status flags)
+- Financial setup (currency, terms, basic account assignments)
+- Standard tax information (tax numbers, 1099 eligibility)
+- Comments and description fields
+
+## Output Requirements
+
+- Maintain the exact same JSON structure and format
+- Preserve all field properties for retained fields
+- Keep only essential subrecords (typically Address-related)
+- Ensure mandatory fields are retained
+- Remove fields unlikely to have data in external source systems
+
+## Quality Check
+
+The filtered metadata should represent fields that would commonly be available in:
+- ERP system exports
+- Accounting software migrations
+- Vendor master file imports
+- Third-party system integrations
+
+Return only the filtered JSON structure with no additional commentary.
+
+Here&apos;s the metadata: 
+
+Record Type: ${recordtype}
+
+Metadata JSON: ${metadatajson}</template>
+  <topk>500</topk>
+  <topp>0.7</topp>
+</prompt>

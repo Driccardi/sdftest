@@ -1,0 +1,14 @@
+<customlist scriptid="customlist_ns_psw_pmssource">
+  <description>List all the PMS Systems from which Policy Records will be imported</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>PMS Source</name>
+  <customvalues>
+    <customvalue scriptid="val_190583_td2949688_244">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>PMS1</value>
+    </customvalue>
+  </customvalues>
+</customlist>

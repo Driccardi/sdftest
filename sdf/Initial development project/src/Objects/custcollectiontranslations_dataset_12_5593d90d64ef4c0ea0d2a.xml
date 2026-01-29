@@ -1,0 +1,62 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_12_5593d90d64ef4c0ea0d2a">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_12_5593d90d64ef4c0ea0d2a.dataset_name_253_14]</name>
+  <strings>
+    <string scriptid="dataset_field_253_4">
+      <defaulttranslation>MainLine Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_1">
+      <defaulttranslation>Class Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_2">
+      <defaulttranslation>Amount (Abs Value)</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_3">
+      <defaulttranslation>Net Amount</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_253_5">
+      <defaulttranslation>Mainline Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_253_7">
+      <defaulttranslation>Line Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_8">
+      <defaulttranslation>Department Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_9">
+      <defaulttranslation>&gt;=15K</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_10">
+      <defaulttranslation>Location Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_253_11">
+      <defaulttranslation>Line Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_253_12">
+      <defaulttranslation>Mainline Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_253_13">
+      <defaulttranslation>Line# Difference</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_name_253_14">
+      <defaulttranslation>SS RT PRM US - SuiteSuccess Transactions Dataset</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+    <string scriptid="dataset_field_253_15">
+      <defaulttranslation>Line Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

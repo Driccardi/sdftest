@@ -1,0 +1,26 @@
+<restlet scriptid="customscript_oa_ping">
+  <deletefunction></deletefunction>
+  <description></description>
+  <getfunction>ping</getfunction>
+  <isinactive>F</isinactive>
+  <name>oa_ping</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <postfunction></postfunction>
+  <putfunction></putfunction>
+  <scriptfile>[/SuiteBundles/Bundle 369637/restlets/ping.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_oa_ping">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <status>RELEASED</status>
+      <title>SuiteProjects Pro: Ping</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</restlet>

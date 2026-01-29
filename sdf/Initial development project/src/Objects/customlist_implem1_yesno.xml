@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_implem1_yesno">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>NS Yes/No/NA</name>
+  <customvalues>
+    <customvalue scriptid="val_26066_6718498_691">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Yes</value>
+    </customvalue>
+    <customvalue scriptid="val_26067_6718498_372">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>No</value>
+    </customvalue>
+    <customvalue scriptid="val_26078_6718498_988">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>N/A</value>
+    </customvalue>
+  </customvalues>
+</customlist>

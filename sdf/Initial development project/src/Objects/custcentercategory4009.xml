@@ -1,0 +1,18 @@
+<centercategory scriptid="custcentercategory4009">
+  <center>[scriptid=custcenter253]</center>
+  <centertab>[scriptid=custcentertab1248]</centertab>
+  <label>Tools</label>
+  <links>
+    <link>
+      <linkid>LIST_TRAN_CASHSALE</linkid>
+      <linklabel></linklabel>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_6_t2382796_274]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

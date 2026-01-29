@@ -1,0 +1,62 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_9_441b9c19700b4e319a1ca0">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_9_441b9c19700b4e319a1ca0.dataset_name_173_13]</name>
+  <strings>
+    <string scriptid="dataset_field_173_6">
+      <defaulttranslation>Mainline Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_1">
+      <defaulttranslation>Department Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_3">
+      <defaulttranslation>Net Amount</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_173_4">
+      <defaulttranslation>MainLine Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_5">
+      <defaulttranslation>Line# Difference</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_173_7">
+      <defaulttranslation>Line Location</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_8">
+      <defaulttranslation>Location Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_9">
+      <defaulttranslation>Amount (Abs Value)</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_10">
+      <defaulttranslation>Class Calc.</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_173_11">
+      <defaulttranslation>Line Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_173_12">
+      <defaulttranslation>&gt;=15K</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_name_173_13">
+      <defaulttranslation>SS Retail PRM - SuiteSuccess Transactions Dataset</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+    <string scriptid="dataset_field_173_14">
+      <defaulttranslation>Mainline Dept</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_173_15">
+      <defaulttranslation>Line Class</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

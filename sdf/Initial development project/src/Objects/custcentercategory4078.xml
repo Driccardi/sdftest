@@ -1,0 +1,25 @@
+<centercategory scriptid="custcentercategory4078">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_psw_policy_data]</centertab>
+  <label>Transactions</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_17_td2949688_575]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=custlink_18_td2949688_192]</linkobject>
+      <linktasktype>LINK</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Approve Proposed Transactions</linklabel>
+      <linkobject>[scriptid=customscript_nscs_sl_transactionpage.customdeploy_nscs_sl_transactionpage]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

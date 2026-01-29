@@ -1,0 +1,102 @@
+<scheduledscript scriptid="customscript_oa_forex_rate">
+  <defaultfunction>copyExchangeRates</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SuiteProjects Pro: Exchange Rates</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteBundles/Bundle 369637/openair_exchange_rate.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_oa_forex_integration">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Enable this for the exchange rate integration with OpenAir. Be sure to read all documentation before enabling and make sure this is configured in OpenAir. This is only relevant for OneWorld accounts.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Exchange Rate Integration - OneWorld</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting>COMPANY</setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_oa_forex_prev_day">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Enable this preference if the &quot;OpenAir: Exchange Rates&quot; custom script is scheduled to run at a time that is the day prior to the OpenAir exchange rate integration. For example, if the &quot;OpenAir: Exchange Rates&quot; script is scheduled to run at 10:30 PM PST and the exchange rate synchronization is scheduled to run at 12:15 AM PST, the &quot;OpenAir: Exchange Rates&quot; script runs the previous day. The effective date of the exchange rates will therefore be the previous day. Enabling this preference adjusts the effective date for this scenario to give the exchange rates with an effective date that is the same as the day the OpenAir exchange rate synchronization runs.
+
+This preference should not be enabled if the OpenAir exchange rate synchronization and the &quot;OpenAir: Exchange Rates&quot; script are scheduled to run on the same day PST.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>CHECKBOX</fieldtype>
+      <help>Enable this preference if the &quot;OpenAir: Exchange Rates&quot; custom script is scheduled to run at a time that is the day prior to the OpenAir exchange rate integration. For example, if the &quot;OpenAir: Exchange Rates&quot; script is scheduled to run at 10:30 PM PST and the exchange rate synchronization is scheduled to run at 12:15 AM PST, the &quot;OpenAir: Exchange Rates&quot; script runs the previous day. The effective date of the exchange rates will therefore be the previous day. Enabling this preference adjusts the effective date for this scenario to give the exchange rates with an effective date that is the same as the day the OpenAir exchange rate synchronization runs.
+
+This preference should not be enabled if the OpenAir exchange rate synchronization and the &quot;OpenAir: Exchange Rates&quot; script are scheduled to run on the same day PST.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>OpenAir Forex Time Zone Adjust</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting>COMPANY</setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_oa_forex_rate">
+      <custscript_oa_forex_integration>F</custscript_oa_forex_integration>
+      <custscript_oa_forex_prev_day>F</custscript_oa_forex_prev_day>
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>SuiteProjects Pro: Exchange Rates</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2021-12-03</startdate>
+          <starttime>12:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_oa_forex_rate_2">
+      <custscript_oa_forex_integration>F</custscript_oa_forex_integration>
+      <custscript_oa_forex_prev_day>F</custscript_oa_forex_prev_day>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>OpenAir: Exchange Rates 2</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2021-12-03</startdate>
+          <starttime>12:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

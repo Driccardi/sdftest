@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_mdm_loadstatus">
+  <description>Holds the status of the record loading from external systems</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>MDM Load Status</name>
+  <customvalues>
+    <customvalue scriptid="val_433082_td2957806_639">
+      <abbreviation>N</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Not Loaded</value>
+    </customvalue>
+    <customvalue scriptid="val_433083_td2957806_948">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Load in Process</value>
+    </customvalue>
+    <customvalue scriptid="val_433084_td2957806_534">
+      <abbreviation>L</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Loaded</value>
+    </customvalue>
+    <customvalue scriptid="val_433085_td2957806_808">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Deleted</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,26 @@
+<suitelet scriptid="customscript_item_mass_csv_generator">
+  <defaultfunction>itemMass_CSVGenerator</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>**Item Mass CSV Generator</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteBundles/Bundle 93203/Item_Mass_Updater_SL.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_item_mass_csv_generator">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>**Item Mass CSV Generator</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

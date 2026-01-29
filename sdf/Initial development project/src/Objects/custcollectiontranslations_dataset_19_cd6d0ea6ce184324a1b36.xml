@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_19_cd6d0ea6ce184324a1b36">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_19_cd6d0ea6ce184324a1b36.dataset_name_368_2]</name>
+  <strings>
+    <string scriptid="dataset_name_368_2">
+      <defaulttranslation>WFLLM - Sales Order</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

@@ -1,0 +1,44 @@
+<customlist scriptid="customlist_nsra_ppr_event_machines">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Production Machines</name>
+  <customvalues>
+    <customvalue scriptid="val_337130_td2953983_424">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Machine 1</value>
+    </customvalue>
+    <customvalue scriptid="val_337131_td2953983_539">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Machine 2</value>
+    </customvalue>
+    <customvalue scriptid="val_337132_td2953983_465">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Machine 3</value>
+    </customvalue>
+    <customvalue scriptid="val_385808_td2953983_360">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Embroidery</value>
+    </customvalue>
+    <customvalue scriptid="val_385809_td2953983_687">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Silkscreen 1</value>
+    </customvalue>
+    <customvalue scriptid="val_385810_td2953983_308">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Silkscreen 2</value>
+    </customvalue>
+    <customvalue scriptid="val_385811_td2953983_483">
+      <abbreviation></abbreviation>
+      <isinactive>F</isinactive>
+      <value>Heatpress</value>
+    </customvalue>
+  </customvalues>
+</customlist>

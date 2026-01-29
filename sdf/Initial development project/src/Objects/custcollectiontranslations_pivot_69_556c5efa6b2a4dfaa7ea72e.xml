@@ -1,0 +1,18 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_69_556c5efa6b2a4dfaa7ea72e">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_69_556c5efa6b2a4dfaa7ea72e.report_name_268_8]</name>
+  <strings>
+    <string scriptid="report_name_268_8">
+      <defaulttranslation>Invoice Sales by Sub &amp; Class</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+    <string scriptid="report_measure_268_9">
+      <defaulttranslation>Sales Amount</defaulttranslation>
+      <description>Measure in pivot</description>
+    </string>
+    <string scriptid="report_row_axis_268_10">
+      <defaulttranslation>Class</defaulttranslation>
+      <description>Row Axis in pivot</description>
+    </string>
+  </strings>
+</translationcollection>

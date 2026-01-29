@@ -1,0 +1,48 @@
+<othercustomfield scriptid="custrecord_cshub_return_intransit">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Location to use as in-transit for Return Authorizations and associated Item Receipts</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <help>Location to use as in-transit for Return Authorizations and associated Item Receipts</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <label>Return In Transit Location</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>NO_ACTION</onparentdelete>
+  <rectype>-103</rectype>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>-103</selectrecordtype>
+  <showhierarchy>T</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <customfieldfilters>
+    <customfieldfilter>
+      <fldcomparefield>STDRECORDLOCATIONSUBSIDIARY</fldcomparefield>
+      <fldfilter>STDRECORDLOCATIONSUBSIDIARY</fldfilter>
+      <fldfilterchecked></fldfilterchecked>
+      <fldfiltercomparetype>EQ</fldfiltercomparetype>
+      <fldfilternotnull>F</fldfilternotnull>
+      <fldfilternull>F</fldfilternull>
+      <fldfiltersel></fldfiltersel>
+      <fldfilterval></fldfilterval>
+    </customfieldfilter>
+  </customfieldfilters>
+</othercustomfield>

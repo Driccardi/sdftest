@@ -1,0 +1,43 @@
+<centercategory scriptid="custcentercategory_ebp_acct_payproc">
+  <center>ACCOUNTCENTER</center>
+  <centertab>[scriptid=custcentertab_ebp_payments_acct]</centertab>
+  <label>Payment Processing</label>
+  <links>
+    <link>
+      <linklabel>Payment File Administration</linklabel>
+      <linkobject>[scriptid=customsearch_2663_payment_file_admin]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Bill Payment Processing</linklabel>
+      <linkobject>[scriptid=customscript_2663_payment_selection_s.customdeploy_2663_payment_selection_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Bill Payment Batches</linklabel>
+      <linkobject>[scriptid=customsearch_2663_payment_batches]</linkobject>
+      <linktasktype>SRCH_RSLT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Invoice Payment Processing</linklabel>
+      <linkobject>[scriptid=customscript_2663_payment_ar_selection_s.customdeploy_2663_payment_ar_selection_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Customer Refund Payments</linklabel>
+      <linkobject>[scriptid=customscript_2663_cust_ref_selection_s.customdeploy_2663_cust_ref_selection_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Payment Batch List</linklabel>
+      <linkobject>[scriptid=customscript_2663_batch_selection_main_s.customdeploy_2663_batch_selection_main_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

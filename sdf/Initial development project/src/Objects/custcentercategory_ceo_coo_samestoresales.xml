@@ -1,0 +1,19 @@
+<centercategory scriptid="custcentercategory_ceo_coo_samestoresales">
+  <center>EXECUTIVE</center>
+  <centertab>EXECUTIVECENTERSETUP</centertab>
+  <label translate="T">[scriptid=custcollection_same_store_sales.oj_custcentercategory_ceo_coo_samestoresales_label]</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_sss_calendar]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel translate="T">[scriptid=custcollection_same_store_sales.oj_custcentercategory_ceo_coo_samestoresales_l_0_0_l_1_1_linklabel]</linklabel>
+      <linkobject>[scriptid=customscript_sss_cal_preferences.customdeploy_sss_sl_cal_preferences]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

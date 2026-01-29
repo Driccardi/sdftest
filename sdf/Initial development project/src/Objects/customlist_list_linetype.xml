@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_list_linetype">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Line Type</name>
+  <customvalues>
+    <customvalue scriptid="val_183361_td2879875_120">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Original Contract</value>
+    </customvalue>
+    <customvalue scriptid="val_183362_td2879875_363">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Change Order</value>
+    </customvalue>
+  </customvalues>
+</customlist>

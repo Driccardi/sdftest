@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_524_td2949688_767">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab1265]</centertab>
+  <label>Action Items</label>
+  <links>
+    <link>
+      <linklabel>Action Items</linklabel>
+      <linkobject>[scriptid=customrecord_ns_ps_mfg_action_items]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

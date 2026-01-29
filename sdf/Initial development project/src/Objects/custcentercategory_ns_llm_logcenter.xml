@@ -1,0 +1,25 @@
+<centercategory scriptid="custcentercategory_ns_llm_logcenter">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_llm_agentmanager]</centertab>
+  <label>Logs</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_ns_llm_agentmessage]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_ns_llm_chathistory]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customrecord_wfll_prompt_log]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

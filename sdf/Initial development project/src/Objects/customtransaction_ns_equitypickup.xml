@@ -1,0 +1,38 @@
+<customtransactiontype scriptid="customtransaction_ns_equitypickup">
+  <cancloseorder>F</cancloseorder>
+  <isposting>F</isposting>
+  <isvoidable>T</isvoidable>
+  <name>Equity Pickup</name>
+  <showstatus>T</showstatus>
+  <transactionstyle>JOURNAL</transactionstyle>
+  <segments>
+    <classposition>HEADER</classposition>
+    <departmentposition>HEADER</departmentposition>
+    <isclassmandatory>F</isclassmandatory>
+    <isdepartmentmandatory>F</isdepartmentmandatory>
+    <locationposition>NONE</locationposition>
+  </segments>
+  <statuses>
+    <status scriptid="status_10158_td2877251_808">
+      <description>Pending Approval</description>
+      <id>A</id>
+      <isposting>F</isposting>
+    </status>
+    <status scriptid="status_10159_td2877251_629">
+      <description>Approved</description>
+      <id>B</id>
+      <isposting>T</isposting>
+    </status>
+    <status scriptid="status_10160_td2877251_556">
+      <description>Rejected</description>
+      <id>C</id>
+      <isposting>F</isposting>
+    </status>
+  </statuses>
+  <permissions>
+    <permission>
+      <permittedlevel>FULL</permittedlevel>
+      <permittedrole>ADMINISTRATOR</permittedrole>
+    </permission>
+  </permissions>
+</customtransactiontype>

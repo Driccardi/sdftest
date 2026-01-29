@@ -1,0 +1,38 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_13_01d2db67319c49a38108b">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_name_315_2]</name>
+  <strings>
+    <string scriptid="dataset_formula_332_5">
+      <defaulttranslation>Cost Category</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_332_7">
+      <defaulttranslation>LEN</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_327_3">
+      <defaulttranslation>Contains Landed Cost</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_field_322_2">
+      <defaulttranslation>Line ID</defaulttranslation>
+      <description>Field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_322_3">
+      <defaulttranslation>Purchase Amount</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_formula_322_5">
+      <defaulttranslation>Landed Cost Amount</defaulttranslation>
+      <description>Formula field in dataset</description>
+    </string>
+    <string scriptid="dataset_description_315_1">
+      <defaulttranslation>Landed Cost Analysis</defaulttranslation>
+      <description>Description of a dataset</description>
+    </string>
+    <string scriptid="dataset_name_315_2">
+      <defaulttranslation>Landed Cost Analysis</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

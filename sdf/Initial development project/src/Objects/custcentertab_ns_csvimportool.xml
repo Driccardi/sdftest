@@ -1,0 +1,10 @@
+<centertab scriptid="custcentertab_ns_csvimportool">
+  <allcustomers>F</allcustomers>
+  <allemployees>T</allemployees>
+  <allpartners>F</allpartners>
+  <allroles>T</allroles>
+  <allvendors>F</allvendors>
+  <audslctrole></audslctrole>
+  <center>ALL</center>
+  <label>Import Toolkit</label>
+</centertab>

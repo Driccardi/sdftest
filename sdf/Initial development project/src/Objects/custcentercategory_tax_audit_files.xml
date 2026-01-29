@@ -1,0 +1,25 @@
+<centercategory scriptid="custcentercategory_tax_audit_files">
+  <center>BASIC</center>
+  <centertab>BASICCENTERSETUP</centertab>
+  <label>Tax Audit Files</label>
+  <links>
+    <link>
+      <linklabel></linklabel>
+      <linkobject>[scriptid=customscript_scoa_s.customdeploy_scoa_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Audit Files Field Mapping</linklabel>
+      <linkobject>[scriptid=customscript_mapper_s.customdeploy_mapper_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Report Preferences</linklabel>
+      <linkobject>[scriptid=customscript_report_preferences_s.customdeploy_report_preferences_s]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

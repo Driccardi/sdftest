@@ -1,0 +1,48 @@
+<othercustomfield scriptid="custrecord_nspsw_notifyuseronerror">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>User to whom Task will be assigned upon error in any NSPSW solution.</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>SELECT</fieldtype>
+  <help>User to whom Task will be assigned upon error in any NSPSW solution.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <label>User To Notify On Error</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>NO_ACTION</onparentdelete>
+  <rectype>-117</rectype>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>-4</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <customfieldfilters>
+    <customfieldfilter>
+      <fldcomparefield></fldcomparefield>
+      <fldfilter>STDENTITYISINACTIVE</fldfilter>
+      <fldfilterchecked>F</fldfilterchecked>
+      <fldfiltercomparetype>EQ</fldfiltercomparetype>
+      <fldfilternotnull>F</fldfilternotnull>
+      <fldfilternull>F</fldfilternull>
+      <fldfiltersel></fldfiltersel>
+      <fldfilterval></fldfilterval>
+    </customfieldfilter>
+  </customfieldfilters>
+</othercustomfield>

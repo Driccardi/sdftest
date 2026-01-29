@@ -1,0 +1,44 @@
+<customlist scriptid="customlist_ns_llm_agentmessagestatus">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Agent Message Status</name>
+  <customvalues>
+    <customvalue scriptid="val_390733_td2949688_835">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Pending</value>
+    </customvalue>
+    <customvalue scriptid="val_390734_td2949688_700">
+      <abbreviation>I</abbreviation>
+      <isinactive>F</isinactive>
+      <value>In Progress</value>
+    </customvalue>
+    <customvalue scriptid="val_390735_td2949688_806">
+      <abbreviation>A</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Acknowledged</value>
+    </customvalue>
+    <customvalue scriptid="val_390736_td2949688_816">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Retry Later</value>
+    </customvalue>
+    <customvalue scriptid="val_390737_td2949688_344">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Failed</value>
+    </customvalue>
+    <customvalue scriptid="val_390738_td2949688_592">
+      <abbreviation>D</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Dead Letter Office</value>
+    </customvalue>
+    <customvalue scriptid="val_390739_td2949688_357">
+      <abbreviation>E</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Expired</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_dataset_18_30e592a558394c05aefca">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_18_30e592a558394c05aefca.dataset_name_365_1]</name>
+  <strings>
+    <string scriptid="dataset_name_365_1">
+      <defaulttranslation>Recently Purchased Items - Last 120 Days with Qty</defaulttranslation>
+      <description>Name in dataset</description>
+    </string>
+  </strings>
+</translationcollection>

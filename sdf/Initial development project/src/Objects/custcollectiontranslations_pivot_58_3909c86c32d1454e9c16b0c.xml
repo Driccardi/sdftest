@@ -1,0 +1,10 @@
+<translationcollection scriptid="custcollectiontranslations_pivot_58_3909c86c32d1454e9c16b0c">
+  <defaultlanguage>en-US</defaultlanguage>
+  <name translate="T">[scriptid=custcollectiontranslations_pivot_58_3909c86c32d1454e9c16b0c.report_name_206_6]</name>
+  <strings>
+    <string scriptid="report_name_206_6">
+      <defaulttranslation>A/R Aging Summary</defaulttranslation>
+      <description>Name of pivot</description>
+    </string>
+  </strings>
+</translationcollection>

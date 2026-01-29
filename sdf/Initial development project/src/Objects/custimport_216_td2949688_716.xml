@@ -1,0 +1,223 @@
+<savedcsvimport scriptid="custimport_216_td2949688_716">
+  <charencoding>windows-1252</charencoding>
+  <columndelimiter>COMMA</columndelimiter>
+  <customrecord>[scriptid=customrecord_ns_psw_policyrecord]</customrecord>
+  <datahandling>ADD</datahandling>
+  <decimaldelimiter>PERIOD</decimaldelimiter>
+  <entryform>[scriptid=custform_219_td2949688_566]</entryform>
+  <ignorereadonly>T</ignorereadonly>
+  <importname>QA Test Policy Import</importname>
+  <logsystemnotescustfields>F</logsystemnotescustfields>
+  <multiselectdelimiter>|</multiselectdelimiter>
+  <overwritemissingfields>F</overwritemissingfields>
+  <overwritesublists>F</overwritesublists>
+  <queuenumber>1</queuenumber>
+  <recordtype>CUSTOMRECORD</recordtype>
+  <runserversuitescript>T</runserversuitescript>
+  <usemultithread>F</usemultithread>
+  <validatemandatorycustfields>T</validatemandatorycustfields>
+  <audience>
+    <allemployees>F</allemployees>
+    <allpartners>F</allpartners>
+    <allroles>F</allroles>
+    <globaledit>F</globaledit>
+    <ispublic>F</ispublic>
+    <roles></roles>
+  </audience>
+  <filemappings>
+    <filemapping>
+      <file>CUSTOMRECORD</file>
+    </filemapping>
+  </filemappings>
+  <recordmappings>
+    <recordmapping>
+      <record>CUSTOMRECORD</record>
+      <fieldmappings>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_agencyfee]</field>
+          <columnreference>
+            <column>Agency Fee</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_billingcompany]</field>
+          <columnreference>
+            <column>Billing Company</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_billmode]</field>
+          <columnreference>
+            <column>Bill Mode</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_brokerfee]</field>
+          <columnreference>
+            <column>Broker Fee</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_commissionamt]</field>
+          <columnreference>
+            <column>Commission Amount</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_filetaxesyesno]</field>
+          <columnreference>
+            <column>File Tax (Yes/No)</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_insuredname]</field>
+          <columnreference>
+            <column>Customer Name</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_invoicedate]</field>
+          <columnreference>
+            <column>Invoice Date</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_otherfees]</field>
+          <columnreference>
+            <column>Other Fees</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_otherpayable]</field>
+          <columnreference>
+            <column>Other Payable</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_pmssource]</field>
+          <columnreference>
+            <column>PMS Source</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_policyeffdate]</field>
+          <columnreference>
+            <column>Policy Effective Date</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_policyexpdate]</field>
+          <columnreference>
+            <column>Policy Expiration Date</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_policynumber]</field>
+          <columnreference>
+            <column>Policy Number</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_policytype]</field>
+          <columnreference>
+            <column>Policy Type</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_premiumtobill]</field>
+          <columnreference>
+            <column>Premium to Bill</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_producercommn]</field>
+          <columnreference>
+            <column>Producer Commission</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_stampingfee]</field>
+          <columnreference>
+            <column>Stamping Fee</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_stateofinsured]</field>
+          <columnreference>
+            <column>State of Insured</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_surpluslinestax]</field>
+          <columnreference>
+            <column>Surplus Lines tax</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_trxntype]</field>
+          <columnreference>
+            <column>Transaction Type</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_vendorcommn]</field>
+          <columnreference>
+            <column>Vendor Comm</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_ns_psw_policyrecord.custrecord_ns_psw_polrec_writingcompany]</field>
+          <columnreference>
+            <column>Writing Company</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+      </fieldmappings>
+    </recordmapping>
+  </recordmappings>
+</savedcsvimport>

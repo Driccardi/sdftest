@@ -1,0 +1,10 @@
+<centertab scriptid="custcentertab_ns_qrltab">
+  <allcustomers>F</allcustomers>
+  <allemployees>F</allemployees>
+  <allpartners>F</allpartners>
+  <allroles>T</allroles>
+  <allvendors>F</allvendors>
+  <audslctrole></audslctrole>
+  <center>BASIC</center>
+  <label>QRL</label>
+</centertab>

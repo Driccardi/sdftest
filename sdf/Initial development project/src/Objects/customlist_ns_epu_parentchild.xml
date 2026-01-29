@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_epu_parentchild">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Equity Pickup Parent Child</name>
+  <customvalues>
+    <customvalue scriptid="val_489439_td2877251_136">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Parent</value>
+    </customvalue>
+    <customvalue scriptid="val_489440_td2877251_544">
+      <abbreviation>C</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Child</value>
+    </customvalue>
+  </customvalues>
+</customlist>

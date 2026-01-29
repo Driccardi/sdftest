@@ -1,0 +1,26 @@
+<suitelet scriptid="customscript_sd_so_line_approval_sl">
+  <defaultfunction>soLineLevelApprovalSuitelet</defaultfunction>
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>^SO Line Level Approval SL</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/SOLineLevelApproval/SOLineLevelApproval_SL.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_sd_so_line_approval_sl">
+      <allemployees>T</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole>CUSTOMER_CENTER|EMPLOYEE_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|NETSUITE_SUPPORT_CENTER|ONLINE_FORM_USER|PARTNER_CENTER|VENDOR_CENTER</audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>^SO Line Level Approval SL</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

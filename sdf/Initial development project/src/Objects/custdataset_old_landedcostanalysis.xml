@@ -1,0 +1,1092 @@
+<!-- Do not modify the contents of the SDF XML definition structure located under "CDATA" section of this XML, as this may corrupt the Workbook/Dataset data when you deploy the modified object to your NetSuite account. !-->
+<dataset scriptid="custdataset_old_landedcostanalysis">
+  <name translate="T">[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_name_315_2]</name>
+  <dependencies>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_5]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_3]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_5]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_description_315_1]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_7]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_327_3]</dependency>
+    <dependency>[scriptid=custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_field_322_2]</dependency>
+  </dependencies>
+  <definition><![CDATA[<root>
+<_T_>dataSet</_T_>
+<id type="null"/>
+<scriptId type="null"/>
+<applicationId type="null"/>
+<version type="string">0.1</version>
+<name>
+  <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_name_315_2</translationScriptId>
+</name>
+<audience>
+  <AudienceItems type="array"/>
+  <isPublic type="boolean">false</isPublic>
+</audience>
+<ownerId>2111</ownerId>
+<description>
+  <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_description_315_1</translationScriptId>
+</description>
+<baseRecord>
+  <id>transaction</id>
+  <label>Transaction</label>
+</baseRecord>
+<columns type="array">
+  <_ITEM_>
+    <columnId>1</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>trandate</id>
+      <label>Date</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>trandate</uniqueId>
+    </field>
+    <alias>trandate</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>4</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>tranid</id>
+      <label>Document Number/ID</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>tranid</uniqueId>
+    </field>
+    <alias>tranid</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>5</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>trandisplayname</id>
+      <label>Transaction</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>trandisplayname</uniqueId>
+    </field>
+    <alias>trandisplayname</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>6</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>type</id>
+      <label>Type</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array"/>
+      </joinTrail>
+      <uniqueId>type</uniqueId>
+    </field>
+    <alias>type</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>23</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>linktype</id>
+      <label>Link Type</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>previouslinks</id>
+            <targetRecordType>previoustransactionlink</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>previouslinks.linktype</uniqueId>
+    </field>
+    <alias>linktype</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>24</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>previousdoc</id>
+      <label>Transaction</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>previouslinks</id>
+            <targetRecordType>previoustransactionlink</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>previouslinks.previousdoc</uniqueId>
+    </field>
+    <alias>previousdoc</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>8</columnId>
+    <label>
+      <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_field_322_2</translationScriptId>
+    </label>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>id</id>
+      <label>ID</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.id</uniqueId>
+    </field>
+    <alias>id</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>12</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>item</id>
+      <label>Item</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.item</uniqueId>
+    </field>
+    <alias>item</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>15</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>quantity</id>
+      <label>Quantity</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.quantity</uniqueId>
+    </field>
+    <alias>quantity</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>16</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>rate</id>
+      <label>Rate</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.rate</uniqueId>
+    </field>
+    <alias>rate</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>13</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>blandedcost</id>
+      <label>Landed Cost</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.blandedcost</uniqueId>
+    </field>
+    <alias>blandedcost</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>14</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>landedcostcategory</id>
+      <label>Landed Cost Category</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.landedcostcategory</uniqueId>
+    </field>
+    <alias>landedcostcategory</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>27</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>dataSetFormula</_T_>
+      <formula>
+        <_T_>formula</_T_>
+        <id>formula_4</id>
+        <uniqueId>:data.formula_4</uniqueId>
+        <label>
+          <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_7</translationScriptId>
+        </label>
+        <formulaSQL>LENGTH({transactionlines.landedcostcategory#display})</formulaSQL>
+        <dataType>INTEGER</dataType>
+      </formula>
+      <fields type="array">
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>landedcostcategory</id>
+          <label>Landed Cost Category</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.landedcostcategory</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+      </fields>
+    </field>
+    <alias>formula_4</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>26</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>dataSetFormula</_T_>
+      <formula>
+        <_T_>formula</_T_>
+        <id>formula_3</id>
+        <uniqueId>:data.formula_3</uniqueId>
+        <label>
+          <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_5</translationScriptId>
+        </label>
+        <formulaSQL>/*NE Cost Category*/
+CASE WHEN LENGTH({transactionlines.landedcostcategory#display}) = 0 
+THEN 'Purchase' 
+ELSE {transactionlines.landedcostcategory#display} 
+END</formulaSQL>
+        <dataType>STRING</dataType>
+      </formula>
+      <fields type="array">
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>landedcostcategory</id>
+          <label>Landed Cost Category</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.landedcostcategory</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>landedcostcategory</id>
+          <label>Landed Cost Category</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.landedcostcategory</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+      </fields>
+    </field>
+    <alias>formula_3</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>20</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>memo</id>
+      <label>Memo</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.memo</uniqueId>
+    </field>
+    <alias>memo</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>17</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>account</id>
+      <label>Account</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+          <_ITEM_>
+            <id>accountingimpact</id>
+            <targetRecordType>transactionaccountingline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.accountingimpact.account</uniqueId>
+    </field>
+    <alias>account</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>18</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>amount</id>
+      <label>Amount</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+          <_ITEM_>
+            <id>accountingimpact</id>
+            <targetRecordType>transactionaccountingline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.accountingimpact.amount</uniqueId>
+    </field>
+    <alias>amount</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>10</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>inventorysubsidiary</id>
+      <label>Inventory Subsidiary</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.inventorysubsidiary</uniqueId>
+    </field>
+    <alias>inventorysubsidiary</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>9</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>fieldReference</_T_>
+      <id>inventorylocation</id>
+      <label>Inventory Location</label>
+      <joinTrail>
+        <baseRecord>
+          <id>transaction</id>
+          <label>Transaction</label>
+        </baseRecord>
+        <joins type="array">
+          <_ITEM_>
+            <id>transactionlines</id>
+            <targetRecordType>transactionline</targetRecordType>
+          </_ITEM_>
+        </joins>
+      </joinTrail>
+      <uniqueId>transactionlines.inventorylocation</uniqueId>
+    </field>
+    <alias>inventorylocation</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>21</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>dataSetFormula</_T_>
+      <formula>
+        <_T_>formula</_T_>
+        <id>formula_0</id>
+        <uniqueId>:data.formula_0</uniqueId>
+        <label>
+          <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_3</translationScriptId>
+        </label>
+        <formulaSQL>/*if not landed cost, then purchase amount*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN 0 
+ELSE ABS(TO_NUMBER({transactionlines.accountingimpact.amount#currency_consolidated})) 
+END</formulaSQL>
+        <dataType>FLOAT</dataType>
+      </formula>
+      <fields type="array">
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>blandedcost</id>
+          <label>Landed Cost</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.blandedcost</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>amount</id>
+          <label>Amount</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+              <_ITEM_>
+                <id>accountingimpact</id>
+                <targetRecordType>transactionaccountingline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.accountingimpact.amount</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+      </fields>
+    </field>
+    <alias>formula_0</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>22</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>dataSetFormula</_T_>
+      <formula>
+        <_T_>formula</_T_>
+        <id>formula_1</id>
+        <uniqueId>:data.formula_1</uniqueId>
+        <label>
+          <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_5</translationScriptId>
+        </label>
+        <formulaSQL>/*if landed cost, then Landed cost amount*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN ABS(TO_NUMBER({transactionlines.accountingimpact.amount#currency_consolidated})) 
+ELSE 0 
+END</formulaSQL>
+        <dataType>FLOAT</dataType>
+      </formula>
+      <fields type="array">
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>blandedcost</id>
+          <label>Landed Cost</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.blandedcost</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>amount</id>
+          <label>Amount</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+              <_ITEM_>
+                <id>accountingimpact</id>
+                <targetRecordType>transactionaccountingline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.accountingimpact.amount</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+      </fields>
+    </field>
+    <alias>formula_1</alias>
+  </_ITEM_>
+  <_ITEM_>
+    <columnId>25</columnId>
+    <label type="null"/>
+    <field>
+      <_T_>dataSetFormula</_T_>
+      <formula>
+        <_T_>formula</_T_>
+        <id>formula_2</id>
+        <uniqueId>:data.formula_2</uniqueId>
+        <label>
+          <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_327_3</translationScriptId>
+        </label>
+        <formulaSQL>/*if landed cost*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN 1 
+ELSE 0 
+END</formulaSQL>
+        <dataType>INTEGER</dataType>
+      </formula>
+      <fields type="array">
+        <_ITEM_>
+          <_T_>fieldReference</_T_>
+          <id>blandedcost</id>
+          <label>Landed Cost</label>
+          <joinTrail>
+            <baseRecord>
+              <id>transaction</id>
+              <label>Transaction</label>
+            </baseRecord>
+            <joins type="array">
+              <_ITEM_>
+                <id>transactionlines</id>
+                <targetRecordType>transactionline</targetRecordType>
+              </_ITEM_>
+            </joins>
+          </joinTrail>
+          <uniqueId>transactionlines.blandedcost</uniqueId>
+          <fieldValidityState>VALID</fieldValidityState>
+        </_ITEM_>
+      </fields>
+    </field>
+    <alias>formula_2</alias>
+  </_ITEM_>
+</columns>
+<criteria>
+  <_T_>condition</_T_>
+  <operator>
+    <code>AND</code>
+  </operator>
+  <children type="array">
+    <_ITEM_>
+      <_T_>filter</_T_>
+      <operator>
+        <code>ANY_OF</code>
+      </operator>
+      <meta>
+        <subType>values</subType>
+        <selectorType>field-values</selectorType>
+      </meta>
+      <expressions type="array">
+        <_ITEM_>
+          <value>
+            <type>KEY</type>
+            <value>ItemRcpt</value>
+          </value>
+          <label>Item Receipt</label>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+      </expressions>
+      <field>
+        <_T_>fieldReference</_T_>
+        <id>type</id>
+        <label>Type</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array"/>
+        </joinTrail>
+        <uniqueId>type</uniqueId>
+      </field>
+      <targetFieldContext>
+        <name>IDENTIFIER</name>
+      </targetFieldContext>
+      <fieldStateName>display</fieldStateName>
+      <caseSensitive type="boolean">false</caseSensitive>
+    </_ITEM_>
+    <_ITEM_>
+      <_T_>filter</_T_>
+      <operator>
+        <code>IS</code>
+      </operator>
+      <meta>
+        <subType>boolean</subType>
+        <selectorType type="null"/>
+      </meta>
+      <expressions type="array">
+        <_ITEM_>
+          <value>
+            <type>BOOLEAN</type>
+            <value type="boolean">true</value>
+          </value>
+          <label type="null"/>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+      </expressions>
+      <field>
+        <_T_>fieldReference</_T_>
+        <id>tracklandedcost</id>
+        <label>Track Landed Cost</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+            <_ITEM_>
+              <id>item^item</id>
+              <targetRecordType>item</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.item^item.tracklandedcost</uniqueId>
+      </field>
+      <targetFieldContext>
+        <name>IDENTIFIER</name>
+      </targetFieldContext>
+      <fieldStateName>raw</fieldStateName>
+      <caseSensitive type="boolean">false</caseSensitive>
+    </_ITEM_>
+    <_ITEM_>
+      <_T_>filter</_T_>
+      <operator>
+        <code>IS</code>
+      </operator>
+      <meta>
+        <subType>boolean</subType>
+        <selectorType type="null"/>
+      </meta>
+      <expressions type="array">
+        <_ITEM_>
+          <value>
+            <type>BOOLEAN</type>
+            <value type="boolean">false</value>
+          </value>
+          <label type="null"/>
+          <subType type="null"/>
+          <uiData type="array"/>
+        </_ITEM_>
+      </expressions>
+      <field>
+        <_T_>fieldReference</_T_>
+        <id>iscustomglline</id>
+        <label>Custom GL</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.iscustomglline</uniqueId>
+      </field>
+      <targetFieldContext>
+        <name>IDENTIFIER</name>
+      </targetFieldContext>
+      <fieldStateName>raw</fieldStateName>
+      <caseSensitive type="boolean">false</caseSensitive>
+    </_ITEM_>
+  </children>
+  <meta type="null"/>
+  <field type="null"/>
+  <targetFieldContext>
+    <name>DEFAULT</name>
+  </targetFieldContext>
+  <fieldStateName type="null"/>
+</criteria>
+<formulas type="array">
+  <_ITEM_>
+    <_T_>dataSetFormula</_T_>
+    <formula>
+      <_T_>formula</_T_>
+      <id>formula_2</id>
+      <uniqueId>:data.formula_2</uniqueId>
+      <label>
+        <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_327_3</translationScriptId>
+      </label>
+      <formulaSQL>/*if landed cost*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN 1 
+ELSE 0 
+END</formulaSQL>
+      <dataType>INTEGER</dataType>
+    </formula>
+    <fields type="array">
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>blandedcost</id>
+        <label>Landed Cost</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.blandedcost</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+    </fields>
+  </_ITEM_>
+  <_ITEM_>
+    <_T_>dataSetFormula</_T_>
+    <formula>
+      <_T_>formula</_T_>
+      <id>formula_3</id>
+      <uniqueId>:data.formula_3</uniqueId>
+      <label>
+        <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_5</translationScriptId>
+      </label>
+      <formulaSQL>/*NE Cost Category*/
+CASE WHEN LENGTH({transactionlines.landedcostcategory#display}) = 0 
+THEN 'Purchase' 
+ELSE {transactionlines.landedcostcategory#display} 
+END</formulaSQL>
+      <dataType>STRING</dataType>
+    </formula>
+    <fields type="array">
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>landedcostcategory</id>
+        <label>Landed Cost Category</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.landedcostcategory</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>landedcostcategory</id>
+        <label>Landed Cost Category</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.landedcostcategory</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+    </fields>
+  </_ITEM_>
+  <_ITEM_>
+    <_T_>dataSetFormula</_T_>
+    <formula>
+      <_T_>formula</_T_>
+      <id>formula_1</id>
+      <uniqueId>:data.formula_1</uniqueId>
+      <label>
+        <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_5</translationScriptId>
+      </label>
+      <formulaSQL>/*if landed cost, then Landed cost amount*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN ABS(TO_NUMBER({transactionlines.accountingimpact.amount#currency_consolidated})) 
+ELSE 0 
+END</formulaSQL>
+      <dataType>FLOAT</dataType>
+    </formula>
+    <fields type="array">
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>blandedcost</id>
+        <label>Landed Cost</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.blandedcost</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>amount</id>
+        <label>Amount</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+            <_ITEM_>
+              <id>accountingimpact</id>
+              <targetRecordType>transactionaccountingline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.accountingimpact.amount</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+    </fields>
+  </_ITEM_>
+  <_ITEM_>
+    <_T_>dataSetFormula</_T_>
+    <formula>
+      <_T_>formula</_T_>
+      <id>formula_4</id>
+      <uniqueId>:data.formula_4</uniqueId>
+      <label>
+        <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_332_7</translationScriptId>
+      </label>
+      <formulaSQL>LENGTH({transactionlines.landedcostcategory#display})</formulaSQL>
+      <dataType>INTEGER</dataType>
+    </formula>
+    <fields type="array">
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>landedcostcategory</id>
+        <label>Landed Cost Category</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.landedcostcategory</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+    </fields>
+  </_ITEM_>
+  <_ITEM_>
+    <_T_>dataSetFormula</_T_>
+    <formula>
+      <_T_>formula</_T_>
+      <id>formula_0</id>
+      <uniqueId>:data.formula_0</uniqueId>
+      <label>
+        <translationScriptId>custcollectiontranslations_dataset_13_01d2db67319c49a38108b.dataset_formula_322_3</translationScriptId>
+      </label>
+      <formulaSQL>/*if not landed cost, then purchase amount*/
+CASE WHEN {transactionlines.blandedcost} = 'T' 
+THEN 0 
+ELSE ABS(TO_NUMBER({transactionlines.accountingimpact.amount#currency_consolidated})) 
+END</formulaSQL>
+      <dataType>FLOAT</dataType>
+    </formula>
+    <fields type="array">
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>blandedcost</id>
+        <label>Landed Cost</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.blandedcost</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+      <_ITEM_>
+        <_T_>fieldReference</_T_>
+        <id>amount</id>
+        <label>Amount</label>
+        <joinTrail>
+          <baseRecord>
+            <id>transaction</id>
+            <label>Transaction</label>
+          </baseRecord>
+          <joins type="array">
+            <_ITEM_>
+              <id>transactionlines</id>
+              <targetRecordType>transactionline</targetRecordType>
+            </_ITEM_>
+            <_ITEM_>
+              <id>accountingimpact</id>
+              <targetRecordType>transactionaccountingline</targetRecordType>
+            </_ITEM_>
+          </joins>
+        </joinTrail>
+        <uniqueId>transactionlines.accountingimpact.amount</uniqueId>
+        <fieldValidityState>VALID</fieldValidityState>
+      </_ITEM_>
+    </fields>
+  </_ITEM_>
+</formulas>
+</root>]]></definition>
+</dataset>

@@ -1,0 +1,684 @@
+<customlist scriptid="customlist_fmt_standard_item_fields">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>F</isordered>
+  <name>**Standard Item Fields List</name>
+  <customvalues>
+    <customvalue scriptid="value_1_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>account</value>
+    </customvalue>
+    <customvalue scriptid="value_2_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>alternatedemandsourceitem</value>
+    </customvalue>
+    <customvalue scriptid="value_3_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>amortizationperiod</value>
+    </customvalue>
+    <customvalue scriptid="value_4_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>amortizationtemplate</value>
+    </customvalue>
+    <customvalue scriptid="value_5_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>assetaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_6_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>autoleadtime</value>
+    </customvalue>
+    <customvalue scriptid="value_7_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>autopreferredstocklevel</value>
+    </customvalue>
+    <customvalue scriptid="value_8_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>autoreorderpoint</value>
+    </customvalue>
+    <customvalue scriptid="value_9_t1431154_962">
+      <abbreviation>a</abbreviation>
+      <isinactive>F</isinactive>
+      <value>availabletopartners</value>
+    </customvalue>
+    <customvalue scriptid="value_10_t1431154_962">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>billexchratevarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_11_t1431154_962">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>billingschedule</value>
+    </customvalue>
+    <customvalue scriptid="value_12_t1431154_962">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>billpricevarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_13_t1431154_962">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>billqtyvarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_14_t1431154_962">
+      <abbreviation>b</abbreviation>
+      <isinactive>F</isinactive>
+      <value>buildentireassembly</value>
+    </customvalue>
+    <customvalue scriptid="value_15_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>class</value>
+    </customvalue>
+    <customvalue scriptid="value_16_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>cogsaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_17_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>copydescription</value>
+    </customvalue>
+    <customvalue scriptid="value_18_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>cost</value>
+    </customvalue>
+    <customvalue scriptid="value_19_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>costcategory</value>
+    </customvalue>
+    <customvalue scriptid="value_20_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>costestimate</value>
+    </customvalue>
+    <customvalue scriptid="value_21_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>costestimatetype</value>
+    </customvalue>
+    <customvalue scriptid="value_22_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>costingmethod</value>
+    </customvalue>
+    <customvalue scriptid="value_23_t1431154_962">
+      <abbreviation>c</abbreviation>
+      <isinactive>F</isinactive>
+      <value>countryofmanufacture</value>
+    </customvalue>
+    <customvalue scriptid="value_24_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>defaultitemshipmethod</value>
+    </customvalue>
+    <customvalue scriptid="value_25_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>deferralaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_26_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>demandmodifier</value>
+    </customvalue>
+    <customvalue scriptid="value_27_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>department</value>
+    </customvalue>
+    <customvalue scriptid="value_28_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>displayname</value>
+    </customvalue>
+    <customvalue scriptid="value_29_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>distributioncategory</value>
+    </customvalue>
+    <customvalue scriptid="value_30_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>distributionnetwork</value>
+    </customvalue>
+    <customvalue scriptid="value_31_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>dontshowprice</value>
+    </customvalue>
+    <customvalue scriptid="value_32_t1431154_962">
+      <abbreviation>d</abbreviation>
+      <isinactive>F</isinactive>
+      <value>dropshipexpenseaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_33_t1431154_962">
+      <abbreviation>e</abbreviation>
+      <isinactive>F</isinactive>
+      <value>effectivebomcontrol</value>
+    </customvalue>
+    <customvalue scriptid="value_34_t1431154_962">
+      <abbreviation>e</abbreviation>
+      <isinactive>F</isinactive>
+      <value>enforceminqtyinternally</value>
+    </customvalue>
+    <customvalue scriptid="value_35_t1431154_962">
+      <abbreviation>e</abbreviation>
+      <isinactive>F</isinactive>
+      <value>excludefromsitemap</value>
+    </customvalue>
+    <customvalue scriptid="value_36_t1431154_962">
+      <abbreviation>e</abbreviation>
+      <isinactive>F</isinactive>
+      <value>expenseaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_37_t1431154_962">
+      <abbreviation>f</abbreviation>
+      <isinactive>F</isinactive>
+      <value>featureddescription</value>
+    </customvalue>
+    <customvalue scriptid="value_38_t1431154_962">
+      <abbreviation>g</abbreviation>
+      <isinactive>F</isinactive>
+      <value>gainlossaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_39_t1431154_962">
+      <abbreviation>g</abbreviation>
+      <isinactive>F</isinactive>
+      <value>generateaccruals</value>
+    </customvalue>
+    <customvalue scriptid="value_40_t1431154_962">
+      <abbreviation>h</abbreviation>
+      <isinactive>F</isinactive>
+      <value>handlingcost</value>
+    </customvalue>
+    <customvalue scriptid="value_41_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>includechildren</value>
+    </customvalue>
+    <customvalue scriptid="value_42_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>includestartendlines</value>
+    </customvalue>
+    <customvalue scriptid="value_43_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>incomeaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_44_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>internalid</value>
+    </customvalue>
+    <customvalue scriptid="value_45_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isdonationitem</value>
+    </customvalue>
+    <customvalue scriptid="value_46_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isdropshipitem</value>
+    </customvalue>
+    <customvalue scriptid="value_47_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isfulfillable</value>
+    </customvalue>
+    <customvalue scriptid="value_48_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isinactive</value>
+    </customvalue>
+    <customvalue scriptid="value_49_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isonline</value>
+    </customvalue>
+    <customvalue scriptid="value_50_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>ispretax</value>
+    </customvalue>
+    <customvalue scriptid="value_51_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isspecialorderitem</value>
+    </customvalue>
+    <customvalue scriptid="value_52_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>isspecialworkorderitem</value>
+    </customvalue>
+    <customvalue scriptid="value_53_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>issueproduct</value>
+    </customvalue>
+    <customvalue scriptid="value_54_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>itemcarrier</value>
+    </customvalue>
+    <customvalue scriptid="value_55_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>itemid</value>
+    </customvalue>
+    <customvalue scriptid="value_56_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>itemoptions</value>
+    </customvalue>
+    <customvalue scriptid="value_57_t1431154_962">
+      <abbreviation>i</abbreviation>
+      <isinactive>F</isinactive>
+      <value>itemshipmethod</value>
+    </customvalue>
+    <customvalue scriptid="value_58_t1431154_962">
+      <abbreviation>l</abbreviation>
+      <isinactive>F</isinactive>
+      <value>leadtime</value>
+    </customvalue>
+    <customvalue scriptid="value_59_t1431154_962">
+      <abbreviation>l</abbreviation>
+      <isinactive>F</isinactive>
+      <value>location</value>
+    </customvalue>
+    <customvalue scriptid="value_60_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>manufacturer</value>
+    </customvalue>
+    <customvalue scriptid="value_61_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>matchbilltoreceipt</value>
+    </customvalue>
+    <customvalue scriptid="value_62_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>maxdonationamount</value>
+    </customvalue>
+    <customvalue scriptid="value_63_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>metataghtml</value>
+    </customvalue>
+    <customvalue scriptid="value_64_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>minimumquantity</value>
+    </customvalue>
+    <customvalue scriptid="value_65_t1431154_962">
+      <abbreviation>m</abbreviation>
+      <isinactive>F</isinactive>
+      <value>mpn</value>
+    </customvalue>
+    <customvalue scriptid="value_66_t1431154_962">
+      <abbreviation>n</abbreviation>
+      <isinactive>F</isinactive>
+      <value>nextagcategory</value>
+    </customvalue>
+    <customvalue scriptid="value_67_t1431154_962">
+      <abbreviation>n</abbreviation>
+      <isinactive>F</isinactive>
+      <value>nonposting</value>
+    </customvalue>
+    <customvalue scriptid="value_68_t1431154_962">
+      <abbreviation>n</abbreviation>
+      <isinactive>F</isinactive>
+      <value>nopricemessage</value>
+    </customvalue>
+    <customvalue scriptid="value_69_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>offersupport</value>
+    </customvalue>
+    <customvalue scriptid="value_70_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>onspecial</value>
+    </customvalue>
+    <customvalue scriptid="value_71_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>outofstockbehavior</value>
+    </customvalue>
+    <customvalue scriptid="value_72_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>outofstockmessage</value>
+    </customvalue>
+    <customvalue scriptid="value_73_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>overallquantitypricingtype</value>
+    </customvalue>
+    <customvalue scriptid="value_74_t1431154_962">
+      <abbreviation>o</abbreviation>
+      <isinactive>F</isinactive>
+      <value>overheadtype</value>
+    </customvalue>
+    <customvalue scriptid="value_75_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>pagetitle</value>
+    </customvalue>
+    <customvalue scriptid="value_76_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>parent</value>
+    </customvalue>
+    <customvalue scriptid="value_77_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>paymentmethod</value>
+    </customvalue>
+    <customvalue scriptid="value_78_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>preferredlocation</value>
+    </customvalue>
+    <customvalue scriptid="value_79_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>preferredstockleveldays</value>
+    </customvalue>
+    <customvalue scriptid="value_80_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>pricinggroup</value>
+    </customvalue>
+    <customvalue scriptid="value_81_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>printitems</value>
+    </customvalue>
+    <customvalue scriptid="value_82_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>prodpricevarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_83_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>prodqtyvarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_84_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>productfeed</value>
+    </customvalue>
+    <customvalue scriptid="value_85_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchasedescription</value>
+    </customvalue>
+    <customvalue scriptid="value_86_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchaseorderamount</value>
+    </customvalue>
+    <customvalue scriptid="value_87_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchaseorderquantity</value>
+    </customvalue>
+    <customvalue scriptid="value_88_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchaseorderquantitydiff</value>
+    </customvalue>
+    <customvalue scriptid="value_89_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchasepricevarianceacct</value>
+    </customvalue>
+    <customvalue scriptid="value_90_t1431154_962">
+      <abbreviation>p</abbreviation>
+      <isinactive>F</isinactive>
+      <value>purchaseunit</value>
+    </customvalue>
+    <customvalue scriptid="value_91_t1431154_962">
+      <abbreviation>q</abbreviation>
+      <isinactive>F</isinactive>
+      <value>quantitypricingschedule</value>
+    </customvalue>
+    <customvalue scriptid="value_92_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>rate</value>
+    </customvalue>
+    <customvalue scriptid="value_93_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>receiptamount</value>
+    </customvalue>
+    <customvalue scriptid="value_94_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>receiptquantity</value>
+    </customvalue>
+    <customvalue scriptid="value_95_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>receiptquantitydiff</value>
+    </customvalue>
+    <customvalue scriptid="value_96_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>relateditemsdescription</value>
+    </customvalue>
+    <customvalue scriptid="value_97_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>reordermultiple</value>
+    </customvalue>
+    <customvalue scriptid="value_98_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>residual</value>
+    </customvalue>
+    <customvalue scriptid="value_99_t1431154_962">
+      <abbreviation>r</abbreviation>
+      <isinactive>F</isinactive>
+      <value>roundupascomponent</value>
+    </customvalue>
+    <customvalue scriptid="value_100_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>safetystockleveldays</value>
+    </customvalue>
+    <customvalue scriptid="value_101_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>salesdescription</value>
+    </customvalue>
+    <customvalue scriptid="value_102_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>saleunit</value>
+    </customvalue>
+    <customvalue scriptid="value_103_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>searchkeywords</value>
+    </customvalue>
+    <customvalue scriptid="value_104_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>seasonaldemand</value>
+    </customvalue>
+    <customvalue scriptid="value_105_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>shipindividually</value>
+    </customvalue>
+    <customvalue scriptid="value_106_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>shippackage</value>
+    </customvalue>
+    <customvalue scriptid="value_107_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>shippingcost</value>
+    </customvalue>
+    <customvalue scriptid="value_108_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>shoppingdotcomcategory</value>
+    </customvalue>
+    <customvalue scriptid="value_109_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>shopzillacategoryid</value>
+    </customvalue>
+    <customvalue scriptid="value_110_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>showdefaultdonationamount</value>
+    </customvalue>
+    <customvalue scriptid="value_111_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>sitemappriority</value>
+    </customvalue>
+    <customvalue scriptid="value_112_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>softdescriptor</value>
+    </customvalue>
+    <customvalue scriptid="value_113_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>stockdescription</value>
+    </customvalue>
+    <customvalue scriptid="value_114_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>stockunit</value>
+    </customvalue>
+    <customvalue scriptid="value_115_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storedescription</value>
+    </customvalue>
+    <customvalue scriptid="value_116_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storedetaileddescription</value>
+    </customvalue>
+    <customvalue scriptid="value_117_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storedisplayimage</value>
+    </customvalue>
+    <customvalue scriptid="value_118_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storedisplayname</value>
+    </customvalue>
+    <customvalue scriptid="value_119_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storedisplaythumbnail</value>
+    </customvalue>
+    <customvalue scriptid="value_120_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>storeitemtemplate</value>
+    </customvalue>
+    <customvalue scriptid="value_121_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>subsidiary</value>
+    </customvalue>
+    <customvalue scriptid="value_122_t1431154_962">
+      <abbreviation>s</abbreviation>
+      <isinactive>F</isinactive>
+      <value>supplyreplenishmentmethod</value>
+    </customvalue>
+    <customvalue scriptid="value_123_t1431154_962">
+      <abbreviation>t</abbreviation>
+      <isinactive>F</isinactive>
+      <value>taxschedule</value>
+    </customvalue>
+    <customvalue scriptid="value_124_t1431154_962">
+      <abbreviation>t</abbreviation>
+      <isinactive>F</isinactive>
+      <value>totalvalue</value>
+    </customvalue>
+    <customvalue scriptid="value_125_t1431154_962">
+      <abbreviation>t</abbreviation>
+      <isinactive>F</isinactive>
+      <value>tracklandedcost</value>
+    </customvalue>
+    <customvalue scriptid="value_126_t1431154_962">
+      <abbreviation>t</abbreviation>
+      <isinactive>F</isinactive>
+      <value>transferprice</value>
+    </customvalue>
+    <customvalue scriptid="value_127_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>unbuildvarianceaccount</value>
+    </customvalue>
+    <customvalue scriptid="value_128_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>undepfunds</value>
+    </customvalue>
+    <customvalue scriptid="value_129_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>upccode</value>
+    </customvalue>
+    <customvalue scriptid="value_130_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>urlcomponent</value>
+    </customvalue>
+    <customvalue scriptid="value_131_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>usebins</value>
+    </customvalue>
+    <customvalue scriptid="value_132_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>usecomponentyield</value>
+    </customvalue>
+    <customvalue scriptid="value_133_t1431154_962">
+      <abbreviation>u</abbreviation>
+      <isinactive>F</isinactive>
+      <value>usemarginalrates</value>
+    </customvalue>
+    <customvalue scriptid="value_134_t1431154_962">
+      <abbreviation>v</abbreviation>
+      <isinactive>F</isinactive>
+      <value>vendorname</value>
+    </customvalue>
+    <customvalue scriptid="value_135_t1431154_962">
+      <abbreviation>w</abbreviation>
+      <isinactive>F</isinactive>
+      <value>weight</value>
+    </customvalue>
+  </customvalues>
+</customlist>

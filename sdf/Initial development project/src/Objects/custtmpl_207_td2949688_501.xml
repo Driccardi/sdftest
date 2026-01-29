@@ -1,0 +1,9 @@
+<advancedpdftemplate scriptid="custtmpl_207_td2949688_501" standard="STDTMPLCUSTINVC">
+  <description></description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <printtype>TRANSACTION</printtype>
+  <title>GPT Example Generated 01</title>
+  <trantype>CUSTINVC</trantype>
+</advancedpdftemplate>

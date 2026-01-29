@@ -1,0 +1,80 @@
+<html>
+<style type="text/css">* {
+	vertical-align: baseline;
+}
+
+table {
+	font-size: 12pt;
+	table-layout: fixed;
+		}
+td {
+    padding: 4px 6px;
+        }
+tbody.header td {
+    padding: 0px;
+    font-size: 20pt;
+        }
+  
+  tbody.footer td {
+   	padding: 0px;
+    font-size: 11pt;
+    color: #A9A9A9;
+  }
+  <#--.logo
+  {
+    width: 100px;
+    height: auto;
+  }-->
+</style>
+<head>
+<table>
+<tbody class="header">
+	<tr>
+	<#--<td><img src="${companyInformation.logoUrl}" class="logo" /></td>-->
+	<td><#if transaction.custbody_ns_csgn_sub_name?contains(":")>${transaction.custbody_ns_csgn_sub_name?keep_after_last(": ")}<#else>${transaction.custbody_ns_csgn_sub_name}</#if></td>
+	</tr>
+</tbody>
+</table>
+</head><body>
+
+<table>
+<tbody>
+	<tr>
+	<td style="margin-top: 30px;">Hello <#if transaction.custbody_ns_csgn_contact?contains(":")>${transaction.custbody_ns_csgn_contact?keep_after_last(": ")},<#else>${transaction.custbody_ns_csgn_contact},</#if></td>
+	</tr>
+	<#if transaction.custbody_ns_gen_qrl?has_content>
+	<tr>
+	<td>Your consignment inventory at our warehouse has been shipped. The shipment documentation is attached to this email. Please click the URL below in order to provide a confirmation of receipt and that all expected quantities were received:</td>
+	</tr>
+	<tr>
+	<td align="center"><b><a href="${transaction.custbody_ns_gen_qrl}">Enter Receipt Confirmation</a></b></td>
+	</tr>
+	<tr>
+	<td>If you have any questions or concerns, please respond to this email.</td>
+	</tr>
+	<#else>
+	<tr>
+	<td>Your consignment inventory at our warehouse has been shipped. Please respond to this email or contact your Sales Rep to check-in these items.</td>
+	</tr>
+	</#if>
+</tbody>
+</table>
+
+<hr />
+<table>
+<tbody class="footer">
+	<tr>
+	<td>${transaction.custbody_ns_csgn_mgr?replace("[0-9]+", "", "r")}</td>
+	</tr>
+	<tr>
+	<td>${transaction.custbody_ns_csgn_sub_address}</td>
+	</tr>
+	<#if transaction.custbody_ns_csgn_phone?has_content><tr>
+	<td>${transaction.custbody_ns_csgn_phone}</td>
+	</tr></#if>
+	<tr>
+	<td>${transaction.custbody_ns_csgn_email}</td>
+	</tr>
+</tbody>
+</table>
+</body></html>

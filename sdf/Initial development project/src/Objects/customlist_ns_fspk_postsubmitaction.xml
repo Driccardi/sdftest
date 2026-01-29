@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_ns_fspk_postsubmitaction">
+  <description>Holds a set of actions the form takes when the user submits</description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>FSPK Post-Submit Action</name>
+  <customvalues>
+    <customvalue scriptid="val_180577_td2949688_487">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Send Email to User</value>
+    </customvalue>
+    <customvalue scriptid="val_180578_td2949688_961">
+      <abbreviation>R</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Redirect to URL</value>
+    </customvalue>
+    <customvalue scriptid="val_180579_td2949688_633">
+      <abbreviation>S</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Show Browser Message</value>
+    </customvalue>
+  </customvalues>
+</customlist>
