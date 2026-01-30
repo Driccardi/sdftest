@@ -189,9 +189,10 @@
 ### FA-005: Intercompany Transactions
 **Assumption**: Minimal to no intercompany transactions in Phase 1 (single operating subsidiary); intercompany setup is for future Canada operations
 **Impact**: Complexity of initial configuration, testing scope
-**Validation Required**: Confirm no shared services allocations or management fees
-**Risk if Wrong**: Need to configure and test intercompany in Phase 1
-**Status**: Assumed, needs validation
+**Validation Required**: ~~Confirm no shared services allocations or management fees~~ **VALIDATED (2026-01-30)**
+**Risk if Wrong**: ~~Need to configure and test intercompany in Phase 1~~ **Risk mitigated**
+**Status**: **Validated - No advanced intercompany transactions in Phase 1** (per Greg, 2026-01-30)
+**Note**: Advanced Intercompany Transactions module will NOT be used in Phase 1. Standard subsidiary setup sufficient for future Canada expansion. No shared services allocations or management fees in initial scope.
 
 ### FA-006: Payment Terms
 **Assumption**: All retail/e-commerce customers are prepaid (credit card or cash); no AR aging for B2C customers
@@ -414,8 +415,8 @@
 - Integration: 5
 
 **Validation Status**:
-- Validated: 0
-- To be Validated: 51
+- Validated: 1
+- To be Validated: 50
 - Validated with Concerns: 0
 - Invalid (requires change): 0
 
@@ -443,7 +444,7 @@
 | Date | Assumption ID | Change | Impact |
 |------|---------------|--------|--------|
 | 2026-01-28 | All | Initial assumptions documented | Baseline |
-| TBD | | | |
+| 2026-01-30 | FA-005 | Validated - No advanced intercompany transactions in Phase 1 (per Greg) | Simplifies configuration, reduces testing scope |
 
 ---
 
