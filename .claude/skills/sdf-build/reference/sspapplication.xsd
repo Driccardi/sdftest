@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="sspapplication">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="description" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 3999.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="3999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="isinactive" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="name" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 40.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="owner" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="loglevel" minOccurs="0" default="DEBUG">
+					<xsd:annotation>
+						<xsd:documentation>Values: plugintype_loglevel.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="status" minOccurs="1" default="TESTING">
+					<xsd:annotation>
+						<xsd:documentation>Values: plugintype_status.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="rootpath" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="appfolder" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="runtimeversion" minOccurs="1" default="1.0">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 40.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="systemdomain" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="defaultsspfile" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="libraries" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="library" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="scriptfile" minOccurs="1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="\[/[A-Za-z0-9._\-/]+\]"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="entrypoints" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="entrypoint" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="entrytype" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: webapp_entrytype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="entryitem" minOccurs="1" type="xsd:string"/>
+										<xsd:element name="entryparameter" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 60.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="60"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="webapp_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="34"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

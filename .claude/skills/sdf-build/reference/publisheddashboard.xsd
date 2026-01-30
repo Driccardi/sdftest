@@ -1,0 +1,3557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="publisheddashboard">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="name" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 30. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="center" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>References: center. Values: role_centertype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="lockshortcuts" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="locknewbar" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notes" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 4000. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="4000"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="roles" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="role" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="role" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="dashboards" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="dashboard" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="centertab" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>References: centertab. Values: generic_centertab.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="mode" minOccurs="1" default="UNLOCKED">
+											<xsd:annotation>
+												<xsd:documentation>Values: dashboard_mode.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="layout" minOccurs="1" default="TWO_COLUMN">
+											<xsd:annotation>
+												<xsd:documentation>Values: dashboard_layout.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="leftcolumn" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="calendar" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="numberofrecordsinagenda" minOccurs="1" default="7" type="xsd:integer"/>
+																<xsd:element name="showevents" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcanceledevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showweekendsinmonthlyview" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="recordstodisplayinagenda" minOccurs="0" default="TODAY_ONLY">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_calendar_agenda.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcampaignevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showresourceallocations" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customportlet" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="source" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: portlet.scriptdeployments.scriptdeployment.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="parameters" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: portlet.scriptcustomfields.scriptcustomfield.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="value" minOccurs="1" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customsearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch. Values: portlet_customsearch_savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="resultssize" minOccurs="1" default="10" type="xsd:string"/>
+																<xsd:element name="drilldown" minOccurs="0" default="NEW_PAGE">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_drilldown.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="title" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 40.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="40"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpimeter" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom, portlet_kpimeter_combined_snapshots.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="keyperformanceindicators" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="cacheddata" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpis" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="kpi" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="kpi" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="daterange" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="periodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compare" minOccurs="0" default="T">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="comparedaterange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compareperiodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="employees" minOccurs="0" default="ME_ONLY">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_employees.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="headline" minOccurs="0" default="F">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="highlightif" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_highlightif.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="threshold" minOccurs="0" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="list" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="type" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_list_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="size" minOccurs="1" default="5" type="xsd:integer"/>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="quicksearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="searchtype" minOccurs="1" default="GENERIC">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaultgeneraltype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customrecordtype. Values: portlet_quicksearch_generic.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaulttransactiontype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_transaction.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="reminders" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showzeroresults" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="headline" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+																<xsd:element name="other" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="searchform" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="trendgraph" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch2" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi3" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch3" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="trendtype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_trendtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="movingaverageperiod" minOccurs="1" default="2" type="xsd:integer"/>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="customseriescolor" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor2" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor3" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="defaultcharttype" minOccurs="0" default="AREA">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="includezeroonyaxis" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showmovingaverage" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastdatapoint" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="analytics" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="portlettype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_portlettype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visualization" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: workbook.charts.chart, workbook.pivots.pivot, workbook.tables.table.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="name" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 50.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="50"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="height" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_height.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visiblerows" minOccurs="0" type="xsd:integer"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="scheduler" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="settings" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentrecords" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentreports" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="shortcuts" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="tasklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpireport" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="reportid" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_reportid.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="restrict" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_restrict.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orientation" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_orientation.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="trend" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showdates" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="enhsnapshots" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="snapshot" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_snapshot.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="hierarchylevel" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="charttheme" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="periodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="daterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="topx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isgraph" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="compareperiodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="comparedaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isnewdaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="custom" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="listtopx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="graphlayout" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_graphlayout.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orderby" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="orderdesc" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="color" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customsnapshot" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedranges" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedaterange2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="lastlogin" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastlogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastotherservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccesstoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailuretime" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailureip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailurestoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordchanged" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordexpiration" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobilelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobileloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobiletoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebserviceloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicetoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethismonth" minOccurs="0" type="xsd:string"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdinfo" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdganttchart" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdpl" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdquicklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="centercolumn" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="calendar" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="numberofrecordsinagenda" minOccurs="1" default="7" type="xsd:integer"/>
+																<xsd:element name="showevents" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcanceledevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showweekendsinmonthlyview" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="recordstodisplayinagenda" minOccurs="0" default="TODAY_ONLY">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_calendar_agenda.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcampaignevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showresourceallocations" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customportlet" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="source" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: portlet.scriptdeployments.scriptdeployment.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="parameters" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: portlet.scriptcustomfields.scriptcustomfield.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="value" minOccurs="1" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customsearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch. Values: portlet_customsearch_savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="resultssize" minOccurs="1" default="10" type="xsd:string"/>
+																<xsd:element name="drilldown" minOccurs="0" default="NEW_PAGE">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_drilldown.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="title" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 40.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="40"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpimeter" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom, portlet_kpimeter_combined_snapshots.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="keyperformanceindicators" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="cacheddata" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpis" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="kpi" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="kpi" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="daterange" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="periodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compare" minOccurs="0" default="T">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="comparedaterange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compareperiodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="employees" minOccurs="0" default="ME_ONLY">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_employees.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="headline" minOccurs="0" default="F">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="highlightif" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_highlightif.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="threshold" minOccurs="0" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="list" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="type" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_list_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="size" minOccurs="1" default="5" type="xsd:integer"/>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="quicksearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="searchtype" minOccurs="1" default="GENERIC">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaultgeneraltype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customrecordtype. Values: portlet_quicksearch_generic.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaulttransactiontype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_transaction.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="reminders" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showzeroresults" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="headline" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+																<xsd:element name="other" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="searchform" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="trendgraph" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch2" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi3" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch3" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="trendtype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_trendtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="movingaverageperiod" minOccurs="1" default="2" type="xsd:integer"/>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="customseriescolor" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor2" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor3" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="defaultcharttype" minOccurs="0" default="AREA">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="includezeroonyaxis" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showmovingaverage" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastdatapoint" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="analytics" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="portlettype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_portlettype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visualization" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: workbook.charts.chart, workbook.pivots.pivot, workbook.tables.table.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="name" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 50.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="50"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="height" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_height.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visiblerows" minOccurs="0" type="xsd:integer"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="scheduler" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="settings" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentrecords" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentreports" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="shortcuts" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="tasklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpireport" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="reportid" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_reportid.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="restrict" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_restrict.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orientation" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_orientation.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="trend" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showdates" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="enhsnapshots" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="snapshot" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_snapshot.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="hierarchylevel" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="charttheme" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="periodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="daterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="topx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isgraph" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="compareperiodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="comparedaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isnewdaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="custom" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="listtopx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="graphlayout" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_graphlayout.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orderby" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="orderdesc" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="color" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customsnapshot" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedranges" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedaterange2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="lastlogin" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastlogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastotherservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccesstoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailuretime" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailureip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailurestoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordchanged" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordexpiration" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobilelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobileloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobiletoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebserviceloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicetoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethismonth" minOccurs="0" type="xsd:string"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdinfo" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdganttchart" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdpl" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdquicklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="rightcolumn" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="calendar" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="numberofrecordsinagenda" minOccurs="1" default="7" type="xsd:integer"/>
+																<xsd:element name="showevents" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingtasks" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="shownonblockingcalls" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcanceledevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showweekendsinmonthlyview" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="recordstodisplayinagenda" minOccurs="0" default="TODAY_ONLY">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_calendar_agenda.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showcampaignevents" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showresourceallocations" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customportlet" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="source" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: portlet.scriptdeployments.scriptdeployment.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="parameters" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: portlet.scriptcustomfields.scriptcustomfield.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="value" minOccurs="1" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="customsearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch. Values: portlet_customsearch_savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="resultssize" minOccurs="1" default="10" type="xsd:string"/>
+																<xsd:element name="drilldown" minOccurs="0" default="NEW_PAGE">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_drilldown.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_customsearch_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="title" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 40.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="40"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpimeter" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom, portlet_kpimeter_combined_snapshots.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="keyperformanceindicators" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="cacheddata" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpis" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="kpi" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="kpi" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: snapshot_type_date_range_comparable, snapshot_type_date_range_not_comparable, snapshot_type_period_range_comparable, snapshot_type_period_range_not_comparable, snapshot_type_custom.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch.</xsd:documentation>
+																							</xsd:annotation>
+																						</xsd:element>
+																						<xsd:element name="daterange" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="periodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compare" minOccurs="0" default="T">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="comparedaterange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_date_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="compareperiodrange" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: report_period_range.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="employees" minOccurs="0" default="ME_ONLY">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_employees.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="headline" minOccurs="0" default="F">
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:enumeration value="T"/>
+																									<xsd:enumeration value="F"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="highlightif" minOccurs="0">
+																							<xsd:annotation>
+																								<xsd:documentation>Values: portlet_kpi_highlightif.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="threshold" minOccurs="0" type="xsd:string"/>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="list" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="type" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_list_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="size" minOccurs="1" default="5" type="xsd:integer"/>
+																<xsd:element name="allowinlineediting" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="quicksearch" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="searchtype" minOccurs="1" default="GENERIC">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_type.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaultgeneraltype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customrecordtype. Values: portlet_quicksearch_generic.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="defaulttransactiontype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_quicksearch_transaction.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="reminders" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showzeroresults" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="headline" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+																<xsd:element name="other" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="reminder" minOccurs="0" maxOccurs="unbounded">
+																				<xsd:complexType>
+																					<xsd:all>
+																						<xsd:element name="id" minOccurs="1">
+																							<xsd:annotation>
+																								<xsd:documentation>References: savedsearch. Values: reminders_standard_reminders_without_days, reminders_standard_reminders_with_days.</xsd:documentation>
+																							</xsd:annotation>
+																							<xsd:simpleType>
+																								<xsd:restriction base="xsd:string">
+																									<xsd:pattern value="[A-Z0-9_]+"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																						<xsd:element name="days" minOccurs="0" default="5" type="xsd:integer"/>
+																						<xsd:element name="highlightingrules" minOccurs="0" maxOccurs="unbounded">
+																							<xsd:complexType>
+																								<xsd:sequence>
+																									<xsd:element name="rule" minOccurs="0" maxOccurs="unbounded">
+																										<xsd:complexType>
+																											<xsd:all>
+																												<xsd:element name="color" minOccurs="0" default="YELLOW">
+																													<xsd:annotation>
+																														<xsd:documentation>Values: reminders_highlighting_rules_colors.</xsd:documentation>
+																													</xsd:annotation>
+																													<xsd:simpleType>
+																														<xsd:restriction base="xsd:string">
+																															<xsd:pattern value="[A-Z0-9_]+"/>
+																														</xsd:restriction>
+																													</xsd:simpleType>
+																												</xsd:element>
+																												<xsd:element name="greaterthanorequalto" minOccurs="1" type="xsd:integer"/>
+																											</xsd:all>
+																										</xsd:complexType>
+																									</xsd:element>
+																								</xsd:sequence>
+																							</xsd:complexType>
+																						</xsd:element>
+																					</xsd:all>
+																				</xsd:complexType>
+																			</xsd:element>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="searchform" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="trendgraph" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="kpi" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch2" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="kpi3" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: snapshot_type_trendgraph, snapshot_type_custom.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="savedsearch3" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: savedsearch.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="trendtype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_trendtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="movingaverageperiod" minOccurs="1" default="2" type="xsd:integer"/>
+																<xsd:element name="backgroundtype" minOccurs="0" default="GLOBAL_BACKGROUND">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttheme" minOccurs="0" default="GLOBAL_THEME">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="customseriescolor" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor2" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customseriescolor3" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="defaultcharttype" minOccurs="0" default="AREA">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_trendgraph_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="includezeroonyaxis" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showmovingaverage" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastdatapoint" minOccurs="0" default="T">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="analytics" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="portlettype" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_portlettype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visualization" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: workbook.charts.chart, workbook.pivots.pivot, workbook.tables.table.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="name" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Max Length: 50.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:maxLength value="50"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="height" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_analytics_height.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="visiblerows" minOccurs="0" type="xsd:integer"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="scheduler" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="settings" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentrecords" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="recentreports" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="shortcuts" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="tasklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="kpireport" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="reportid" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_reportid.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="restrict" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_restrict.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orientation" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_kpireport_orientation.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="trend" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showdates" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="enhsnapshots" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="snapshot" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_snapshot.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="charttype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="backgroundtype" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_backgroundtype.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="hierarchylevel" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="charttheme" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_charttheme.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="periodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="daterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="topx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isgraph" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="compareperiodrange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_reportperiodrange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="comparedaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isnewdaterange" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="custom" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="listtopx" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_topx.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="graphlayout" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_graphlayout.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="orderby" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="orderdesc" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="color" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="customsnapshot" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedranges" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="comparedaterange2" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: portlet_reportsnapshot_daterange.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="lastlogin" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="showlastlogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastotherservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuilogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showcurrentuiloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccesstoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showsuccessthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailuretime" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastfailureip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailurestoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showfailuresthismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordchanged" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showpasswordexpiration" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobilelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastmobileloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobiletoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showmobilethismonth" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebservicelogin" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showlastwebserviceloginip" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicetoday" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethisweek" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="showwebservicethismonth" minOccurs="0" type="xsd:string"/>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdinfo" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdganttchart" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdpl" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="pdquicklinks" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="isminimized" minOccurs="0" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="custpubdashboard_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

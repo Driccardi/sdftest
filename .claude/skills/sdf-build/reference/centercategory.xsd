@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="centercategory">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="center" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>References: center. Values: generic_centertype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="centertab" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>References: centertab. Values: generic_centertab.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="label" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 99. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="99"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="links" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="link" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="linkid" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_task.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="linkobject" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: bundleinstallationscript, centerlink, centertab, clientscript, customlist, customrecordtype, customtransactiontype, mapreducescript, massupdatescript, portlet, restlet, savedsearch, scheduledscript, suitelet, suitelet.scriptdeployments.scriptdeployment, usereventscript, workflowactionscript.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="linktasktype" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: centercategory_tasktype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="linklabel" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: translationcollection.strings.string.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="shortlist" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="custcentercategory_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

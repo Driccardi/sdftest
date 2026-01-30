@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="savedcsvimport">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="recordtype" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: csvimport_recordtypes.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="importname" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 64. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="64"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="datahandling" minOccurs="1" default="ADD">
+					<xsd:annotation>
+						<xsd:documentation>Values: csvimport_datahandling.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="decimaldelimiter" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: csvimport_decimaldelimiter.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="columndelimiter" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: csvimport_columndelimiter.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="entryform" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>References: entryForm. Values: csvimport_entryform_standard.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="transactionform" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>References: transactionForm. Values: csvimport_transactionform_standard.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="customrecord" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>References: customrecordtype. Values: generic_standard_recordtype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="customtransaction" minOccurs="0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>References: customtransactiontype.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="charencoding" minOccurs="0" default="windows-1252">
+					<xsd:annotation>
+						<xsd:documentation>Values: csvimport_encoding.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="logsystemnotescustfields" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="overwritemissingfields" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="validatemandatorycustfields" minOccurs="0" default="T">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="overwritesublists" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ignorereadonly" minOccurs="0" default="T">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="preventduplicates" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="usemultithread" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="runserversuitescript" minOccurs="0" default="T">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="multiselectdelimiter" minOccurs="0" default="|">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 1.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="description" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 499. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="499"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="queuenumber" minOccurs="0" default="1" type="xsd:integer"/>
+				<xsd:element name="audience" minOccurs="0">
+					<xsd:complexType>
+						<xsd:all>
+							<xsd:element name="ispublic" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="globaledit" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="allemployees" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="allpartners" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="allroles" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="roles" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: role. Values: generic_internal_role.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:all>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="filemappings" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="filemapping" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="file" minOccurs="1" type="xsd:string"/>
+										<xsd:element name="primarykey" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="foreignkey" minOccurs="0" type="xsd:string"/>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="recordmappings" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="recordmapping" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="record" minOccurs="1" type="xsd:string"/>
+										<xsd:element name="line" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="fieldmappings" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="fieldmapping" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="field" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: crmcustomfield, customrecordtype.customrecordcustomfields.customrecordcustomfield, customsegment, entitycustomfield, itemcustomfield, itemnumbercustomfield, itemoptioncustomfield, othercustomfield, transactionbodycustomfield, transactioncolumncustomfield.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="value" minOccurs="0" type="xsd:string"/>
+																<xsd:element name="columnreference" minOccurs="0">
+																	<xsd:complexType>
+																		<xsd:all>
+																			<xsd:element name="file" minOccurs="1" type="xsd:string"/>
+																			<xsd:element name="column" minOccurs="1" type="xsd:string"/>
+																			<xsd:element name="type" minOccurs="0">
+																				<xsd:annotation>
+																					<xsd:documentation>Values: csvimport_referencetype.</xsd:documentation>
+																				</xsd:annotation>
+																				<xsd:simpleType>
+																					<xsd:restriction base="xsd:string">
+																						<xsd:pattern value="[A-Z0-9_]+"/>
+																					</xsd:restriction>
+																				</xsd:simpleType>
+																			</xsd:element>
+																		</xsd:all>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="custimport_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

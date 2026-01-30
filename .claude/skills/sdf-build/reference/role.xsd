@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="role">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="centertype" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>References: center. Values: role_centertype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="coreadminpermission" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="employeerestriction" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: role_fullrestrictions.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="employeeviewingallowed" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ispartnerrole" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="issalesrole" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="issupportrole" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="issuerole" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="name" minOccurs="1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="restricttimeandexpenses" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="employeeselectionunrestricted" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="isinactive" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="subsidiaryviewingallowed" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="subsidiaryoption" minOccurs="0" default="ALL">
+					<xsd:annotation>
+						<xsd:documentation>Values: rolesubsidiaryoption.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="accountingbooksoption" minOccurs="0" default="PRIMARY">
+					<xsd:annotation>
+						<xsd:documentation>Values: roleaccountingbooksoption.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="issinglesignononly" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="iswebserviceonlyrole" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="restrictbydevice" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="restrictip" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="tfarequired" minOccurs="0" default="OFF">
+					<xsd:annotation>
+						<xsd:documentation>Values: tfarequired.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="tfaduration" minOccurs="0" default="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: tfaduration.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="parentrolescriptid" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: customizable_role.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="permissions" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="permission" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="permkey" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>References: customrecordtype, customsegment, customtransactiontype. Values: generic_permission.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="permlevel" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_permission_level.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="restriction" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: role_restrict.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="recordrestrictions" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="recordrestriction" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="segment" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: role_restrictionsegment.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="restriction" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: role_restrictions.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="viewingallowed" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="itemsrestricted" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="customrole_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

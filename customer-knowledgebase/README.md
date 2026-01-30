@@ -3,13 +3,27 @@
 ## Overview
 This knowledgebase contains comprehensive documentation for SunStyle Retail, a leading retailer specializing in premium sunglasses and eyewear accessories.
 
-## Company Profile
+## Primary Customer: SunStyle Retail
+
+### Company Profile
 - **Company Name**: SunStyle Retail
 - **Industry**: Retail - Fashion Accessories
 - **Primary Products**: Sunglasses, Prescription Eyewear, Accessories
 - **Market Segment**: Mid to Premium retail
 - **Channels**: Physical Stores, E-commerce, Mobile App
 - **Geographic Coverage**: North America (USA, Canada)
+
+## Additional Client: Coastal Shades Inc.
+
+### Company Profile
+- **Company Name**: Coastal Shades Inc.
+- **Project Code**: csi
+- **Industry**: Retail - Sunglasses and Eyewear
+- **Key Stakeholders**:
+  - Sarah (Purchasing Manager)
+  - Tom (Operations Director)
+- **Focus Areas**: Vendor sourcing, procurement optimization
+- **Date Added**: 2026-01-28
 
 ## Knowledgebase Structure
 

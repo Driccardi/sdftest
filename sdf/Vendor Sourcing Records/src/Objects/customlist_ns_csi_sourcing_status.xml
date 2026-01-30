@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customlist scriptid="customlist_ns_csi_sourcing_status">
+  <name>Sourcing Status</name>
+  <description>Workflow stages for vendor sourcing efforts - tracks progress from initial contact through final decision</description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <customvalues>
+    <customvalue scriptid="_contacted">
+      <value>Contacted</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_awaiting_quote">
+      <value>Awaiting Quote</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_quote_received">
+      <value>Quote Received</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_negotiating">
+      <value>Negotiating</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_approved">
+      <value>Approved</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_rejected">
+      <value>Rejected</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="_on_hold">
+      <value>On Hold</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+  </customvalues>
+</customlist>

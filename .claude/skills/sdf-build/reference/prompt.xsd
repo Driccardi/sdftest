@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="prompt">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="name" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="description" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="isinacive" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="language" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: languages.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="languagevariant" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="prompttype" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: prompt_type.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="modelfamily" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: model_family.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="maxtokens" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="temperature" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="topk" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="topp" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="frequencypenalty" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="presencepenalty" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="preamble" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="recordtype" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="fieldid" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="template" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="action" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>References: textenhanceaction. Values: textenhanceactions.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="custprompt_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

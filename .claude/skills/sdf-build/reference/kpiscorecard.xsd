@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="kpiscorecard">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="name" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 25. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="25"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="description" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="useperiods" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Values: kpiscorecards_useperiods.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="kpis" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="kpi" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="kpi" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpi_snapshots_daterange, kpi_snapshots_daterange_or_period, kpi_snapshots_custom, kpi_snapshots_formula.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparevalueto" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpi_snapshots_daterange, kpi_snapshots_daterange_or_period, kpi_snapshots_custom, kpi_snapshots_formula.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparewithprevious" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparisontype" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpiscorecards_comparisons.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="invertcomparison" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="formula" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 200.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="200"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="lessismore" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="hidden" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="label" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 99. References: translationcollection.strings.string.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="99"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ranges" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="range" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="range" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpi_ranges_daterange, kpi_ranges_daterange_report, kpi_ranges_period, kpi_ranges_daterange_or_period.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparevalueto" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpi_ranges_daterange, kpi_ranges_daterange_report, kpi_ranges_period, kpi_ranges_daterange_or_period.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparewithprevious" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="comparisontype" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpiscorecards_comparisons.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="invertcomparison" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="label" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 99. References: translationcollection.strings.string.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="99"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="highlightings" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="highlighting" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="kpiindex" minOccurs="0" default="ALL" type="xsd:string"/>
+										<xsd:element name="condition" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpiscorecards_highlight_conditions.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="threshold" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="rangeindex" minOccurs="0" default="ALL" type="xsd:string"/>
+										<xsd:element name="icon" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: kpiscorecards_highlight_icons.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="foregroundcolor" minOccurs="0" default="#000000" type="xsd:string"/>
+										<xsd:element name="backgroundcolor" minOccurs="0" default="#FFFFFF" type="xsd:string"/>
+										<xsd:element name="bold" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="headline" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="custom" minOccurs="0">
+					<xsd:complexType>
+						<xsd:all>
+							<xsd:element name="kpi1" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi2" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi3" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi4" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi5" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi6" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi7" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi8" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi9" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="kpi10" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: savedsearch. Values: generic_savedsearches_daterange, generic_savedsearches_period.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:all>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="audience" minOccurs="0">
+					<xsd:complexType>
+						<xsd:all>
+							<xsd:element name="allroles" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="allpartners" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="allemployees" minOccurs="0" default="F">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="audslctrole" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="audslctextrole" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:pattern value="[A-Z0-9_]+"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:all>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="custkpiscorecard_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

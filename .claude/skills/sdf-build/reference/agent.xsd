@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="agent">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="name" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="description" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="systemprompt" minOccurs="1" type="xsd:string"/>
+				<xsd:element name="role" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="toolsets" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="toolset" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="definition" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: custtoolset.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="customknowledgebases" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="customknowledgebase" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="definition" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: customagentknowledgebase.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="guardrails" minOccurs="0">
+					<xsd:complexType>
+						<xsd:all>
+							<xsd:element name="enablepii" minOccurs="0" default="T">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="T"/>
+										<xsd:enumeration value="F"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:all>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="customagent_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

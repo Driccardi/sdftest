@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="portlet">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="description" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="isinactive" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="name" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 40. References: translationcollection.strings.string.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notifyadmins" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notifyemails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notifygroup" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="notifyowner" minOccurs="0" default="T">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notifyuser" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="owner" minOccurs="0" type="xsd:string"/>
+				<xsd:element name="scriptfile" minOccurs="1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="\[/[A-Za-z0-9._\-/]+\]"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="portlettype" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: script_portlettype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="scriptdeployments" minOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="scriptdeployment" minOccurs="1" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="allemployees" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="allpartners" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="allroles" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="auddepartment" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="audemployee" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="audgroup" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="audpartner" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="audslctrole" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="audsubsidiary" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="isdeployed" minOccurs="0" default="T">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="loglevel" minOccurs="0" default="DEBUG">
+											<xsd:annotation>
+												<xsd:documentation>Values: script_loglevel.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="runasrole" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: role. Values: generic_role.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="status" minOccurs="1" default="TESTING">
+											<xsd:annotation>
+												<xsd:documentation>Values: script_status.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="title" minOccurs="1" type="xsd:string"/>
+										<xsd:element name="dashboardapp" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+									<xsd:attribute name="scriptid" use="required">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:pattern value="customdeploy_[a-zA-Z0-9_]+"/>
+												<xsd:maxLength value="40"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:attribute>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="scriptcustomfields" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="scriptcustomfield" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="selectrecordtype" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: customlist, customrecordtype. Values: generic_customfield_selectrecordtype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applyformatting" minOccurs="0" default="T">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="defaultchecked" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="defaultselection" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: addressForm, advancedpdftemplate, bundleinstallationscript, bundleinstallationscript.scriptdeployments.scriptdeployment, clientscript, clientscript.scriptdeployments.scriptdeployment, crmcustomfield, customlist.customvalues.customvalue, customrecordtype, customrecordtype.customrecordcustomfields.customrecordcustomfield, customrecordtype.instances.instance, customtransactiontype, customtransactiontype.statuses, entitycustomfield, entryForm, itemcustomfield, itemnumbercustomfield, itemoptioncustomfield, mapreducescript, mapreducescript.scriptdeployments.scriptdeployment, massupdatescript, massupdatescript.scriptdeployments.scriptdeployment, othercustomfield, portlet, portlet.scriptdeployments.scriptdeployment, restlet, restlet.scriptdeployments.scriptdeployment, role, savedsearch, scheduledscript, scheduledscript.scriptdeployments.scriptdeployment, suitelet, suitelet.scriptdeployments.scriptdeployment, transactionForm, transactionbodycustomfield, transactioncolumncustomfield, usereventscript, usereventscript.scriptdeployments.scriptdeployment, workflow, workflow.workflowcustomfields.workflowcustomfield, workflow.workflowstates.workflowstate.workflowstatecustomfields.workflowstatecustomfield, workflowactionscript, workflowactionscript.scriptdeployments.scriptdeployment.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="defaultvalue" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="description" minOccurs="1" type="xsd:string"/>
+										<xsd:element name="displaytype" minOccurs="0" default="NORMAL">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_customfield_displaytype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="dynamicdefault" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_customfield_dynamicdefault.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="fieldtype" minOccurs="1" default="TEXT">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_customfield_fieldtype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="help" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: translationcollection.strings.string.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="label" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 200. References: translationcollection.strings.string.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="200"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="linktext" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="minvalue" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="maxvalue" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="storevalue" minOccurs="0" default="T">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="aidescription" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Max Length: 280.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="280"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="accesslevel" minOccurs="0" default="2">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_accesslevel_searchlevel.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="checkspelling" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="displayheight" minOccurs="0" type="xsd:integer"/>
+										<xsd:element name="displaywidth" minOccurs="0" type="xsd:integer"/>
+										<xsd:element name="isformula" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ismandatory" minOccurs="0" default="F">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="T"/>
+													<xsd:enumeration value="F"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="maxlength" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="onparentdelete" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_customfield_onparentdelete.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="owner" minOccurs="0" type="xsd:string"/>
+										<xsd:element name="searchcomparefield" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_standard_field.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="searchdefault" minOccurs="0" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: savedsearch.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="searchlevel" minOccurs="0" default="2">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_accesslevel_searchlevel.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="setting" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: script_setting.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+									<xsd:attribute name="scriptid" use="required">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:pattern value="custscript_[a-zA-Z0-9_]+"/>
+												<xsd:maxLength value="40"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:attribute>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="libraries" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="library" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="scriptfile" minOccurs="1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="\[/[A-Za-z0-9._\-/]+\]"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="customplugintypes" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="plugintype" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="plugintype" minOccurs="1" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation>References: plugintype.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="customscript_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

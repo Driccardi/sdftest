@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="customsegment">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="label" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 40.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="filteredby" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>References: customsegment. Values: customsegment_parent.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="recordtype" minOccurs="1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>References: customrecordtype.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="fieldtype" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: customsegment_fieldtype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="description" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="help" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Max Length: 999.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="999"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="hasglimpact" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ismandatory" minOccurs="0" default="F">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="T"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="displaytype" minOccurs="0" default="NORMAL">
+					<xsd:annotation>
+						<xsd:documentation>Values: customsegment_displaytype.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="defaultselection" minOccurs="0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>References: customrecordtype.instances.instance.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="defaultrecordaccesslevel" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: customsegment_access_search_level.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="defaultsearchaccesslevel" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: customsegment_access_search_level.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="valuesdisplayorder" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Values: customsegment_valuesdisplayorder.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[A-Z0-9_]+"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="permissions" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="permission" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="role" minOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>References: role. Values: customrecordtype_permittedrole.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="valuemgmtaccesslevel" minOccurs="0" default="NONE">
+											<xsd:annotation>
+												<xsd:documentation>Values: generic_permission_level.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="recordaccesslevel" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: customsegment_access_search_level.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="searchaccesslevel" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Values: customsegment_access_search_level.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="segmentapplication" minOccurs="0">
+					<xsd:complexType>
+						<xsd:all>
+							<xsd:element name="transactionbody" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="sourcelist" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: transactionbodycustomfield. Values: customsegment_transactionbody_sourcelist.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customtransactiontype. Values: customsegment_transactionbody_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="transactionline" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="sourcelist" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: transactionbodycustomfield, transactioncolumncustomfield. Values: customsegment_transactionline_sourcelist.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customtransactiontype. Values: customsegment_transactionline_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="entities" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="sourcelist" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: entitycustomfield. Values: customsegment_entities_sourcelist.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: customsegment_entities_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="crm" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="sourcelist" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: crmcustomfield. Values: customsegment_crm_sourcelist.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: customsegment_crm_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="items" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="sourcelist" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>References: itemcustomfield. Values: customsegment_items_sourcelist.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="subtype" minOccurs="1" default="BOTH">
+											<xsd:annotation>
+												<xsd:documentation>Values: customsegment_items_subtype.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="[A-Z0-9_]+"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: customsegment_items_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="otherrecords" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1">
+																	<xsd:annotation>
+																		<xsd:documentation>Values: customsegment_otherrecords_application_id.</xsd:documentation>
+																	</xsd:annotation>
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:pattern value="[A-Z0-9_]+"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="customrecords" minOccurs="0">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="applications" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="application" minOccurs="0" maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:all>
+																<xsd:element name="id" minOccurs="1" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customrecordtype.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="isapplied" minOccurs="1" default="F">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="T"/>
+																			<xsd:enumeration value="F"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="sourcelist" minOccurs="0" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation>References: customrecordtype.customrecordcustomfields.customrecordcustomfield.</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+															</xsd:all>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:all>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="scriptid" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="cseg_[a-zA-Z0-9_]+"/>
+						<xsd:maxLength value="19"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

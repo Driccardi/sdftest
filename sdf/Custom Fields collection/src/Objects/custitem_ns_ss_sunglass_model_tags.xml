@@ -1,0 +1,40 @@
+<itemcustomfield scriptid="custitem_ns_ss_sunglass_model_tags">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultvalue></defaultvalue>
+  <description>Free-form text field for entering searchable tags describing sunglass model attributes (e.g., polarized, sport, oversized, UV400, wraparound). Tags can be comma or space-separated to enable filtering and search.</description>
+  <displaytype>NORMAL</displaytype>
+  <dynamicdefault></dynamicdefault>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>TEXTAREA</fieldtype>
+  <globalsearch>T</globalsearch>
+  <help>Enter tags to describe model attributes for searching. Examples: polarized, sport, oversized, UV400, wraparound</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <itemassembly>T</itemassembly>
+  <itemdescription>F</itemdescription>
+  <itemdiscountprice>F</itemdiscountprice>
+  <itemgroup>F</itemgroup>
+  <itemkit>F</itemkit>
+  <itemlotnumbered>F</itemlotnumbered>
+  <itemmarkup>F</itemmarkup>
+  <itemnonstock>T</itemnonstock>
+  <itemotherchrg>F</itemotherchrg>
+  <itempayment>F</itempayment>
+  <itemserialized>F</itemserialized>
+  <itemservice>F</itemservice>
+  <itemsubof>F</itemsubof>
+  <label>Sunglass Model Tags</label>
+  <maxlength></maxlength>
+  <onparentdelete></onparentdelete>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>T</showinlist>
+  <storevalue>T</storevalue>
+  <subtab></subtab>
+</itemcustomfield>
