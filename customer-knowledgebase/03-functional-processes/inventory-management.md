@@ -148,6 +148,19 @@ The Inventory Management Process ensures optimal stock levels across all locatio
 - Consolidate orders by vendor (weekly batches)
 - Standard lead times: 2-4 weeks (domestic), 6-8 weeks (international)
 
+**Costing Requirements (Added 2026-02-02)**:
+- **Estimated Landed Cost**: Customer requires estimated landed costing functionality
+- **HTS Codes**: Items must have Harmonized Tariff Schedule (HTS) codes configured
+- **Landed Cost Calculation**: Percentage-based landed cost calculation by weight for each item
+- **Cost Components**: Unit cost + calculated landed cost (duties, freight, etc.) = total landed cost
+
+> ⚠️ **OPEN**: Need to clarify:
+> - Which cost components to include in landed cost % (duties, freight, insurance, handling)
+> - How to configure HTS codes per item (custom field or vendor-specific)
+> - Whether landed cost % varies by vendor or is item-specific
+> - If landed cost should update standard cost or be tracked separately
+> - Reporting requirements for landed cost variance analysis
+
 **Metrics**:
 - PO creation time: Target < 15 minutes (manual POs)
 - Auto-PO percentage: Target > 80%
@@ -526,8 +539,13 @@ The Inventory Management Process ensures optimal stock levels across all locatio
 - SOP-WH-002: Warehouse Receiving Procedures
 - SOP-WH-003: Cycle Counting Procedures
 
+## Changelog
+
+- **2026-02-02**: Added estimated landed costing requirement with HTS codes (per note from Greg)
+- **2026-01-19**: Version 1.2 - Process improvements and enhanced metrics
+
 ---
-*Status: Approved*
-*Last Updated: 2026-01-19*
-*Version: 1.2*
+*Status: Draft (updated 2026-02-02)*
+*Last Updated: 2026-02-02*
+*Version: 1.3*
 *Process Owner: David Martinez, COO*

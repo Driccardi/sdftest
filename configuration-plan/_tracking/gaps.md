@@ -33,16 +33,16 @@
 **Status**: Open
 
 ### GAP-RTR-002: Intercompany Allocation Rules
-**Type**: Type 4 - Decision Pending
+**Type**: Type 4 - Decision Pending → **RESOLVED**
 **Description**: Future Canada subsidiary mentioned but no detail on how shared costs (IT, HR, Executive) will be allocated between entities.
-**Impact**: Cannot design intercompany allocation process.
+**Impact**: ~~Cannot design intercompany allocation process~~ **NO IMPACT - Out of Phase 1 scope**
 **Questions**:
-- Will there be shared services between USA and Canada?
-- Allocation basis (headcount, revenue, square footage)?
-- Transfer pricing for inventory transfers?
-**Required From**: CFO, CFO
+- ~~Will there be shared services between USA and Canada?~~ **NO - confirmed by Greg, 2026-01-30**
+- ~~Allocation basis (headcount, revenue, square footage)?~~ **N/A**
+- ~~Transfer pricing for inventory transfers?~~ **N/A for Phase 1**
+**Required From**: ~~CFO, CFO~~ **Resolved**
 **Priority**: Low (future state, not Phase 1)
-**Status**: Deferred to Canada expansion project
+**Status**: **Resolved - Confirmed out of scope** (2026-01-30). Advanced Intercompany Transactions module will NOT be used in Phase 1. Standard subsidiary setup sufficient for future Canada expansion.
 
 ### GAP-RTR-003: Budget and Forecasting Process
 **Type**: Type 1 - Missing Information
@@ -289,6 +289,24 @@
 **Status**: Open - New discovery, documented in `quote-to-order-wholesale.md`
 **Related Docs**: `customer-knowledgebase/03-functional-processes/quote-to-order-wholesale.md`
 
+### GAP-PTP-005: Vendor Sourcing Status Change Notifications
+**Type**: Type 1 - Missing Information
+**Description**: NEW (2026-01-30) - Customer requires automated email notifications when sourcing status changes on Sourcing Tracker records.
+**Impact**: Requires workflow configuration for email alerts; need to define recipients, content, and triggers.
+**Questions**:
+- Which status changes should trigger emails (all changes or specific transitions)?
+- Who should receive emails (assigned buyer only, or also vendor, other stakeholders)?
+- Should vendors receive automated emails when status changes (e.g., "Quote Received" → "Approved")?
+- What information should be included in the email (item details, quote info, notes)?
+- Email template preferences (HTML formatted, plain text)?
+- Should there be a delay or batching (immediate send vs. daily digest)?
+- Any status changes that should NOT trigger emails?
+- Should email recipients be configurable per record or standard per status?
+**Required From**: Purchasing Team Lead, IT
+**Priority**: Medium (workflow automation, improves communication efficiency)
+**Status**: Open - Needs requirements workshop
+**Related Docs**: `customer-knowledgebase/03-functional-processes/vendor-sourcing-process.md`
+
 ---
 
 ## Marketing/CRM Gaps
@@ -511,8 +529,8 @@
 **Status**:
 - Open: 37 (+1 new)
 - Partially Resolved: 1 (GAP-OTC-005)
-- Deferred: 1
-- Resolved: 0
+- Deferred: 0 (-1, moved to Resolved)
+- Resolved: 1 (+1, GAP-RTR-002)
 
 ---
 
@@ -567,6 +585,7 @@
 | 2026-01-28 | All | Initial gaps documented | - |
 | 2026-01-30 | GAP-OTC-005 | Wholesale business confirmed - partially resolved | Documented in `quote-to-order-wholesale.md` |
 | 2026-01-30 | GAP-OTC-007 | New gap added for Quote-to-Order design workflow | Open - requires stakeholder workshop |
+| 2026-01-30 | GAP-RTR-002 | Resolved - Advanced intercompany transactions confirmed out of scope | Per Greg - no shared services or intercompany allocations in Phase 1 |
 
 ---
 
