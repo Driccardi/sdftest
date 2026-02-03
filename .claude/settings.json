@@ -48,7 +48,8 @@
 	  "Bash(suitecloud project:deploy:*)",
 	  "Bash(suitecloud project:adddependencies:*)",
 	  "Bash(suitecloud account:setup:*)",
-	  "Bash(suitecloud *)"
+	  "Bash(suitecloud *)",
+	  "Mcp"
     ]
   }
 }

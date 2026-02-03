@@ -1,9 +1,10 @@
 {
-  "projectPath": "C:\\Users\\David Riccardi\\Documents\\test-project",
+  "projectPath": "C:/Users/David Riccardi/Documents/test-project",
   "gitEnabled": true,
   "gitRemoteUrl": "https://github.com/Driccardi/sdftest.git",
   "gitDefaultBranch": "master",
   "gitCredentialType": "ssh",
+  "hideTerminalTab": true,
   "accounts": [],
   "activeAccountId": null
 }

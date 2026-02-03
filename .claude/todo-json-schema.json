@@ -1,0 +1,237 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NetSuite Project Action Plan",
+  "description": "Master todo list shared between human consultants and AI agents",
+  "type": "object",
+  "required": ["meta", "items"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Project metadata and plan-level information",
+      "required": ["projectName", "lastUpdated"],
+      "properties": {
+        "projectName": { "type": "string" },
+        "projectCode": { "type": "string" },
+        "client": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "lastUpdatedBy": { "type": "string" },
+        "version": { "type": "integer", "default": 1 }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "description": "Key project checkpoints",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "targetDate"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^MS-[0-9]+$" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "targetDate": { "type": "string", "format": "date" },
+          "status": {
+            "type": "string",
+            "enum": ["NOT_STARTED", "IN_PROGRESS", "AT_RISK", "COMPLETED", "MISSED"]
+          },
+          "completedDate": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "Action items / tasks",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "createdDate", "assignedTo"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^TODO-[0-9]+$",
+            "description": "Unique identifier"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the work"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["BACKLOG", "READY", "IN_PROGRESS", "REVIEW", "BLOCKED", "DONE", "CANCELLED"]
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+            "default": "MEDIUM"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "REQUIREMENTS",
+              "CONFIGURATION",
+              "CUSTOMIZATION",
+              "DATA_MIGRATION",
+              "INTEGRATION",
+              "TESTING",
+              "TRAINING",
+              "DOCUMENTATION",
+              "GO_LIVE",
+              "SUPPORT"
+            ]
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "completedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "assignedTo": {
+            "type": "object",
+            "required": ["type", "name"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["HUMAN", "AGENT"]
+              },
+              "name": {
+                "type": "string",
+                "description": "Human name or agent identifier"
+              }
+            }
+          },
+          "milestone": {
+            "type": "string",
+            "description": "Reference to milestone ID (e.g., MS-001)",
+            "pattern": "^MS-[0-9]+$"
+          },
+          "isMilestoneCheckpoint": {
+            "type": "boolean",
+            "default": false,
+            "description": "True if this item is a gate/checkpoint rather than deliverable work"
+          },
+          "references": {
+            "type": "array",
+            "description": "Project documents that explain what/why/how",
+            "items": {
+              "type": "object",
+              "required": ["path"],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "Relative path from project root"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Why this document is relevant"
+                },
+                "section": {
+                  "type": "string",
+                  "description": "Specific section or heading if applicable"
+                }
+              }
+            }
+          },
+          "dependencies": {
+            "type": "object",
+            "properties": {
+              "blockedBy": {
+                "type": "array",
+                "description": "IDs of items that must complete before this can start",
+                "items": { "type": "string", "pattern": "^TODO-[0-9]+$" }
+              },
+              "blocks": {
+                "type": "array",
+                "description": "IDs of items waiting on this item",
+                "items": { "type": "string", "pattern": "^TODO-[0-9]+$" }
+              }
+            }
+          },
+          "predicates": {
+            "type": "array",
+            "description": "Conditions that must be true for this item to proceed",
+            "items": {
+              "type": "object",
+              "required": ["condition"],
+              "properties": {
+                "condition": {
+                  "type": "string",
+                  "description": "Human-readable condition statement"
+                },
+                "isMet": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "verifiedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "verifiedBy": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "effort": {
+            "type": "object",
+            "properties": {
+              "estimated": {
+                "type": "string",
+                "description": "Estimated effort (e.g., '2h', '1d', '1w')"
+              },
+              "actual": {
+                "type": "string",
+                "description": "Actual effort once completed"
+              }
+            }
+          },
+          "notes": {
+            "type": "array",
+            "description": "Running log of updates and context",
+            "items": {
+              "type": "object",
+              "required": ["timestamp", "author", "content"],
+              "properties": {
+                "timestamp": { "type": "string", "format": "date-time" },
+                "author": { "type": "string" },
+                "content": { "type": "string" }
+              }
+            }
+          },
+          "netsuiteContext": {
+            "type": "object",
+            "description": "NetSuite-specific metadata",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Primary NS module (e.g., 'GL', 'Inventory', 'SuiteScript')"
+              },
+              "recordTypes": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Affected record types"
+              },
+              "scriptIds": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Related script IDs"
+              },
+              "savedSearches": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Related saved search IDs"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -33,5 +33,9 @@
       <value>On Hold</value>
       <isinactive>F</isinactive>
     </customvalue>
+    <customvalue scriptid="_cancelled">
+      <value>Cancelled</value>
+      <isinactive>F</isinactive>
+    </customvalue>
   </customvalues>
 </customlist>

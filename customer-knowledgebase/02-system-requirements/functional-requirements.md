@@ -599,7 +599,54 @@ This document details the functional requirements for SunStyle Retail's core bus
 - [ ] Average rating calculated correctly
 - [ ] Photo reviews display properly
 
-## Module 6: Marketing & Promotions
+## Module 6: Fixed Asset Management (FAM)
+
+### FR-FAM-001: Asset Tracking and Management
+**Related BR**: BR-003.6
+**Priority**: High
+
+**Description**: System shall manage fixed assets for store operations and equipment.
+
+**Functional Details**:
+1. Asset categories:
+   - Store fixtures (shelving, display units, signage)
+   - Computer equipment (POS terminals, back office systems)
+   - Furniture and equipment
+   - Leasehold improvements
+   - Store-specific assets by location
+
+2. Asset lifecycle management:
+   - Asset acquisition and setup
+   - Depreciation calculations
+   - Maintenance tracking
+   - Transfer between locations
+   - Asset retirement and disposal
+
+3. Asset information capture:
+   - Asset description and category
+   - Serial number and identification
+   - Purchase date and cost
+   - Assigned location (store or warehouse)
+   - Depreciation method and schedule
+   - Warranty information
+
+4. Reporting requirements:
+   - Asset register by location
+   - Depreciation schedules
+   - Asset valuation reports
+   - Maintenance history
+   - Transfer logs
+
+**Acceptance Criteria**:
+- [ ] All store assets tracked by location
+- [ ] Depreciation calculated automatically per accounting rules
+- [ ] Asset transfers logged with audit trail
+- [ ] Reports available for financial close
+- [ ] Integration with GL for depreciation posting
+
+**Decision Note**: Implemented January 2026. NetSuite Fixed Asset Management module will be used to track store assets, fixtures, computer equipment, and other capital expenditures across all 25 retail locations and the central distribution center.
+
+## Module 7: Marketing & Promotions
 
 ### FR-MKT-001: Promotion Engine
 **Related BR**: BR-006.1, BR-006.2

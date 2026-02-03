@@ -1,0 +1,1 @@
+Greg let me know the customer wants to use estimated landed costing.  They'll have HTS codes set up with % lc by weight for each item.

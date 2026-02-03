@@ -1,0 +1,1 @@
+Having a conversation with Moxi. He mentioned that during the sourcing process this customer wants to send emails automatically every time the status changes.  Please reflect this new requirement

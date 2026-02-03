@@ -6,6 +6,9 @@
 **Created**: 2026-01-30
 **Status**: Draft
 **Source**: Discovery notes from M. Rivera, 2026-01-28
+**Source Documents**:
+  - `unprocessed/_processed/2026-01-30_vendor-sourcing-requirements.pdf` (processed 2026-01-30)
+  - `unprocessed/vendor-sourcing-requirements.md` (processed 2026-02-02)
 **Related**:
   - [Inventory Management Process](./inventory-management.md)
   - [Configuration Spec: Sourcing Tracker Custom Record](../../configuration-execution/custom-records/sourcing-tracker.md)
@@ -65,8 +68,34 @@ Currently, the vendor sourcing workflow is managed through spreadsheets and emai
   - **Approved** - Vendor selected, ready to issue PO
   - **Rejected** - Did not meet requirements or pricing
   - **On Hold** - Paused for business reasons
+  - **Cancelled** - Sourcing effort cancelled
 
-### 5. Reporting and Analysis
+### 5. Automated Email Notifications
+
+**NEW REQUIREMENT (2026-01-30)**: Per discussion with Moxi, the customer requires automated email notifications to be sent whenever the Sourcing Status field changes.
+
+**Notification Requirements**:
+- Trigger: Status field change on Sourcing Tracker record
+- Recipients: *To be determined (see open questions)*
+- Content: *To be determined (see open questions)*
+
+> ⚠️ **OPEN QUESTIONS** - See GAP-PTP-005:
+> - Which status changes should trigger emails (all or specific transitions)?
+> - Who receives notifications (assigned buyer, vendor, purchasing manager)?
+> - Should vendors receive automated notifications?
+> - What information should be included in the email?
+> - Email format preferences (HTML vs. plain text)?
+> - Immediate send or batched/delayed?
+> - Any status changes that should NOT trigger emails?
+> - Should recipients be configurable per record or standard per status?
+
+**Implementation Notes**:
+- Requires workflow or user event script with email notification action
+- Email templates needed for each status transition (or generic template)
+- Consider using NetSuite's workflow notification feature vs. custom SuiteScript
+- May need custom email template records
+
+### 6. Reporting and Analysis
 - Purchasing team reviews dashboards showing:
   - Open sourcing requests by status
   - Average days to quote by vendor
@@ -102,6 +131,7 @@ Currently, the vendor sourcing workflow is managed through spreadsheets and emai
 - **Approved** - Vendor selected, ready to proceed
 - **Rejected** - Vendor not selected
 - **On Hold** - Sourcing paused
+- **Cancelled** - Sourcing effort cancelled *(added 2026-01-30)*
 
 ### Calculated Metrics (future)
 
@@ -155,6 +185,9 @@ Tom requested visibility from the Vendor record - options to explore:
 > ⚠️ OPEN: Attachment handling strategy for quote PDFs
 **Decision:** Parking lot for phase 2. May use NetSuite file attachments or link to external document management.
 
+> ⚠️ OPEN: Email notification requirements for status changes (NEW 2026-01-30)
+**Decision:** Pending - See GAP-PTP-005 in gaps.md for detailed requirements gathering questions. Needs workshop with Purchasing team to define triggers, recipients, and content.
+
 ## Next Steps
 
 1. Build custom record type: Sourcing Tracker
@@ -166,10 +199,12 @@ Tom requested visibility from the Vendor record - options to explore:
 
 ## Changelog
 
+- **2026-02-02**: Updated source documents to include markdown version of discovery notes
+- **2026-01-30**: Added "Cancelled" status value and automated email notification requirement (per discussion with Moxi). Added GAP-PTP-005 reference.
 - **2026-01-30**: Initial document created from discovery notes (M. Rivera, 2026-01-28)
 
 ---
 
-*Last Updated: 2026-01-30*
-*Version: 1.0.0*
+*Last Updated: 2026-02-02*
+*Version: 1.1.1*
 *Status: Draft*

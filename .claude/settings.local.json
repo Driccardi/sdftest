@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__NetSuite Prod NEXT__ns_createRecord",
+      "mcp__NetSuite Prod NEXT__ns_updateRecord",
+      "mcp__NetSuite Prod NEXT__ns_getRecord",
+      "mcp__NetSuite Prod NEXT__ns_getRecordTypeMetadata",
+      "mcp__NetSuite Prod NEXT__ns_runReport",
+      "mcp__NetSuite Prod NEXT__ns_listAllReports",
+      "mcp__NetSuite Prod NEXT__ns_getSubsidiaries",
+      "mcp__NetSuite Prod NEXT__ns_listSavedSearches",
+      "mcp__NetSuite Prod NEXT__ns_runSavedSearch",
+      "mcp__NetSuite Prod NEXT__ns_runCustomSuiteQL"
+    ]
+  }
+}
