@@ -1,0 +1,2 @@
+Question - Determine if Lightspeed POS remains in stores (requiring integration) or will be replaced by NetSuite POS. Impacts store operations, integration scope, timeline, budget, training.
+Answer - Yes, Lightspeed POS will be retained.  Lightspeed has a NetSuite Integrated SuiteApp -  a separate team will be responsible for configuring the suiteApp and Lightspeed integration.  Plan that the integration will pull Inventory and pricing, and return Cash Sale Records. 

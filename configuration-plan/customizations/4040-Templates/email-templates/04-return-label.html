@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Authorization - SunStyle Retail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+        }
+        .header {
+            background-color: #1E3A8A;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .greeting {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+        .return-summary {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .return-summary h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+            font-size: 18px;
+        }
+        .return-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .return-detail .label {
+            color: #6B7280;
+        }
+        .return-detail .value {
+            font-weight: 600;
+            color: #1F2937;
+        }
+        .line-items {
+            margin-bottom: 30px;
+        }
+        .line-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .line-item:last-child {
+            border-bottom: none;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-name {
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 5px;
+        }
+        .step-section {
+            background-color: #DBEAFE;
+            border-left: 4px solid #1E3A8A;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .step-section h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+            font-size: 20px;
+        }
+        .step-section h3 .step-number {
+            display: inline-block;
+            background-color: #1E3A8A;
+            color: white;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .step-section ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .step-section li {
+            margin-bottom: 8px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #1E3A8A;
+            color: white !important;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #152D6E;
+        }
+        .info-box {
+            background-color: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .info-box h4 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .customer-service {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .customer-service h4 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .footer {
+            background-color: #1F2937;
+            color: #D1D5DB;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .return-detail {
+                flex-direction: column;
+            }
+            .line-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://www.sunstyleretail.com/images/logo-white.png" alt="SunStyle Retail" class="logo">
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Greeting -->
+            <div class="greeting">Your Return Is Approved</div>
+            <div class="subtitle">We've made it easy to send your items back</div>
+
+            <!-- Return Summary -->
+            <div class="return-summary">
+                <h3>Return Details</h3>
+                <div class="return-detail">
+                    <span class="label">RMA Number:</span>
+                    <span class="value">${transaction.tranid}</span>
+                </div>
+                <div class="return-detail">
+                    <span class="label">Original Order:</span>
+                    <span class="value">${transaction.createdfrom.tranid}</span>
+                </div>
+                <div class="return-detail">
+                    <span class="label">Return Deadline:</span>
+                    <span class="value">${transaction.custbody_return_deadline?string("MMMM d, yyyy")}</span>
+                </div>
+                <div class="return-detail">
+                    <span class="label">Expected Refund Amount:</span>
+                    <span class="value">${transaction.total?string.currency}</span>
+                </div>
+            </div>
+
+            <!-- Items Being Returned -->
+            <div class="line-items">
+                <h3 style="color: #1E3A8A;">Items Being Returned</h3>
+                <#list transaction.item as item>
+                <div class="line-item">
+                    <div class="item-details">
+                        <div class="item-name">${item.item}</div>
+                        <div style="font-size: 14px; color: #6B7280; margin-top: 5px;">
+                            Quantity: ${item.quantity}<br>
+                            <#if transaction.custbody_return_reason?has_content>
+                            Reason: ${transaction.custbody_return_reason}
+                            </#if>
+                        </div>
+                    </div>
+                </div>
+                </#list>
+            </div>
+
+            <!-- Step 1: Package Your Items -->
+            <div class="step-section">
+                <h3><span class="step-number">1</span> Package Your Items</h3>
+                <ul>
+                    <li>Place items in original packaging if available</li>
+                    <li>Include all accessories, tags, and documentation</li>
+                    <li>Use a sturdy box with adequate padding</li>
+                    <li><strong>DO NOT</strong> include the packing slip</li>
+                </ul>
+            </div>
+
+            <!-- Step 2: Print Your Return Label -->
+            <div class="step-section">
+                <h3><span class="step-number">2</span> Print Your Return Label</h3>
+                <p style="margin: 10px 0;">Click the button below to download your prepaid return shipping label:</p>
+                <div style="text-align: center; margin: 20px 0;">
+                    <a href="https://www.sunstyleretail.com/returns/label/${transaction.tranid}" class="cta-button">Download Return Label</a>
+                </div>
+                <ul>
+                    <li>Attach the label to the outside of your box</li>
+                    <li>Cover or remove any other shipping labels</li>
+                    <li>Make sure the barcode is clearly visible</li>
+                </ul>
+            </div>
+
+            <!-- Step 3: Ship Your Return -->
+            <div class="step-section">
+                <h3><span class="step-number">3</span> Ship Your Return</h3>
+                <ul>
+                    <li>Drop off at any UPS location</li>
+                    <li>OR schedule a free pickup at <a href="https://www.ups.com/pickup" style="color: #1E3A8A; font-weight: 600;">ups.com/pickup</a></li>
+                    <li>Track your return at <a href="https://www.sunstyleretail.com/returns/track/${transaction.tranid}" style="color: #1E3A8A; font-weight: 600;">this link</a></li>
+                </ul>
+            </div>
+
+            <!-- Return Policy Reminder -->
+            <div class="info-box">
+                <h4>📋 Return Policy Reminder</h4>
+                <ul style="margin: 10px 0; padding-left: 20px; font-size: 14px;">
+                    <li>Items must be unworn with original tags attached</li>
+                    <li>Prescription items: defective only, no returns on custom orders</li>
+                    <li>Refund processed within 5-7 business days after we receive your return</li>
+                    <li>Refund will be issued to your original payment method</li>
+                </ul>
+            </div>
+
+            <!-- Refund Method -->
+            <div style="background-color: #F9FAFB; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="margin-top: 0; color: #1E3A8A;">💳 Refund Information</h4>
+                <p style="margin: 5px 0; font-size: 14px;">
+                    <strong>Refund Method:</strong> ${transaction.custbody_refund_method}<br>
+                    <strong>Estimated Refund Date:</strong> 7-10 business days after delivery to our facility<br>
+                    <strong>You'll receive a confirmation email when your refund is processed</strong>
+                </p>
+            </div>
+
+            <!-- Customer Service -->
+            <div class="customer-service">
+                <h4>Questions About Your Return?</h4>
+                <p style="margin: 5px 0;">
+                    <strong>Email:</strong> returns@sunstyleretail.com<br>
+                    <strong>Phone:</strong> 1-800-SUNSTYLE<br>
+                    <strong>Chat:</strong> Available on our website Mon-Fri 8am-8pm ET
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://instagram.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-instagram.png" alt="Instagram" width="24" height="24"></a>
+                <a href="https://facebook.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-facebook.png" alt="Facebook" width="24" height="24"></a>
+                <a href="https://tiktok.com/@sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-tiktok.png" alt="TikTok" width="24" height="24"></a>
+            </div>
+            <p>
+                <a href="https://www.sunstyleretail.com/returns">Return Policy</a> |
+                <a href="https://www.sunstyleretail.com/shipping">Shipping Info</a> |
+                <a href="https://www.sunstyleretail.com/contact">Contact Us</a>
+            </p>
+            <p style="margin-top: 20px;">
+                SunStyle Retail Corporation<br>
+                123 Fashion Avenue, New York, NY 10001<br>
+                © 2026 SunStyle Retail. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

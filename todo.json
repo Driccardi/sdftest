@@ -1,0 +1,2409 @@
+{
+  "meta": {
+    "projectName": "SunStyle Retail NetSuite Implementation",
+    "projectCode": "SUNSTYLE-NS-2026",
+    "client": "SunStyle Retail Corporation",
+    "lastUpdated": "2026-02-04T00:48:48.925Z",
+    "lastUpdatedBy": "user",
+    "version": 1
+  },
+  "milestones": [
+    {
+      "id": "MS-001",
+      "title": "Project Kickoff & Foundation Setup",
+      "description": "Core team mobilized, critical architecture decisions made, foundational configuration begun",
+      "targetDate": "2026-02-28",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-002",
+      "title": "Requirements Validation Complete",
+      "description": "All Critical and High priority questions answered, assumptions validated, gaps filled",
+      "targetDate": "2026-03-31",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-003",
+      "title": "Foundation Configuration Complete",
+      "description": "COA, subsidiaries, periods, master data loaded and ready for transactions",
+      "targetDate": "2026-03-28",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-004",
+      "title": "Core Processes Configured",
+      "description": "Procure-to-Pay, Order-to-Cash, and Inventory Management functional in sandbox",
+      "targetDate": "2026-05-23",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-005",
+      "title": "All Integrations Live",
+      "description": "Shopify, Salesforce, Stripe, Shipping carriers integrated and tested end-to-end",
+      "targetDate": "2026-06-27",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-006",
+      "title": "UAT Sign-Off",
+      "description": "User acceptance testing complete, all critical issues resolved, go-live approved",
+      "targetDate": "2026-08-01",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "MS-007",
+      "title": "Production Go-Live",
+      "description": "NetSuite live in production, all channels operational, hypercare begun",
+      "targetDate": "2026-08-15",
+      "status": "NOT_STARTED"
+    }
+  ],
+  "items": [
+    {
+      "id": "TODO-001",
+      "title": "CRITICAL: Clarify NetSuite Current Usage Status",
+      "description": "System Inventory doc suggests NetSuite already in use for inventory, but project context suggests new implementation. This fundamentally changes project approach (expansion vs. greenfield). MUST clarify in kickoff.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Project Manager"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-002: Inventory Management System vs. NetSuite IMS",
+          "section": "HIGH Priority Ambiguities"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-001: NetSuite Current Usage Status",
+          "section": "CRITICAL Priority"
+        }
+      ],
+      "predicates": [
+        {
+          "condition": "CTO and IT Lead available for kickoff meeting",
+          "isMet": false
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-04T00:48:42.409Z",
+          "author": "user",
+          "content": "This is a new implementation.  Inventory management today is in their POS and Quickbooks."
+        }
+      ],
+      "completedDate": "2026-02-04T00:48:48.925Z"
+    },
+    {
+      "id": "TODO-002",
+      "title": "CRITICAL: Decide Custom OMS Future State",
+      "description": "Determine if SunStyle Order Hub (custom OMS) will be retired and replaced by NetSuite native OMS, or will remain and integrate. Major architectural decision impacting scope, timeline, integrations.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CTO / VP Digital Operations"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-004: Custom Order Management System (OMS)",
+          "section": "CRITICAL Priority Ambiguities"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-002: Custom OMS Future State",
+          "section": "CRITICAL Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-003",
+      "title": "CRITICAL: Decide Lightspeed POS Future State",
+      "description": "Determine if Lightspeed POS remains in stores (requiring integration) or will be replaced by NetSuite POS. Impacts store operations, integration scope, timeline, budget, training.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "COO / CTO / Store Operations"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-005: Lightspeed POS vs. NetSuite POS",
+          "section": "CRITICAL Priority Ambiguities"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-003: Lightspeed POS Future State",
+          "section": "CRITICAL Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-004",
+      "title": "CRITICAL: Confirm Fiscal Calendar",
+      "description": "Confirm fiscal calendar is January-December and will NOT change. Foundational to accounting periods configuration, tax reporting, budget cycles.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CFO"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-001: Fiscal Calendar Confirmation",
+          "section": "CRITICAL Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/assumptions.md",
+          "description": "FA-001: Fiscal Calendar",
+          "section": "TO BE VALIDATED - CRITICAL"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Record-to-Report",
+        "recordTypes": [
+          "accountingPeriod"
+        ]
+      }
+    },
+    {
+      "id": "TODO-005",
+      "title": "CRITICAL: Confirm Inventory Costing Method",
+      "description": "Confirm inventory costing method: Average Cost (assumed), FIFO, or Standard Cost. Discuss with external auditors. Major impact on COGS and inventory valuation. Consider if prescription lenses need different costing.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CFO / Controller / External Auditor"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-002: Inventory Costing Method",
+          "section": "CRITICAL Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-PTI-005: Inventory Valuation Method Confirmation",
+          "section": "CRITICAL Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Plan-to-Inventory",
+        "recordTypes": [
+          "item"
+        ]
+      }
+    },
+    {
+      "id": "TODO-006",
+      "title": "Validate Network Connectivity at All 25 Stores",
+      "description": "Validate all 25 stores have reliable high-speed internet (minimum 50 Mbps). Test connectivity, latency, uptime. Identify stores needing network upgrades. Critical for real-time inventory, POS integration, system performance.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-14",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "IT Lead"
+      },
+      "milestone": "MS-001",
+      "dependencies": {
+        "blocks": [
+          "TODO-050"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-004: Network connectivity at all 25 stores",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/assumptions.md",
+          "description": "TA-003: Network Connectivity",
+          "section": "TO BE VALIDATED - CRITICAL"
+        }
+      ],
+      "effort": {
+        "estimated": "1w"
+      }
+    },
+    {
+      "id": "TODO-007",
+      "title": "Conduct Data Quality Assessment",
+      "description": "Audit data quality in current systems (QuickBooks, OMS, Lightspeed POS). Verify data is accurate and exportable. Identify cleanup needs. Document data gaps and transformation requirements.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "DATA_MIGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-14",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Data Migration Specialist"
+      },
+      "milestone": "MS-001",
+      "dependencies": {
+        "blocks": [
+          "TODO-030",
+          "TODO-031",
+          "TODO-032"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/assumptions.md",
+          "description": "TA-001: Data Quality",
+          "section": "TO BE VALIDATED - CRITICAL"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-010: Data quality in current systems",
+          "section": "HIGH Priority"
+        }
+      ],
+      "effort": {
+        "estimated": "2w"
+      }
+    },
+    {
+      "id": "TODO-008",
+      "title": "Validate Transaction Volumes and Stakeholder Availability",
+      "description": "Confirm current transaction volumes (~500 orders/day, ~150k transactions/year) will remain stable. Confirm key stakeholders available 25-50% time for requirements, decisions, UAT. Verify SMEs available 10 hrs/week.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-14",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Project Manager"
+      },
+      "milestone": "MS-001",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/assumptions.md",
+          "description": "BA-001: Transaction Volumes, RA-001: Stakeholder Availability",
+          "section": "TO BE VALIDATED - CRITICAL"
+        }
+      ]
+    },
+    {
+      "id": "TODO-009",
+      "title": "Schedule Finance Workshop (Week 1)",
+      "description": "Schedule comprehensive finance workshop with CFO, Controller, External Auditor. Cover fiscal calendar, costing methods, revenue recognition, depreciation schedules, payment terms, sales tax nexus, budget process.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-10",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Project Manager"
+      },
+      "milestone": "MS-001",
+      "dependencies": {
+        "blocks": [
+          "TODO-010",
+          "TODO-011",
+          "TODO-012"
+        ]
+      }
+    },
+    {
+      "id": "TODO-010",
+      "title": "Finance Workshop: Gather Depreciation Schedule Details",
+      "description": "Document depreciation schedules for all fixed asset categories: useful life, depreciation method (straight-line vs. accelerated), conventions (half-year, mid-quarter, full-month). Required for fixed asset setup.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Controller"
+      },
+      "milestone": "MS-002",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-009"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-RTR-001: Depreciation schedule details",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-005: Depreciation schedules for fixed assets",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Fixed Assets",
+        "recordTypes": [
+          "fixedAsset"
+        ]
+      }
+    },
+    {
+      "id": "TODO-011",
+      "title": "Finance Workshop: Clarify Service Revenue Recognition",
+      "description": "Clarify when service revenue is recognized: extended warranties (deferred or at sale?), repair services (at service or pickup?), prescription services (at verification or shipment?). Critical for revenue accounts and deferred revenue setup.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CFO / Controller / External Auditor"
+      },
+      "milestone": "MS-002",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-009"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-006: Service Revenue Recognition",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-003: Service revenue recognition timing",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Record-to-Report",
+        "recordTypes": [
+          "revenueArrangement"
+        ]
+      }
+    },
+    {
+      "id": "TODO-012",
+      "title": "Finance Workshop: Document Sales Tax Nexus States",
+      "description": "Document all sales tax nexus states: physical nexus (all store locations), economic nexus (e-commerce thresholds met), marketplace facilitator implications (Shopify). Confirm filing frequencies. Required for SuiteTax configuration.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CFO / Tax Advisor"
+      },
+      "milestone": "MS-002",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-009"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-010: Multi-State Sales Tax Nexus",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-012: Sales tax nexus states",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "SuiteTax",
+        "recordTypes": [
+          "nexus",
+          "taxSchedule"
+        ]
+      }
+    },
+    {
+      "id": "TODO-013",
+      "title": "Finance Workshop: Define AR Management - B2C vs B2B Payment Terms",
+      "description": "Define payment terms for B2C (prepaid assumed) and B2B wholesale customers. Document credit limits, aging policies, collection procedures.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Controller"
+      },
+      "milestone": "MS-002",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-009"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-FIN-009: AR management - B2C vs B2B payment terms",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "customer",
+          "invoice"
+        ]
+      }
+    },
+    {
+      "id": "TODO-014",
+      "title": "Operations Workshop: Document Warehouse Day Walkthrough",
+      "description": "Walkthrough typical warehouse day: receiving process, put-away, picking, packing, shipping, cycle counting. Document bin numbering scheme, barcode usage, staffing model.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Warehouse Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-OPS-001: Typical warehouse day walkthrough",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Warehouse Management",
+        "recordTypes": [
+          "itemReceipt",
+          "itemFulfillment",
+          "transferOrder"
+        ]
+      }
+    },
+    {
+      "id": "TODO-015",
+      "title": "Operations Workshop: Define Ship-from-Store Decision Algorithm",
+      "description": "Document the logic for ship-from-store selection: warehouse stock check, nearest store with stock, cost/speed optimization, avoid depleting store display stock. Define thresholds and rules.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "COO / Operations Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-OPS-002: Ship-from-store decision algorithm",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-OPS-001: Ship-from-store selection logic",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Advanced Order Management",
+        "recordTypes": [
+          "salesOrder",
+          "fulfillmentRequest"
+        ]
+      }
+    },
+    {
+      "id": "TODO-016",
+      "title": "Operations Workshop: Document BOPIS Process Walkthrough",
+      "description": "Document complete BOPIS (Buy Online, Pick Up In Store) process: order receipt, inventory allocation, store notification, picking, customer notification, ID verification, handoff. Define SLAs.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Store Operations Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-OPS-003: BOPIS process walkthrough",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-OPS-002: BOPIS pickup process",
+          "section": "MEDIUM Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Advanced Order Management",
+        "recordTypes": [
+          "salesOrder",
+          "itemFulfillment"
+        ]
+      }
+    },
+    {
+      "id": "TODO-017",
+      "title": "Operations Workshop: Document Prescription Verification Workflow",
+      "description": "Document prescription verification process: optometrist (employed or external?), verification steps, liability, professional liability insurance, regulatory compliance, prescription data handling (PHI/HIPAA).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Operations / Legal / Compliance"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-OPS-004: Prescription verification process",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-OPS-004: Prescription verification workflow",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-015: Prescription Eyewear Liability",
+          "section": "MEDIUM Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "salesOrder"
+        ],
+        "scriptIds": [
+          "custrecord_prescription"
+        ]
+      }
+    },
+    {
+      "id": "TODO-018",
+      "title": "Operations Workshop: Define Store Replenishment Rules",
+      "description": "Define store replenishment frequency (daily, weekly, event-based?), trigger (reorder point, sales velocity?), quantity calculation, seasonality adjustments.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Merchandising / Operations"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-OPS-005: Store replenishment frequency/method",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-PTI-003: Store replenishment frequency, trigger, quantity rules",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Plan-to-Inventory",
+        "recordTypes": [
+          "transferOrder",
+          "itemDemandPlan"
+        ]
+      }
+    },
+    {
+      "id": "TODO-019",
+      "title": "E-Commerce Workshop: Clarify Shopify vs NetSuite Master System",
+      "description": "Clarify which system is master for: product content (Shopify assumed), SKU/pricing (NetSuite assumed), inventory (NetSuite). Document data flow direction and conflict resolution strategy.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "E-commerce Manager / IT Lead"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-ECOM-001: Shopify vs NetSuite master system for product content",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/assumptions.md",
+          "description": "IA-001: Shopify master for product content",
+          "section": "TO BE VALIDATED - HIGH"
+        }
+      ]
+    },
+    {
+      "id": "TODO-020",
+      "title": "E-Commerce Workshop: Document Shopify Customizations",
+      "description": "Document all Shopify customizations (custom modules v3.2): headless frontend or theme extensions? Custom checkout flow? Custom fields to sync? Impact on NetSuite-Shopify integration.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "E-commerce Development Team"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-ECOM-002: Shopify customizations and integration impact",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-016: Shopify Plus Custom vs. Standard",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-INT-001: Shopify order data mapping",
+          "section": "HIGH Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-021",
+      "title": "E-Commerce Workshop: Define Fraud Detection Rules",
+      "description": "Document fraud detection rules: triggers, fraud score calculation, review owner, SLA, automatic decline thresholds. Required for order approval workflow configuration.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Risk Manager / E-commerce Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-ECOM-003: Fraud detection rules",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-OTC-001: Fraud Screening Rules",
+          "section": "CRITICAL Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "salesOrder"
+        ],
+        "scriptIds": [
+          "custbody_fraud_score",
+          "custbody_fraud_review_status"
+        ]
+      }
+    },
+    {
+      "id": "TODO-022",
+      "title": "IT Workshop: Document Lightspeed POS Versions and Integration Approach",
+      "description": "Document Lightspeed POS versions at each store. Confirm API availability for integration. Define real-time vs. batch integration requirements. Identify integration challenges.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-02-21",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "IT Lead"
+      },
+      "milestone": "MS-002",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-003"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-005: Lightspeed POS versions and integration approach",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-INT-003: Lightspeed POS transaction detail",
+          "section": "HIGH Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-023",
+      "title": "IT Workshop: Define Mobile App NetSuite Data/Function Requirements",
+      "description": "Document mobile app requirements for NetSuite integration: data needed (inventory, customer, order status?), API endpoints, authentication, real-time vs. batch.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Mobile Development Team / IT Lead"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-IT-006: Mobile app NetSuite data/function requirements",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-INT-006: Mobile app API requirements",
+          "section": "HIGH Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-024",
+      "title": "CRM Workshop: Clarify Salesforce vs NetSuite Customer Data Master",
+      "description": "Define master system for customer data: transactional (NetSuite), marketing (Salesforce), e-commerce (Shopify), profile (name/email/address - ONE master needed). Define data flow and conflict resolution.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CTO / Data Governance"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-CRM-001: Salesforce vs NetSuite master system for customer data",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/ambiguities.md",
+          "description": "AMB-011: Customer Data Master System",
+          "section": "HIGH Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-025",
+      "title": "CRM Workshop: Document Custom Salesforce Objects to Sync",
+      "description": "Document all custom Salesforce objects that need to sync to NetSuite. Define field mapping, sync frequency, data flow direction.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "CRM Administrator / IT Lead"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-CRM-002: Custom Salesforce objects to sync",
+          "section": "HIGH Priority"
+        }
+      ]
+    },
+    {
+      "id": "TODO-026",
+      "title": "Payments Workshop: Define Stripe Payout Reconciliation Process",
+      "description": "Document Stripe payout frequency (daily?). Define reconciliation process: payout file format, fees, refunds, chargebacks. Design NetSuite reconciliation workflow.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Controller / IT Lead"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-PAY-001: Stripe payout frequency and reconciliation",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-INT-004: Stripe payout reconciliation",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Stripe Integration",
+        "recordTypes": [
+          "deposit",
+          "customerPayment"
+        ]
+      }
+    },
+    {
+      "id": "TODO-027",
+      "title": "Payments Workshop: Document Refund and Chargeback Handling",
+      "description": "Document refund and chargeback handling in Stripe and NetSuite: workflow, accounting treatment, dispute management, reconciliation.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Controller / Customer Service Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-PAY-002: Refund and chargeback handling",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "customerRefund",
+          "creditMemo"
+        ]
+      }
+    },
+    {
+      "id": "TODO-028",
+      "title": "Wholesale Workshop: Document Quote-to-Order Workflow for Custom Frames",
+      "description": "NEW SCOPE (2026-01-30): Document complete wholesale custom frame quote-to-order process for sports teams: quote creation, approval, pricing, sourcing, order conversion. Review existing documentation in quote-to-order-wholesale.md.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Sales Manager / Purchasing Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-PURCH-004: Wholesale custom frame quote-to-order process walkthrough",
+          "section": "HIGH Priority (NEW 2026-01-30)"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-OTC-007: Quote-to-Order design workflow (NEW 2026-01-30)",
+          "section": "HIGH Priority"
+        },
+        {
+          "path": "configuration-plan/Configuration-Plan/030-Order-to-Cash/quote-to-order-wholesale.md",
+          "description": "Existing documentation of wholesale quote process",
+          "section": "Full document"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "estimate",
+          "salesOrder"
+        ]
+      }
+    },
+    {
+      "id": "TODO-029",
+      "title": "Wholesale Workshop: Define Sourcing Tracker Enhancement for Estimate Linking",
+      "description": "NEW SCOPE (2026-01-30): Define enhancements to Sourcing Tracker to support linking to wholesale Estimates, vendor status change notifications. Document workflow and notification requirements.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "REQUIREMENTS",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Purchasing Manager"
+      },
+      "milestone": "MS-002",
+      "references": [
+        {
+          "path": "configuration-plan/_Tracking/follow-up-questions.md",
+          "description": "Q-PURCH-005: Sourcing Tracker enhancement for Estimate linking",
+          "section": "HIGH Priority (NEW 2026-01-30)"
+        },
+        {
+          "path": "configuration-plan/_Tracking/gaps.md",
+          "description": "GAP-PTP-005: Vendor sourcing status change notifications (NEW 2026-01-30)",
+          "section": "HIGH Priority"
+        }
+      ],
+      "netsuiteContext": {
+        "module": "Procure-to-Pay",
+        "recordTypes": [
+          "customrecord_sourcing_tracker"
+        ]
+      }
+    },
+    {
+      "id": "TODO-030",
+      "title": "Configure Chart of Accounts",
+      "description": "Configure 200+ GL accounts for retail operations: 8-level numbering schema, revenue accounts by product category, expense accounts by department/function, multi-entity structure with elimination accounts.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-004",
+          "TODO-007"
+        ],
+        "blocks": [
+          "TODO-033",
+          "TODO-034"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.010 - Chart of Accounts",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "40h"
+      },
+      "netsuiteContext": {
+        "module": "Record-to-Report",
+        "recordTypes": [
+          "account"
+        ]
+      }
+    },
+    {
+      "id": "TODO-031",
+      "title": "Configure Subsidiary Structure",
+      "description": "Configure subsidiary structure: Parent (SunStyle Retail Corporation), USA Subsidiary (SunStyle Retail USA LLC), Future Canada subsidiary setup. Full consolidation with intercompany elimination.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-007"
+        ],
+        "blocks": [
+          "TODO-030",
+          "TODO-032"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.020 - Subsidiary Structure",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "8h"
+      },
+      "netsuiteContext": {
+        "module": "OneWorld",
+        "recordTypes": [
+          "subsidiary"
+        ]
+      }
+    },
+    {
+      "id": "TODO-032",
+      "title": "Configure Accounting Periods",
+      "description": "Configure fiscal year (Jan-Dec): 12 monthly, 4 quarterly, 1 annual periods. Enable adjusting periods. Set up period close workflow targeting 5 business days after month-end.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-004",
+          "TODO-007",
+          "TODO-031"
+        ],
+        "blocks": [
+          "TODO-033"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.030 - Accounting Periods",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "4h"
+      },
+      "netsuiteContext": {
+        "module": "Record-to-Report",
+        "recordTypes": [
+          "accountingPeriod"
+        ]
+      }
+    },
+    {
+      "id": "TODO-033",
+      "title": "Configure Currencies and Exchange Rates",
+      "description": "Configure base currency (USD) and future CAD. Set up monthly exchange rate updates, locked at period close. Configure quarterly revaluation for foreign currency accounts (future).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-030",
+          "TODO-032"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.040 - Currencies and Exchange Rates",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "4h"
+      },
+      "netsuiteContext": {
+        "module": "OneWorld",
+        "recordTypes": [
+          "currency"
+        ]
+      }
+    },
+    {
+      "id": "TODO-034",
+      "title": "Configure SuiteTax",
+      "description": "Configure SuiteTax: physical nexus (stores in 5+ states) + economic nexus (e-commerce), automated rates by jurisdiction, exemptions (wholesale, prescription), filing (monthly CA, quarterly others).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-012",
+          "TODO-030"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.050 - SuiteTax Configuration",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "SuiteTax",
+        "recordTypes": [
+          "nexus",
+          "taxSchedule",
+          "taxType"
+        ]
+      }
+    },
+    {
+      "id": "TODO-035",
+      "title": "Configure Departments, Classes, Locations",
+      "description": "Configure departments (Corporate, Retail Ops, E-commerce, Technology, Marketing, Finance, HR), classes (25 stores + Warehouse + Corporate + E-commerce), locations (26 physical). Enable P&L segmentation.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-006"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "010.060 - Departments, Classes, Locations",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "8h"
+      },
+      "netsuiteContext": {
+        "module": "Record-to-Report",
+        "recordTypes": [
+          "department",
+          "classification",
+          "location"
+        ]
+      }
+    },
+    {
+      "id": "TODO-036",
+      "title": "Load Item Master Data (~2,000 SKUs)",
+      "description": "Create and load ~2,000 SKUs: inventory parts (sunglasses), kits (display sets), services (fittings), non-inventory (marketing). Configure categories, attributes, pricing, costing (Average Cost), matrix items.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "DATA_MIGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-005",
+          "TODO-007",
+          "TODO-035"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "040.010 - Item Master Setup",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "40h"
+      },
+      "netsuiteContext": {
+        "module": "Plan-to-Inventory",
+        "recordTypes": [
+          "inventoryItem",
+          "kitItem",
+          "serviceItem",
+          "nonInventoryItem"
+        ]
+      }
+    },
+    {
+      "id": "TODO-037",
+      "title": "Load Vendor Master Data",
+      "description": "Load vendor master data: categories (Eyewear Suppliers, Packaging, Service Providers, Technology), tiers (Preferred, Standard, Probationary), custom fields (lead time, MOQ, payment terms, quality rating).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "DATA_MIGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-007"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "020.010 - Vendor Categories & Custom Fields",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Procure-to-Pay",
+        "recordTypes": [
+          "vendor"
+        ]
+      }
+    },
+    {
+      "id": "TODO-038",
+      "title": "Load Customer Master Data",
+      "description": "Load customer master data: categories (Retail, Online, Wholesale, Employee, VIP), custom fields (loyalty tier, points, face shape, style preference, prescription info, marketing opt-in, LTV, fraud score).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "DATA_MIGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-003",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-007",
+          "TODO-024"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.010 - Customer Categories & Custom Fields",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "24h"
+      },
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "customer"
+        ]
+      }
+    },
+    {
+      "id": "TODO-039",
+      "title": "Configure PO Workflow and Approvals",
+      "description": "Configure PO approval workflow: auto-approve <$5K, Manager $5K-$25K, VP/CFO >$25K. Configure reorder automation, vendor selection (primary/fallback), EDI setup for major suppliers.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-037"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "020.020 - Purchase Order Workflow",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "12h"
+      },
+      "netsuiteContext": {
+        "module": "Procure-to-Pay",
+        "recordTypes": [
+          "purchaseOrder"
+        ],
+        "scriptIds": [
+          "wf_po_approval"
+        ]
+      }
+    },
+    {
+      "id": "TODO-040",
+      "title": "Configure Item Receipt Processing",
+      "description": "Configure receiving: barcode scanning, quantity verification, quality inspection, discrepancy handling (over/under/damage), blind receiving option, put-away with bin assignment, 3-way match (PO/Receipt/Bill).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-039"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "020.030 - Item Receipt Processing",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "8h"
+      },
+      "netsuiteContext": {
+        "module": "Procure-to-Pay",
+        "recordTypes": [
+          "itemReceipt"
+        ]
+      }
+    },
+    {
+      "id": "TODO-041",
+      "title": "Configure AP Setup and Payment Processing",
+      "description": "Configure AP: payment terms (Net 30, Net 60, 2/10 Net 30), approval (Controller >$10K), payment batching (weekly ACH), check printing, 1099 tracking.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-040"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "020.040 - Bill & Payment / AP Setup",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "10h"
+      },
+      "netsuiteContext": {
+        "module": "Procure-to-Pay",
+        "recordTypes": [
+          "vendorBill",
+          "vendorPayment",
+          "check"
+        ]
+      }
+    },
+    {
+      "id": "TODO-042",
+      "title": "Configure Inventory Locations and Bin Management",
+      "description": "Configure 26 locations: Central Warehouse (primary, 50K sq ft, bin mgmt enabled), 25 Store Locations (retail, limited backstock), Corporate HQ (non-inventory). Configure bin management, cycle counting (ABC), reorder points.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-035",
+          "TODO-036"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "040.020 - Inventory Location Setup",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Advanced Inventory",
+        "recordTypes": [
+          "location",
+          "bin"
+        ]
+      }
+    },
+    {
+      "id": "TODO-043",
+      "title": "Configure Reorder Points and Replenishment",
+      "description": "Configure reorder point calculation (lead time demand + safety stock), auto-generate PO, allocation (push inventory to stores based on sales velocity), seasonality adjustments, quarterly review process.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-018",
+          "TODO-042"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "040.030 - Reorder Points & Replenishment",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Plan-to-Inventory",
+        "recordTypes": [
+          "itemDemandPlan"
+        ]
+      }
+    },
+    {
+      "id": "TODO-044",
+      "title": "Configure Inventory Transfer Orders",
+      "description": "Configure transfer orders: Warehouse-to-Store, Store-to-Store, Store-to-Warehouse (returns). Approval thresholds (auto <$1K, Manager $1K-$5K, VP >$5K). In-transit tracking, carrier tracking, receipt scan verification.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-042"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "040.040 - Inventory Transfer Orders",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "12h"
+      },
+      "netsuiteContext": {
+        "module": "Advanced Inventory",
+        "recordTypes": [
+          "transferOrder"
+        ]
+      }
+    },
+    {
+      "id": "TODO-045",
+      "title": "Configure Cycle Counting",
+      "description": "Configure cycle counting: ABC classification (A monthly, B quarterly, C semi-annual), blind counts, variance threshold (>5% or >10 units triggers recount), auto-adjust within threshold, manager approval over.",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-042"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "040.050 - Cycle Counting Configuration",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "8h"
+      },
+      "netsuiteContext": {
+        "module": "Advanced Inventory",
+        "recordTypes": [
+          "inventoryCount"
+        ]
+      }
+    },
+    {
+      "id": "TODO-046",
+      "title": "Load Historical Inventory Data",
+      "description": "Load historical inventory data from current systems: on-hand quantities by location, bin locations (warehouse), valuation, transaction history (2-3 years).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "DATA_MIGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-007",
+          "TODO-042"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "Phase 3: Inventory Management (Weeks 7-9) - Historical inventory loading (Week 9)",
+          "section": "Implementation Timeline"
+        }
+      ],
+      "effort": {
+        "estimated": "24h"
+      },
+      "netsuiteContext": {
+        "module": "Advanced Inventory",
+        "recordTypes": [
+          "inventoryAdjustment"
+        ]
+      }
+    },
+    {
+      "id": "TODO-047",
+      "title": "Configure Sales Order Forms and Workflow",
+      "description": "Configure sales order forms: Retail, E-commerce, Wholesale, Prescription. Custom fields (channel, store location, sales associate, loyalty points, fraud score). Workflow: fraud screening, inventory allocation, fulfillment routing, approval (>$5K, high fraud, large discount).",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-021",
+          "TODO-038"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.020 - Sales Order Forms & Workflow",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "24h"
+      },
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "salesOrder"
+        ],
+        "scriptIds": [
+          "wf_order_approval"
+        ]
+      }
+    },
+    {
+      "id": "TODO-048",
+      "title": "Configure Fulfillment and Omnichannel Routing",
+      "description": "Configure fulfillment methods: Ship from Warehouse, Ship from Store, BOPIS, Curbside. Configure routing logic: check warehouse stock, find nearest store with stock, optimize cost/speed, avoid depleting store display. Configure picking, packing, ShipStation integration.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-015",
+          "TODO-016",
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.030 - Fulfillment Configuration, 030.060 - Omnichannel Order Routing",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "32h"
+      },
+      "netsuiteContext": {
+        "module": "Advanced Order Management",
+        "recordTypes": [
+          "itemFulfillment",
+          "fulfillmentRequest"
+        ]
+      }
+    },
+    {
+      "id": "TODO-049",
+      "title": "Configure Invoicing and AR",
+      "description": "Configure invoicing: immediate (e-commerce), upon shipment (wholesale). Payment terms: Net 30 (wholesale), Due on Receipt (retail). Aging buckets, automated collections emails (15, 30, 45 days), bad debt write-off (120 days, CFO approval).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-013",
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.040 - Invoicing & AR Setup",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "12h"
+      },
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "invoice",
+          "customerPayment"
+        ]
+      }
+    },
+    {
+      "id": "TODO-050",
+      "title": "Configure Return Authorization Process",
+      "description": "Configure RMA process: 30-day return window, unworn/original tags policy, exceptions (prescription/final sale). Self-service portal, email, phone, in-store RMA creation. Inspection workflow (resalable/damaged/defective), refund (original payment/store credit/exchange), restocking automation.",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.050 - Return Authorization Process",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "returnAuthorization"
+        ],
+        "scriptIds": [
+          "wf_return_processing"
+        ]
+      }
+    },
+    {
+      "id": "TODO-051",
+      "title": "Configure Customer Deposits, Gift Cards, Loyalty Points",
+      "description": "Configure deposits (special orders, custom prescription), store credit (from returns/compensation/promos), gift cards (liability tracking, partial redemption), loyalty points (100 pts = $10, 24-month expiration), payment methods (credit/debit, digital wallets, split payments).",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "030.070 - Customer Deposits & Payments",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Order-to-Cash",
+        "recordTypes": [
+          "customerDeposit",
+          "giftCertificate"
+        ],
+        "scriptIds": [
+          "custrecord_loyalty_txn"
+        ]
+      }
+    },
+    {
+      "id": "TODO-052",
+      "title": "Configure Shopify Integration",
+      "description": "Configure Shopify Plus integration (Celigo or native connector): Products (NetSuite → Shopify), Orders (Shopify → NetSuite real-time), Inventory (NetSuite → Shopify every 5 min), Customers (bidirectional), Fulfillment Status (NetSuite → Shopify). Test end-to-end flows.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-019",
+          "TODO-020",
+          "TODO-048"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "3010 - Shopify Integration (4 configurations)",
+          "section": "Integration Configurations"
+        }
+      ],
+      "effort": {
+        "estimated": "40h"
+      },
+      "netsuiteContext": {
+        "module": "Integration"
+      }
+    },
+    {
+      "id": "TODO-053",
+      "title": "Configure Salesforce Integration",
+      "description": "Configure Salesforce CRM integration (native connector or middleware): Customers (bidirectional, NetSuite master), Orders (NetSuite → Salesforce), Cases (Salesforce → NetSuite), Loyalty Data (NetSuite → Salesforce). Test end-to-end flows.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-024",
+          "TODO-025",
+          "TODO-048"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "3020 - Salesforce Integration (3 configurations)",
+          "section": "Integration Configurations"
+        }
+      ],
+      "effort": {
+        "estimated": "30h"
+      },
+      "netsuiteContext": {
+        "module": "Integration"
+      }
+    },
+    {
+      "id": "TODO-054",
+      "title": "Configure Stripe Payment Integration",
+      "description": "Configure Stripe integration (SuiteApp or API): Payment Authorization, Payment Capture, Refunds (NetSuite → Stripe), Payout Reconciliation (Stripe → NetSuite daily). Test payment flows and reconciliation.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-026",
+          "TODO-027",
+          "TODO-048"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "3030 - Stripe Payment Integration (2 configurations)",
+          "section": "Integration Configurations"
+        }
+      ],
+      "effort": {
+        "estimated": "25h"
+      },
+      "netsuiteContext": {
+        "module": "Integration"
+      }
+    },
+    {
+      "id": "TODO-055",
+      "title": "Configure Shipping Carrier Integration",
+      "description": "Configure ShipStation integration (or native carrier APIs): Shipment Creation (NetSuite → ShipStation/Carriers), Label Generation, Tracking Updates (Carriers → NetSuite webhooks), Rate Shopping (real-time API). Test shipping workflows.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-048"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "3040 - Shipping Carrier Integration (2 configurations)",
+          "section": "Integration Configurations"
+        }
+      ],
+      "effort": {
+        "estimated": "30h"
+      },
+      "netsuiteContext": {
+        "module": "Integration"
+      }
+    },
+    {
+      "id": "TODO-056",
+      "title": "Configure Lightspeed POS Integration",
+      "description": "Configure Lightspeed POS integration (if keeping Lightspeed per TODO-003): real-time transactions, inventory sync, customer sync. Define integration architecture, error handling, monitoring. Test end-to-end flows.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "INTEGRATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-003",
+          "TODO-022",
+          "TODO-048"
+        ]
+      },
+      "predicates": [
+        {
+          "condition": "Decision made to keep Lightspeed POS (TODO-003 complete)",
+          "isMet": false
+        }
+      ],
+      "effort": {
+        "estimated": "40h"
+      },
+      "netsuiteContext": {
+        "module": "Integration"
+      }
+    },
+    {
+      "id": "TODO-057",
+      "title": "End-to-End Integration Testing",
+      "description": "Test all integrations end-to-end: Shopify order → NetSuite → fulfillment → tracking → Shopify update. Salesforce case → NetSuite action. Stripe payment → NetSuite reconciliation. Test error handling, retry logic, monitoring.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "TESTING",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Integration Specialist / QA Team"
+      },
+      "milestone": "MS-005",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-052",
+          "TODO-053",
+          "TODO-054",
+          "TODO-055",
+          "TODO-056"
+        ]
+      },
+      "effort": {
+        "estimated": "2w"
+      }
+    },
+    {
+      "id": "TODO-058",
+      "title": "Configure Custom Fields and Lists",
+      "description": "Configure all custom fields (customer, item, transaction) and custom lists (loyalty tiers, face shapes, style preferences, frame materials, lens types, brands, sales channels, return reasons, fraud review status, fulfillment methods).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-038",
+          "TODO-036",
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4010 - Custom Records & Fields (5 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "40h"
+      },
+      "netsuiteContext": {
+        "module": "Customization",
+        "recordTypes": [
+          "customField",
+          "customList"
+        ]
+      }
+    },
+    {
+      "id": "TODO-059",
+      "title": "Configure Custom Records",
+      "description": "Configure custom records: Prescription Record (linked to Customer), Store Performance Record (linked to Location), Loyalty Transaction Record (linked to Customer/Transaction).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "milestone": "MS-004",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-017",
+          "TODO-058"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4010.050 - Custom Records",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Customization",
+        "recordTypes": [
+          "customRecord"
+        ],
+        "scriptIds": [
+          "custrecord_prescription",
+          "custrecord_store_performance",
+          "custrecord_loyalty_txn"
+        ]
+      }
+    },
+    {
+      "id": "TODO-060",
+      "title": "Configure Workflows",
+      "description": "Configure workflows: Order Approval (trigger: SO saved, conditions: total >$5K OR fraud >75 OR discount >20%), PO Approval, Return Processing (auto-approve if eligible), Customer Onboarding (welcome email, discount, segment assignment, loyalty account creation).",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "dependencies": {
+        "blockedBy": [
+          "TODO-047",
+          "TODO-039",
+          "TODO-050"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4030 - Workflows (4 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "30h"
+      },
+      "netsuiteContext": {
+        "module": "Customization",
+        "scriptIds": [
+          "wf_order_approval",
+          "wf_po_approval",
+          "wf_return_processing",
+          "wf_customer_onboarding"
+        ]
+      }
+    },
+    {
+      "id": "TODO-061",
+      "title": "Configure PDF Templates",
+      "description": "Configure branded PDF templates: Invoice (logo, line items, tax breakdown, payment terms, barcode), Packing Slip (order #, items, return QR code, thank you), Purchase Order (vendor-facing, professional layout).",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4040 - Templates (4 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "20h"
+      },
+      "netsuiteContext": {
+        "module": "Customization",
+        "recordTypes": [
+          "advancedPdfTemplate"
+        ]
+      }
+    },
+    {
+      "id": "TODO-062",
+      "title": "Configure Email Templates",
+      "description": "Configure email templates: Order Confirmation, Shipment Notification (tracking link), Delivery Confirmation, Return Label (instructions), Refund Processed, Back-in-Stock, Abandoned Cart (via Klaviyo), Loyalty Points Balance, Birthday Offer.",
+      "status": "DONE",
+      "priority": "MEDIUM",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4040.040 - Email Templates",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "16h"
+      },
+      "netsuiteContext": {
+        "module": "Customization",
+        "recordTypes": [
+          "emailTemplate"
+        ]
+      },
+      "meta": {
+        "lastUpdated": "2026-02-04T02:05:46.052Z"
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T01:17:28.621Z",
+          "author": "agent",
+          "content": "Task execution failed: Process exited with code 1"
+        },
+        {
+          "timestamp": "2026-02-04T01:22:54.639Z",
+          "author": "agent",
+          "content": "Task execution failed: Error: Invalid session ID. Must be a valid UUID.\n"
+        },
+        {
+          "timestamp": "2026-02-04T01:29:01.376Z",
+          "author": "agent",
+          "content": "Task execution failed: Process exited with code 3221225786"
+        },
+        {
+          "timestamp": "2026-02-04T01:42:43.876Z",
+          "author": "agent",
+          "content": "Task execution failed: Process exited with code 3221225786"
+        }
+      ],
+      "completedDate": "2026-02-04T02:05:46.052Z"
+    },
+    {
+      "id": "TODO-063",
+      "title": "Configure Saved Searches and Reports",
+      "description": "Configure saved searches and reports: Sales Dashboards (Executive, Store Performance, E-commerce, Daily Flash), Inventory Reports (Valuation, Stock Status, Slow-Moving, Stockout, Turnover, ABC Analysis), Financial Reports (P&L, Balance Sheet, Cash Flow, AR/AP Aging, Budget vs. Actual, Sales Tax), Customer Analytics (LTV, Loyalty, Cohort, RFM, Return Rate, CAC).",
+      "status": "BACKLOG",
+      "priority": "HIGH",
+      "category": "CUSTOMIZATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "dependencies": {
+        "blockedBy": [
+          "TODO-030",
+          "TODO-042",
+          "TODO-047"
+        ]
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "4050 - Searches & Reports (4 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "35h"
+      },
+      "netsuiteContext": {
+        "module": "Analytics",
+        "recordTypes": [
+          "savedSearch"
+        ],
+        "savedSearches": [
+          "Executive Dashboard",
+          "Store Performance",
+          "Inventory Valuation",
+          "P&L by Department",
+          "Customer LTV",
+          "Loyalty Program"
+        ]
+      }
+    },
+    {
+      "id": "TODO-064",
+      "title": "Configure Campaign Management and Promotions",
+      "description": "Configure campaign management (email, social, in-store, influencer, paid search), promotion engine (% Off, $ Off, BOGO, free shipping, gift with purchase), stacking rules, channel targeting, date ranges, usage limits, coupon codes.",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "070 - Market-to-ROI (3 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "25h"
+      },
+      "netsuiteContext": {
+        "module": "CRM",
+        "recordTypes": [
+          "campaign",
+          "promotionCode"
+        ]
+      }
+    },
+    {
+      "id": "TODO-065",
+      "title": "Configure Case Management and Knowledge Base",
+      "description": "Configure case management (types: Order Issue, Product Defect, Return Request, General Inquiry; priorities, status, assignment, Zendesk/Salesforce integration), knowledge base (50+ articles, categories, search, customer portal), SLA and escalation rules.",
+      "status": "BACKLOG",
+      "priority": "MEDIUM",
+      "category": "CONFIGURATION",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "AGENT",
+        "name": "netsuite-agent"
+      },
+      "references": [
+        {
+          "path": "configuration-plan/configuration-summary.md",
+          "description": "080 - Case-to-Resolution (3 configurations)",
+          "section": "Configuration Components Summary"
+        }
+      ],
+      "effort": {
+        "estimated": "20h"
+      },
+      "netsuiteContext": {
+        "module": "CRM",
+        "recordTypes": [
+          "supportCase",
+          "solution"
+        ]
+      }
+    },
+    {
+      "id": "TODO-066",
+      "title": "User Acceptance Testing (UAT)",
+      "description": "Conduct comprehensive UAT with key users across all modules: Record-to-Report, Procure-to-Pay, Order-to-Cash, Inventory, Integrations. Document test cases, execute tests, log defects, verify fixes, obtain sign-off.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "TESTING",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Key Users / QA Team"
+      },
+      "milestone": "MS-006",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-057",
+          "TODO-060",
+          "TODO-063"
+        ]
+      },
+      "effort": {
+        "estimated": "3w"
+      }
+    },
+    {
+      "id": "TODO-067",
+      "title": "User Training",
+      "description": "Conduct user training for all user groups: Finance (2-3 days), Operations (2-3 days), Store Managers (2 days), Sales Associates (1 day), IT Administrators (3 days). Create training materials, record sessions, provide hands-on practice.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "TRAINING",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Training Specialist"
+      },
+      "milestone": "MS-006",
+      "dependencies": {
+        "blockedBy": [
+          "TODO-066"
+        ]
+      },
+      "effort": {
+        "estimated": "3w"
+      }
+    },
+    {
+      "id": "TODO-068",
+      "title": "Create Go-Live Plan and Runbook",
+      "description": "Create detailed go-live plan: cutover weekend schedule, data migration steps, system validation checklist, rollback plan, communication plan, hypercare schedule (24/7 first month), issue escalation matrix.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "GO_LIVE",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Project Manager"
+      },
+      "milestone": "MS-006",
+      "effort": {
+        "estimated": "1w"
+      }
+    },
+    {
+      "id": "TODO-069",
+      "title": "Execute Go-Live Cutover",
+      "description": "Execute go-live cutover: final data migration, system validation, integrations smoke tests, user access provisioning, system go-live. Monitor system stability, address immediate issues, provide hypercare support.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "GO_LIVE",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "dueDate": "2026-08-15",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Full Implementation Team"
+      },
+      "milestone": "MS-007",
+      "isMilestoneCheckpoint": true,
+      "dependencies": {
+        "blockedBy": [
+          "TODO-066",
+          "TODO-067",
+          "TODO-068"
+        ]
+      }
+    },
+    {
+      "id": "TODO-070",
+      "title": "Hypercare Support (Weeks 1-4 Post Go-Live)",
+      "description": "Provide 24/7 hypercare support for first month post go-live: monitor system performance, address user issues, optimize workflows, fix defects, provide on-site support at warehouse and key stores. Conduct daily stand-ups, issue triage, rapid response.",
+      "status": "BACKLOG",
+      "priority": "CRITICAL",
+      "category": "SUPPORT",
+      "createdDate": "2026-02-03T00:00:00Z",
+      "assignedTo": {
+        "type": "HUMAN",
+        "name": "Full Implementation Team"
+      },
+      "dependencies": {
+        "blockedBy": [
+          "TODO-069"
+        ]
+      },
+      "effort": {
+        "estimated": "4w"
+      }
+    }
+  ]
+}

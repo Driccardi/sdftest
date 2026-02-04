@@ -2,9 +2,9 @@
 
 ## Document Information
 - **Document ID**: IP-001
-- **Version**: 1.4
-- **Status**: Approved
-- **Last Updated**: 2026-01-26
+- **Version**: 1.5
+- **Status**: Draft
+- **Last Updated**: 2026-02-03
 - **Owner**: Robert Kim, Infrastructure & Operations Lead
 
 ## Overview
@@ -179,7 +179,50 @@ CRM (Salesforce)
 
 ---
 
-### INT-005: Customer Service Platform ↔ CRM
+### INT-005: Point of Sale (Lightspeed) ↔ NetSuite
+**Integration Type**: SuiteApp (Lightspeed NetSuite Integration)
+**Direction**: Bidirectional
+**Frequency**: Real-time
+**Data Volume**: ~300 in-store transactions/day
+
+**Purpose**: Store operations integration for inventory visibility and cash sale processing
+
+**Decision Context**: Per 2026-02-03 decision, Lightspeed POS will be retained in stores (not replaced by NetSuite POS). This impacts store operations, integration scope, timeline, budget, and training requirements.
+
+**Data Flows**:
+1. **NetSuite → Lightspeed**: Inventory and pricing synchronization
+   - Product catalog (SKUs, descriptions, attributes)
+   - Inventory levels by location
+   - Pricing (base prices, promotional pricing)
+   - Sync frequency: TBD by integration team
+
+2. **Lightspeed → NetSuite**: Cash Sale records
+   - Transaction details (items sold, quantities, prices)
+   - Payment information
+   - Store location
+   - Timestamp and associate information
+   - Sync frequency: TBD by integration team
+
+**Implementation Notes**:
+- Uses Lightspeed's official NetSuite SuiteApp
+- Configuration and management responsibility: Separate integration team
+- SuiteApp installation and setup required in NetSuite account
+- Store-level inventory mapping required
+
+**Integration Ownership**: Separate team responsible for Lightspeed-NetSuite SuiteApp configuration
+
+> ⚠️ OPEN: Integration team assignment and contact information
+> ⚠️ OPEN: Sync frequency and latency requirements
+> ⚠️ OPEN: Error handling and reconciliation procedures
+> ⚠️ OPEN: Mapping of Lightspeed locations to NetSuite locations
+> ⚠️ OPEN: Payment method mapping (Lightspeed → NetSuite)
+> ⚠️ OPEN: Return/refund handling through integration
+
+**SLA**: TBD by integration team
+
+---
+
+### INT-007: Customer Service Platform ↔ CRM
 **Integration Type**: Native Zendesk-Salesforce connector
 **Direction**: Bidirectional
 **Frequency**: Real-time
@@ -209,7 +252,7 @@ CRM (Salesforce)
 
 ---
 
-### INT-006: E-Commerce Platform ↔ Email Marketing (Klaviyo)
+### INT-008: E-Commerce Platform ↔ Email Marketing (Klaviyo)
 **Integration Type**: REST API + JavaScript SDK
 **Direction**: Bidirectional
 **Frequency**: Real-time + Batch
@@ -236,7 +279,7 @@ CRM (Salesforce)
 
 ---
 
-### INT-007: All Systems → Data Warehouse (BigQuery)
+### INT-009: All Systems → Data Warehouse (BigQuery)
 **Integration Type**: ETL Pipeline (Apache Airflow)
 **Direction**: Unidirectional (to BigQuery)
 **Frequency**: Scheduled batch (hourly/daily)
@@ -271,7 +314,7 @@ CRM (Salesforce)
 
 ---
 
-### INT-008: Order Management System ↔ Financial System
+### INT-010: Order Management System ↔ Financial System
 **Integration Type**: REST API + Batch file transfer
 **Direction**: Unidirectional (OMS → QuickBooks)
 **Frequency**: Daily batch (11 PM)
@@ -301,7 +344,7 @@ CRM (Salesforce)
 
 ---
 
-### INT-009: Mobile Apps ↔ Backend APIs
+### INT-011: Mobile Apps ↔ Backend APIs
 **Integration Type**: REST API + GraphQL
 **Direction**: Bidirectional
 **Frequency**: Real-time
@@ -326,7 +369,7 @@ CRM (Salesforce)
 
 ---
 
-### INT-010: All Systems → Monitoring (Datadog)
+### INT-012: All Systems → Monitoring (Datadog)
 **Integration Type**: Agent-based + API
 **Direction**: Unidirectional (to Datadog)
 **Frequency**: Real-time
@@ -429,7 +472,14 @@ CRM (Salesforce)
 
 ---
 
-*Status: Approved*
-*Last Updated: 2026-01-26*
-*Version: 1.4*
+## Changelog
+
+- **2026-02-03 (v1.5)**: Added INT-005 Lightspeed POS ↔ NetSuite integration details per decision to retain Lightspeed in stores. Source: note-1770165538789.txt
+- **2026-01-26 (v1.4)**: Previous updates
+
+---
+
+*Status: Draft*
+*Last Updated: 2026-02-03*
+*Version: 1.5*
 *Owner: Robert Kim, Infrastructure & Operations Lead*

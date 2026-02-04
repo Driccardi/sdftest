@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - SunStyle Retail</title>
+</head>
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background-color:#F9FAFB;">
+    <!-- Email content optimized for NetSuite -->
+    <div style="max-width:600px;margin:0 auto;background:#FFF;">
+        <div style="background:#1E3A8A;padding:30px;text-align:center;">
+            <img src="[LOGO_URL]" alt="SunStyle Retail" style="max-width:200px;" />
+        </div>
+        
+        <div style="padding:40px 20px;text-align:center;">
+            <h1 style="color:#1E3A8A;font-size:28px;margin:0 0 10px;">Thank You for Your Order, \${customer.firstname}!</h1>
+            <p style="color:#6B7280;">Your order has been received and is being processed</p>
+        </div>
+        
+        <div style="background:#F3F4F6;padding:20px;margin:20px;">
+            <p><strong>Order #:</strong> \${transaction.tranid}</p>
+            <p><strong>Order Date:</strong> \${transaction.trandate}</p>
+            <p><strong>Order Total:</strong> \${transaction.total}</p>
+        </div>
+        
+        <!-- Items section with Freemarker loop -->
+        <div style="padding:0 20px;">
+            <h2 style="color:#1E3A8A;border-bottom:2px solid #FF6B6B;padding-bottom:10px;">Items Ordered</h2>
+            <#list transaction.item as item>
+            <div style="padding:15px 0;border-bottom:1px solid #E5E7EB;">
+                <p><strong>\${item.item.displayname}</strong></p>
+                <p>SKU: \${item.item.itemid} | Qty: \${item.quantity} | \${item.amount}</p>
+            </div>
+            </#list>
+        </div>
+        
+        <!-- Pricing -->
+        <div style="padding:20px;margin:20px 0;background:#F9FAFB;">
+            <p><strong>Subtotal:</strong> \${transaction.subtotal}</p>
+            <p><strong>Shipping:</strong> \${transaction.shippingcost}</p>
+            <p><strong>Tax:</strong> \${transaction.taxtotal}</p>
+            <p style="font-size:18px;color:#1E3A8A;border-top:2px solid #1E3A8A;padding-top:15px;"><strong>Total: \${transaction.total}</strong></p>
+        </div>
+        
+        <!-- Loyalty Points -->
+        <#if transaction.custbody_loyalty_points_earned??>
+        <div style="background:#FF6B6B;color:#FFF;padding:15px;margin:20px;text-align:center;">
+            <p>You earned <strong>\${transaction.custbody_loyalty_points_earned}</strong> points!</p>
+            <p>Current balance: \${customer.custentity_loyalty_points} points</p>
+        </div>
+        </#if>
+        
+        <!-- Shipping Info -->
+        <div style="padding:0 20px;">
+            <h2 style="color:#1E3A8A;">Shipping Information</h2>
+            <p>\${transaction.shipaddress}</p>
+            <p><strong>Method:</strong> \${transaction.shipmethod}</p>
+        </div>
+        
+        <!-- CTA -->
+        <div style="text-align:center;padding:20px;">
+            <a href="[ORDER_STATUS_URL]" style="background:#1E3A8A;color:#FFF;padding:15px 40px;text-decoration:none;border-radius:5px;display:inline-block;">Track Your Order</a>
+        </div>
+        
+        <!-- Customer Service -->
+        <div style="background:#F9FAFB;padding:20px;margin:20px;text-align:center;">
+            <h3 style="color:#1E3A8A;">Questions About Your Order?</h3>
+            <p>Phone: 1-800-SUNSTYLE | Email: support@sunstyleretail.com</p>
+            <p>Hours: Mon-Fri 8am-8pm ET, Sat-Sun 10am-6pm ET</p>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background:#1F2937;color:#FFF;padding:30px 20px;text-align:center;font-size:12px;">
+            <p><a href="[WEBSITE_URL]" style="color:#FFF;">Shop</a> | <a href="[RETURNS_URL]" style="color:#FFF;">Returns</a> | <a href="[HELP_URL]" style="color:#FFF;">Help</a></p>
+            <p>SunStyle Retail Corporation | [ADDRESS]</p>
+        </div>
+    </div>
+</body>
+</html>

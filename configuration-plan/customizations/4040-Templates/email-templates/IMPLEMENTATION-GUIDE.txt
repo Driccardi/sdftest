@@ -1,0 +1,93 @@
+EMAIL TEMPLATES IMPLEMENTATION GUIDE
+SunStyle Retail - NetSuite Configuration
+========================================
+
+TEMPLATE INVENTORY
+==================
+1. Order Confirmation (01-order-confirmation.html) - NetSuite - CRITICAL
+2. Shipment Notification (02-shipment-notification.html) - NetSuite - CRITICAL  
+3. Delivery Confirmation (03-delivery-confirmation.html) - NetSuite - HIGH
+4. Return Label (04-return-label.html) - NetSuite - HIGH
+5. Refund Processed (05-refund-processed.html) - NetSuite - HIGH
+6. Back-in-Stock (06-back-in-stock.html) - NetSuite - MEDIUM
+7. Abandoned Cart (07-abandoned-cart.html) - Klaviyo - MEDIUM
+8. Loyalty Balance (08-loyalty-balance.html) - NetSuite - MEDIUM
+9. Birthday Offer (09-birthday-offer.html) - Klaviyo - LOW
+
+IMPLEMENTATION STEPS
+====================
+
+PHASE 1: NetSuite Setup (Week 1-2)
+-----------------------------------
+1. Upload brand assets to File Cabinet
+2. Create email template records (Customization > Forms > Email Templates)
+3. Replace all [PLACEHOLDER] values with actual URLs
+4. Test Freemarker variables with sample data
+5. Create plain text versions
+6. Configure email preferences (Setup > Company > Email Preferences)
+7. Set up SPF, DKIM, DMARC authentication
+
+PHASE 2: Workflow Configuration (Week 2)
+-----------------------------------------
+Create workflows for each transactional email:
+- Order Confirmation: Sales Order -> Pending Fulfillment
+- Shipment Notification: Item Fulfillment -> Shipped
+- Delivery Confirmation: Daily scheduled (requires carrier webhook)
+- Return Label: Return Authorization -> Approved
+- Refund Processed: Customer Refund -> Complete
+- Loyalty Balance: Monthly scheduled (1st of month)
+- Back-in-Stock: Hourly scheduled inventory check
+
+PHASE 3: Klaviyo Integration (Week 2-3)
+----------------------------------------
+1. Connect Klaviyo to NetSuite (via Celigo or API)
+2. Sync customer data, products, orders
+3. Create Abandoned Cart flow (3 emails: 24h, 48h, 5 days)
+4. Create Birthday Email flow (7 days before birthday)
+5. Test both flows with sample data
+
+PHASE 4: Testing (Week 3-4)
+----------------------------
+Test each template in:
+- Gmail (web, mobile)
+- Outlook (desktop, web, mobile)
+- Apple Mail (Mac, iPhone)
+- Yahoo Mail
+Check: responsiveness, links, variables, images, spam score
+
+PHASE 5: Launch & Monitor (Week 4+)
+------------------------------------
+- Soft launch with 10% of customers
+- Monitor metrics daily
+- Ramp to 100% over 1 week
+- Weekly optimization reviews
+
+KEY METRICS
+===========
+- Open Rate: >40% (transactional), >25% (marketing)
+- Click Rate: >10% (transactional), >3.5% (marketing)
+- Bounce Rate: <2%
+- Spam Rate: <0.1%
+
+FREEMARKER VARIABLES
+====================
+Customer: firstname, lastname, email, custentity_loyalty_tier, custentity_loyalty_points
+Transaction: tranid, trandate, total, subtotal, taxtotal, shippingcost, shipmethod
+Custom: custbody_fulfillment_method, custbody_loyalty_points_earned, custbody_tracking_number
+Items: Loop through transaction.item for product details
+
+BRAND COLORS
+============
+Primary Blue: #1E3A8A
+Accent Coral: #FF6B6B
+Neutral Gray: #6B7280
+Background: #F9FAFB
+
+SUPPORT CONTACTS
+================
+Technical: it@sunstyleretail.com
+Content: marketing@sunstyleretail.com
+Customer Service: 1-800-SUNSTYLE
+
+Last Updated: 2026-02-03
+Configuration Owner: Marketing Team

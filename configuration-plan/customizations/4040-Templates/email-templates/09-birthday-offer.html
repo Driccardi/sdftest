@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday - SunStyle Retail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+        }
+        .header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: "🎈🎉🎂🎁✨";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-size: 24px;
+            opacity: 0.3;
+            letter-spacing: 40px;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .birthday-banner {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFB6B6 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .birthday-banner h1 {
+            margin: 0 0 10px 0;
+            font-size: 36px;
+        }
+        .birthday-banner .emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .birthday-banner .tagline {
+            font-size: 18px;
+            margin: 10px 0 0 0;
+        }
+        .offer-card {
+            background-color: #FFFFFF;
+            border: 3px solid #FF6B6B;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .offer-card h2 {
+            margin: 0 0 20px 0;
+            color: #1E3A8A;
+            font-size: 24px;
+        }
+        .offer-item {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .offer-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 28px;
+        }
+        .offer-item p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .discount-code {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+            letter-spacing: 3px;
+            border: 3px dashed #F59E0B;
+        }
+        .offer-details {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .offer-details h4 {
+            margin-top: 0;
+            color: #1E3A8A;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .detail-row .label {
+            color: #6B7280;
+        }
+        .detail-row .value {
+            font-weight: 600;
+            color: #1F2937;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFB6B6 100%);
+            color: white !important;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(255, 107, 107, 0.3);
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, #E05555 0%, #FF9999 100%);
+        }
+        .personalized-picks {
+            margin-top: 40px;
+        }
+        .personalized-picks h3 {
+            color: #1E3A8A;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .product-card {
+            text-align: center;
+            padding: 15px;
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .product-card:hover {
+            border-color: #FF6B6B;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .product-card .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 5px;
+        }
+        .product-card .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1E3A8A;
+            margin-bottom: 5px;
+        }
+        .product-card .birthday-price {
+            font-size: 14px;
+            color: #FF6B6B;
+        }
+        .perks-box {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .perks-box h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+            text-align: center;
+        }
+        .perks-box ul {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .perks-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+        }
+        .perks-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .social-sharing {
+            background-color: #FEF3C7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .social-sharing h4 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .gift-suggestion {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #1F2937;
+            color: #D1D5DB;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+        .footer .unsubscribe {
+            margin-top: 15px;
+            font-size: 11px;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .birthday-banner h1 {
+                font-size: 28px;
+            }
+            .discount-code {
+                font-size: 22px;
+                padding: 15px;
+            }
+            .detail-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://www.sunstyleretail.com/images/logo-white.png" alt="SunStyle Retail" class="logo">
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Birthday Banner -->
+            <div class="birthday-banner">
+                <div class="emoji">🎂</div>
+                <h1>Happy Birthday Month, ${customer.firstname}!</h1>
+                <p class="tagline">Celebrate in Style with Our Birthday Gift to You</p>
+            </div>
+
+            <!-- Birthday Offer Card -->
+            <div class="offer-card">
+                <h2>YOUR BIRTHDAY GIFT</h2>
+
+                <div class="offer-item">
+                    <h3>20% OFF EVERYTHING</h3>
+                    <p>On your entire purchase</p>
+                </div>
+
+                <div class="offer-item">
+                    <h3>2X LOYALTY POINTS</h3>
+                    <p>Double points on all orders</p>
+                </div>
+
+                <div class="offer-item">
+                    <h3>FREE SHIPPING</h3>
+                    <p>No minimum purchase required</p>
+                </div>
+
+                <div class="discount-code">BIRTHDAY2026</div>
+                <p style="margin: 10px 0; color: #6B7280; font-size: 14px;">
+                    Valid for your entire birthday month!
+                </p>
+            </div>
+
+            <!-- Offer Details -->
+            <div class="offer-details">
+                <h4>Offer Details</h4>
+                <div class="detail-row">
+                    <span class="label">Discount Code:</span>
+                    <span class="value">BIRTHDAY2026_${customer.id}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Discount:</span>
+                    <span class="value">20% off entire purchase</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Loyalty Points:</span>
+                    <span class="value">2X points on all birthday month purchases</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Free Shipping:</span>
+                    <span class="value">No minimum required</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Valid Period:</span>
+                    <span class="value">${customer.custentity_birthday_month_start?string("MMM d")} - ${customer.custentity_birthday_month_end?string("MMM d, yyyy")}</span>
+                </div>
+            </div>
+
+            <!-- Primary CTA -->
+            <div style="text-align: center;">
+                <a href="https://www.sunstyleretail.com/shop?utm_source=email&utm_medium=birthday&utm_campaign=birthday_offer_2026&code=BIRTHDAY2026" class="cta-button">Shop Your Birthday Sale</a>
+            </div>
+
+            <!-- Personalized Picks -->
+            <div class="personalized-picks">
+                <h3>We Picked These Just for You</h3>
+                <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">Based on your style preferences</p>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/birthday-pick-1.jpg" alt="Personalized Pick 1">
+                        <div class="name">Polarized Aviator</div>
+                        <div class="price">$129.99</div>
+                        <div class="birthday-price">Birthday Price: $103.99 + 260 points!</div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/birthday-pick-2.jpg" alt="Personalized Pick 2">
+                        <div class="name">Designer Cat-Eye</div>
+                        <div class="price">$149.99</div>
+                        <div class="birthday-price">Birthday Price: $119.99 + 300 points!</div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/birthday-pick-3.jpg" alt="Personalized Pick 3">
+                        <div class="name">Sport Performance</div>
+                        <div class="price">$109.99</div>
+                        <div class="birthday-price">Birthday Price: $87.99 + 220 points!</div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/birthday-pick-4.jpg" alt="Personalized Pick 4">
+                        <div class="name">Retro Round</div>
+                        <div class="price">$89.99</div>
+                        <div class="birthday-price">Birthday Price: $71.99 + 180 points!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Birthday Month Perks -->
+            <div class="perks-box">
+                <h3>All Month Long Perks</h3>
+                <ul>
+                    <li>20% off all purchases (use code at checkout)</li>
+                    <li>Double loyalty points on every order</li>
+                    <li>Free shipping with no minimum purchase</li>
+                    <li>Free birthday gift with purchase over $100</li>
+                    <li>Complimentary virtual styling consultation</li>
+                    <li>Early access to new arrivals</li>
+                </ul>
+            </div>
+
+            <!-- Social Sharing -->
+            <div class="social-sharing">
+                <h4>Share Your Birthday Look with Us!</h4>
+                <p style="margin: 10px 0; font-size: 14px;">
+                    Post a photo with your new SunStyle shades and tag us with <strong>#SunStyleBirthday</strong> for a chance to win a $100 gift card!
+                </p>
+                <div style="margin-top: 15px;">
+                    <a href="https://instagram.com/sunstyleretail" style="margin: 0 10px;"><img src="https://www.sunstyleretail.com/images/icon-instagram.png" alt="Instagram" width="32" height="32"></a>
+                    <a href="https://facebook.com/sunstyleretail" style="margin: 0 10px;"><img src="https://www.sunstyleretail.com/images/icon-facebook.png" alt="Facebook" width="32" height="32"></a>
+                    <a href="https://tiktok.com/@sunstyleretail" style="margin: 0 10px;"><img src="https://www.sunstyleretail.com/images/icon-tiktok.png" alt="TikTok" width="32" height="32"></a>
+                </div>
+            </div>
+
+            <!-- Gift Suggestion -->
+            <div class="gift-suggestion">
+                <h3 style="color: #1E3A8A; margin-top: 0;">Treating Someone Else?</h3>
+                <p style="margin: 10px 0; color: #6B7280;">They deserve SunStyle too!</p>
+                <a href="https://www.sunstyleretail.com/gift-cards?utm_source=email&utm_medium=birthday&utm_campaign=gift_card" class="cta-button" style="background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); font-size: 16px; padding: 12px 30px;">Shop Gift Cards</a>
+            </div>
+
+            <!-- Birthday Message -->
+            <div style="text-align: center; padding: 30px 20px; background-color: #F9FAFB; border-radius: 8px;">
+                <p style="font-size: 16px; color: #1E3A8A; font-style: italic; margin: 0;">
+                    "Wishing you a year filled with style, sunshine, and amazing adventures!<br>
+                    Thank you for being part of the SunStyle family."
+                </p>
+                <p style="margin: 15px 0 0 0; color: #6B7280;">
+                    - The SunStyle Team
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://instagram.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-instagram.png" alt="Instagram" width="24" height="24"></a>
+                <a href="https://facebook.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-facebook.png" alt="Facebook" width="24" height="24"></a>
+                <a href="https://tiktok.com/@sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-tiktok.png" alt="TikTok" width="24" height="24"></a>
+            </div>
+            <p>
+                <a href="https://www.sunstyleretail.com/returns">Return Policy</a> |
+                <a href="https://www.sunstyleretail.com/shipping">Shipping Info</a> |
+                <a href="https://www.sunstyleretail.com/contact">Contact Us</a>
+            </p>
+            <p class="unsubscribe">
+                <a href="https://www.sunstyleretail.com/unsubscribe?email=${customer.email}&type=birthday">Unsubscribe from birthday emails</a>
+            </p>
+            <p style="margin-top: 20px;">
+                SunStyle Retail Corporation<br>
+                123 Fashion Avenue, New York, NY 10001<br>
+                © 2026 SunStyle Retail. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

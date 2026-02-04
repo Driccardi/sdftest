@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Confirmation - SunStyle Retail</title>
+</head>
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background-color:#F9FAFB;">
+    <div style="max-width:600px;margin:0 auto;background:#FFF;">
+        <div style="background:#1E3A8A;padding:30px;text-align:center;">
+            <img src="[LOGO_URL]" alt="SunStyle Retail" style="max-width:200px;" />
+        </div>
+        
+        <div style="padding:40px 20px;text-align:center;">
+            <h1 style="color:#1E3A8A;font-size:28px;margin:0;">Your Order Has Arrived! ✓</h1>
+            <p style="color:#6B7280;">We hope you love your new sunglasses</p>
+        </div>
+        
+        <div style="background:#F3F4F6;padding:20px;margin:20px;">
+            <p><strong>Order #:</strong> \${transaction.createdfrom.tranid}</p>
+            <p><strong>Delivered On:</strong> \${workflow.deliverydate}</p>
+            <p><strong>Delivered To:</strong> \${transaction.shipaddress}</p>
+        </div>
+        
+        <!-- Love Your Purchase Section -->
+        <div style="padding:0 20px;text-align:center;">
+            <h2 style="color:#1E3A8A;">Love Your New Sunglasses?</h2>
+            <p>Share your photos with us!</p>
+            <div style="padding:20px 0;">
+                <a href="[REVIEW_URL]" style="background:#1E3A8A;color:#FFF;padding:15px 30px;text-decoration:none;border-radius:5px;display:inline-block;margin:5px;">Write a Review</a>
+                <a href="[SOCIAL_URL]" style="background:#FF6B6B;color:#FFF;padding:15px 30px;text-decoration:none;border-radius:5px;display:inline-block;margin:5px;">Share Your Photos</a>
+            </div>
+        </div>
+        
+        <!-- Care Tips -->
+        <div style="padding:20px;margin:20px;background:#F9FAFB;border-left:4px solid #1E3A8A;">
+            <h3 style="color:#1E3A8A;margin:0 0 10px;">Product Care Tips</h3>
+            <p>✓ Clean lenses with microfiber cloth included</p>
+            <p>✓ Store in protective case when not in use</p>
+            <p>✓ Avoid extreme heat</p>
+            <p><a href="[CARE_GUIDE_URL]" style="color:#1E3A8A;">View Full Care Guide →</a></p>
+        </div>
+        
+        <!-- Returns Info -->
+        <div style="padding:0 20px;text-align:center;">
+            <h3 style="color:#1E3A8A;">Not Happy? No Problem</h3>
+            <p>We offer hassle-free 30-day returns</p>
+            <a href="[RETURNS_URL]" style="background:#6B7280;color:#FFF;padding:12px 30px;text-decoration:none;border-radius:5px;display:inline-block;margin:10px 0;">Start a Return</a>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background:#1F2937;color:#FFF;padding:30px 20px;text-align:center;font-size:12px;margin-top:30px;">
+            <p><a href="[WEBSITE_URL]" style="color:#FFF;">Shop</a> | <a href="[RETURNS_URL]" style="color:#FFF;">Returns</a> | <a href="[HELP_URL]" style="color:#FFF;">Help</a></p>
+            <p>SunStyle Retail Corporation | [ADDRESS]</p>
+        </div>
+    </div>
+</body>
+</html>

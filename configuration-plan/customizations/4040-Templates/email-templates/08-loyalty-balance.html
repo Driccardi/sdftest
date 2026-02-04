@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty Points Statement - SunStyle Retail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+        }
+        .header {
+            background-color: #1E3A8A;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .greeting {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1E3A8A;
+            margin-bottom: 30px;
+        }
+        .loyalty-status-card {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .loyalty-status-card h2 {
+            margin: 0 0 20px 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .loyalty-status-card .tier-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .points-display {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .points-display .big-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .points-display .label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .progress-section {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .progress-section h4 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+        .progress-bar {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-bar-fill {
+            background-color: #FF6B6B;
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        .activity-summary {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .activity-summary h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+        }
+        .activity-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 14px;
+        }
+        .activity-row:last-child {
+            border-bottom: none;
+        }
+        .activity-row.positive {
+            color: #10B981;
+        }
+        .activity-row.negative {
+            color: #EF4444;
+        }
+        .activity-row.neutral {
+            color: #6B7280;
+        }
+        .transactions-list {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .transactions-list h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 14px;
+        }
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        .transaction-item .points {
+            font-weight: 600;
+        }
+        .transaction-item .points.earned {
+            color: #10B981;
+        }
+        .transaction-item .points.redeemed {
+            color: #EF4444;
+        }
+        .expiration-alert {
+            background-color: #FEE2E2;
+            border-left: 4px solid #EF4444;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .expiration-alert h4 {
+            margin-top: 0;
+            color: #DC2626;
+        }
+        .benefits-box {
+            background-color: #DBEAFE;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .benefits-box h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+        }
+        .benefits-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .benefits-box li {
+            margin-bottom: 8px;
+        }
+        .earn-more-box {
+            background-color: #FEF3C7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .earn-more-box h3 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .earn-more-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .earn-more-box li {
+            margin-bottom: 8px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #1E3A8A;
+            color: white !important;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 10px;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #152D6E;
+        }
+        .cta-button.secondary {
+            background-color: #FF6B6B;
+        }
+        .cta-button.secondary:hover {
+            background-color: #E05555;
+        }
+        .featured-products {
+            margin-top: 30px;
+        }
+        .featured-products h3 {
+            color: #1E3A8A;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .product-card {
+            text-align: center;
+            padding: 10px;
+            background-color: #F9FAFB;
+            border-radius: 8px;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .product-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 5px;
+        }
+        .product-card .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1E3A8A;
+        }
+        .footer {
+            background-color: #1F2937;
+            color: #D1D5DB;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+        .footer .unsubscribe {
+            margin-top: 15px;
+            font-size: 11px;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .activity-row,
+            .transaction-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .points-display .big-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://www.sunstyleretail.com/images/logo-white.png" alt="SunStyle Retail" class="logo">
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Greeting -->
+            <div class="greeting">Hi ${customer.firstname},</div>
+
+            <!-- Loyalty Status Card -->
+            <div class="loyalty-status-card">
+                <div class="tier-icon">
+                    <#if customer.custentity_loyalty_tier == "Platinum">💎
+                    <#elseif customer.custentity_loyalty_tier == "Gold">🥇
+                    <#elseif customer.custentity_loyalty_tier == "Silver">🥈
+                    <#else>⭐</#if>
+                </div>
+                <h2>${customer.custentity_loyalty_tier!"Bronze"} Member</h2>
+
+                <div class="points-display">
+                    <div class="label">Current Points Balance</div>
+                    <div class="big-number">${customer.custentity_loyalty_points!0}</div>
+                    <div class="label">Points Value: ${((customer.custentity_loyalty_points!0) / 10)?string.currency}</div>
+                </div>
+
+                <#if customer.custentity_next_tier?has_content>
+                <div class="progress-section">
+                    <h4>Progress to ${customer.custentity_next_tier}</h4>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${customer.custentity_tier_progress!0}%;"></div>
+                    </div>
+                    <p style="margin: 10px 0 0 0; font-size: 14px;">
+                        ${customer.custentity_points_to_next_tier!0} more points needed
+                    </p>
+                </div>
+                </#if>
+            </div>
+
+            <!-- This Month's Activity -->
+            <div class="activity-summary">
+                <h3>This Month's Activity</h3>
+                <div class="activity-row positive">
+                    <span>Points Earned:</span>
+                    <span>+${customer.custentity_monthly_earned!0}</span>
+                </div>
+                <div class="activity-row negative">
+                    <span>Points Redeemed:</span>
+                    <span>-${customer.custentity_monthly_redeemed!0}</span>
+                </div>
+                <#if customer.custentity_monthly_expired?has_content && customer.custentity_monthly_expired != 0>
+                <div class="activity-row neutral">
+                    <span>Points Expired:</span>
+                    <span>-${customer.custentity_monthly_expired}</span>
+                </div>
+                </#if>
+                <div class="activity-row" style="border-top: 2px solid #1E3A8A; margin-top: 10px; padding-top: 10px; font-weight: 600;">
+                    <span>Net Change:</span>
+                    <span>${customer.custentity_monthly_net_change!0}</span>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="transactions-list">
+                <h3>Recent Transactions (Last 30 Days)</h3>
+                <#if customer.recent_transactions?has_content>
+                    <#list customer.recent_transactions as txn>
+                    <div class="transaction-item">
+                        <div>
+                            <strong>${txn.description}</strong><br>
+                            <span style="font-size: 12px; color: #6B7280;">${txn.date?string("MMM d, yyyy")}</span>
+                        </div>
+                        <div class="points ${txn.type}">
+                            <#if txn.type == "earned">+</#if>${txn.points} points
+                        </div>
+                    </div>
+                    </#list>
+                <#else>
+                <p style="color: #6B7280; font-size: 14px;">No activity in the last 30 days</p>
+                </#if>
+            </div>
+
+            <!-- Expiration Alert -->
+            <#if customer.custentity_expiring_points?has_content && customer.custentity_expiring_points != 0>
+            <div class="expiration-alert">
+                <h4>⚠️ Points Expiring Soon</h4>
+                <p style="margin: 10px 0; font-size: 14px;">
+                    <strong>${customer.custentity_expiring_points}</strong> points will expire on <strong>${customer.custentity_expiration_date?string("MMMM d, yyyy")}</strong><br>
+                    That's <strong>${(customer.custentity_expiring_points / 10)?string.currency}</strong> in value!
+                </p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="https://www.sunstyleretail.com/shop?utm_source=email&utm_medium=loyalty_statement&utm_campaign=expiring_points" class="cta-button secondary">Use Your Points Now</a>
+                </div>
+            </div>
+            </#if>
+
+            <!-- Tier Benefits -->
+            <div class="benefits-box">
+                <h3>Your ${customer.custentity_loyalty_tier!"Bronze"} Benefits</h3>
+                <ul>
+                    <li>✓ ${customer.custentity_points_multiplier!1}X points on every purchase</li>
+                    <li>✓ Free shipping on orders over ${customer.custentity_free_shipping_threshold!75?string.currency}</li>
+                    <li>✓ Early access to new collections</li>
+                    <li>✓ Birthday month bonus points</li>
+                    <#if customer.custentity_loyalty_tier == "Platinum">
+                    <li>✓ Dedicated concierge service</li>
+                    <li>✓ Complimentary express shipping</li>
+                    </#if>
+                    <#if customer.custentity_loyalty_tier == "Gold" || customer.custentity_loyalty_tier == "Platinum">
+                    <li>✓ Exclusive Gold/Platinum-only promotions</li>
+                    <li>✓ Free premium gift wrapping</li>
+                    </#if>
+                </ul>
+            </div>
+
+            <!-- How to Earn More Points -->
+            <div class="earn-more-box">
+                <h3>How to Earn More Points</h3>
+                <ul style="font-size: 14px;">
+                    <li><strong>Purchases:</strong> 1 point per $1 spent (${customer.custentity_points_multiplier!1}X for your tier)</li>
+                    <li><strong>Product Reviews:</strong> 50 points per review</li>
+                    <li><strong>Social Sharing:</strong> 25 points per share</li>
+                    <li><strong>Referrals:</strong> 500 points per successful referral</li>
+                    <li><strong>Birthday Month:</strong> 2X points on all purchases</li>
+                </ul>
+            </div>
+
+            <!-- Redeem Your Points -->
+            <div style="background-color: #F9FAFB; border-radius: 8px; padding: 20px; margin-bottom: 30px; text-align: center;">
+                <h3 style="margin-top: 0; color: #1E3A8A;">Redeem Your Points</h3>
+                <p style="margin: 10px 0; font-size: 16px;">
+                    <strong>${customer.custentity_loyalty_points!0}</strong> points = <strong>${((customer.custentity_loyalty_points!0) / 10)?string.currency}</strong>
+                </p>
+                <a href="https://www.sunstyleretail.com/shop?utm_source=email&utm_medium=loyalty_statement&utm_campaign=redeem_points" class="cta-button">Shop Now & Redeem</a>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="featured-products">
+                <h3>Featured for You</h3>
+                <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">Based on your purchase history</p>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/featured-1.jpg" alt="Featured Product 1">
+                        <div class="name">Aviator Classic</div>
+                        <div class="price">$89.99</div>
+                        <p style="font-size: 12px; color: #10B981; margin: 5px 0;">Earn 90 points</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/featured-2.jpg" alt="Featured Product 2">
+                        <div class="name">Sport Wrap</div>
+                        <div class="price">$99.99</div>
+                        <p style="font-size: 12px; color: #10B981; margin: 5px 0;">Earn 100 points</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://www.sunstyleretail.com/images/featured-3.jpg" alt="Featured Product 3">
+                        <div class="name">Retro Round</div>
+                        <div class="price">$79.99</div>
+                        <p style="font-size: 12px; color: #10B981; margin: 5px 0;">Earn 80 points</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #6B7280;">
+                    With your points, you could get any of these for only ${((89.99 - ((customer.custentity_loyalty_points!0) / 10)))?string.currency}!
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://instagram.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-instagram.png" alt="Instagram" width="24" height="24"></a>
+                <a href="https://facebook.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-facebook.png" alt="Facebook" width="24" height="24"></a>
+                <a href="https://tiktok.com/@sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-tiktok.png" alt="TikTok" width="24" height="24"></a>
+            </div>
+            <p>
+                <a href="https://www.sunstyleretail.com/loyalty">Loyalty Program</a> |
+                <a href="https://www.sunstyleretail.com/account">My Account</a> |
+                <a href="https://www.sunstyleretail.com/contact">Contact Us</a>
+            </p>
+            <p class="unsubscribe">
+                <a href="https://www.sunstyleretail.com/unsubscribe?email=${customer.email}&type=loyalty">Unsubscribe from loyalty emails</a>
+            </p>
+            <p style="margin-top: 20px;">
+                SunStyle Retail Corporation<br>
+                123 Fashion Avenue, New York, NY 10001<br>
+                © 2026 SunStyle Retail. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

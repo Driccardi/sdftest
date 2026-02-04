@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Status Report - {{PROJECT_NAME}}</title>
+  <style>
+    /* Oracle Redwood Design System Colors */
+    :root {
+      /* Neutral Palette */
+      --neutral-0: #ffffff;
+      --neutral-10: #fbf9f8;
+      --neutral-20: #f5f4f2;
+      --neutral-30: #f1efed;
+      --neutral-40: #e4e1dd;
+      --neutral-50: #d4cfca;
+      --neutral-60: #bcb6b1;
+      --neutral-70: #aea8a2;
+      --neutral-80: #9e9892;
+      --neutral-90: #8b8580;
+      --neutral-100: #7b7570;
+      --neutral-110: #6f6964;
+      --neutral-120: #655f5b;
+      --neutral-130: #5c5651;
+      --neutral-140: #514c47;
+      --neutral-150: #47423e;
+      --neutral-160: #3a3632;
+      --neutral-170: #312d2a;
+      --neutral-180: #201e1c;
+      --neutral-190: #161513;
+      --neutral-200: #000000;
+
+      /* Brand Palette (Teal) */
+      --brand-50: #b4d5e1;
+      --brand-100: #227e9e;
+      --brand-110: #0e7297;
+      --brand-120: #00688c;
+      --brand-150: #064860;
+
+      /* Danger (Red) */
+      --danger-50: #ffc1b8;
+      --danger-100: #d63b25;
+      --danger-110: #c33522;
+      --danger-120: #b3311f;
+      --danger-150: #7c2216;
+
+      /* Warning (Orange/Amber) */
+      --warning-50: #f6c792;
+      --warning-100: #ac630c;
+      --warning-110: #9c590b;
+      --warning-150: #63380a;
+
+      /* Success (Green) */
+      --success-50: #b1dd88;
+      --success-100: #508223;
+      --success-110: #497620;
+      --success-150: #2e4914;
+
+      /* Semantic */
+      --text-primary: var(--neutral-190);
+      --text-secondary: var(--neutral-110);
+      --text-disabled: var(--neutral-80);
+      --bg-page: var(--neutral-10);
+      --bg-content: var(--neutral-0);
+      --bg-hover: rgba(22, 21, 19, 0.08);
+      --border-color: var(--neutral-40);
+      --divider-color: rgba(22, 21, 19, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Oracle Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      padding: 2rem;
+    }
+
+    .report-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--bg-content);
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .report-header {
+      background: linear-gradient(135deg, var(--brand-120) 0%, var(--brand-150) 100%);
+      color: white;
+      padding: 2rem;
+    }
+    .report-header h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+    .report-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+    .report-meta span { display: flex; align-items: center; gap: 0.5rem; }
+
+    /* Section */
+    .section {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--divider-color);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* RAG Summary Cards */
+    .rag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .rag-card {
+      padding: 1.25rem;
+      border-radius: 8px;
+      border-left: 4px solid;
+    }
+    .rag-card.green { background: rgba(80, 130, 35, 0.08); border-color: var(--success-100); }
+    .rag-card.amber { background: rgba(172, 99, 12, 0.08); border-color: var(--warning-100); }
+    .rag-card.red { background: rgba(214, 59, 37, 0.08); border-color: var(--danger-100); }
+    .rag-card.blue { background: rgba(34, 126, 158, 0.08); border-color: var(--brand-100); }
+    .rag-value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .rag-card.green .rag-value { color: var(--success-110); }
+    .rag-card.amber .rag-value { color: var(--warning-110); }
+    .rag-card.red .rag-value { color: var(--danger-110); }
+    .rag-card.blue .rag-value { color: var(--brand-110); }
+    .rag-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    /* Progress Bar */
+    .progress-container { margin: 1rem 0; }
+    .progress-bar {
+      height: 8px;
+      background: var(--neutral-30);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand-100), var(--brand-110));
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    /* Milestone Table */
+    .milestone-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .milestone-table th,
+    .milestone-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--divider-color);
+    }
+    .milestone-table th {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--neutral-10);
+    }
+    .milestone-table tr:hover { background: var(--bg-hover); }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .status-badge.done { background: var(--success-50); color: var(--success-150); }
+    .status-badge.in-progress { background: var(--brand-50); color: var(--brand-150); }
+    .status-badge.blocked { background: var(--danger-50); color: var(--danger-150); }
+    .status-badge.not-started { background: var(--neutral-40); color: var(--neutral-130); }
+    .status-badge.at-risk { background: var(--warning-50); color: var(--warning-150); }
+    .status-badge.obsolete { background: var(--neutral-30); color: var(--neutral-100); text-decoration: line-through; }
+
+    /* Priority Badge */
+    .priority-badge {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+    .priority-badge.critical { background: var(--danger-100); }
+    .priority-badge.high { background: var(--warning-100); }
+    .priority-badge.medium { background: var(--brand-100); }
+    .priority-badge.low { background: var(--neutral-80); }
+
+    /* Risk/Blocker List */
+    .alert-list { list-style: none; }
+    .alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background: var(--neutral-10);
+      border-radius: 6px;
+      border-left: 3px solid;
+    }
+    .alert-item.critical { border-color: var(--danger-100); }
+    .alert-item.high { border-color: var(--warning-100); }
+    .alert-item.medium { border-color: var(--brand-100); }
+    .alert-item-id {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: var(--neutral-30);
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .alert-item-content { flex: 1; }
+    .alert-item-title { font-weight: 600; margin-bottom: 0.25rem; }
+    .alert-item-meta { font-size: 0.875rem; color: var(--text-secondary); }
+
+    /* Footer */
+    .report-footer {
+      padding: 1rem 2rem;
+      background: var(--neutral-10);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Print Styles */
+    @media print {
+      body { padding: 0; background: white; }
+      .report-container { box-shadow: none; }
+      .report-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .rag-card, .status-badge, .priority-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <!-- Header -->
+    <header class="report-header">
+      <h1>{{PROJECT_NAME}}</h1>
+      <div style="font-size: 1rem; opacity: 0.9;">Project Status Report</div>
+      <div class="report-meta">
+        <span>📅 {{REPORT_DATE}}</span>
+        <span>🏢 {{CLIENT_NAME}}</span>
+        <span>🎯 Go-Live: {{GO_LIVE_DATE}}</span>
+      </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="section">
+      <h2 class="section-title">📊 Executive Summary</h2>
+      <div class="rag-grid">
+        <div class="rag-card green">
+          <div class="rag-value">{{DONE_COUNT}}</div>
+          <div class="rag-label">Completed</div>
+        </div>
+        <div class="rag-card blue">
+          <div class="rag-value">{{IN_PROGRESS_COUNT}}</div>
+          <div class="rag-label">In Progress</div>
+        </div>
+        <div class="rag-card amber">
+          <div class="rag-value">{{BACKLOG_COUNT}}</div>
+          <div class="rag-label">Backlog</div>
+        </div>
+        <div class="rag-card red">
+          <div class="rag-value">{{BLOCKED_COUNT}}</div>
+          <div class="rag-label">Blocked</div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: {{PROGRESS_PERCENT}}%"></div>
+        </div>
+        <div class="progress-label">
+          <span>Overall Progress</span>
+          <span>{{PROGRESS_PERCENT}}% ({{DONE_COUNT}}/{{TOTAL_COUNT}} tasks)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestones -->
+    <section class="section">
+      <h2 class="section-title">🎯 Milestone Status</h2>
+      <table class="milestone-table">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Target Date</th>
+            <th>Status</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- {{MILESTONE_ROWS}} -->
+          <tr>
+            <td><strong>MS-001:</strong> Project Kickoff & Foundation Setup</td>
+            <td>2026-02-28</td>
+            <td><span class="status-badge in-progress">In Progress</span></td>
+            <td>2/8 tasks</td>
+          </tr>
+          <tr>
+            <td><strong>MS-002:</strong> Requirements Validation Complete</td>
+            <td>2026-03-31</td>
+            <td><span class="status-badge not-started">Not Started</span></td>
+            <td>0/20 tasks</td>
+          </tr>
+          <!-- More rows... -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Critical Items & Blockers -->
+    <section class="section">
+      <h2 class="section-title">🚨 Critical Items & Blockers</h2>
+      <ul class="alert-list">
+        <!-- {{BLOCKER_ROWS}} -->
+        <li class="alert-item critical">
+          <span class="alert-item-id">TODO-002</span>
+          <div class="alert-item-content">
+            <div class="alert-item-title">CRITICAL: Decide Custom OMS Future State</div>
+            <div class="alert-item-meta">Assigned to: CTO / VP Digital Operations • Due: 2026-02-10</div>
+          </div>
+          <span class="status-badge blocked">Blocked</span>
+        </li>
+        <li class="alert-item critical">
+          <span class="alert-item-id">TODO-003</span>
+          <div class="alert-item-content">
+            <div class="alert-item-title">CRITICAL: Decide Lightspeed POS Future State</div>
+            <div class="alert-item-meta">Assigned to: COO / CTO / Store Operations • Due: 2026-02-10</div>
+          </div>
+          <span class="status-badge blocked">Blocked</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Recently Completed -->
+    <section class="section">
+      <h2 class="section-title">✅ Recently Completed</h2>
+      <ul class="alert-list">
+        <!-- {{COMPLETED_ROWS}} -->
+        <li class="alert-item medium">
+          <span class="alert-item-id">TODO-001</span>
+          <div class="alert-item-content">
+            <div class="alert-item-title">CRITICAL: Clarify NetSuite Current Usage Status</div>
+            <div class="alert-item-meta">Completed: 2026-02-04 • New implementation confirmed</div>
+          </div>
+          <span class="status-badge done">Done</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Coming Due -->
+    <section class="section">
+      <h2 class="section-title">📅 Coming Due (Next 14 Days)</h2>
+      <table class="milestone-table">
+        <thead>
+          <tr>
+            <th style="width: 40px;">Priority</th>
+            <th>Task</th>
+            <th>Due Date</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- {{UPCOMING_ROWS}} -->
+          <tr>
+            <td><span class="priority-badge critical"></span></td>
+            <td><strong>TODO-002:</strong> Decide Custom OMS Future State</td>
+            <td>2026-02-10</td>
+            <td>CTO / VP Digital Operations</td>
+            <td><span class="status-badge not-started">Backlog</span></td>
+          </tr>
+          <tr>
+            <td><span class="priority-badge critical"></span></td>
+            <td><strong>TODO-003:</strong> Decide Lightspeed POS Future State</td>
+            <td>2026-02-10</td>
+            <td>COO / CTO / Store Operations</td>
+            <td><span class="status-badge not-started">Backlog</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Risks & Recommendations -->
+    <section class="section">
+      <h2 class="section-title">⚠️ Risks & Recommendations</h2>
+      <ul class="alert-list">
+        <!-- {{RISK_ROWS}} -->
+        <li class="alert-item high">
+          <div class="alert-item-content">
+            <div class="alert-item-title">Architecture Decisions Blocking Progress</div>
+            <div class="alert-item-meta">
+              3 CRITICAL decisions (OMS, POS, Fiscal Calendar) must be made by 2026-02-10 to stay on track.
+              <br><strong>Recommendation:</strong> Schedule executive workshop this week.
+            </div>
+          </div>
+        </li>
+        <li class="alert-item medium">
+          <div class="alert-item-content">
+            <div class="alert-item-title">Data Quality Assessment Pending</div>
+            <div class="alert-item-meta">
+              TODO-007 blocks 3 downstream configuration tasks.
+              <br><strong>Recommendation:</strong> Prioritize data audit in Week 1.
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="report-footer">
+      <span>Generated by NetSuite Project Manager</span>
+      <span>{{GENERATED_TIMESTAMP}}</span>
+    </footer>
+  </div>
+</body>
+</html>

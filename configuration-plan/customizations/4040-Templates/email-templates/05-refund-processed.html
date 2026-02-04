@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Processed - SunStyle Retail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+        }
+        .header {
+            background-color: #1E3A8A;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .greeting {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+        .refund-summary {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .refund-summary h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+            font-size: 18px;
+        }
+        .refund-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .refund-detail .label {
+            color: #6B7280;
+        }
+        .refund-detail .value {
+            font-weight: 600;
+            color: #1F2937;
+        }
+        .refund-amount {
+            background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .refund-amount h2 {
+            margin: 0 0 5px 0;
+            font-size: 36px;
+        }
+        .timeline-box {
+            background-color: #DBEAFE;
+            border-left: 4px solid #1E3A8A;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .timeline-box h4 {
+            margin-top: 0;
+            color: #1E3A8A;
+        }
+        .timeline-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .timeline-box li {
+            margin-bottom: 8px;
+        }
+        .line-items {
+            margin-bottom: 30px;
+        }
+        .line-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #E5E7EB;
+            justify-content: space-between;
+        }
+        .line-item:last-child {
+            border-bottom: none;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-name {
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 5px;
+        }
+        .loyalty-box {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFB6B6 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .loyalty-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .cta-section {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .cta-section h3 {
+            margin-top: 0;
+            color: #1E3A8A;
+            font-size: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #1E3A8A;
+            color: white !important;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 10px;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #152D6E;
+        }
+        .cta-button.secondary {
+            background-color: #FF6B6B;
+        }
+        .cta-button.secondary:hover {
+            background-color: #E05555;
+        }
+        .feedback-box {
+            background-color: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .feedback-box h4 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .customer-service {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .customer-service h4 {
+            margin-top: 0;
+            color: #92400E;
+        }
+        .footer {
+            background-color: #1F2937;
+            color: #D1D5DB;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .refund-detail {
+                flex-direction: column;
+            }
+            .line-item {
+                flex-direction: column;
+            }
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://www.sunstyleretail.com/images/logo-white.png" alt="SunStyle Retail" class="logo">
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Greeting -->
+            <div class="greeting">Your Refund Is On Its Way</div>
+            <div class="subtitle">We've processed your return</div>
+
+            <!-- Refund Amount -->
+            <div class="refund-amount">
+                <p style="margin: 0 0 5px 0; font-size: 14px;">Refund Amount</p>
+                <h2>${transaction.total?string.currency}</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px;">Processed on ${transaction.trandate?string("MMMM d, yyyy")}</p>
+            </div>
+
+            <!-- Refund Details -->
+            <div class="refund-summary">
+                <h3>Refund Details</h3>
+                <div class="refund-detail">
+                    <span class="label">RMA Number:</span>
+                    <span class="value">${transaction.createdfrom.tranid}</span>
+                </div>
+                <div class="refund-detail">
+                    <span class="label">Original Order:</span>
+                    <span class="value">${transaction.createdfrom.createdfrom.tranid}</span>
+                </div>
+                <div class="refund-detail">
+                    <span class="label">Refund Date:</span>
+                    <span class="value">${transaction.trandate?string("MMMM d, yyyy")}</span>
+                </div>
+                <div class="refund-detail">
+                    <span class="label">Refund Method:</span>
+                    <span class="value">${transaction.custbody_refund_method}</span>
+                </div>
+            </div>
+
+            <!-- When Will I See My Refund -->
+            <div class="timeline-box">
+                <h4>⏱️ When Will I See My Refund?</h4>
+                <p style="margin: 10px 0;">Your refund of <strong>${transaction.total?string.currency}</strong> has been issued to your <strong>${transaction.custbody_refund_method}</strong>.</p>
+                <p style="margin: 10px 0 5px 0; font-weight: 600;">Depending on your bank or card issuer, it may take:</p>
+                <ul>
+                    <li><strong>Credit/Debit Card:</strong> 5-10 business days</li>
+                    <li><strong>PayPal:</strong> 1-3 business days</li>
+                    <li><strong>Store Credit:</strong> Available immediately in your account</li>
+                </ul>
+            </div>
+
+            <!-- Items Refunded -->
+            <div class="line-items">
+                <h3 style="color: #1E3A8A;">Items Refunded</h3>
+                <#list transaction.item as item>
+                <div class="line-item">
+                    <div class="item-details">
+                        <div class="item-name">${item.item}</div>
+                        <div style="font-size: 14px; color: #6B7280; margin-top: 5px;">
+                            Quantity: ${item.quantity}
+                        </div>
+                    </div>
+                    <div style="font-weight: 600; color: #1F2937;">
+                        ${item.amount?string.currency}
+                    </div>
+                </div>
+                </#list>
+            </div>
+
+            <!-- Loyalty Points -->
+            <#if transaction.custbody_loyalty_points_adjusted?has_content && transaction.custbody_loyalty_points_adjusted != 0>
+            <div class="loyalty-box">
+                <h3>Loyalty Points Update</h3>
+                <#if transaction.custbody_loyalty_points_redeemed?has_content && transaction.custbody_loyalty_points_redeemed != 0>
+                <p style="margin: 10px 0;">${transaction.custbody_loyalty_points_redeemed} points have been restored to your account</p>
+                </#if>
+                <#if transaction.custbody_loyalty_points_earned?has_content && transaction.custbody_loyalty_points_earned != 0>
+                <p style="margin: 10px 0;">${transaction.custbody_loyalty_points_earned} points have been deducted from your account</p>
+                </#if>
+                <p style="margin: 10px 0;"><strong>Current Balance:</strong> ${customer.custentity_loyalty_points!0} points</p>
+            </div>
+            </#if>
+
+            <!-- Miss Your Shades Already -->
+            <div class="cta-section">
+                <h3>Miss Your Shades Already?</h3>
+                <p style="margin: 10px 0 20px 0;">We'd love to help you find the perfect pair!</p>
+                <a href="https://www.sunstyleretail.com/shop" class="cta-button">Browse Our Collection</a>
+                <a href="https://www.sunstyleretail.com/styling-consultation" class="cta-button secondary">Contact Style Consultant</a>
+            </div>
+
+            <!-- Feedback -->
+            <div class="feedback-box">
+                <h4>We Value Your Feedback</h4>
+                <p style="margin: 10px 0;">Help us improve - tell us why you returned your order</p>
+                <p style="margin: 10px 0; font-size: 14px;"><strong>Get 100 bonus loyalty points</strong> for completing our 2-minute survey</p>
+                <div style="margin-top: 15px;">
+                    <a href="https://www.sunstyleretail.com/survey/return?rma=${transaction.createdfrom.tranid}" class="cta-button">Take Quick Survey</a>
+                </div>
+            </div>
+
+            <!-- Customer Service -->
+            <div class="customer-service">
+                <h4>Questions About Your Refund?</h4>
+                <p style="margin: 5px 0;">
+                    <strong>Phone:</strong> 1-800-SUNSTYLE<br>
+                    <strong>Email:</strong> support@sunstyleretail.com<br>
+                    <strong>Hours:</strong> Mon-Fri 8am-8pm ET, Sat-Sun 10am-6pm ET
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://instagram.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-instagram.png" alt="Instagram" width="24" height="24"></a>
+                <a href="https://facebook.com/sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-facebook.png" alt="Facebook" width="24" height="24"></a>
+                <a href="https://tiktok.com/@sunstyleretail"><img src="https://www.sunstyleretail.com/images/icon-tiktok.png" alt="TikTok" width="24" height="24"></a>
+            </div>
+            <p>
+                <a href="https://www.sunstyleretail.com/returns">Return Policy</a> |
+                <a href="https://www.sunstyleretail.com/shipping">Shipping Info</a> |
+                <a href="https://www.sunstyleretail.com/contact">Contact Us</a>
+            </p>
+            <p style="margin-top: 20px;">
+                SunStyle Retail Corporation<br>
+                123 Fashion Avenue, New York, NY 10001<br>
+                © 2026 SunStyle Retail. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
