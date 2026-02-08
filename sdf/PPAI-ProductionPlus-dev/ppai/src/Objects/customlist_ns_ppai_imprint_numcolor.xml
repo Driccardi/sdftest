@@ -1,0 +1,39 @@
+<customlist scriptid="customlist_ns_ppai_imprint_numcolor">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Imprint Number of Colors</name>
+  <customvalues>
+    <customvalue scriptid="val_314800_td2953983_150">
+      <abbreviation>1</abbreviation>
+      <isinactive>F</isinactive>
+      <value>1</value>
+    </customvalue>
+    <customvalue scriptid="val_314801_td2953983_599">
+      <abbreviation>2</abbreviation>
+      <isinactive>F</isinactive>
+      <value>2</value>
+    </customvalue>
+    <customvalue scriptid="val_314802_td2953983_558">
+      <abbreviation>3</abbreviation>
+      <isinactive>F</isinactive>
+      <value>3</value>
+    </customvalue>
+    <customvalue scriptid="val_314803_td2953983_112">
+      <abbreviation>4</abbreviation>
+      <isinactive>F</isinactive>
+      <value>4</value>
+    </customvalue>
+    <customvalue scriptid="val_386532_td2953983_367">
+      <abbreviation>5</abbreviation>
+      <isinactive>F</isinactive>
+      <value>5</value>
+    </customvalue>
+    <customvalue scriptid="val_386533_td2953983_735">
+      <abbreviation>6</abbreviation>
+      <isinactive>F</isinactive>
+      <value>6</value>
+    </customvalue>
+  </customvalues>
+</customlist>

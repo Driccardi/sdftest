@@ -1,0 +1,39 @@
+{
+  "name": "Add-Ons & Accessories Upsell Pop-up",
+  "description": "Interactive upsell solution that displays contextual accessory recommendations during sales order entry through pop-up interfaces. Automatically suggests complementary items (cases, cleaners, display stands) based on the primary item or item class, with price-aware filtering and one-click add functionality. Prevents deletion of parent items with attached add-ons and maintains parent-child relationships for accurate order tracking and reporting.",
+  "uses": [
+    "Contextual Accessory Recommendations",
+    "Interactive Pop-up Upsell Interface",
+    "Price-Aware Product Filtering",
+    "One-Click Add with Quantity Selection",
+    "Item-Level or Class-Level Configuration",
+    "Parent-Child Relationship Tracking",
+    "Duplicate Pop-up Prevention",
+    "Price Range Filtering",
+    "Multi-Channel Compatibility",
+    "SuiteQL-Based Dynamic Queries"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2022.1+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Custom Records, Server-Side Scripting, Classes, Multi-Price Levels"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Retail",
+    "Wholesale Distribution"
+  ],
+  "depends_on": [],
+  "solution_type": "Sales & CRM",
+  "manager": "NetSuite Professional Services",
+  "documents": []
+}

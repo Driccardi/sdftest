@@ -1,0 +1,1302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/requirements-jsonrpc.schema.json",
+  "title": "Requirements JSON-RPC 2.0 Schema (RTM + Solution Options)",
+  "type": "object",
+  "description": "Validates JSON-RPC 2.0 requests and responses for managing requirements, solution options, and graph edges.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/JsonRpcRequest"
+    },
+    {
+      "$ref": "#/$defs/JsonRpcResponse"
+    },
+    {
+      "$ref": "#/$defs/JsonRpcBatch"
+    }
+  ],
+  "$defs": {
+    "JsonRpcId": {
+      "description": "JSON-RPC request id (string|number|null). Null indicates a notification (no response).",
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "JsonRpcRequest": {
+      "type": "object",
+      "required": [
+        "jsonrpc",
+        "method"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "const": "2.0"
+        },
+        "id": {
+          "$ref": "#/$defs/JsonRpcId"
+        },
+        "method": {
+          "$ref": "#/$defs/Method"
+        },
+        "params": {
+          "$ref": "#/$defs/Params"
+        }
+      }
+    },
+    "JsonRpcBatch": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/JsonRpcRequest"
+          },
+          {
+            "$ref": "#/$defs/JsonRpcResponse"
+          }
+        ]
+      }
+    },
+    "JsonRpcResponse": {
+      "type": "object",
+      "required": [
+        "jsonrpc",
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "const": "2.0"
+        },
+        "id": {
+          "$ref": "#/$defs/JsonRpcId"
+        },
+        "result": {
+          "$ref": "#/$defs/Result"
+        },
+        "error": {
+          "$ref": "#/$defs/JsonRpcError"
+        }
+      },
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "required": [
+                "result"
+              ],
+              "not": {
+                "required": [
+                  "error"
+                ]
+              }
+            },
+            {
+              "required": [
+                "error"
+              ],
+              "not": {
+                "required": [
+                  "result"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "JsonRpcError": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "Method": {
+      "type": "string",
+      "enum": [
+        "rtm.requirement.create",
+        "rtm.requirement.update",
+        "rtm.requirement.upsert",
+        "rtm.requirement.get",
+        "rtm.requirement.list",
+        "rtm.requirement.setStatus",
+        "rtm.requirement.addFollowUpQuestion",
+        "rtm.requirement.removeFollowUpQuestion",
+        "rtm.requirement.addEdge",
+        "rtm.requirement.removeEdge",
+        "rtm.solutionOption.add",
+        "rtm.solutionOption.update",
+        "rtm.solutionOption.select",
+        "rtm.solutionOption.reject",
+        "rtm.solution.linkImplementation",
+        "rtm.solution.unlinkImplementation"
+      ]
+    },
+    "Params": {
+      "description": "Method-specific parameters (oneOf dispatch by method name).",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ParamsRequirementCreate"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementUpdate"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementUpsert"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementGet"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementList"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementSetStatus"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementAddFollowUpQuestion"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementRemoveFollowUpQuestion"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementAddEdge"
+        },
+        {
+          "$ref": "#/$defs/ParamsRequirementRemoveEdge"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionOptionAdd"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionOptionUpdate"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionOptionSelect"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionOptionReject"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionLinkImplementation"
+        },
+        {
+          "$ref": "#/$defs/ParamsSolutionUnlinkImplementation"
+        }
+      ]
+    },
+    "Result": {
+      "description": "Method-specific results (oneOf).",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ResultRequirement"
+        },
+        {
+          "$ref": "#/$defs/ResultRequirementList"
+        },
+        {
+          "$ref": "#/$defs/ResultOk"
+        },
+        {
+          "$ref": "#/$defs/ResultSolutionOption"
+        },
+        {
+          "$ref": "#/$defs/ResultSolution"
+        }
+      ]
+    },
+    "ResultOk": {
+      "type": "object",
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ok": {
+          "const": true
+        }
+      }
+    },
+    "RequirementId": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{3,}$",
+      "examples": [
+        "REQ-005"
+      ]
+    },
+    "Priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "RequirementType": {
+      "type": "string",
+      "enum": [
+        "functional",
+        "technical",
+        "integration",
+        "process",
+        "other"
+      ]
+    },
+    "RequirementStatus": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "final",
+        "cancelled",
+        "superseded",
+        "implemented"
+      ]
+    },
+    "DateISO": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [
+        "2024-12-01"
+      ]
+    },
+    "Provenance": {
+      "type": "object",
+      "required": [
+        "sourceRef"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "requestedBy": {
+          "type": "string"
+        },
+        "requestDate": {
+          "$ref": "#/$defs/DateISO"
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "transcript",
+            "meeting_summary",
+            "note",
+            "customer_doc",
+            "asset",
+            "other"
+          ]
+        },
+        "sourceLocator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "docId": {
+              "type": "string"
+            },
+            "filePath": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "page": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "timecodeStart": {
+              "type": "string"
+            },
+            "timecodeEnd": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "EdgeType": {
+      "type": "string",
+      "enum": [
+        "depends-on",
+        "dependency-for",
+        "related-to"
+      ]
+    },
+    "Edge": {
+      "type": "object",
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/EdgeType"
+        },
+        "target": {
+          "$ref": "#/$defs/RequirementId"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "SolutionOptionId": {
+      "type": "string",
+      "pattern": "^OPT-[0-9]{3,}$",
+      "examples": [
+        "OPT-001"
+      ]
+    },
+    "Effort": {
+      "type": "string",
+      "enum": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ]
+    },
+    "ApproachType": {
+      "type": "string",
+      "enum": [
+        "native_config",
+        "common_customization",
+        "suiteapp",
+        "unique_customization",
+        "integration",
+        "process_only",
+        "other"
+      ]
+    },
+    "DecisionStatus": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "selected",
+        "rejected",
+        "deprecated"
+      ]
+    },
+    "SolutionOption": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "description"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/SolutionOptionId"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approachType": {
+          "$ref": "#/$defs/ApproachType"
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pros": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "effort": {
+          "$ref": "#/$defs/Effort"
+        },
+        "decision": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/DecisionStatus"
+            },
+            "decidedBy": {
+              "type": "string"
+            },
+            "decidedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        },
+        "followUpQuestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SolutionId": {
+      "type": "string",
+      "pattern": "^SOL-[0-9]{3,}$",
+      "examples": [
+        "SOL-001"
+      ]
+    },
+    "Solution": {
+      "type": "object",
+      "required": [
+        "id",
+        "requirementId"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/SolutionId"
+        },
+        "requirementId": {
+          "$ref": "#/$defs/RequirementId"
+        },
+        "optionId": {
+          "$ref": "#/$defs/SolutionOptionId"
+        },
+        "implementedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "implementedBy": {
+          "type": "string"
+        },
+        "implementation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "system": {
+              "type": "string",
+              "enum": [
+                "netsuite",
+                "other"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "ref"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "sdf",
+                      "suitescript",
+                      "workflow",
+                      "saved_search",
+                      "report",
+                      "dataset",
+                      "template",
+                      "prompt",
+                      "agent",
+                      "toolset",
+                      "parser",
+                      "form",
+                      "doc",
+                      "repo",
+                      "field",
+                      "config",
+                      "process",
+                      "other"
+                    ]
+                  },
+                  "ref": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "DesignProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "solutionOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SolutionOption"
+          }
+        },
+        "solvedBy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Solution"
+          }
+        }
+      }
+    },
+    "Requirement": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "description",
+        "type",
+        "priority",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/RequirementId"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "$ref": "#/$defs/RequirementType"
+        },
+        "priority": {
+          "$ref": "#/$defs/Priority"
+        },
+        "status": {
+          "$ref": "#/$defs/RequirementStatus"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "followUpQuestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "designProposal": {
+          "description": "Either legacy string-array steps, or the extended object form with steps + options + solvedBy.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/DesignProposal"
+            }
+          ]
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "process_taxonomy": {
+          "$ref": "#/$defs/ProcessTaxonomy"
+        }
+      }
+    },
+    "ParamsRequirementCreate": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.create"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": {
+              "$ref": "#/$defs/Requirement"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementUpdate": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.update"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "patch"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "patch": {
+              "type": "object",
+              "description": "Merge-patch payload (RFC 7396 style).",
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementUpsert": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.upsert"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": {
+              "$ref": "#/$defs/Requirement"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementGet": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.get"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementList": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.list"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/RequirementStatus"
+            },
+            "type": {
+              "$ref": "#/$defs/RequirementType"
+            },
+            "priority": {
+              "$ref": "#/$defs/Priority"
+            },
+            "text": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 200
+            },
+            "cursor": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementSetStatus": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.setStatus"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "status"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "status": {
+              "$ref": "#/$defs/RequirementStatus"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementAddFollowUpQuestion": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.addFollowUpQuestion"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "question"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "position": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementRemoveFollowUpQuestion": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.removeFollowUpQuestion"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "question"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementAddEdge": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.addEdge"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "edge"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "edge": {
+              "$ref": "#/$defs/Edge"
+            }
+          }
+        }
+      }
+    },
+    "ParamsRequirementRemoveEdge": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.requirement.removeEdge"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "id",
+            "edge"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "edge": {
+              "$ref": "#/$defs/Edge"
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionOptionAdd": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solutionOption.add"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "option"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "option": {
+              "$ref": "#/$defs/SolutionOption"
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionOptionUpdate": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solutionOption.update"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "optionId",
+            "patch"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "optionId": {
+              "$ref": "#/$defs/SolutionOptionId"
+            },
+            "patch": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionOptionSelect": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solutionOption.select"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "optionId",
+            "decidedBy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "optionId": {
+              "$ref": "#/$defs/SolutionOptionId"
+            },
+            "decidedBy": {
+              "type": "string"
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionOptionReject": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solutionOption.reject"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "optionId",
+            "decidedBy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "optionId": {
+              "$ref": "#/$defs/SolutionOptionId"
+            },
+            "decidedBy": {
+              "type": "string"
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionLinkImplementation": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solution.linkImplementation"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "solution"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "solution": {
+              "$ref": "#/$defs/Solution"
+            }
+          }
+        }
+      }
+    },
+    "ParamsSolutionUnlinkImplementation": {
+      "type": "object",
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "const": "rtm.solution.unlinkImplementation"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "requirementId",
+            "solutionId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "requirementId": {
+              "$ref": "#/$defs/RequirementId"
+            },
+            "solutionId": {
+              "$ref": "#/$defs/SolutionId"
+            }
+          }
+        }
+      }
+    },
+    "ResultRequirement": {
+      "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "requirement": {
+          "$ref": "#/$defs/Requirement"
+        }
+      }
+    },
+    "ResultRequirementList": {
+      "type": "object",
+      "required": [
+        "requirements"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      }
+    },
+    "ResultSolutionOption": {
+      "type": "object",
+      "required": [
+        "option"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "option": {
+          "$ref": "#/$defs/SolutionOption"
+        }
+      }
+    },
+    "ResultSolution": {
+      "type": "object",
+      "required": [
+        "solution"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "solution": {
+          "$ref": "#/$defs/Solution"
+        }
+      }
+    },
+    "ProcessTaxonomy": {
+      "type": "string",
+      "description": "Canonical NetSuite business process taxonomy identifier",
+      "enum": [
+        "order_to_cash",
+        "procure_to_pay",
+        "record_to_report",
+        "inventory_management",
+        "warehouse_management",
+        "manufacturing_assembly",
+        "demand_planning",
+        "supply_planning",
+        "pricing_and_promotions",
+        "subscription_billing",
+        "revenue_recognition",
+        "fixed_assets",
+        "project_to_profit",
+        "case_to_resolution",
+        "field_service_management",
+        "returns_and_rma",
+        "quality_management",
+        "compliance_and_audit",
+        "data_migration",
+        "integrations_and_middleware",
+        "security_and_access_control",
+        "system_administration",
+        "other"
+      ]
+    }
+  }
+}

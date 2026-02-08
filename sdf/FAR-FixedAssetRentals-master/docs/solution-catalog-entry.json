@@ -1,0 +1,542 @@
+{
+  "solution_id": "far-fixed-asset-rentals",
+  "solution_name": "Fixed Asset Rentals (FAR)",
+  "version": "1.0",
+  "vendor": "NetSuite Custom Solution",
+  "solution_type": "Fixed Asset Management Extension",
+  "marketing_description": "Fixed Asset Rentals (FAR) extends NetSuite's Fixed Asset Management (FAM) module to support rental and leasing operations. The solution automatically creates serialized inventory items from fixed assets when marked as rentable, manages cross-subsidiary inventory movements, validates customer-item assignments, and automates disposal inventory adjustments. Designed for companies that rent or lease fixed assets to customers while maintaining dual tracking in both FAM and Inventory systems.",
+  "technical_summary": "FAR integrates NetSuite Fixed Asset Management with Inventory Management by creating a bidirectional linkage between FAM Asset records and Serialized Inventory Items. When a FAM asset is flagged as rentable, the solution automatically generates a corresponding serialized inventory item with proper accounting, enables validation to prevent duplicate customer assignments, nullifies customer locations on fulfillment/receipt transactions, enforces same-subsidiary constraints for cross-subsidiary transfers, and creates inventory adjustments when assets are disposed.",
+  "industries": [
+    "Equipment Rental",
+    "Asset Leasing",
+    "Construction Equipment Rental",
+    "Event Equipment Rental",
+    "Medical Equipment Rental",
+    "Technology Equipment Leasing",
+    "Industrial Equipment Rental"
+  ],
+  "target_company_size": [
+    "Small Business (10-100 employees)",
+    "Mid-Market (100-1000 employees)",
+    "Enterprise (1000+ employees)"
+  ],
+  "key_features": [
+    {
+      "feature": "Automated Inventory Item Creation from FAM Assets",
+      "description": "Automatically creates serialized inventory items when a FAM asset is marked as rentable. Links the asset to inventory via custrecord_asset_itemlink and creates an inventory adjustment to add the item to stock with proper serial number tracking."
+    },
+    {
+      "feature": "Asset Type Mapping Configuration",
+      "description": "Maintains mappings between FAM asset types and their corresponding serialized inventory items. Each asset type defines which inventory item to create and which accounting adjustment account to use for inventory movements."
+    },
+    {
+      "feature": "Automated Asset Disposal Processing",
+      "description": "Map/Reduce script processes disposed FAM assets in bulk, automatically creating negative inventory adjustments to remove serialized items from stock while maintaining proper accounting and serial number tracking."
+    },
+    {
+      "feature": "Customer-Item Assignment Validation",
+      "description": "Client-side validation prevents assigning the same inventory item to multiple customers on sales orders and return authorizations. Ensures rental assets are not double-booked."
+    },
+    {
+      "feature": "Customer Location Nullification",
+      "description": "Automatically clears customer assignments on FAM assets when item receipts, item fulfillments, or invoices are created, ensuring assets are properly marked as available after customer transactions."
+    },
+    {
+      "feature": "Cross-Subsidiary Inventory Validation",
+      "description": "Enforces same-subsidiary constraints when enabled via script parameter. Prevents inventory transfer orders and adjustments from moving rental assets across subsidiaries, maintaining proper subsidiary accounting."
+    },
+    {
+      "feature": "Serial Number Tracking",
+      "description": "Maintains complete serial number tracking from FAM asset through inventory movements, rentals, returns, and disposals. Serial numbers flow from custrecord_assetserialno to inventory detail records."
+    },
+    {
+      "feature": "Dual Asset-Inventory Lifecycle Management",
+      "description": "Manages complete lifecycle: Asset Creation -> Inventory Creation -> Customer Assignment -> Rental/Fulfillment -> Return/Receipt -> Customer Nullification -> Disposal -> Inventory Removal."
+    }
+  ],
+  "technical_components": {
+    "custom_records": [
+      {
+        "script_id": "customrecord_ncfar_asset",
+        "name": "FAM Asset Record",
+        "description": "NetSuite Fixed Asset Management asset record extended with rental-specific fields",
+        "key_fields": [
+          "custrecord_asset_rentable (Checkbox: Is asset available for rental)",
+          "custrecord_assetserialno (Text: Serial number for tracking)",
+          "custrecord_assettype (List: Link to Asset Type)",
+          "custrecord_assetcost (Currency: Original asset cost)",
+          "custrecord_assetcurrentcost (Currency: Current book value)",
+          "custrecord_assetsubsidiary (List: Asset subsidiary)",
+          "custrecord_asset_itemlink (List: Link to Serialized Inventory Item)",
+          "custrecord_asset_customer (List: Customer currently renting asset)",
+          "custrecordnsps_disp_adj_created (Checkbox: Disposal adjustment created flag)",
+          "custrecord_assetstatus (List: Asset status)",
+          "custrecord_assetlifetime (Integer: Asset useful life)",
+          "custrecord_assetaccmethod (List: Depreciation method)",
+          "custrecord_componentof (List: Parent asset if component)",
+          "custrecord_ncfar_quantity (Integer: Quantity)",
+          "custrecord_assetdescr (Text: Asset description)"
+        ]
+      },
+      {
+        "script_id": "customrecord_ncfar_assettype",
+        "name": "FAM Asset Type",
+        "description": "Asset type classification for FAM assets"
+      },
+      {
+        "script_id": "customrecord_ncfar_deprmethod",
+        "name": "Depreciation Method",
+        "description": "Depreciation method definitions for FAM"
+      },
+      {
+        "script_id": "customrecord_ns_asset_type_mapping",
+        "name": "Asset Type Mapping",
+        "description": "Maps FAM asset types to serialized inventory items and accounting configuration",
+        "key_fields": [
+          "custrecord_serialized_inv_item (List: Serialized Inventory Item to create)",
+          "custrecord_inv_adj_acct (List: Inventory Adjustment Account for GL posting)"
+        ]
+      }
+    ],
+    "scripts": [
+      {
+        "script_id": "customscript_ns_ue_inv_item_create",
+        "type": "User Event",
+        "name": "NS|UE|FA Inventory Item Creation",
+        "file": "NSTS_FA_Inventory_Item_Creation.js",
+        "description": "Triggers on FAM Asset create/delete. When asset is rentable with serial number and asset type, creates inventory adjustment to add serialized item to stock. On delete, creates negative adjustment to remove from stock.",
+        "deployments": [
+          {
+            "id": "customdeploy_ns_ue_inv_item_create",
+            "record_type": "customrecord_ncfar_asset",
+            "event_types": ["create", "delete"],
+            "status": "TESTING"
+          }
+        ],
+        "parameters": [
+          {
+            "id": "custscript_ns_location_param",
+            "label": "Location",
+            "type": "SELECT",
+            "description": "Default location for inventory adjustments"
+          }
+        ]
+      },
+      {
+        "script_id": "customscript_ns_mr_fa_asset_disposal",
+        "type": "Map/Reduce",
+        "name": "NS|MR|FA Asset Disposal",
+        "file": "NSTS_MR_FA_Asset_Disposal.js",
+        "description": "Batch processes disposed FAM assets. Searches for disposed assets via saved search parameter, looks up asset type mapping to get serialized inventory item, creates negative inventory adjustment to remove from stock, and flags asset with custrecordnsps_disp_adj_created.",
+        "deployments": [
+          {
+            "id": "customdeploy_ns_mr_fa_asset_disposal",
+            "status": "NOTSCHEDULED",
+            "schedule": "Manual execution or scheduled"
+          }
+        ],
+        "parameters": [
+          {
+            "id": "custscript_ns_fam_asset_search_param",
+            "label": "FAM Asset Search Param",
+            "type": "SELECT",
+            "description": "Saved search ID for finding disposed assets",
+            "default_value": "customsearch_ns_fam_asset_search"
+          },
+          {
+            "id": "custscript_ns_location_parameter",
+            "label": "Location",
+            "type": "SELECT",
+            "description": "Location for disposal adjustments"
+          },
+          {
+            "id": "custscript_ns_fam_adj_acc_param",
+            "label": "Adjustment Account",
+            "type": "SELECT",
+            "description": "GL account for disposal adjustments"
+          },
+          {
+            "id": "custscript_ns_fam_subsidiary",
+            "label": "Subsidiary",
+            "type": "SELECT",
+            "description": "Subsidiary filter for disposal processing"
+          }
+        ]
+      },
+      {
+        "script_id": "customscript_ns_ce_validate_txn_itm_cust",
+        "type": "Client Script",
+        "name": "NS|CS|Transaction Item&Customer On FAM",
+        "file": "NSTS_CS_Transaction_Item_And_Customer_On_FAM.js",
+        "description": "Client-side validation on sales orders and return authorizations. When item is selected, searches for FAM assets assigned to same customer with same item. If found, prevents duplicate assignment by clearing item field and showing error.",
+        "deployments": [
+          {
+            "id": "customdeploy_ns_ce_validate_txn_so",
+            "record_type": "SALESORDER",
+            "event_type": "fieldChanged",
+            "status": "RELEASED"
+          },
+          {
+            "id": "customdeploy_ns_ce_validate_txn_rma",
+            "record_type": "RETURNAUTHORIZATION",
+            "event_type": "fieldChanged",
+            "status": "RELEASED"
+          }
+        ]
+      },
+      {
+        "script_id": "customscript_ns_ue_nullify_cust_loc",
+        "type": "User Event",
+        "name": "NS|UE|Nullify Customer Location",
+        "file": "NSTS_UE_Nullify_Customer_Location.js",
+        "description": "After item receipt, item fulfillment, or invoice is created/edited, searches for FAM assets matching customer and items on transaction, then nullifies custrecord_asset_customer to mark assets as available.",
+        "deployments": [
+          {
+            "id": "customdeploy_ns_ue_nullify_cust_loc_ir",
+            "record_type": "ITEMRECEIPT",
+            "event_type": "afterSubmit",
+            "status": "TESTING"
+          },
+          {
+            "id": "customdeploy_ns_ue_nullify_cust_loc_if",
+            "record_type": "ITEMFULFILLMENT",
+            "event_type": "afterSubmit",
+            "status": "TESTING"
+          },
+          {
+            "id": "customdeploy_ns_ue_nullify_cust_loc_inv",
+            "record_type": "INVOICE",
+            "event_type": "afterSubmit",
+            "status": "TESTING"
+          }
+        ]
+      },
+      {
+        "script_id": "customscript_ns_ue_valdt_cross_sub",
+        "type": "User Event",
+        "name": "NS|UE|Validate Cross Subsidiary",
+        "file": "NSTS_UE_Validate_Cross_Subsidiaries.js",
+        "description": "Before creating intercompany transfer orders or inventory adjustments, validates that from-subsidiary equals to-subsidiary when custscript_is_cross_sub parameter is enabled. Prevents cross-subsidiary movements of rental assets.",
+        "deployments": [
+          {
+            "id": "customdeploy_ns_ue_valdt_cross_sub_ito",
+            "record_type": "INTERCOMPANYTRANSFERORDER",
+            "event_type": "beforeSubmit",
+            "status": "RELEASED"
+          },
+          {
+            "id": "customdeploy_ns_ue_valdt_cross_sub_ia",
+            "record_type": "INVENTORYADJUSTMENT",
+            "event_type": "beforeSubmit",
+            "status": "RELEASED"
+          }
+        ],
+        "parameters": [
+          {
+            "id": "custscript_is_cross_sub",
+            "label": "Cross-subsidiary inventory assets",
+            "type": "CHECKBOX",
+            "description": "Enable to enforce same-subsidiary constraint",
+            "default_value": true
+          }
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "file": "NSCreateInventory.js",
+        "name": "Inventory Adjustment Module",
+        "description": "Shared module for creating inventory adjustments with serial number tracking",
+        "functions": [
+          {
+            "name": "createInventoryAdjustment",
+            "parameters": "{ assetId, account, subsidiary, itemId, location, serialNumber, amount, quantity }",
+            "returns": "Inventory Adjustment Internal ID",
+            "description": "Creates inventory adjustment record linking to FAM asset via custbody_fam_asset_record. Sets adjustment location, account, and subsidiary. Adds inventory line with serial number detail. Handles both positive (quantity=1) and negative (quantity=-1) adjustments."
+          }
+        ]
+      }
+    ],
+    "custom_fields": {
+      "transaction_body_fields": [
+        {
+          "script_id": "custbody_fam_asset_record",
+          "label": "FAM Asset Record",
+          "record_type": "Inventory Adjustment",
+          "description": "Links inventory adjustment to originating FAM asset"
+        }
+      ],
+      "custom_record_fields": [
+        {
+          "script_id": "custrecord_asset_rentable",
+          "record_type": "customrecord_ncfar_asset",
+          "label": "Rentable",
+          "type": "CHECKBOX",
+          "description": "Flags asset as available for rental operations"
+        },
+        {
+          "script_id": "custrecord_assetserialno",
+          "record_type": "customrecord_ncfar_asset",
+          "label": "Serial Number",
+          "type": "TEXT",
+          "description": "Serial number for inventory tracking"
+        },
+        {
+          "script_id": "custrecord_asset_itemlink",
+          "record_type": "customrecord_ncfar_asset",
+          "label": "Linked Inventory Item",
+          "type": "SELECT",
+          "description": "Link to serialized inventory item created from asset"
+        },
+        {
+          "script_id": "custrecord_asset_customer",
+          "record_type": "customrecord_ncfar_asset",
+          "label": "Customer",
+          "type": "SELECT",
+          "description": "Customer currently assigned to rental asset"
+        },
+        {
+          "script_id": "custrecordnsps_disp_adj_created",
+          "record_type": "customrecord_ncfar_asset",
+          "label": "Disposal Adjustment Created",
+          "type": "CHECKBOX",
+          "description": "Indicates disposal inventory adjustment was created"
+        },
+        {
+          "script_id": "custrecord_serialized_inv_item",
+          "record_type": "customrecord_ns_asset_type_mapping",
+          "label": "Serialized Inventory Item",
+          "type": "SELECT",
+          "description": "Inventory item to create for this asset type"
+        },
+        {
+          "script_id": "custrecord_inv_adj_acct",
+          "record_type": "customrecord_ns_asset_type_mapping",
+          "label": "Inventory Adjustment Account",
+          "type": "SELECT",
+          "description": "GL account for inventory adjustments"
+        }
+      ],
+      "custom_lists": [
+        {
+          "script_id": "customlist_ncfar_assetstatus",
+          "name": "FAM Asset Status",
+          "values": "Asset status values (Active, Disposed, In Rental, etc.)"
+        }
+      ]
+    },
+    "saved_searches": [
+      {
+        "script_id": "customsearch_ns_fam_asset_search",
+        "name": "FAM Asset Search",
+        "type": "customrecord_ncfar_asset",
+        "description": "Search for disposed FAM assets needing inventory adjustment creation",
+        "criteria": "Filters for disposed assets where custrecordnsps_disp_adj_created = false",
+        "columns": [
+          "internalid",
+          "custrecord_assettype",
+          "custrecord_assetcost",
+          "custrecord_assetserialno",
+          "custrecord_assetsubsidiary",
+          "custrecord_assetstatus",
+          "custrecord_assetlifetime",
+          "custrecord_assetaccmethod",
+          "custrecord_assetcurrentcost",
+          "custrecord_assetdescr",
+          "custrecord_componentof",
+          "custrecord_ncfar_quantity",
+          "custrecordnsps_disp_adj_created",
+          "custrecord_asset_itemlink"
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "netsuite_features": [
+      {
+        "feature": "LOCATIONS",
+        "required": true,
+        "description": "Multi-location inventory tracking"
+      },
+      {
+        "feature": "SERVERSIDESCRIPTING",
+        "required": true,
+        "description": "Server-side scripts (User Event, Map/Reduce)"
+      },
+      {
+        "feature": "ACCOUNTING",
+        "required": true,
+        "description": "Base accounting functionality"
+      },
+      {
+        "feature": "SUBSIDIARIES",
+        "required": true,
+        "description": "Multi-subsidiary support"
+      },
+      {
+        "feature": "CRM",
+        "required": false,
+        "description": "Customer relationship management"
+      },
+      {
+        "feature": "INVENTORY",
+        "required": true,
+        "description": "Inventory management"
+      },
+      {
+        "feature": "SERIALNUMBERS",
+        "required": true,
+        "description": "Serialized inventory item tracking"
+      },
+      {
+        "feature": "FIXEDASSETS",
+        "required": true,
+        "description": "NetSuite Fixed Asset Management (FAM)"
+      }
+    ],
+    "external_dependencies": [
+      {
+        "dependency": "customrecord_ncfar_asset",
+        "type": "Custom Record",
+        "source": "NetSuite Fixed Asset Management (FAM)",
+        "description": "Core FAM asset record - must exist before deploying FAR solution"
+      },
+      {
+        "dependency": "customrecord_ncfar_assettype",
+        "type": "Custom Record",
+        "source": "NetSuite Fixed Asset Management (FAM)",
+        "description": "FAM asset type classification"
+      },
+      {
+        "dependency": "customrecord_ncfar_deprmethod",
+        "type": "Custom Record",
+        "source": "NetSuite Fixed Asset Management (FAM)",
+        "description": "FAM depreciation method definitions"
+      },
+      {
+        "dependency": "customlist_ncfar_assetstatus",
+        "type": "Custom List",
+        "source": "NetSuite Fixed Asset Management (FAM)",
+        "description": "FAM asset status values"
+      }
+    ],
+    "bundles": [
+      {
+        "bundle_id": "NetSuite Fixed Asset Management",
+        "bundle_name": "Fixed Asset Management (FAM)",
+        "required": true,
+        "description": "Core FAM module must be installed and configured"
+      }
+    ]
+  },
+  "deployment_complexity": "Medium",
+  "deployment_notes": "Requires NetSuite Fixed Asset Management (FAM) module fully installed and configured. Asset Type Mapping custom record must be created and populated before deployment. Serialized inventory items must be created for each asset type. Script parameters (location, accounts) must be configured post-deployment. Existing FAM assets may require data migration to add rental-specific fields. Consider running disposal Map/Reduce script manually first to validate configuration before scheduling.",
+  "business_processes": [
+    {
+      "process": "Asset Onboarding to Rental Inventory",
+      "description": "FAM asset is created with asset type, serial number, subsidiary, and cost. Asset is flagged as rentable (custrecord_asset_rentable = true). User Event script triggers, looks up asset type mapping to find corresponding serialized inventory item, creates inventory adjustment with +1 quantity and serial number, posts to configured GL account, updates asset with custrecord_asset_itemlink."
+    },
+    {
+      "process": "Customer Rental Assignment",
+      "description": "Sales order is created for rental item. Client script validates item is not already assigned to this customer on another FAM asset. If validation passes, FAM asset is updated with custrecord_asset_customer = customer ID. Item fulfillment is created from sales order, transferring serialized inventory to customer."
+    },
+    {
+      "process": "Customer Rental Return",
+      "description": "Item receipt or return authorization is created for returned rental. User Event script searches FAM assets for customer + items on transaction. Nullifies custrecord_asset_customer on matching assets, marking them available for rental. Serialized inventory is received back into stock."
+    },
+    {
+      "process": "Asset Disposal Processing",
+      "description": "FAM asset status is changed to Disposed. Map/Reduce script runs (scheduled or manual), searches for disposed assets where custrecordnsps_disp_adj_created = false, looks up asset type mapping for serialized inventory item and adjustment account, creates inventory adjustment with -1 quantity to remove from stock, sets custrecordnsps_disp_adj_created = true to prevent reprocessing."
+    },
+    {
+      "process": "Cross-Subsidiary Validation",
+      "description": "When cross-subsidiary validation is enabled via script parameter, User Event script prevents creating inventory transfer orders or adjustments where from-subsidiary differs from to-subsidiary. Ensures rental assets remain within single subsidiary for proper accounting."
+    }
+  ],
+  "user_roles": [
+    {
+      "role": "Fixed Asset Manager",
+      "responsibilities": "Creates and maintains FAM asset records, flags assets as rentable, assigns serial numbers and asset types, monitors asset lifecycle from acquisition through disposal"
+    },
+    {
+      "role": "Rental Operations Manager",
+      "responsibilities": "Manages rental assignments to customers, processes item fulfillments and receipts, monitors asset availability, handles customer returns"
+    },
+    {
+      "role": "Accounting Manager",
+      "responsibilities": "Configures asset type mappings, sets GL accounts for inventory adjustments, reviews disposal processing, ensures proper subsidiary accounting"
+    },
+    {
+      "role": "Sales Representative",
+      "responsibilities": "Creates sales orders for rental items, validates item availability through client script, processes customer rentals"
+    }
+  ],
+  "integration_points": [
+    {
+      "integration": "FAM Asset → Serialized Inventory Item",
+      "method": "User Event Script (afterSubmit)",
+      "description": "Bidirectional link created when rentable asset is saved. Asset stores custrecord_asset_itemlink, inventory adjustment stores custbody_fam_asset_record."
+    },
+    {
+      "integration": "Asset Type Mapping → Inventory Creation",
+      "method": "Lookup during User Event and Map/Reduce",
+      "description": "customrecord_ns_asset_type_mapping provides serialized inventory item ID and GL account for automated inventory adjustment creation."
+    },
+    {
+      "integration": "Customer Transaction → Asset Availability",
+      "method": "User Event Script (afterSubmit on IF/IR/INV)",
+      "description": "Item fulfillments, receipts, and invoices trigger search of FAM assets to update customer assignments."
+    },
+    {
+      "integration": "Sales Order → Customer Assignment Validation",
+      "method": "Client Script (fieldChanged)",
+      "description": "Real-time validation prevents double-booking rental assets to multiple customers."
+    }
+  ],
+  "reporting_capabilities": [
+    "FAM assets flagged as rentable",
+    "Assets currently assigned to customers",
+    "Serialized inventory linked to FAM assets",
+    "Disposed assets with/without disposal adjustments created",
+    "Inventory adjustments created from FAM assets",
+    "Asset type mapping configuration report",
+    "Rental asset availability by location",
+    "Customer rental history by asset"
+  ],
+  "configuration_requirements": [
+    "NetSuite Fixed Asset Management (FAM) module installed",
+    "Create customrecord_ns_asset_type_mapping custom record type",
+    "Create custrecord_serialized_inv_item field on mapping record",
+    "Create custrecord_inv_adj_acct field on mapping record",
+    "Create serialized inventory items for each rental asset type",
+    "Populate asset type mapping records linking FAM types to inventory items",
+    "Configure script parameters: custscript_ns_location_param (default location)",
+    "Configure script parameters: custscript_ns_fam_adj_acc_param (disposal GL account)",
+    "Configure script parameters: custscript_is_cross_sub (cross-subsidiary validation)",
+    "Create/configure customsearch_ns_fam_asset_search for disposal processing",
+    "Add custbody_fam_asset_record field to inventory adjustment forms",
+    "Add rental-specific fields to FAM asset forms",
+    "Set script deployment roles and permissions",
+    "Test with sample assets before enabling in production"
+  ],
+  "scalability_considerations": "Map/Reduce script efficiently handles bulk disposal processing. Search-based architecture supports thousands of rental assets. Client script validation uses paged search for performance. Consider indexing custrecord_asset_customer and custrecord_asset_itemlink fields for large datasets. Disposal Map/Reduce can be scheduled during off-peak hours to minimize performance impact.",
+  "maintenance_requirements": "Regularly review asset type mappings when adding new rental asset categories. Monitor Map/Reduce script execution logs for disposal processing errors. Periodically validate FAM asset to inventory item links are accurate. Archive disposed assets and historical inventory adjustments per retention policies. Update saved search criteria if FAM status values change.",
+  "licensing_implications": "Requires NetSuite Fixed Asset Management (FAM) license. Each user creating/editing FAM assets needs appropriate FAM permissions. Inventory management permissions required for processing inventory adjustments. Map/Reduce script consumes governance units - monitor usage in high-volume environments.",
+  "training_requirements": [
+    "Fixed Asset Managers: 2-3 hours on FAM basics, rental flag usage, serial number assignment, asset type configuration",
+    "Rental Operations: 1-2 hours on sales order validation, customer assignment workflow, return processing",
+    "Accounting: 2-4 hours on asset type mapping setup, GL account configuration, disposal processing, reconciliation",
+    "IT/Admin: 4-6 hours on script deployment, parameter configuration, troubleshooting, maintenance"
+  ],
+  "support_model": "Custom solution - requires NetSuite developer support for enhancements and troubleshooting. No vendor support available. Recommend internal NetSuite administrator with SuiteScript experience for ongoing maintenance.",
+  "upgrade_considerations": "Custom solution requires testing with each NetSuite release. Review release notes for changes to FAM module, Inventory Management, and SuiteScript APIs. Test disposal Map/Reduce script after upgrades. Validate saved search still returns correct results if FAM record structure changes. Monitor for deprecated APIs in User Event scripts.",
+  "documentation": {
+    "design_document": "Not available",
+    "technical_documentation": "This catalog entry and solution-documentation.md",
+    "user_guide": "Not available",
+    "admin_guide": "solution-documentation.md - Configuration Guide section"
+  },
+  "created_date": "2026-02-04",
+  "last_updated": "2026-02-04",
+  "catalog_version": "1.0"
+}

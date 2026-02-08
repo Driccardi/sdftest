@@ -1,0 +1,91 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>ppai</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="false">MATRIXITEMS</feature>
+      <feature required="false">EXPREPORTS</feature>
+      <feature required="false">WEBSITE</feature>
+      <feature required="false">ADVRECEIVING</feature>
+      <feature required="false">MULTILOCINVT</feature>
+      <feature required="false">INVENTORY</feature>
+      <feature required="false">OPPORTUNITIES</feature>
+      <feature required="false">RECEIVABLES</feature>
+      <feature required="false">WORKORDERS</feature>
+      <feature required="false">PAYABLES</feature>
+      <feature required="false">TIMETRACKING</feature>
+      <feature required="false">MULTILANGUAGE</feature>
+      <feature required="false">CUSTOMSEGMENTS</feature>
+      <feature required="false">EXTREMELIST</feature>
+      <feature required="false">MAILMERGE</feature>
+      <feature required="true">MFGROUTING</feature>
+      <feature required="true">CUSTOMRECORDS</feature>
+      <feature required="false">SUBSIDIARIES</feature>
+      <feature required="false">WEBSERVICES</feature>
+      <feature required="true">ACCOUNTING</feature>
+      <feature required="true">CLASSES</feature>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="false">MERCHANDISEHIERARCHY</feature>
+      <feature required="false">SUPPORT</feature>
+      <feature required="false">ADVANCEDJOBS</feature>
+      <feature required="false">MARKETING</feature>
+      <feature required="true">WORKFLOW</feature>
+      <feature required="false">SUBSCRIPTIONBILLING</feature>
+      <feature required="true">ASSEMBLIES</feature>
+    </features>
+    <objects>
+      <object>custbody_11187_pref_entity_bank</object>
+      <object>customrecord_dt_tile</object>
+      <!-- removed by pcl
+      <object>custbody_15699_exclude_from_ep_process</object>
+      <object>custbody_15529_vendor_entity_bank</object>
+      <object>custbody_15529_emp_entity_bank</object>
+      <object>custbody_10184_customer_entity_bank</object>
+      -->
+
+      <object>customrecord_scm_item_substitute</object>
+      
+      <object>customrecord_2663_entity_bank_details</object>
+      <object>customrecord_nav_shortcut</object>
+      <object>custbody_11724_bank_fee</object>
+      
+      <object>customrecord_nav_shortcutgroup</object>
+      <object>custbody_11724_pay_bank_fees</object>
+      <object>customrecord_nav_category</object>
+      
+      <object>customrecord_nav_shortcut_tooltip</object>
+     
+      <object>customrecord_scm_customerpartnumber</object>
+   
+      <object>custevent_scm_operationtask_dispatched</object>
+     
+      <object>customrecord_scm_preferences</object>
+    </objects>
+    <applications>
+      <!-- removed by pcl
+      <application id="com.netsuite.item360">
+        <objects>
+          <object>customrecord_item360_criteria_config</object>
+          <object>customrecord_item360_criteria_grid</object>
+          <object>customrecord_item360_user_access</object>
+        </objects>
+      </application>
+      
+      <application id="com.suitesuccess.woaao">
+        <objects>
+          <object>customrole_atlas_woa_production_manager</object>
+        </objects>
+      </application>
+      -->
+      <!--Work Order Auto Creation Bundle - 558269 -->
+      <application id="com.suitesuccess.erpcore"> 
+        <objects>
+          <object>customrecord_atlas_inv_adj_reasn</object>
+          <object>custbody_atlas_inv_adj_reason</object>
+        </objects>
+      </application>
+      
+    </applications>
+  </dependencies>
+</manifest>

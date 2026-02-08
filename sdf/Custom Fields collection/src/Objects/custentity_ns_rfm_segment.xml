@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custentitycustom scriptid="custentity_ns_rfm_segment">
+  <label>RFM Segment</label>
+  <description>Customer segment based on RFM (Recency, Frequency, Monetary) analysis</description>
+  <fieldtype>SELECT</fieldtype>
+  <selectrecordtype>-191</selectrecordtype>
+  <displaytype>NORMAL</displaytype>
+  <dynamicdefault/>
+  <help>Automatically assigned customer segment based on purchase behavior</help>
+  <storevalue>T</storevalue>
+  <accesslevel>2</accesslevel>
+  <checkspelling>F</checkspelling>
+  <encryptatrest>F</encryptatrest>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <searchlevel>2</searchlevel>
+  <appliestocontact>F</appliestocontact>
+  <appliestocustomer>T</appliestocustomer>
+  <appliestoemployee>F</appliestoemployee>
+  <appliestogroup>F</appliestogroup>
+  <appliestoothername>F</appliestoothername>
+  <appliestopartner>F</appliestopartner>
+  <appliestoprojecttemplate>F</appliestoprojecttemplate>
+  <appliestovendor>F</appliestovendor>
+  <appliestowebsite>F</appliestowebsite>
+  <applyformatting>T</applyformatting>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection>customlist_ns_rfm_segments</defaultselection>
+  <globalsearch>F</globalsearch>
+</custentitycustom>

@@ -1,0 +1,29 @@
+<customlist scriptid="customlist_ns_ppai_design">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>Design</name>
+  <customvalues>
+    <customvalue scriptid="val_435267_td2953983_197">
+      <abbreviation>M</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Myrtle Beach</value>
+    </customvalue>
+    <customvalue scriptid="val_435268_td2953983_523">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Orange Beach</value>
+    </customvalue>
+    <customvalue scriptid="val_435269_td2953983_975">
+      <abbreviation>O</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Ocean City, MD</value>
+    </customvalue>
+    <customvalue scriptid="val_435270_td2953983_418">
+      <abbreviation>P</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Panama City Beach</value>
+    </customvalue>
+  </customvalues>
+</customlist>

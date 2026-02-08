@@ -8,7 +8,7 @@
 **Source**: Discovery notes from M. Rivera, 2026-01-28
 **Source Documents**:
   - `unprocessed/_processed/2026-01-30_vendor-sourcing-requirements.pdf` (processed 2026-01-30)
-  - `unprocessed/vendor-sourcing-requirements.md` (processed 2026-02-02)
+  - `unprocessed/_processed/2026-02-05_vendor-sourcing-requirements.md` (processed 2026-02-05)
 **Related**:
   - [Inventory Management Process](./inventory-management.md)
   - [Configuration Spec: Sourcing Tracker Custom Record](../../configuration-execution/custom-records/sourcing-tracker.md)
@@ -167,12 +167,24 @@ Currently, the vendor sourcing workflow is managed through spreadsheets and emai
 
 ### Integration with Vendor Record
 
-Tom requested visibility from the Vendor record - options to explore:
-- Related records subtab on vendor
-- Custom saved search embedded on vendor form
-- Suitelet showing sourcing history
+**Decision (2026-02-05)**: Implemented via saved search subtab on vendor record form.
 
-> ⚠️ OPEN: Technical approach for vendor record integration - subtab vs. saved search vs. suitelet
+**Technical Approach**:
+- Saved Search: `customsearch_vendor_sourcing_history`
+- Displays all sourcing tracker records for the current vendor
+- Shows: Record ID, Item, Model Code, Status, Buyer, Contact Date, Quoted Cost, MOQ, Lead Time
+- Sorted by contact date (most recent first)
+- Available filters: Status, Buyer, Contact Date range
+
+**Post-Deployment Configuration Required**:
+1. Navigate to Customization > Forms > Entry Forms > Vendor
+2. Customize the Standard Vendor Form (or custom vendor form)
+3. Add Custom Subtab: "Sourcing History"
+4. Subtab Type: Saved Search
+5. Select: "Vendor Sourcing History" search
+6. Save form
+
+**Rationale**: Saved search subtab provides native NetSuite functionality with no custom scripts required, real-time visibility, and easy maintenance. Users can click sourcing records directly from the vendor form to view full details.
 
 ## Open Questions
 
@@ -199,12 +211,14 @@ Tom requested visibility from the Vendor record - options to explore:
 
 ## Changelog
 
+- **2026-02-05**: Technical decision - Vendor record integration implemented via saved search subtab (customsearch_vendor_sourcing_history)
+- **2026-02-05**: Updated source document reference - markdown file processed and archived
 - **2026-02-02**: Updated source documents to include markdown version of discovery notes
 - **2026-01-30**: Added "Cancelled" status value and automated email notification requirement (per discussion with Moxi). Added GAP-PTP-005 reference.
 - **2026-01-30**: Initial document created from discovery notes (M. Rivera, 2026-01-28)
 
 ---
 
-*Last Updated: 2026-02-02*
-*Version: 1.1.1*
+*Last Updated: 2026-02-05*
+*Version: 1.2.0*
 *Status: Draft*

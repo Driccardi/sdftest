@@ -1,0 +1,571 @@
+{
+  "solution_id": "vdp-bottle-exchange",
+  "solution_name": "Bottle Exchange and Deposit Management",
+  "version": "1.0",
+  "vendor": "NetSuite Custom Solution",
+  "solution_type": "Inventory Management / Customer Deposit Tracking",
+  "customer": "Volleman Dairy Processing, LLC",
+  "customer_id": "7303683",
+  "job_number": "J890838",
+  "marketing_description": "Bottle Exchange and Deposit Management automates the tracking of returnable containers, customer deposits, and bottle inventory for dairy and beverage companies. The solution manages the full lifecycle of returnable bottles from initial sale through return and exchange, ensuring accurate deposit tracking, proper inventory accounting, and seamless customer credit processing.",
+  "technical_summary": "Bottle Exchange extends NetSuite's inventory and customer transaction functionality with specialized tracking for returnable containers. The solution creates deposit liabilities on bottle sales, tracks bottle inventory separately from product inventory, processes bottle returns and exchanges via user event automation, manages customer deposit credits, and provides real-time visibility into outstanding bottle deposits and physical bottle locations.",
+  "industries": [
+    "Food & Beverage - Dairy Processing",
+    "Food & Beverage - Beverage Distribution",
+    "Manufacturing - Bottled Goods",
+    "Distribution - Returnable Container Management"
+  ],
+  "target_company_size": [
+    "Small Business (10-100 employees)",
+    "Mid-Market (100-500 employees)"
+  ],
+  "key_features": [
+    {
+      "feature": "Deposit Liability Tracking",
+      "description": "Automatically creates and manages deposit liability accounts when customers purchase products in returnable bottles. Tracks deposit amounts per bottle type, creates liability entries on sales orders and invoices, and releases liability upon bottle return."
+    },
+    {
+      "feature": "Bottle Inventory Management",
+      "description": "Maintains separate inventory tracking for empty bottles distinct from filled product inventory. Tracks bottles by type, size, location, and ownership (customer deposits vs company-owned circulating inventory)."
+    },
+    {
+      "feature": "Return and Exchange Processing",
+      "description": "Streamlines bottle return transactions with automated validation, deposit credit calculation, and inventory adjustment. Supports direct returns for credit, exchanges for new product, and mixed transactions."
+    },
+    {
+      "feature": "Customer Deposit Credits",
+      "description": "Manages customer deposit credit balances that can be applied to future purchases, refunded via check/credit memo, or exchanged for product. Provides customer-facing visibility into deposit balance and transaction history."
+    },
+    {
+      "feature": "Multi-Location Bottle Tracking",
+      "description": "Tracks bottle inventory across multiple locations including warehouse, customer sites, and in-transit. Supports route-based delivery/pickup operations common in dairy distribution."
+    },
+    {
+      "feature": "Bottle Type and SKU Management",
+      "description": "Configures multiple bottle types (glass, plastic, sizes) with individual deposit amounts, costs, and tracking parameters. Links bottle SKUs to product SKUs for automated deposit calculation."
+    },
+    {
+      "feature": "Automated Deposit Calculations",
+      "description": "Calculates deposit charges and credits based on product quantity, bottle type, and customer agreements. Handles special pricing arrangements, bulk deposit rates, and promotional exceptions."
+    },
+    {
+      "feature": "Reporting and Reconciliation",
+      "description": "Provides comprehensive reporting on outstanding deposits, bottle inventory levels, return rates, breakage/loss tracking, and deposit liability reconciliation for accounting purposes."
+    }
+  ],
+  "technical_components": {
+    "custom_records": [
+      {
+        "script_id": "customrecord_vdp_bottle_type",
+        "name": "Bottle Type",
+        "description": "Master record defining returnable bottle/container types with deposit amounts, costs, and tracking parameters.",
+        "key_fields": [
+          "Bottle Type Name",
+          "Container Size (Volume)",
+          "Material Type (Glass/Plastic/Metal)",
+          "Standard Deposit Amount",
+          "Bottle SKU (Item)",
+          "Unit Cost",
+          "Weight",
+          "Active Status",
+          "Deposit GL Account",
+          "Inventory GL Account"
+        ]
+      },
+      {
+        "script_id": "customrecord_vdp_bottle_transaction",
+        "name": "Bottle Transaction",
+        "description": "Detailed transaction record for bottle movements including sales, returns, exchanges, and adjustments.",
+        "key_fields": [
+          "Transaction Date",
+          "Transaction Type (Sale/Return/Exchange/Adjustment)",
+          "Related Sales Order/Invoice/Credit Memo",
+          "Customer",
+          "Bottle Type",
+          "Quantity",
+          "Unit Deposit Amount",
+          "Total Deposit Amount",
+          "Location",
+          "Status (Pending/Complete/Voided)",
+          "Deposit Liability Created",
+          "Notes"
+        ]
+      },
+      {
+        "script_id": "customrecord_vdp_customer_bottle_balance",
+        "name": "Customer Bottle Balance",
+        "description": "Aggregated record tracking each customer's outstanding bottle deposits and return credits by bottle type.",
+        "key_fields": [
+          "Customer",
+          "Bottle Type",
+          "Quantity Out (Bottles with Customer)",
+          "Total Deposit Amount",
+          "Credit Balance Available",
+          "Last Transaction Date",
+          "Location",
+          "Status"
+        ]
+      },
+      {
+        "script_id": "customrecord_vdp_bottle_inventory_loc",
+        "name": "Bottle Inventory by Location",
+        "description": "Snapshot record tracking bottle inventory levels by type and location for reconciliation.",
+        "key_fields": [
+          "Snapshot Date",
+          "Location",
+          "Bottle Type",
+          "Clean Empty Bottles",
+          "Dirty/Returned Bottles",
+          "Damaged Bottles",
+          "Bottles with Customers (Outstanding)",
+          "Total Bottles",
+          "Variance from Expected",
+          "Physical Count Date"
+        ]
+      },
+      {
+        "script_id": "customrecord_vdp_bottle_route_manifest",
+        "name": "Bottle Route Manifest",
+        "description": "Tracking record for route-based delivery and pickup operations, capturing bottle exchanges in the field.",
+        "key_fields": [
+          "Route Date",
+          "Route Name/Number",
+          "Driver/Sales Rep",
+          "Vehicle",
+          "Starting Empty Bottle Count (by Type)",
+          "Bottles Delivered to Customers",
+          "Bottles Picked Up from Customers",
+          "Ending Empty Bottle Count (by Type)",
+          "Variance",
+          "Status (Open/Complete/Reconciled)",
+          "Related Transactions"
+        ]
+      }
+    ],
+    "scripts": [
+      {
+        "script_id": "customscript_vdp_ue_bottle_deposit",
+        "type": "User Event",
+        "name": "VDP | UE | Bottle Deposit Handler",
+        "description": "Triggers on Sales Orders and Invoices to automatically calculate bottle deposits based on products ordered, create bottle transaction records, update customer bottle balances, and create deposit liability entries."
+      },
+      {
+        "script_id": "customscript_vdp_ue_bottle_return",
+        "type": "User Event",
+        "name": "VDP | UE | Bottle Return Handler",
+        "description": "Triggers on Credit Memos and Return Authorizations to process bottle returns, validate return quantities against customer deposits, create bottle transaction records, adjust inventory, and release deposit liabilities."
+      },
+      {
+        "script_id": "customscript_vdp_sl_bottle_exchange",
+        "type": "Suitelet",
+        "name": "VDP | SL | Bottle Exchange Interface",
+        "description": "User interface for processing bottle exchanges at point of delivery or in-store. Allows entry of bottles returned, bottles taken, calculates net deposit adjustment, and generates transaction records."
+      },
+      {
+        "script_id": "customscript_vdp_mr_bottle_balance_update",
+        "type": "Map/Reduce",
+        "name": "VDP | MR | Update Customer Bottle Balances",
+        "description": "Batch processes bottle transactions to update customer bottle balance records. Calculates outstanding quantities and deposit amounts by customer and bottle type."
+      },
+      {
+        "script_id": "customscript_vdp_mr_bottle_reconciliation",
+        "type": "Map/Reduce",
+        "name": "VDP | MR | Bottle Inventory Reconciliation",
+        "description": "Reconciles physical bottle inventory counts with system records, identifies variances, suggests adjustments, and creates bottle inventory snapshot records for audit trail."
+      },
+      {
+        "script_id": "customscript_vdp_cs_bottle_calculator",
+        "type": "Client Script",
+        "name": "VDP | CS | Bottle Deposit Calculator",
+        "description": "Client-side script on transaction forms that calculates deposit amounts as users add/remove products with returnable bottles. Displays running deposit total and provides warnings for unusual quantities."
+      },
+      {
+        "script_id": "customscript_vdp_sl_bottle_return_portal",
+        "type": "Suitelet",
+        "name": "VDP | SL | Customer Bottle Return Portal",
+        "description": "Customer-facing portal where customers can view their outstanding bottle deposits, request return pickups, and see deposit credit history."
+      },
+      {
+        "script_id": "customscript_vdp_mr_bottle_aging_report",
+        "type": "Map/Reduce",
+        "name": "VDP | MR | Bottle Aging Analysis",
+        "description": "Analyzes outstanding bottle deposits by age, identifies customers with long-outstanding bottles, calculates expected return rates, and flags potential lost bottle situations."
+      },
+      {
+        "script_id": "customscript_vdp_ue_route_manifest",
+        "type": "User Event",
+        "name": "VDP | UE | Route Manifest Handler",
+        "description": "Creates and updates bottle route manifests from sales orders and deliveries. Tracks bottle exchanges that occur during route delivery operations."
+      },
+      {
+        "script_id": "customscript_vdp_wf_bottle_deposit_alert",
+        "type": "Workflow",
+        "name": "VDP | WF | Bottle Deposit Alerts",
+        "description": "Workflow that monitors customer bottle deposit balances and sends alerts when balances exceed thresholds, bottles are outstanding for extended periods, or return rates are abnormal."
+      }
+    ],
+    "custom_fields": {
+      "transaction_body_fields": [
+        {
+          "script_id": "custbody_vdp_total_bottle_deposit",
+          "label": "Total Bottle Deposit",
+          "record_type": "Transaction",
+          "field_type": "Currency",
+          "description": "Total deposit amount for bottles on this transaction"
+        },
+        {
+          "script_id": "custbody_vdp_bottle_deposit_paid",
+          "label": "Bottle Deposit Paid",
+          "record_type": "Transaction",
+          "field_type": "Checkbox",
+          "description": "Indicates if customer has paid bottle deposit"
+        },
+        {
+          "script_id": "custbody_vdp_bottles_returned_qty",
+          "label": "Bottles Returned Quantity",
+          "record_type": "Transaction",
+          "field_type": "Integer",
+          "description": "Total quantity of bottles returned on this transaction"
+        },
+        {
+          "script_id": "custbody_vdp_bottle_credit_applied",
+          "label": "Bottle Credit Applied",
+          "record_type": "Transaction",
+          "field_type": "Currency",
+          "description": "Amount of bottle deposit credit applied to this transaction"
+        },
+        {
+          "script_id": "custbody_vdp_route_manifest",
+          "label": "Route Manifest",
+          "record_type": "Sales Order, Invoice",
+          "field_type": "List/Record",
+          "description": "Links transaction to bottle route manifest"
+        },
+        {
+          "script_id": "custbody_vdp_bottle_exchange_trans",
+          "label": "Bottle Exchange Transaction",
+          "record_type": "Transaction",
+          "field_type": "Checkbox",
+          "description": "Flags transactions that include bottle exchanges"
+        }
+      ],
+      "transaction_column_fields": [
+        {
+          "script_id": "custcol_vdp_has_returnable_bottle",
+          "label": "Has Returnable Bottle",
+          "field_type": "Checkbox",
+          "description": "Indicates if line item includes returnable bottle"
+        },
+        {
+          "script_id": "custcol_vdp_bottle_type",
+          "label": "Bottle Type",
+          "field_type": "List/Record",
+          "description": "Type of returnable bottle for this product"
+        },
+        {
+          "script_id": "custcol_vdp_bottle_quantity",
+          "label": "Bottle Quantity",
+          "field_type": "Integer",
+          "description": "Number of bottles for this line item"
+        },
+        {
+          "script_id": "custcol_vdp_bottle_deposit_each",
+          "label": "Bottle Deposit Each",
+          "field_type": "Currency",
+          "description": "Deposit amount per bottle"
+        },
+        {
+          "script_id": "custcol_vdp_bottle_deposit_total",
+          "label": "Bottle Deposit Total",
+          "field_type": "Currency",
+          "description": "Total deposit for bottles on this line (quantity × deposit each)"
+        },
+        {
+          "script_id": "custcol_vdp_bottles_returned",
+          "label": "Bottles Returned",
+          "field_type": "Integer",
+          "description": "Quantity of bottles returned for this product line"
+        }
+      ],
+      "item_fields": [
+        {
+          "script_id": "custitem_vdp_uses_returnable_bottle",
+          "label": "Uses Returnable Bottle",
+          "field_type": "Checkbox",
+          "description": "Indicates if product is sold in returnable bottles"
+        },
+        {
+          "script_id": "custitem_vdp_bottle_type",
+          "label": "Default Bottle Type",
+          "field_type": "List/Record",
+          "description": "Default bottle type for this product"
+        },
+        {
+          "script_id": "custitem_vdp_bottles_per_unit",
+          "label": "Bottles Per Unit",
+          "field_type": "Decimal",
+          "description": "Number of bottles required per unit sold (typically 1, but may be cases/pallets)"
+        },
+        {
+          "script_id": "custitem_vdp_bottle_sku",
+          "label": "Bottle Item SKU",
+          "field_type": "List/Record",
+          "description": "Item record representing the empty bottle"
+        }
+      ],
+      "customer_fields": [
+        {
+          "script_id": "custentity_vdp_total_bottle_deposits",
+          "label": "Total Outstanding Bottle Deposits",
+          "field_type": "Currency",
+          "description": "Total deposit amount for bottles currently with customer"
+        },
+        {
+          "script_id": "custentity_vdp_bottle_credit_balance",
+          "label": "Bottle Credit Balance",
+          "field_type": "Currency",
+          "description": "Available bottle return credit balance"
+        },
+        {
+          "script_id": "custentity_vdp_bottle_return_rate",
+          "label": "Bottle Return Rate %",
+          "field_type": "Percent",
+          "description": "Calculated percentage of bottles returned vs sold"
+        },
+        {
+          "script_id": "custentity_vdp_auto_apply_bottle_credit",
+          "label": "Auto-Apply Bottle Credit",
+          "field_type": "Checkbox",
+          "description": "Automatically apply bottle credits to future invoices"
+        },
+        {
+          "script_id": "custentity_vdp_bottle_credit_terms",
+          "label": "Bottle Credit Terms",
+          "field_type": "List",
+          "description": "How customer prefers to receive bottle return credit (Apply to Invoice/Check Refund/Store Credit)"
+        }
+      ],
+      "custom_lists": [
+        {
+          "script_id": "customlist_vdp_bottle_material",
+          "name": "Bottle Material Type",
+          "values": "Glass, Plastic (PET), Plastic (HDPE), Metal (Aluminum), Metal (Steel), Composite"
+        },
+        {
+          "script_id": "customlist_vdp_bottle_trans_type",
+          "name": "Bottle Transaction Type",
+          "values": "Initial Sale, Return for Credit, Exchange, Adjustment, Loss/Damage, Transfer"
+        },
+        {
+          "script_id": "customlist_vdp_bottle_status",
+          "name": "Bottle Status",
+          "values": "Clean/Ready, Dirty/Returned, Damaged, Lost, With Customer, In Transit, Quarantine"
+        },
+        {
+          "script_id": "customlist_vdp_credit_preference",
+          "name": "Bottle Credit Preference",
+          "values": "Apply to Next Invoice, Cash/Check Refund, Store Credit, Hold for Future Use"
+        },
+        {
+          "script_id": "customlist_vdp_bottle_size",
+          "name": "Bottle Size",
+          "values": "0.5L, 1L, 2L, 3L, 5L, 1 Gallon, 2 Gallon, 5 Gallon, Custom"
+        }
+      ]
+    },
+    "custom_forms": [
+      {
+        "script_id": "custform_vdp_bottle_sales_order",
+        "name": "Bottle Sales Order Form",
+        "description": "Enhanced sales order form showing bottle deposit calculations and customer bottle balance"
+      },
+      {
+        "script_id": "custform_vdp_bottle_invoice",
+        "name": "Bottle Invoice Form",
+        "description": "Invoice form with bottle deposit line items and payment tracking"
+      },
+      {
+        "script_id": "custform_vdp_bottle_credit_memo",
+        "name": "Bottle Return Credit Memo Form",
+        "description": "Credit memo form optimized for bottle return processing"
+      },
+      {
+        "script_id": "custform_vdp_bottle_type",
+        "name": "Bottle Type Entry Form",
+        "description": "Master data entry form for bottle type configuration"
+      }
+    ],
+    "saved_searches": [
+      {
+        "script_id": "customsearch_vdp_outstanding_deposits",
+        "name": "Outstanding Bottle Deposits by Customer",
+        "description": "Summary of all outstanding bottle deposits grouped by customer"
+      },
+      {
+        "script_id": "customsearch_vdp_bottle_inventory",
+        "name": "Bottle Inventory by Location and Type",
+        "description": "Current bottle inventory levels across all locations"
+      },
+      {
+        "script_id": "customsearch_vdp_bottle_aging",
+        "name": "Aged Bottle Deposits",
+        "description": "Bottle deposits aged by time outstanding (30/60/90/90+ days)"
+      }
+    ]
+  },
+  "dependencies": {
+    "netsuite_features": [
+      {
+        "feature": "INVENTORY",
+        "required": true,
+        "description": "Core inventory tracking for bottle items"
+      },
+      {
+        "feature": "MULTILOCINVT",
+        "required": true,
+        "description": "Multi-location inventory for bottle tracking across facilities"
+      },
+      {
+        "feature": "CUSTOMRECORDS",
+        "required": true,
+        "description": "Custom records for bottle types and transactions"
+      },
+      {
+        "feature": "ACCOUNTING",
+        "required": true,
+        "description": "GL accounting for deposit liabilities"
+      },
+      {
+        "feature": "ADVANCEDAR",
+        "required": false,
+        "description": "Advanced AR for deposit credit management"
+      },
+      {
+        "feature": "SERVERSIDESCRIPTING",
+        "required": true,
+        "description": "Server-side scripts for automation"
+      }
+    ],
+    "external_dependencies": [],
+    "bundles": []
+  },
+  "deployment_complexity": "Medium",
+  "deployment_notes": "Requires careful mapping of deposit liability GL accounts and coordination with accounting team for proper revenue recognition. Initial deployment should include bottle inventory physical count and data migration of existing customer deposits. Training critical for route drivers and warehouse staff who handle physical bottle movements.",
+  "business_processes": [
+    {
+      "process": "Initial Bottle Sale with Deposit",
+      "description": "Customer purchases product in returnable bottles. System calculates deposit based on bottle type and quantity, adds deposit to invoice, creates bottle transaction record, and establishes deposit liability on balance sheet."
+    },
+    {
+      "process": "Bottle Return for Credit",
+      "description": "Customer returns empty bottles. System validates return against customer's outstanding deposits, creates credit memo for deposit amount, adjusts bottle inventory, and releases deposit liability."
+    },
+    {
+      "process": "Bottle Exchange on Delivery",
+      "description": "Route driver delivers filled bottles and picks up empties in single transaction. System nets bottle movements, calculates deposit adjustment (if any), updates customer balance, and adjusts bottle inventory at both locations."
+    },
+    {
+      "process": "Route Manifest Reconciliation",
+      "description": "At end of delivery route, driver reconciles bottle counts. System compares actual bottles returned to manifest, identifies variances, and creates adjustment transactions for lost or damaged bottles."
+    },
+    {
+      "process": "Customer Deposit Credit Application",
+      "description": "Customer with bottle credit balance makes new purchase. System automatically applies credit to invoice (if configured) or allows manual application, reducing both invoice amount and customer credit balance."
+    },
+    {
+      "process": "Bottle Inventory Reconciliation",
+      "description": "Periodic physical count of bottle inventory. System compares physical count to system inventory, calculates variances, identifies potential losses, and creates adjustment transactions."
+    }
+  ],
+  "user_roles": [
+    {
+      "role": "Warehouse Manager",
+      "responsibilities": "Manages bottle inventory, processes returns, conducts physical counts, reconciles bottle transactions, monitors bottle inventory levels"
+    },
+    {
+      "role": "Route Driver/Delivery Personnel",
+      "responsibilities": "Completes route manifests, records bottle exchanges during deliveries, picks up returned bottles, reports damaged bottles"
+    },
+    {
+      "role": "Customer Service Representative",
+      "responsibilities": "Processes customer returns, applies bottle credits, answers customer questions about deposits, creates credit memos for bottle returns"
+    },
+    {
+      "role": "Accounting/Finance",
+      "responsibilities": "Reviews deposit liability accounts, reconciles customer deposits, manages GL postings for bottle transactions, analyzes bottle loss/breakage costs"
+    },
+    {
+      "role": "Sales Representative",
+      "responsibilities": "Creates sales orders with bottle deposits, explains deposit program to customers, tracks customer bottle balances, coordinates bottle pickups"
+    }
+  ],
+  "integration_points": [
+    {
+      "integration": "Sales Order → Bottle Deposit Calculation",
+      "method": "User Event Script (afterSubmit)",
+      "description": "Automatically calculates and records bottle deposits when sales orders include products with returnable bottles"
+    },
+    {
+      "integration": "Invoice → Deposit Liability Creation",
+      "method": "User Event Script (afterSubmit)",
+      "description": "Creates deposit liability GL entries when invoices are created with bottle deposits"
+    },
+    {
+      "integration": "Credit Memo → Deposit Liability Release",
+      "method": "User Event Script (afterSubmit)",
+      "description": "Releases deposit liability and credits customer when bottles are returned"
+    },
+    {
+      "integration": "Route Manifest → Bottle Transactions",
+      "method": "Suitelet + Map/Reduce",
+      "description": "Processes route manifest data into individual bottle transactions and inventory adjustments"
+    }
+  ],
+  "reporting_capabilities": [
+    "Outstanding bottle deposits by customer",
+    "Bottle inventory levels by location and type",
+    "Bottle return rates and trends",
+    "Aged bottle deposits (30/60/90/90+ days)",
+    "Deposit liability reconciliation report",
+    "Bottle loss and breakage analysis",
+    "Route-level bottle exchange activity",
+    "Customer bottle deposit history",
+    "Bottle turnover rate by type",
+    "Projected bottle replenishment needs"
+  ],
+  "configuration_requirements": [
+    "Create bottle type master records for all returnable containers",
+    "Configure bottle deposit amounts per type",
+    "Set up bottle inventory items (empty bottles)",
+    "Map deposit liability GL accounts",
+    "Configure customer bottle credit preferences",
+    "Link bottle types to product items",
+    "Set up route manifest templates",
+    "Configure bottle status custom list values",
+    "Create saved searches for bottle tracking",
+    "Customize transaction forms with bottle fields"
+  ],
+  "scalability_considerations": "Solution scales well for small to mid-size operations processing up to 10,000 bottle transactions monthly. For high-volume operations (50,000+ transactions), consider batch processing optimizations and archived transaction cleanup. Bottle balance records grow linearly with customer count and bottle type variety.",
+  "maintenance_requirements": "Regular reconciliation of bottle inventory (weekly recommended). Monthly review of outstanding deposit aging. Quarterly cleanup of old bottle transactions. Annual review of bottle deposit amounts and customer return rates. Monitor deposit liability account balance for discrepancies.",
+  "licensing_implications": "Requires NetSuite user licenses for all users processing bottle transactions. Route drivers may use limited Warehouse Mobile license if using mobile scanning. Customer portal access requires Web Service or Portal license.",
+  "training_requirements": [
+    "Warehouse staff: 2-3 hours on bottle return processing and inventory management",
+    "Route drivers: 2-3 hours on route manifest completion and bottle exchange recording",
+    "Customer service: 2 hours on deposit credit application and customer inquiries",
+    "Accounting: 3-4 hours on deposit liability reconciliation and GL impact",
+    "System administrators: 4-6 hours on configuration and troubleshooting"
+  ],
+  "support_model": "Custom solution - requires NetSuite developer support for enhancements and troubleshooting. No vendor support available. Internal IT team responsible for maintenance and user support.",
+  "upgrade_considerations": "Custom solution requires testing with each NetSuite release. Inventory and transaction API changes may impact functionality. Review release notes for changes to INVENTORY, MULTILOCINVT, and ACCOUNTING features. Test bottle deposit calculation logic after each upgrade.",
+  "documentation": {
+    "design_document": "Bottle Exchange Requirements - Volleman Dairy Processing",
+    "technical_documentation": "This catalog entry + solution-documentation.md",
+    "user_guide": "To be created",
+    "admin_guide": "To be created"
+  },
+  "created_date": "2026-02-04",
+  "last_updated": "2026-02-04",
+  "catalog_version": "1.0",
+  "project_status": "Template/Planning Phase",
+  "notes": "This documentation represents the planned solution architecture for a bottle exchange and deposit management system. Actual implementation files are not yet present in the project directory. This catalog serves as a blueprint for development."
+}

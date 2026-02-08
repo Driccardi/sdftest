@@ -1,0 +1,38 @@
+const gulp = require("gulp");
+const eslint = require("gulp-eslint");
+const fs = require("fs");
+const exec = require('child_process').exec;
+
+
+gulp.task("lint-report", function(done) {
+  gulp
+    .src({sources})
+    .pipe(eslint( {
+        rules: {
+         "@nscs/csbp-rules/password": 2,
+         "@nscs/csbp-rules/createSearch": 1,
+         "@nscs/csbp-rules/externalURL": 1,
+         "@nscs/csbp-rules/internalURL": 1,
+         "@nscs/csbp-rules/username": 1,
+         "prettier/prettier": 0
+        }
+    }))
+    .pipe(eslint.format()) // stdout
+    .pipe(eslint.format("json", fs.createWriteStream("reports/lint_report.json")))
+    .pipe(
+      eslint.format("html", fs.createWriteStream("reports/lint_report-html.html"))
+    )
+
+    exec('echo lint_report-html has been created inside of ./reports to view', function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
+      done(err);
+    }); 
+    // exec('sonar-scanner', function (err, stdout, stderr) {
+    //   console.log(stdout);
+    //   console.log(stderr);
+    //   done(err);
+    // }); 
+
+  done();
+});

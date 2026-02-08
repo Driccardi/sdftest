@@ -1,0 +1,55 @@
+<itemcustomfield scriptid="custitem_ns_ppai_ltm_rate">
+  <accesslevel>2</accesslevel>
+  <appliestogroup>F</appliestogroup>
+  <appliestoinventory>T</appliestoinventory>
+  <appliestoitemassembly>T</appliestoitemassembly>
+  <appliestokit>F</appliestokit>
+  <appliestononinventory>T</appliestononinventory>
+  <appliestoothercharge>F</appliestoothercharge>
+  <appliestopricelist>F</appliestopricelist>
+  <appliestoservice>T</appliestoservice>
+  <appliestospecificitems>F</appliestospecificitems>
+  <appliestosubplan>F</appliestosubplan>
+  <applyformatting>T</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description></description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>CURRENCY</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>This is the flat rate charge if the item quantity on an order is Less-Than-Minimum quantity. &#xd;
+&#xd;
+Note: Each item can only calculate a LTM charge based on a Flat Rate or percentage. </help>
+  <includechilditems>F</includechilditems>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <ismhitemattribute>F</ismhitemattribute>
+  <isparent>F</isparent>
+  <itemmatrix>F</itemmatrix>
+  <itemsubtype>BOTH</itemsubtype>
+  <label>LTM Rate</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete></onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype></selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>[scriptid=custtab_ns_ppai_ltm_subtab]</subtab>
+</itemcustomfield>

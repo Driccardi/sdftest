@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customlist scriptid="customlist_ns_promo_stacking_groups">
+  <name>NS Promotion Stacking Groups</name>
+  <description>Groups for controlling promotion stacking rules - only one promo per group can apply</description>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <customvalues>
+    <customvalue scriptid="val_discount">
+      <value>Discount</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_shipping">
+      <value>Shipping</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_gift">
+      <value>Gift</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_loyalty">
+      <value>Loyalty</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+  </customvalues>
+</customlist>

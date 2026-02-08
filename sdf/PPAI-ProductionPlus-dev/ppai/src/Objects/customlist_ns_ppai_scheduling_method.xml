@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_ppai_scheduling_method">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>PPAI Scheduling Method</name>
+  <customvalues>
+    <customvalue scriptid="val_386313_td2953983_268">
+      <abbreviation>F</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Forward</value>
+    </customvalue>
+    <customvalue scriptid="val_386314_td2953983_957">
+      <abbreviation>B</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Backward</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,38 @@
+{
+  "name": "Less Than Minimum (LTM) Order Enforcement",
+  "description": "Automated minimum order quantity enforcement solution that prevents orders below configured thresholds by applying either flat-rate or percentage-based surcharge fees. Validates minimum quantity requirements at the line-item level on sales orders, supporting both warning dialogs and enforced compliance modes. Includes matrix item consolidation for variant-based minimum calculations and real-time cost impact display for transparency.",
+  "uses": [
+    "Minimum Order Quantity Enforcement",
+    "Automatic Surcharge Calculation",
+    "Flat-Rate or Percentage-Based Fees",
+    "Matrix Item Consolidation",
+    "Real-Time Cost Impact Display",
+    "Warning vs. Enforcement Modes",
+    "Line-Level Threshold Validation",
+    "Configurable Charge Item Management"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2023.1+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Custom Records, Server-Side Scripting"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Wholesale Distribution",
+    "Manufacturing",
+    "Retail"
+  ],
+  "depends_on": [],
+  "solution_type": "Sales & CRM",
+  "manager": "Production Plus AI (PPAI)",
+  "documents": []
+}

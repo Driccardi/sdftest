@@ -1,0 +1,41 @@
+{
+  "name": "[Solution Name - Marketing Friendly]",
+  "description": "[2-3 sentence marketing description. Lead with business value, highlight key benefits, avoid technical jargon. Focus on pain points solved and outcomes delivered.]",
+  "uses": [
+    "[Feature 1 - User-facing capability]",
+    "[Feature 2 - Key functionality]",
+    "[Feature 3 - Important benefit]",
+    "[Feature 4 - Notable capability]",
+    "[Feature 5 - Additional feature]",
+    "[Feature 6 - Optional: Add 4-8 total]"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "[Minimum NetSuite version, e.g., '2024.1+']"
+    },
+    {
+      "type": "edition",
+      "value": "[Required NetSuite edition: 'Standard', 'Premium', 'OneWorld', or 'N/A']"
+    },
+    {
+      "type": "feature",
+      "value": "[Required NetSuite feature, e.g., 'Advanced Revenue Management', or 'None']"
+    }
+  ],
+  "git_repo_link": "[GitHub/GitLab repository URL or null if not available]",
+  "industry": [
+    "[Industry 1 - From valid list]",
+    "[Industry 2 - Optional, 1-4 total recommended]"
+  ],
+  "depends_on": [
+    "[Dependency 1 - Required bundle or solution]",
+    "[Dependency 2 - Optional: Only true dependencies]"
+  ],
+  "solution_type": "[Primary solution category - e.g., 'Revenue Management', 'Inventory & Warehouse', 'Financial Management']",
+  "manager": "[Product owner or responsible party, e.g., 'NetSuite Professional Services', 'Internal IT']",
+  "documents": [
+    "[Documentation URL 1]",
+    "[Documentation URL 2 - Optional]"
+  ]
+}

@@ -1,0 +1,175 @@
+<workflow scriptid="customworkflow_nsps_addonmanager">
+  <description></description>
+  <initcontexts>ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OCRPLUGIN|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW</initcontexts>
+  <initeventtypes></initeventtypes>
+  <initlocalizationcontext></initlocalizationcontext>
+  <initoncreate>T</initoncreate>
+  <initonvieworupdate>T</initonvieworupdate>
+  <initsavedsearchcondition></initsavedsearchcondition>
+  <inittriggertype></inittriggertype>
+  <isinactive>F</isinactive>
+  <islogenabled>T</islogenabled>
+  <keephistory>ALWAYS</keephistory>
+  <name>NSPS | Manage Add-On Record</name>
+  <recordtypes>[scriptid=customrecord_drss_accessories]</recordtypes>
+  <releasestatus>RELEASED</releasestatus>
+  <runasadmin>F</runasadmin>
+  <initcondition>
+    <formula></formula>
+    <type>VISUAL_BUILDER</type>
+  </initcondition>
+  <workflowstates>
+    <workflowstate scriptid="workflowstate463">
+      <description></description>
+      <donotexitworkflow>F</donotexitworkflow>
+      <name>Manage Defaults and Fields</name>
+      <positionx>243</positionx>
+      <positiony>133</positiony>
+      <workflowactions triggertype="ONENTRY">
+        <setfieldvalueaction scriptid="workflowaction2114">
+          <clienttriggerfields></clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OCRPLUGIN|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW</contexttypes>
+          <eventtypes>CREATE</eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_accessoryprice]</field>
+          <isinactive>F</isinactive>
+          <scheduledelay></scheduledelay>
+          <schedulemode>DELAY</schedulemode>
+          <schedulerecurrence></schedulerecurrence>
+          <scheduletimeofday></scheduletimeofday>
+          <scheduletimeunit></scheduletimeunit>
+          <valuechecked>F</valuechecked>
+          <valuedate></valuedate>
+          <valuefield></valuefield>
+          <valueformula></valueformula>
+          <valuejoinfield></valuejoinfield>
+          <valueselect></valueselect>
+          <valuetext></valuetext>
+          <valuetype>STATIC</valuetype>
+          <initcondition>
+            <formula><![CDATA[isEmpty("Price Level") = 'T']]></formula>
+            <type>VISUAL_BUILDER</type>
+            <parameters>
+              <parameter>
+                <name>Price Level</name>
+                <value>[scriptid=customrecord_drss_accessories.custrecord_drss_accessoryprice]</value>
+              </parameter>
+            </parameters>
+          </initcondition>
+        </setfieldvalueaction>
+      </workflowactions>
+      <workflowactions triggertype="BEFORELOAD">
+        <setfieldmandatoryaction scriptid="workflowaction2107">
+          <clienttriggerfields></clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OCRPLUGIN|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW</contexttypes>
+          <eventtypes></eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_accessoryprice]</field>
+          <isinactive>F</isinactive>
+          <ismandatory>T</ismandatory>
+          <issublistfield>F</issublistfield>
+          <initcondition>
+            <formula></formula>
+            <type>VISUAL_BUILDER</type>
+          </initcondition>
+        </setfieldmandatoryaction>
+        <setdisplaytypeaction scriptid="workflowaction2109">
+          <clienttriggerfields></clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>USERINTERFACE</contexttypes>
+          <displaytype>DISABLED</displaytype>
+          <eventtypes>CREATE|EDIT</eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</field>
+          <isinactive>F</isinactive>
+          <issublistfield>F</issublistfield>
+          <initcondition>
+            <formula><![CDATA[{custrecord_drss_parentclass} IS NOT NULL]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </setdisplaytypeaction>
+        <setdisplaytypeaction scriptid="workflowaction2110">
+          <clienttriggerfields></clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>USERINTERFACE</contexttypes>
+          <displaytype>DISABLED</displaytype>
+          <eventtypes>CREATE|EDIT</eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentclass]</field>
+          <isinactive>F</isinactive>
+          <issublistfield>F</issublistfield>
+          <initcondition>
+            <formula><![CDATA[{custrecord_drss_parentitem.id} IS NOT NULL]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </setdisplaytypeaction>
+      </workflowactions>
+      <workflowactions triggertype="BEFOREFIELDEDIT">
+        <showmessageaction scriptid="workflowaction2111">
+          <clienttriggerfields>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OCRPLUGIN|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW</contexttypes>
+          <isinactive>F</isinactive>
+          <messagetext>You must deselect all classes before selecting a parent item. </messagetext>
+          <initcondition>
+            <formula><![CDATA[!isValEmpty(nlapiGetFieldValue('custrecord_drss_parentclass'))]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </showmessageaction>
+      </workflowactions>
+      <workflowactions triggertype="AFTERFIELDEDIT">
+        <setfieldvalueaction scriptid="workflowaction2108">
+          <clienttriggerfields>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>USERINTERFACE</contexttypes>
+          <eventtypes></eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentclass]</field>
+          <isinactive>F</isinactive>
+          <scheduledelay></scheduledelay>
+          <schedulemode>DELAY</schedulemode>
+          <schedulerecurrence></schedulerecurrence>
+          <scheduletimeofday></scheduletimeofday>
+          <scheduletimeunit></scheduletimeunit>
+          <valuechecked>F</valuechecked>
+          <valuedate></valuedate>
+          <valuefield></valuefield>
+          <valueformula></valueformula>
+          <valuejoinfield></valuejoinfield>
+          <valuemultiselect></valuemultiselect>
+          <valuetext></valuetext>
+          <valuetype>STATIC</valuetype>
+          <initcondition>
+            <formula><![CDATA[!isValEmpty(nlapiGetFieldValue('custrecord_drss_parentitem'))]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </setfieldvalueaction>
+        <setdisplaytypeaction scriptid="workflowaction2112">
+          <clienttriggerfields>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>USERINTERFACE</contexttypes>
+          <displaytype>DISABLED</displaytype>
+          <eventtypes></eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentclass]</field>
+          <isinactive>F</isinactive>
+          <issublistfield>F</issublistfield>
+          <initcondition>
+            <formula><![CDATA[!isValEmpty(nlapiGetFieldValue('custrecord_drss_parentitem'))]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </setdisplaytypeaction>
+        <setdisplaytypeaction scriptid="workflowaction2113">
+          <clienttriggerfields>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</clienttriggerfields>
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes>USERINTERFACE</contexttypes>
+          <displaytype>NORMAL</displaytype>
+          <eventtypes></eventtypes>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentclass]</field>
+          <isinactive>F</isinactive>
+          <issublistfield>F</issublistfield>
+          <initcondition>
+            <formula><![CDATA[isValEmpty(nlapiGetFieldValue('custrecord_drss_parentitem'))]]></formula>
+            <type>FORMULA</type>
+          </initcondition>
+        </setdisplaytypeaction>
+      </workflowactions>
+    </workflowstate>
+  </workflowstates>
+</workflow>

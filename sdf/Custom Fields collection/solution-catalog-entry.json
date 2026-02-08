@@ -1,0 +1,37 @@
+{
+  "name": "Customer Engagement & Marketing Analytics Suite",
+  "description": "Comprehensive field collection supporting case management workflows and RFM customer segmentation analytics. Enables customer service teams to track case actions and resolutions while providing marketing teams with advanced customer segmentation based on Recency, Frequency, and Monetary analysis. Includes promotion tracking, multi-channel campaign attribution, and inventory adjustment reason code management.",
+  "uses": [
+    "Case Management Hub with action workflows",
+    "RFM Customer Segmentation Analytics",
+    "Promotion Code Tracking & Discount Management",
+    "Multi-Channel Campaign Attribution",
+    "Return Authorization Workflows",
+    "GL Reason Code Tracking",
+    "Hierarchical Case Action Steps",
+    "Approval Workflow Integration"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2020.1+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Custom Records"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Retail",
+    "Wholesale Distribution"
+  ],
+  "depends_on": [],
+  "solution_type": "Sales & CRM",
+  "manager": "NetSuite Professional Services",
+  "documents": []
+}

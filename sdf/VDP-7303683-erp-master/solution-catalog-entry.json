@@ -1,0 +1,39 @@
+{
+  "name": "Bottle Exchange & Deposit Management (VDP)",
+  "description": "Comprehensive returnable bottle and container deposit management solution designed for dairy and beverage distribution operations. Automates deposit tracking, return processing, and liability management for returnable containers through the complete lifecycle from initial sale through customer returns and reconciliation. Includes route manifest integration for delivery driver bottle exchanges, multi-location bottle inventory tracking, and automated deposit credit application workflows. IMPORTANT: This is a planning/design template project - implementation files are not yet developed.",
+  "uses": [
+    "Returnable Container Deposit Tracking",
+    "Bottle Inventory by Location",
+    "Customer Deposit Liability Management",
+    "Route Manifest Bottle Exchange",
+    "Deposit Credit Application",
+    "Multi-Location Bottle Tracking",
+    "Physical Inventory Reconciliation",
+    "Bottle Return Processing",
+    "Deposit Aging Analysis",
+    "GL Liability Account Integration"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2020.1+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Inventory, Multi-Location Inventory, Custom Records, Server-Side Scripting"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Wholesale Distribution",
+    "Manufacturing"
+  ],
+  "depends_on": [],
+  "solution_type": "Inventory & Warehouse",
+  "manager": "Volleman Dairy Processing, LLC",
+  "documents": []
+}

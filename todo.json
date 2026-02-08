@@ -3,9 +3,9 @@
     "projectName": "SunStyle Retail NetSuite Implementation",
     "projectCode": "SUNSTYLE-NS-2026",
     "client": "SunStyle Retail Corporation",
-    "lastUpdated": "2026-02-04T00:48:48.925Z",
+    "lastUpdated": "2026-02-07T23:14:02.856Z",
     "lastUpdatedBy": "user",
-    "version": 1
+    "version": 3
   },
   "milestones": [
     {
@@ -104,7 +104,7 @@
       "id": "TODO-002",
       "title": "CRITICAL: Decide Custom OMS Future State",
       "description": "Determine if SunStyle Order Hub (custom OMS) will be retired and replaced by NetSuite native OMS, or will remain and integrate. Major architectural decision impacting scope, timeline, integrations.",
-      "status": "BACKLOG",
+      "status": "DONE",
       "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -125,13 +125,14 @@
           "description": "Q-IT-002: Custom OMS Future State",
           "section": "CRITICAL Priority"
         }
-      ]
+      ],
+      "completedDate": "2026-02-07T16:12:39.835Z"
     },
     {
       "id": "TODO-003",
       "title": "CRITICAL: Decide Lightspeed POS Future State",
       "description": "Determine if Lightspeed POS remains in stores (requiring integration) or will be replaced by NetSuite POS. Impacts store operations, integration scope, timeline, budget, training.",
-      "status": "BACKLOG",
+      "status": "READY",
       "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -158,7 +159,7 @@
       "id": "TODO-004",
       "title": "CRITICAL: Confirm Fiscal Calendar",
       "description": "Confirm fiscal calendar is January-December and will NOT change. Foundational to accounting periods configuration, tax reporting, budget cycles.",
-      "status": "BACKLOG",
+      "status": "DONE",
       "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -185,13 +186,21 @@
         "recordTypes": [
           "accountingPeriod"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-06T19:36:33.586Z",
+          "author": "user",
+          "content": "They use a Jan 1 calendar 12 periods, no adjustment period"
+        }
+      ],
+      "completedDate": "2026-02-06T19:36:34.745Z"
     },
     {
       "id": "TODO-005",
       "title": "CRITICAL: Confirm Inventory Costing Method",
       "description": "Confirm inventory costing method: Average Cost (assumed), FIFO, or Standard Cost. Discuss with external auditors. Major impact on COGS and inventory valuation. Consider if prescription lenses need different costing.",
-      "status": "BACKLOG",
+      "status": "DONE",
       "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -218,13 +227,21 @@
         "recordTypes": [
           "item"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-05T14:48:25.387Z",
+          "author": "user",
+          "content": "Average cost confirmed."
+        }
+      ],
+      "completedDate": "2026-02-05T14:48:26.585Z"
     },
     {
       "id": "TODO-006",
       "title": "Validate Network Connectivity at All 25 Stores",
       "description": "Validate all 25 stores have reliable high-speed internet (minimum 50 Mbps). Test connectivity, latency, uptime. Identify stores needing network upgrades. Critical for real-time inventory, POS integration, system performance.",
-      "status": "BACKLOG",
+      "status": "READY",
       "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -259,8 +276,8 @@
       "id": "TODO-007",
       "title": "Conduct Data Quality Assessment",
       "description": "Audit data quality in current systems (QuickBooks, OMS, Lightspeed POS). Verify data is accurate and exportable. Identify cleanup needs. Document data gaps and transformation requirements.",
-      "status": "BACKLOG",
-      "priority": "HIGH",
+      "status": "DONE",
+      "priority": "CRITICAL",
       "category": "DATA_MIGRATION",
       "createdDate": "2026-02-03T00:00:00Z",
       "dueDate": "2026-02-14",
@@ -290,7 +307,15 @@
       ],
       "effort": {
         "estimated": "2w"
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks 3 CRITICAL foundation configuration tasks (TODO-030, TODO-031, TODO-032)"
+        }
+      ],
+      "completedDate": "2026-02-07T20:05:34.937Z"
     },
     {
       "id": "TODO-008",
@@ -319,7 +344,7 @@
       "title": "Schedule Finance Workshop (Week 1)",
       "description": "Schedule comprehensive finance workshop with CFO, Controller, External Auditor. Cover fiscal calendar, costing methods, revenue recognition, depreciation schedules, payment terms, sales tax nexus, budget process.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
       "dueDate": "2026-02-10",
@@ -334,7 +359,14 @@
           "TODO-011",
           "TODO-012"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks finance requirements needed for configuration"
+        }
+      ]
     },
     {
       "id": "TODO-010",
@@ -514,8 +546,8 @@
       "id": "TODO-015",
       "title": "Operations Workshop: Define Ship-from-Store Decision Algorithm",
       "description": "Document the logic for ship-from-store selection: warehouse stock check, nearest store with stock, cost/speed optimization, avoid depleting store display stock. Define thresholds and rules.",
-      "status": "BACKLOG",
-      "priority": "HIGH",
+      "status": "READY",
+      "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -541,14 +573,21 @@
           "salesOrder",
           "fulfillmentRequest"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL fulfillment configuration (TODO-048)"
+        }
+      ]
     },
     {
       "id": "TODO-016",
       "title": "Operations Workshop: Document BOPIS Process Walkthrough",
       "description": "Document complete BOPIS (Buy Online, Pick Up In Store) process: order receipt, inventory allocation, store notification, picking, customer notification, ID verification, handoff. Define SLAs.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -574,7 +613,14 @@
           "salesOrder",
           "itemFulfillment"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL fulfillment configuration (TODO-048)"
+        }
+      ]
     },
     {
       "id": "TODO-017",
@@ -654,7 +700,7 @@
       "title": "E-Commerce Workshop: Clarify Shopify vs NetSuite Master System",
       "description": "Clarify which system is master for: product content (Shopify assumed), SKU/pricing (NetSuite assumed), inventory (NetSuite). Document data flow direction and conflict resolution strategy.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "INTEGRATION",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -673,14 +719,21 @@
           "description": "IA-001: Shopify master for product content",
           "section": "TO BE VALIDATED - HIGH"
         }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL Shopify integration (TODO-052)"
+        }
       ]
     },
     {
       "id": "TODO-020",
       "title": "E-Commerce Workshop: Document Shopify Customizations",
       "description": "Document all Shopify customizations (custom modules v3.2): headless frontend or theme extensions? Custom checkout flow? Custom fields to sync? Impact on NetSuite-Shopify integration.",
-      "status": "BACKLOG",
-      "priority": "HIGH",
+      "status": "IN_PROGRESS",
+      "priority": "CRITICAL",
       "category": "INTEGRATION",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -704,6 +757,13 @@
           "description": "GAP-INT-001: Shopify order data mapping",
           "section": "HIGH Priority"
         }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL Shopify integration (TODO-052)"
+        }
       ]
     },
     {
@@ -711,7 +771,7 @@
       "title": "E-Commerce Workshop: Define Fraud Detection Rules",
       "description": "Document fraud detection rules: triggers, fraud score calculation, review owner, SLA, automatic decline thresholds. Required for order approval workflow configuration.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -740,7 +800,14 @@
           "custbody_fraud_score",
           "custbody_fraud_review_status"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL sales order configuration (TODO-047)"
+        }
+      ]
     },
     {
       "id": "TODO-022",
@@ -831,7 +898,7 @@
       "title": "CRM Workshop: Document Custom Salesforce Objects to Sync",
       "description": "Document all custom Salesforce objects that need to sync to NetSuite. Define field mapping, sync frequency, data flow direction.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "INTEGRATION",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -845,6 +912,13 @@
           "description": "Q-CRM-002: Custom Salesforce objects to sync",
           "section": "HIGH Priority"
         }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL Salesforce integration (TODO-053)"
+        }
       ]
     },
     {
@@ -852,7 +926,7 @@
       "title": "Payments Workshop: Define Stripe Payout Reconciliation Process",
       "description": "Document Stripe payout frequency (daily?). Define reconciliation process: payout file format, fees, refunds, chargebacks. Design NetSuite reconciliation workflow.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "INTEGRATION",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -878,14 +952,21 @@
           "deposit",
           "customerPayment"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL Stripe integration (TODO-054)"
+        }
+      ]
     },
     {
       "id": "TODO-027",
       "title": "Payments Workshop: Document Refund and Chargeback Handling",
       "description": "Document refund and chargeback handling in Stripe and NetSuite: workflow, accounting treatment, dispute management, reconciliation.",
       "status": "BACKLOG",
-      "priority": "HIGH",
+      "priority": "CRITICAL",
       "category": "REQUIREMENTS",
       "createdDate": "2026-02-03T00:00:00Z",
       "assignedTo": {
@@ -906,7 +987,14 @@
           "customerRefund",
           "creditMemo"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T03:19:31.760Z",
+          "author": "agent",
+          "content": "Priority upgraded from HIGH to CRITICAL: Blocks CRITICAL Stripe integration (TODO-054)"
+        }
+      ]
     },
     {
       "id": "TODO-028",
@@ -2083,6 +2171,7 @@
         "type": "AGENT",
         "name": "netsuite-agent"
       },
+      "milestone": "MS-004",
       "dependencies": {
         "blockedBy": [
           "TODO-047",
@@ -2108,7 +2197,14 @@
           "wf_return_processing",
           "wf_customer_onboarding"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-004 (Core Processes Configured): Workflows depend on sales order, PO, and return authorization configuration, all of which are MS-004 deliverables."
+        }
+      ]
     },
     {
       "id": "TODO-061",
@@ -2122,6 +2218,7 @@
         "type": "AGENT",
         "name": "netsuite-agent"
       },
+      "milestone": "MS-004",
       "references": [
         {
           "path": "configuration-plan/configuration-summary.md",
@@ -2137,7 +2234,14 @@
         "recordTypes": [
           "advancedPdfTemplate"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-004 (Core Processes Configured): PDF templates for invoice, packing slip, and PO support core OTC and PTP processes in MS-004."
+        }
+      ]
     },
     {
       "id": "TODO-062",
@@ -2206,6 +2310,7 @@
         "type": "AGENT",
         "name": "netsuite-agent"
       },
+      "milestone": "MS-005",
       "dependencies": {
         "blockedBy": [
           "TODO-030",
@@ -2236,13 +2341,20 @@
           "Customer LTV",
           "Loyalty Program"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-005 (All Integrations Live): Reports and searches depend on data from COA, inventory, and sales orders. Best built after core processes are stable and before UAT begins."
+        }
+      ]
     },
     {
       "id": "TODO-064",
       "title": "Configure Campaign Management and Promotions",
       "description": "Configure campaign management (email, social, in-store, influencer, paid search), promotion engine (% Off, $ Off, BOGO, free shipping, gift with purchase), stacking rules, channel targeting, date ranges, usage limits, coupon codes.",
-      "status": "BACKLOG",
+      "status": "DONE",
       "priority": "MEDIUM",
       "category": "CONFIGURATION",
       "createdDate": "2026-02-03T00:00:00Z",
@@ -2250,6 +2362,7 @@
         "type": "AGENT",
         "name": "netsuite-agent"
       },
+      "milestone": "MS-005",
       "references": [
         {
           "path": "configuration-plan/configuration-summary.md",
@@ -2266,7 +2379,18 @@
           "campaign",
           "promotionCode"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-005 (All Integrations Live): Campaign and promotion configuration is a secondary capability that can be built after core OTC processes and integrations are stable."
+        }
+      ],
+      "meta": {
+        "lastUpdated": "2026-02-04T23:21:36.314Z"
+      },
+      "completedDate": "2026-02-04T23:21:36.314Z"
     },
     {
       "id": "TODO-065",
@@ -2280,6 +2404,7 @@
         "type": "AGENT",
         "name": "netsuite-agent"
       },
+      "milestone": "MS-005",
       "references": [
         {
           "path": "configuration-plan/configuration-summary.md",
@@ -2296,7 +2421,14 @@
           "supportCase",
           "solution"
         ]
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-005 (All Integrations Live): Case management integrates with Salesforce/Zendesk and depends on customer/order data. Fits naturally into integration phase."
+        }
+      ]
     },
     {
       "id": "TODO-066",
@@ -2396,6 +2528,7 @@
         "type": "HUMAN",
         "name": "Full Implementation Team"
       },
+      "milestone": "MS-007",
       "dependencies": {
         "blockedBy": [
           "TODO-069"
@@ -2403,7 +2536,14 @@
       },
       "effort": {
         "estimated": "4w"
-      }
+      },
+      "notes": [
+        {
+          "timestamp": "2026-02-04T04:00:00.000Z",
+          "author": "agent",
+          "content": "Assigned to MS-007 (Production Go-Live): Hypercare support begins immediately after go-live and is the primary deliverable for weeks 1-4 post-production."
+        }
+      ]
     }
   ]
 }

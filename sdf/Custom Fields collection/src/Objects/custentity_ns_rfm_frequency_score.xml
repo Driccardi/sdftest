@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custentitycustom scriptid="custentity_ns_rfm_frequency_score">
+  <label>RFM Frequency Score</label>
+  <description>Frequency score (1-5) based on total number of orders</description>
+  <fieldtype>INTEGER</fieldtype>
+  <displaytype>NORMAL</displaytype>
+  <dynamicdefault/>
+  <help>Score 1-5 indicating how often customer purchases (5=most frequent)</help>
+  <storevalue>T</storevalue>
+  <accesslevel>2</accesslevel>
+  <checkspelling>F</checkspelling>
+  <encryptatrest>F</encryptatrest>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <searchlevel>2</searchlevel>
+  <appliestocontact>F</appliestocontact>
+  <appliestocustomer>T</appliestocustomer>
+  <appliestoemployee>F</appliestoemployee>
+  <appliestogroup>F</appliestogroup>
+  <appliestoothername>F</appliestoothername>
+  <appliestopartner>F</appliestopartner>
+  <appliestoprojecttemplate>F</appliestoprojecttemplate>
+  <appliestovendor>F</appliestovendor>
+  <appliestowebsite>F</appliestowebsite>
+  <applyformatting>T</applyformatting>
+  <defaultchecked>F</defaultchecked>
+  <globalsearch>F</globalsearch>
+</custentitycustom>

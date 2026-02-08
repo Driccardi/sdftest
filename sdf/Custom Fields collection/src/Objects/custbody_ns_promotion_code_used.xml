@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custbodycustom scriptid="custbody_ns_promotion_code_used">
+  <label>Promotion Code Used</label>
+  <description>Promotion/coupon code entered by customer on this order</description>
+  <fieldtype>TEXT</fieldtype>
+  <displaytype>NORMAL</displaytype>
+  <dynamicdefault/>
+  <help>Stores the actual promotion code used by customer</help>
+  <storevalue>T</storevalue>
+  <accesslevel>2</accesslevel>
+  <checkspelling>F</checkspelling>
+  <encryptatrest>F</encryptatrest>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <searchlevel>2</searchlevel>
+  <appliescredit>T</appliescredit>
+  <appliesestimate>F</appliesestimate>
+  <appliesinvoice>T</appliesinvoice>
+  <appliesopportunity>F</appliesopportunity>
+  <appliesperiodclosed>T</appliesperiodclosed>
+  <appliespurchase>F</appliespurchase>
+  <appliesretauth>T</appliesretauth>
+  <appliessale>T</appliessale>
+  <appliestransaction>T</appliestransaction>
+  <applyformatting>T</applyformatting>
+  <defaultchecked>F</defaultchecked>
+  <globalsearch>F</globalsearch>
+</custbodycustom>

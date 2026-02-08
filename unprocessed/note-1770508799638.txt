@@ -1,0 +1,1 @@
+We're going to hold inventory for customer pickup for up to 10 days.

@@ -1,0 +1,33 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>FAR-FixedAssetRentals</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="true">LOCATIONS</feature>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="true">ACCOUNTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="true">SUBSIDIARIES</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+    </features>
+    <objects>
+      <object>customrecord_ncfar_asset.custrecord_assetlifetime</object>
+      <object>customrecord_ncfar_asset</object>
+      <object>customrecord_ncfar_asset.custrecord_assetsubsidiary</object>
+      <object>customrecord_ncfar_asset.custrecord_assetstatus</object>
+      <object>customrecord_ncfar_asset.custrecord_assetaccmethod</object>
+      <object>customrecord_ncfar_asset.custrecord_ncfar_quantity</object>
+      <object>customlist_ncfar_assetstatus</object>
+      <object>customrecord_ncfar_asset.custrecord_assetserialno</object>
+      <object>customrecord_ncfar_asset.custrecordnsps_disp_adj_created</object>
+      <object>customrecord_ncfar_assettype</object>
+      <object>customrecord_ncfar_asset.custrecord_componentof</object>
+      <object>customrecord_ncfar_asset.custrecord_assettype</object>
+      <object>customrecord_ncfar_asset.custrecord_asset_itemlink</object>
+      <object>customrecord_ncfar_asset.custrecord_assetcost</object>
+      <object>customrecord_ncfar_asset.custrecord_assetcurrentcost</object>
+      <object>customrecord_ncfar_asset.custrecord_assetdescr</object>
+      <object>customrecord_ncfar_deprmethod</object>
+    </objects>
+  </dependencies>
+</manifest>

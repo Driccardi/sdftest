@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<search scriptid="customsearch_vendor_sourcing_history">
+  <dependencies>
+    <dependency>
+      <customrecord>[scriptid=customrecord_sourcing_tracker]</customrecord>
+    </dependency>
+  </dependencies>
+  <audience>ALLROLES</audience>
+  <isinactive>F</isinactive>
+  <ispublic>T</ispublic>
+  <recordtype>[scriptid=customrecord_sourcing_tracker]</recordtype>
+  <title>Vendor Sourcing History</title>
+  <searchfilter>
+    <searchfilterlevel>0</searchfilterlevel>
+    <standardfilter>
+      <field>custrecord_st_vendor</field>
+      <sourcefieldid>CUSTOM</sourcefieldid>
+      <operator>ANYOF</operator>
+      <value>@CURRENT@</value>
+    </standardfilter>
+  </searchfilter>
+  <availablefilters>
+    <availablefilter>
+      <filterexpression>custrecord_st_status</filterexpression>
+      <operator>ANY</operator>
+    </availablefilter>
+    <availablefilter>
+      <filterexpression>custrecord_st_buyer</filterexpression>
+      <operator>ANY</operator>
+    </availablefilter>
+    <availablefilter>
+      <filterexpression>custrecord_st_contact_date</filterexpression>
+      <operator>WITHIN</operator>
+    </availablefilter>
+  </availablefilters>
+  <searchrows>
+    <searchrow index="0">
+      <searchcols>
+        <searchcol index="0">
+          <field>name</field>
+          <label>Record ID</label>
+          <nltype>text</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>TEXT</type>
+        </searchcol>
+        <searchcol index="1">
+          <field>custrecord_st_item</field>
+          <label>Item</label>
+          <nltype>select</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>SELECT</type>
+        </searchcol>
+        <searchcol index="2">
+          <field>custrecord_st_model_code</field>
+          <label>Model Code</label>
+          <nltype>text</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>TEXT</type>
+        </searchcol>
+        <searchcol index="3">
+          <field>custrecord_st_status</field>
+          <label>Status</label>
+          <nltype>select</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>SELECT</type>
+        </searchcol>
+        <searchcol index="4">
+          <field>custrecord_st_buyer</field>
+          <label>Buyer</label>
+          <nltype>select</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>SELECT</type>
+        </searchcol>
+        <searchcol index="5">
+          <field>custrecord_st_contact_date</field>
+          <label>Contact Date</label>
+          <nltype>date</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>DATE</type>
+        </searchcol>
+        <searchcol index="6">
+          <field>custrecord_st_quoted_cost</field>
+          <label>Quoted Cost</label>
+          <nltype>currency</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>CURRENCY</type>
+        </searchcol>
+        <searchcol index="7">
+          <field>custrecord_st_moq</field>
+          <label>MOQ</label>
+          <nltype>integer</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>INTEGER</type>
+        </searchcol>
+        <searchcol index="8">
+          <field>custrecord_st_lead_time</field>
+          <label>Lead Time</label>
+          <nltype>integer</nltype>
+          <sourcefieldid>CUSTOM</sourcefieldid>
+          <type>INTEGER</type>
+        </searchcol>
+      </searchcols>
+    </searchrow>
+  </searchrows>
+  <sortcolumns>
+    <sortcolumn>
+      <searchcolumn>
+        <field>custrecord_st_contact_date</field>
+        <sourcefieldid>CUSTOM</sourcefieldid>
+      </searchcolumn>
+      <sortdir>DESC</sortdir>
+    </sortcolumn>
+  </sortcolumns>
+</search>

@@ -1,0 +1,14 @@
+<sublist scriptid="custsublist_1_8272468_861">
+  <billofmaterials>T</billofmaterials>
+  <field>STDITEMCLASS</field>
+  <inventoryitem>T</inventoryitem>
+  <itemgroup>F</itemgroup>
+  <kit>T</kit>
+  <label>Class Add ons</label>
+  <noninventoryitem>T</noninventoryitem>
+  <othercharge>F</othercharge>
+  <savedsearch>[scriptid=customsearch_ns_addonsublist]</savedsearch>
+  <service>F</service>
+  <sublisttype>ITEM</sublisttype>
+  <tab></tab>
+</sublist>

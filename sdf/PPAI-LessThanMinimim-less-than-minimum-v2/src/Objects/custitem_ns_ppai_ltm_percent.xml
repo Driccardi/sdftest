@@ -1,0 +1,55 @@
+<itemcustomfield scriptid="custitem_ns_ppai_ltm_percent">
+  <accesslevel>2</accesslevel>
+  <appliestogroup>F</appliestogroup>
+  <appliestoinventory>T</appliestoinventory>
+  <appliestoitemassembly>T</appliestoitemassembly>
+  <appliestokit>F</appliestokit>
+  <appliestononinventory>T</appliestononinventory>
+  <appliestoothercharge>F</appliestoothercharge>
+  <appliestopricelist>F</appliestopricelist>
+  <appliestoservice>F</appliestoservice>
+  <appliestospecificitems>F</appliestospecificitems>
+  <appliestosubplan>F</appliestosubplan>
+  <applyformatting>T</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description></description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <enabletextenhance>F</enabletextenhance>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>PERCENT</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>A Less-Than Minimum charge will be calculated based on the total value of the item line X the percentage (%) entered here. &#xd;
+&#xd;
+Note: Each item can only calculate a LTM charge based on a Flat Rate or percentage, but not both.  </help>
+  <includechilditems>F</includechilditems>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <ismhitemattribute>F</ismhitemattribute>
+  <isparent>F</isparent>
+  <itemmatrix>F</itemmatrix>
+  <itemsubtype>BOTH</itemsubtype>
+  <label>LTM Percentage</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete></onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype></selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>[scriptid=custtab_ns_ppai_ltm_subtab]</subtab>
+</itemcustomfield>

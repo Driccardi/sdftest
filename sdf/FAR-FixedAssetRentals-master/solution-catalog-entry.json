@@ -1,0 +1,40 @@
+{
+  "name": "Fixed Asset Rentals (FAR)",
+  "description": "Comprehensive rental asset lifecycle management solution that bridges NetSuite Fixed Asset Management with serialized inventory tracking. Automates bottle tracking, equipment rentals, and returnable asset management with real-time inventory synchronization, customer assignment tracking, and automated disposal processing. Prevents double-booking of rental assets while maintaining detailed audit trails across multi-subsidiary operations.",
+  "uses": [
+    "Asset-to-Inventory Synchronization",
+    "Rental Asset Lifecycle Management",
+    "Serialized Inventory Tracking",
+    "Customer Assignment Validation",
+    "Automated Disposal Processing",
+    "Multi-Subsidiary Asset Transfers",
+    "Route Manifest Integration",
+    "Duplicate Rental Prevention"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2020.2+"
+    },
+    {
+      "type": "edition",
+      "value": "OneWorld"
+    },
+    {
+      "type": "feature",
+      "value": "Fixed Asset Management, Multi-Location Inventory, Server-Side Scripting"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Wholesale Distribution",
+    "Manufacturing",
+    "Retail"
+  ],
+  "depends_on": [
+    "NetSuite Fixed Asset Management (FAM)"
+  ],
+  "solution_type": "Inventory & Warehouse",
+  "manager": "NetSuite Professional Services",
+  "documents": []
+}

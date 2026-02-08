@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customlist scriptid="customlist_ns_promo_channels">
+  <name>NS Promotion Channels</name>
+  <description>Sales channels where promotions can be targeted</description>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <customvalues>
+    <customvalue scriptid="val_ecommerce">
+      <value>E-commerce</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_mobile_app">
+      <value>Mobile App</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_instore">
+      <value>In-Store</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_phone">
+      <value>Phone</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_wholesale">
+      <value>Wholesale</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_all_channels">
+      <value>All Channels</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+  </customvalues>
+</customlist>

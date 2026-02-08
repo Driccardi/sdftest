@@ -1,0 +1,39 @@
+{
+  "name": "Vendor Sourcing Tracker",
+  "description": "Procurement vendor evaluation and qualification tracking system that enables systematic vendor sourcing for product inventory. Captures vendor quotes, pricing, MOQ requirements, lead times, and sourcing status throughout the vendor evaluation lifecycle. Replaces scattered vendor evaluation data in emails and spreadsheets with a centralized, searchable repository for procurement decision-making and vendor performance analysis.",
+  "uses": [
+    "Vendor Evaluation Tracking",
+    "Quote Request Management",
+    "Pricing Comparison Analysis",
+    "MOQ & Lead Time Tracking",
+    "Sourcing Status Workflow",
+    "Buyer Assignment",
+    "Vendor-Item-Model Tracking",
+    "Procurement Decision Audit Trail",
+    "Vendor Record Integration (Sourcing History Subtab)"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2019.1+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Custom Records"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Retail",
+    "Wholesale Distribution",
+    "Manufacturing"
+  ],
+  "depends_on": [],
+  "solution_type": "Procurement",
+  "manager": "NetSuite Professional Services",
+  "documents": []
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custbodycustom scriptid="custbody_ns_promotion_discount_amt">
+  <label>Promotion Discount Amount</label>
+  <description>Total discount amount applied from promotions on this order</description>
+  <fieldtype>CURRENCY</fieldtype>
+  <displaytype>NORMAL</displaytype>
+  <dynamicdefault/>
+  <help>Tracks total discount given through promotion codes</help>
+  <storevalue>T</storevalue>
+  <accesslevel>2</accesslevel>
+  <checkspelling>F</checkspelling>
+  <encryptatrest>F</encryptatrest>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <searchlevel>2</searchlevel>
+  <appliescredit>T</appliescredit>
+  <appliesestimate>F</appliesestimate>
+  <appliesinvoice>T</appliesinvoice>
+  <appliesopportunity>F</appliesopportunity>
+  <appliesperiodclosed>T</appliesperiodclosed>
+  <appliespurchase>F</appliespurchase>
+  <appliesretauth>T</appliesretauth>
+  <appliessale>T</appliessale>
+  <appliestransaction>T</appliestransaction>
+  <applyformatting>T</applyformatting>
+  <defaultchecked>F</defaultchecked>
+  <globalsearch>F</globalsearch>
+</custbodycustom>

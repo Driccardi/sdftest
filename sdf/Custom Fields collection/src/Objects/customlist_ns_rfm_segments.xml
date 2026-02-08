@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customlist scriptid="customlist_ns_rfm_segments">
+  <name>NS RFM Customer Segments</name>
+  <description>Customer segments based on RFM (Recency, Frequency, Monetary) analysis</description>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <customvalues>
+    <customvalue scriptid="val_vip_champions">
+      <value>VIP Champions</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_loyal_customers">
+      <value>Loyal Customers</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_potential_loyalists">
+      <value>Potential Loyalists</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_recent_high_spenders">
+      <value>Recent High-Spenders</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_new_customers">
+      <value>New Customers</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_at_risk_loyal">
+      <value>At-Risk Loyal</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_at_risk_vip">
+      <value>At-Risk VIP</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_lapsed_customers">
+      <value>Lapsed Customers</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_churned">
+      <value>Churned</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+  </customvalues>
+</customlist>

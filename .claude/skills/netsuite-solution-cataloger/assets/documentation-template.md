@@ -1,0 +1,255 @@
+# [Solution Name]
+
+**Version**: [Version Number] | **By**: [Author/Organization]
+
+---
+
+## Description
+
+[2-3 paragraph overview of the solution. Start with business value and pain points addressed. Then describe how the solution works. Conclude with key outcomes/benefits.]
+
+[Paragraph 1: Business context and pain points]
+
+[Paragraph 2: How the solution works - high-level technical approach]
+
+[Paragraph 3: Key outcomes and benefits delivered]
+
+---
+
+## Solution Details
+
+### Solution Type
+- **[Solution Type Tag]**
+
+### Target Industries
+- **[Industry 1]**
+- **[Industry 2]**
+- **[Industry 3]**
+
+### Dependencies
+- **[Dependency 1]** - [Brief description of why needed]
+- **[Dependency 2]** - [Brief description]
+
+---
+
+## Features
+
+### [Feature 1 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+### [Feature 2 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+### [Feature 3 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+### [Feature 4 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+### [Feature 5 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+### [Feature 6 Name]
+[1-2 sentence description of what this feature does and the benefit it provides]
+
+---
+
+## Technical Details
+
+### Script Files
+
+**[Script Type 1]** ([Count] files)
+- `[script_file_1.js]` - [Brief description from XML or inferred]
+- `[script_file_2.js]` - [Brief description from XML or inferred]
+
+**[Script Type 2]** ([Count] files)
+- `[script_file_3.js]` - [Brief description from XML or inferred]
+
+### Custom Records
+
+**[Record Name 1]** (`customrecord_[id]`)
+- [Purpose and usage]
+
+**[Record Name 2]** (`customrecord_[id]`)
+- [Purpose and usage]
+
+### Workflows
+
+**[Workflow Name 1]**
+- [Number of states] states
+- [Brief description of workflow process]
+
+**[Workflow Name 2]**
+- [Number of states] states
+- [Brief description of workflow process]
+
+### Custom Fields
+- [Count] custom fields across [number] record types
+- Key fields: [List notable fields]
+
+### Saved Searches
+- [Count] saved searches
+- Key searches: [List important searches and their purpose]
+
+### Other Objects
+- **Forms**: [Count] custom forms
+- **Portlets**: [Count] portlets for dashboards
+- **RESTlets**: [Count] API endpoints
+
+---
+
+## System Requirements
+
+### NetSuite Version
+- **Minimum**: [Version, e.g., 2024.1]
+- **Recommended**: [Latest or specific version]
+
+### NetSuite Edition
+- **Required**: [Standard/Premium/OneWorld/N/A]
+
+### Required Features
+- [Feature 1]
+- [Feature 2]
+
+### Optional Features
+- [Optional feature 1] - [Enhances specific functionality]
+- [Optional feature 2] - [Enhances specific functionality]
+
+---
+
+## Installation
+
+### Prerequisites
+1. NetSuite account with appropriate edition and features
+2. Administrator or Developer role access
+3. SuiteCloud Development Framework (SDF) CLI installed
+4. [Any other prerequisites]
+
+### Deployment Steps
+
+1. **Download Source**
+   ```bash
+   git clone [repository_url]
+   cd [project_directory]
+   ```
+
+2. **Configure Authentication**
+   ```bash
+   suitecloud account:setup
+   # Follow prompts to authenticate
+   ```
+
+3. **Validate Project**
+   ```bash
+   suitecloud project:validate
+   ```
+
+4. **Deploy to NetSuite**
+   ```bash
+   suitecloud project:deploy
+   ```
+
+5. **Post-Deployment Configuration**
+   - [Step 1: Configure settings]
+   - [Step 2: Set up roles/permissions]
+   - [Step 3: Initialize data if needed]
+
+---
+
+## Usage
+
+### Getting Started
+
+[Brief overview of how to start using the solution after installation]
+
+### Common Workflows
+
+**[Workflow 1 Name]**
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+**[Workflow 2 Name]**
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+### User Roles
+
+- **[Role 1]**: [Permissions and typical tasks]
+- **[Role 2]**: [Permissions and typical tasks]
+
+---
+
+## Configuration
+
+### Settings
+
+[Describe key configuration options and how to access them]
+
+### Customization
+
+[Describe what can be customized and how]
+
+---
+
+## Support & Documentation
+
+### Resources
+- **Repository**: [Git repository URL]
+- **Documentation**: [Documentation URL]
+- **Issues**: [Issue tracker URL]
+
+### Contact
+- **Manager**: [Product manager name/team]
+- **Email**: [Support email if applicable]
+
+---
+
+## Technical Architecture
+
+### Component Overview
+
+```
+[High-level architecture diagram in text or ASCII]
+Example:
+NetSuite UI
+    ↓
+User Event Scripts
+    ↓
+Custom Records ↔ Workflows
+    ↓
+Background Processing (Scheduled Scripts)
+```
+
+### Data Flow
+
+[Describe how data flows through the system]
+
+### Integration Points
+
+- **[Integration 1]**: [Description of integration]
+- **[Integration 2]**: [Description of integration]
+
+---
+
+## Changelog
+
+### Version [X.Y.Z]
+- [Change 1]
+- [Change 2]
+- [Change 3]
+
+---
+
+## License
+
+[License information if applicable]
+
+---
+
+## Credits
+
+**Developed by**: [Organization/Author]
+**Generated by**: NetSuite Solution Cataloger (Claude Code Skill)
+**Date**: [Generation date]

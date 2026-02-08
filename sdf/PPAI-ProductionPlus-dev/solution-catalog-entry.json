@@ -1,0 +1,44 @@
+{
+  "name": "Production Plus - Manufacturing Execution System",
+  "description": "Comprehensive manufacturing execution system (MES) for promotional product companies that automates the complete production lifecycle for custom-decorated items. Extends NetSuite's native work order and assembly functionality with imprint management, artwork tracking, production event recording, and batch processing capabilities. Consolidates sales order decoration specs into Production Plus Records that automatically generate work orders with forward or backward scheduling, enabling efficient shop floor management for branded merchandise and apparel decoration.",
+  "uses": [
+    "Custom Decoration & Imprint Management",
+    "Automated Work Order Generation",
+    "Production Event Tracking",
+    "Forward/Backward Scheduling",
+    "Batch Build & Completion Processing",
+    "Artwork Library Management",
+    "Multi-Color Imprint Specifications",
+    "Manufacturing Routing Templates",
+    "Shop Floor Interfaces",
+    "Production Date Propagation",
+    "Machine & Operator Tracking",
+    "Mass Production Operations"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2021.2+"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "Work Orders, Assemblies, Manufacturing Routing, Custom Records"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Manufacturing",
+    "Wholesale Distribution",
+    "Retail"
+  ],
+  "depends_on": [
+    "Supply Chain Management (SCM) Bundle"
+  ],
+  "solution_type": "Manufacturing & Production",
+  "manager": "Production Plus AI (PPAI)",
+  "documents": []
+}

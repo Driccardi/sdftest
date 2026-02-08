@@ -1,0 +1,21 @@
+customer: Volleman Dairy Processing, LLC
+customerid: '7303683'
+customerNumber: '7303683'
+customerAbbrev: VDP
+erp:
+  - User Event
+ecommerce: []
+billing: []
+warehouse: []
+productArea: erp
+oradocs: ''
+projectStructureType: scripttype
+customizations:
+  - Bottle Exchange
+customizationData:
+  Bottle Exchange:
+    description: ' '
+jobNumber: J890838
+jobNumberDigits: ''
+jobNumberId: ''
+caseNumber: null

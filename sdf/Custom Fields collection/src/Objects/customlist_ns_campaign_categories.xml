@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customlist scriptid="customlist_ns_campaign_categories">
+  <name>NS Campaign Categories</name>
+  <description>Marketing campaign categories for tracking and reporting</description>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <customvalues>
+    <customvalue scriptid="val_email_marketing">
+      <value>Email Marketing</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_social_instagram">
+      <value>Social Media - Instagram</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_social_facebook">
+      <value>Social Media - Facebook</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_social_tiktok">
+      <value>Social Media - TikTok</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_social_pinterest">
+      <value>Social Media - Pinterest</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_social_youtube">
+      <value>Social Media - YouTube</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_paid_google">
+      <value>Paid Search - Google Ads</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_paid_bing">
+      <value>Paid Search - Bing Ads</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_paid_retarget">
+      <value>Paid Search - Retargeting</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_instore_event">
+      <value>In-Store Event</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_influencer">
+      <value>Influencer Marketing</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_referral">
+      <value>Referral Program</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_organic_seo">
+      <value>Organic/SEO</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_affiliate">
+      <value>Affiliate Marketing</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_direct_mail">
+      <value>Direct Mail</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+    <customvalue scriptid="val_other">
+      <value>Other</value>
+      <isinactive>F</isinactive>
+    </customvalue>
+  </customvalues>
+</customlist>

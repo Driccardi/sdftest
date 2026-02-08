@@ -1,0 +1,37 @@
+{
+  "name": "Advanced PDF Email Templates",
+  "description": "Template project structure for managing advanced PDF and email templates in NetSuite. Provides organized directory structure for email templates, marketing templates, and web-hosted files. Designed as a starting point for companies needing centralized template management and deployment across NetSuite accounts.",
+  "uses": [
+    "Organized template directory structure",
+    "Email template deployment",
+    "Marketing template management",
+    "Web hosting content support",
+    "PDF template customization",
+    "SDF-based version control"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "Any"
+    },
+    {
+      "type": "edition",
+      "value": "N/A"
+    },
+    {
+      "type": "feature",
+      "value": "None"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Retail",
+    "Wholesale Distribution",
+    "Professional Services",
+    "Manufacturing"
+  ],
+  "depends_on": [],
+  "solution_type": "Workflow Automation",
+  "manager": "Internal IT",
+  "documents": []
+}

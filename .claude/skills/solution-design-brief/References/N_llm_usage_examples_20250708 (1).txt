@@ -1,0 +1,280 @@
+NetSuite SuiteScript N/llm Module Usage Examples
+=================================================
+
+This document includes 25+ examples of valid, practical usage of the N/llm module in SuiteScript 2.1, with variations that demonstrate proper use of all methods, parameters, and options, including edge-case handling.
+
+Each example is expressed in JavaScript pseudocode (SuiteScript 2.1 style), and structured to be easy for an LLM to parse and understand, while covering unique permutations of the N/llm interface.
+
+------------------------------
+Example 01: Basic prompt
+------------------------------
+llm.generateText({
+  prompt: "What is NetSuite?"
+});
+
+------------------------------
+Example 02: Prompt with chat history
+------------------------------
+llm.generateText({
+  prompt: "What does it do?",
+  chatHistory: [
+    { role: llm.ChatRole.USER, text: "What is NetSuite?" },
+    { role: llm.ChatRole.CHATBOT, text: "NetSuite is a cloud-based ERP system..." }
+  ]
+});
+
+------------------------------
+Example 03: Prompt with model family specified
+------------------------------
+llm.generateText({
+  prompt: "Write a haiku about cloud software.",
+  modelFamily: llm.ModelFamily.COHERE_COMMAND_R_PLUS
+});
+
+------------------------------
+Example 04: Prompt with documents (RAG)
+------------------------------
+llm.generateText({
+  prompt: "What is the return policy?",
+  documents: [
+    { id: "policy", data: "Our return policy states that items can be returned within 30 days..." }
+  ]
+});
+
+------------------------------
+Example 05: Prompt with image input
+------------------------------
+llm.generateText({
+  prompt: "What does this chart say?",
+  image: file.load({ id: 123 }),  // Assume valid image file
+  modelFamily: llm.ModelFamily.META_LLAMA
+});
+
+------------------------------
+Example 06: Prompt with preamble (Cohere only)
+------------------------------
+llm.generateText({
+  prompt: "How do I close a sales order?",
+  preamble: "You are a NetSuite expert assistant.",
+  modelFamily: llm.ModelFamily.COHERE_COMMAND_R
+});
+
+------------------------------
+Example 07: Prompt with temperature control
+------------------------------
+llm.generateText({
+  prompt: "List 3 benefits of ERP software.",
+  modelParameters: {
+    temperature: 0.2
+  }
+});
+
+------------------------------
+Example 08: Prompt with maxTokens
+------------------------------
+llm.generateText({
+  prompt: "Explain NetSuite workflows.",
+  modelParameters: {
+    maxTokens: 100
+  }
+});
+
+------------------------------
+Example 09: Prompt with topP and topK
+------------------------------
+llm.generateText({
+  prompt: "Write a slogan for NetSuite.",
+  modelParameters: {
+    topP: 0.9,
+    topK: 40
+  }
+});
+
+------------------------------
+Example 10: Prompt with presencePenalty
+------------------------------
+llm.generateText({
+  prompt: "Suggest three taglines for an ERP implementation firm.",
+  modelParameters: {
+    presencePenalty: 0.6
+  }
+});
+
+------------------------------
+Example 11: Prompt with frequencyPenalty
+------------------------------
+llm.generateText({
+  prompt: "Repeat 'data' five times creatively.",
+  modelParameters: {
+    frequencyPenalty: 0.8
+  }
+});
+
+------------------------------
+Example 12: Prompt with ociConfig
+------------------------------
+llm.generateText({
+  prompt: "What is a KPI?",
+  ociConfig: {
+    userId: 'ocid1.user.oc1..aaa...',
+    tenancyId: 'ocid1.tenancy.oc1..aaa...',
+    compartmentId: 'ocid1.compartment.oc1..aaa...',
+    fingerprint: 'custsecret_my_fingerprint',
+    privateKey: 'custsecret_my_private_key'
+  }
+});
+
+------------------------------
+Example 13: Prompt with timeout override
+------------------------------
+llm.generateText({
+  prompt: "Generate a 500-word essay on supply chain resilience.",
+  timeout: 45000
+});
+
+------------------------------
+Example 14: Streamed prompt with iterator
+------------------------------
+var response = llm.generateTextStreamed({
+  prompt: "Tell me a story about a cloud-based hero.",
+  modelFamily: llm.ModelFamily.COHERE_COMMAND_R
+});
+response.iterator().each(function(token) {
+  log.debug("Token:", token.value);
+  return true;
+});
+
+------------------------------
+Example 15: Use of createChatMessage
+------------------------------
+var message = llm.createChatMessage({
+  role: llm.ChatRole.USER,
+  text: "What's NetSuite?"
+});
+
+------------------------------
+Example 16: Use of createDocument
+------------------------------
+var doc = llm.createDocument({
+  id: "kb1",
+  data: "NetSuite offers financial, CRM, and inventory management features."
+});
+
+------------------------------
+Example 17: Use of chat alias
+------------------------------
+llm.chat({
+  prompt: "Summarize this document.",
+  documents: [
+    { id: "intro", data: "NetSuite helps businesses scale efficiently..." }
+  ]
+});
+
+------------------------------
+Example 18: Use of chatStreamed alias
+------------------------------
+llm.chatStreamed({
+  prompt: "Explain AI in ERP systems.",
+  modelFamily: llm.ModelFamily.COHERE_COMMAND_R
+}).iterator().each(function(token) {
+  log.debug(token.value);
+  return true;
+});
+
+------------------------------
+Example 19: Check remaining usage
+------------------------------
+var remaining = llm.getRemainingFreeUsage();
+
+------------------------------
+Example 20: Check remaining usage async
+------------------------------
+llm.getRemainingFreeUsage.promise().then(function(count) {
+  log.debug("Remaining usage:", count);
+});
+
+------------------------------
+Example 21: Handle duplicate document error
+------------------------------
+try {
+  llm.generateText({
+    prompt: "What's in these documents?",
+    documents: [
+      { id: "dup", data: "Doc 1" },
+      { id: "dup", data: "Doc 2" }
+    ]
+  });
+} catch (e) {
+  log.error("Duplicate ID:", e.message);
+}
+
+------------------------------
+Example 22: Unsupported model parameter
+------------------------------
+try {
+  llm.generateText({
+    prompt: "Test",
+    modelParameters: {
+      madeUp: 1.0
+    }
+  });
+} catch (e) {
+  log.error("Invalid parameter:", e.message);
+}
+
+------------------------------
+Example 23: Invalid combination - frequency and presence penalty
+------------------------------
+try {
+  llm.generateText({
+    prompt: "Bad config",
+    modelParameters: {
+      presencePenalty: 0.6,
+      frequencyPenalty: 0.5
+    }
+  });
+} catch (e) {
+  log.error("Mutually exclusive:", e.message);
+}
+
+------------------------------
+Example 24: Streaming with document context
+------------------------------
+let streamResp = llm.generateTextStreamed({
+  prompt: "Summarize our policy.",
+  documents: [
+    { id: "policy1", data: "This is the return policy for our company..." }
+  ]
+});
+streamResp.iterator().each(function(token) {
+  log.audit("Token:", token.value);
+  return true;
+});
+
+------------------------------
+Example 25: Prompt with model override and secret oci
+------------------------------
+llm.generateText({
+  prompt: "Give a historical overview of accounting software.",
+  modelFamily: llm.ModelFamily.COHERE_COMMAND_R_PLUS,
+  ociConfig: {
+    userId: 'ocid1.user.oc1..abc...',
+    tenancyId: 'ocid1.tenancy.oc1..abc...',
+    compartmentId: 'ocid1.compartment.oc1..abc...',
+    fingerprint: 'custsecret_fp',
+    privateKey: 'custsecret_key'
+  }
+});
+
+------------------------------
+Example 26: Prompt with citations enabled via document input
+------------------------------
+let answer = llm.generateText({
+  prompt: "What is our refund policy?",
+  documents: [
+    { id: "policy2024", data: "Refunds are allowed within 14 days of purchase..." }
+  ]
+});
+log.debug("Citations:", answer.citations);
+
+END OF EXAMPLES

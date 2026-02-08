@@ -1,0 +1,19 @@
+<customlist scriptid="customlist_ns_ppai_ltm_handling_opt">
+  <description></description>
+  <isinactive>F</isinactive>
+  <ismatrixoption>F</ismatrixoption>
+  <isordered>T</isordered>
+  <name>LTM Handling Option</name>
+  <customvalues>
+    <customvalue scriptid="val_337279_td2953983_348">
+      <abbreviation>W</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Warn</value>
+    </customvalue>
+    <customvalue scriptid="val_337280_td2953983_496">
+      <abbreviation>H</abbreviation>
+      <isinactive>F</isinactive>
+      <value>Enforce</value>
+    </customvalue>
+  </customvalues>
+</customlist>

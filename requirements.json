@@ -1,0 +1,2469 @@
+{
+  "meta": {
+    "datasetId": "RTM-SUNSTYLE-001",
+    "generatedAt": "2026-02-07T23:45:00.000Z",
+    "schema": "requirements-jsonrpc.schema.json",
+    "notes": "SunStyle Retail NetSuite implementation requirements dataset. Includes 62 requirements extracted from business documentation, technical specifications, and customer interviews."
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "Multi-Location Inventory Management",
+      "description": "System shall manage inventory across multiple warehouse locations including Mesquite, TX and Livonia, GA.",
+      "type": "process",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Ron",
+          "requestDate": "2024-12-01",
+          "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+          "sourceType": "meeting_summary",
+          "sourceLocator": {
+            "docId": "DOC-INV-0007",
+            "filePath": "/docs/meetings/2024-12-01-inventory-review.md",
+            "page": 2,
+            "quote": "We have two warehouses: Mesquite and Livonia. We need NetSuite to show what's where and to move stock between them."
+          },
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "Do you need bin-level tracking within each warehouse?",
+        "What is the transfer order process between locations?",
+        "Are there location-specific costs or pricing rules?",
+        "How should fulfillment location be determined (closest, primary, manual)?",
+        "Are any locations third-party logistics (3PL)?",
+        "This is a question add."
+      ],
+      "designProposal": {
+        "steps": [
+          "Configure Mesquite, TX and Livonia, GA as inventory locations",
+          "Enable Multi-Location Inventory feature",
+          "Set up Transfer Order process for inter-location moves",
+          "Configure location assignment rules on sales orders",
+          "Implement location-based inventory reports"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-001",
+            "title": "Native locations + Transfer Orders",
+            "description": "Use standard NetSuite inventory locations with Transfer Orders for inter-location moves; optionally use allocation rules for fulfillment location selection.",
+            "approachType": "native_config",
+            "assumptions": [
+              "Locations represent physical warehouses",
+              "Transfers are always recorded"
+            ],
+            "pros": [
+              "Standard reporting",
+              "Low maintenance"
+            ],
+            "cons": [
+              "May require process discipline for transfers"
+            ],
+            "risks": [
+              "If users bypass transfers, on-hand by location will drift"
+            ],
+            "constraints": [
+              {
+                "type": "feature",
+                "value": "Multi-Location Inventory"
+              },
+              {
+                "type": "license",
+                "value": "Inventory Management"
+              }
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "proposed",
+              "rationale": "Baseline option pending confirmation of bin requirements."
+            },
+            "followUpQuestions": [
+              "Do you require wave picking or directed picking?",
+              "Do you need location-specific reorder points?"
+            ],
+            "references": [
+              "Help Center: Multi-Location Inventory",
+              "Internal: UYB Inventory SOP draft v0.3"
+            ]
+          },
+          {
+            "id": "OPT-002",
+            "title": "Locations + 3PL as virtual location",
+            "description": "Represent the 3PL as a virtual location and use transfer/ownership process controls to track stock at the provider.",
+            "approachType": "process_only",
+            "pros": [
+              "Simple modeling for outsourced stock"
+            ],
+            "cons": [
+              "Virtual location can hide operational nuance"
+            ],
+            "effort": "s",
+            "decision": {
+              "status": "selected",
+              "decidedAt": "2026-02-07T20:33:23.486Z"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-002",
+          "note": "Website inventory sync needs location-level ATP."
+        },
+        {
+          "type": "dependency-for",
+          "target": "REQ-004",
+          "note": "Assemblies occur at specific locations."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-009",
+          "note": "Consignment may be tracked as a virtual location."
+        }
+      ],
+      "tags": [
+        "inventory",
+        "locations",
+        "warehousing"
+      ],
+      "createdAt": "2025-01-05T15:12:00Z",
+      "updatedAt": "2026-02-07T20:33:23.486Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-002",
+      "title": "E-commerce Inventory Availability Sync",
+      "description": "System shall expose real-time or near-real-time inventory availability to the e-commerce storefront by location and overall.",
+      "type": "integration",
+      "priority": "high",
+      "status": "final",
+      "provenance": [
+        {
+          "requestedBy": "Maya",
+          "requestDate": "2024-11-20",
+          "sourceRef": "Call Transcript - Storefront Integration Discovery",
+          "sourceType": "transcript",
+          "sourceLocator": {
+            "docId": "TRX-ECOM-0012",
+            "timecodeStart": "00:17:42",
+            "timecodeEnd": "00:19:08",
+            "quote": "If the website says it's in stock and then we can't fulfill, it blows up CS. We need accurate availability—ideally by warehouse."
+          },
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "Which storefront platform(s) are in scope?",
+        "Do you need location-level availability on the product page?",
+        "What is the acceptable latency (seconds, minutes, hourly)?",
+        "Should backorders be allowed when availability is zero?",
+        "Are there allocation or reservation rules to apply?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define availability rules (ATP vs. on-hand vs. available-to-promise)",
+          "Select integration pattern (webhooks, scheduled sync, middleware)",
+          "Expose availability endpoint or feed",
+          "Map item identifiers and location identifiers",
+          "Implement monitoring + reconciliation report"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-003",
+            "title": "Middleware-driven near-real-time sync",
+            "description": "Use middleware to consume NetSuite item/location availability changes and push updates to storefront APIs.",
+            "approachType": "third_party_connector",
+            "pros": [
+              "Decouples storefront from NetSuite",
+              "Good observability"
+            ],
+            "cons": [
+              "Additional platform cost",
+              "More moving parts"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "Maya",
+              "decidedAt": "2025-02-02T17:30:00Z",
+              "rationale": "Need monitoring and retries; internal team already runs middleware."
+            }
+          },
+          {
+            "id": "OPT-004",
+            "title": "Scheduled availability export (batch)",
+            "description": "Export availability to SFTP/HTTP feed every N minutes; storefront ingests feed.",
+            "approachType": "integration",
+            "pros": [
+              "Simple",
+              "Predictable load"
+            ],
+            "cons": [
+              "Stale data risk",
+              "Reconciliation burden"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "rejected",
+              "decidedBy": "Maya",
+              "decidedAt": "2025-02-02T17:30:00Z",
+              "rationale": "Latency risk during promos."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-001",
+            "requirementId": "REQ-002",
+            "optionId": "OPT-003",
+            "implementedAt": "2025-04-10T22:15:00Z",
+            "implementedBy": "Integration Team",
+            "implementation": {
+              "system": "netsuite",
+              "notes": "Availability computed as On Hand - Committed; pushed to storefront every 60s with retries + dead-letter queue.",
+              "artifacts": [
+                {
+                  "type": "suitescript",
+                  "ref": "SuiteScript: customscript_availability_publisher",
+                  "version": "1.3.0"
+                },
+                {
+                  "type": "repo",
+                  "ref": "git@github.com:example/uyb-integration.git",
+                  "version": "tag:v1.3.0"
+                },
+                {
+                  "type": "doc",
+                  "ref": "Runbook: /docs/runbooks/availability-sync.md",
+                  "version": "rev:12"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-001",
+          "note": "Location-level inventory must exist before syncing."
+        }
+      ],
+      "tags": [
+        "integration",
+        "ecommerce",
+        "availability"
+      ],
+      "createdAt": "2024-11-21T09:00:00Z",
+      "updatedAt": "2025-04-10T22:15:00Z",
+      "process_taxonomy": "integrations_and_middleware"
+    },
+    {
+      "id": "REQ-003",
+      "title": "Vendor Bill Approval Controls",
+      "description": "System shall support approval of vendor bills prior to posting/payment based on amount thresholds and approver roles.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "CFO Team",
+          "requestDate": "2024-12-05",
+          "sourceRef": "Finance Notes - AP Controls",
+          "sourceType": "note",
+          "sourceLocator": {
+            "filePath": "/docs/finance/ap-controls-notes.txt",
+            "quote": "We need approval on vendor bills over $5k, and some invoices need 2 people to sign off."
+          },
+          "confidence": 0.8
+        }
+      ],
+      "followUpQuestions": [
+        "What are the approval thresholds (by amount, vendor, subsidiary, department)?",
+        "Do approvals need to be sequential or can they be concurrent?",
+        "Do you need delegation, out-of-office rules, or reassignments?",
+        "Should approvals be required before GL impact or only before payment?",
+        "Do approvers need visibility into supporting documents?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Confirm approval policy and thresholds",
+          "Select approval mechanism (custom fields, SuiteFlow workflow, custom records + script)",
+          "Implement UI and notifications",
+          "Implement audit trail + reporting",
+          "Train AP on exception handling"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-005",
+            "title": "Custom fields + task queue",
+            "description": "Add custom approval status/approver fields and route approvals through a controlled task queue (e.g., custom record or task assignments).",
+            "approachType": "suitescript_customization",
+            "pros": [
+              "Flexible",
+              "Can support complex routing"
+            ],
+            "cons": [
+              "More code + maintenance"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-006",
+            "title": "SuiteFlow multi-stage workflow with concurrent approvers",
+            "description": "Use a workflow to manage states (Pending, Approved, Rejected) with parallel approvals and threshold-based routing.",
+            "approachType": "suiteflow_workflow",
+            "pros": [
+              "Low code",
+              "Native audit trail"
+            ],
+            "cons": [
+              "Complex parallel logic can get hard to reason about"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-007",
+            "title": "Custom approval metadata records",
+            "description": "Create custom records to store approval routing rules and history; use script to evaluate and update transactions.",
+            "approachType": "custom_records",
+            "pros": [
+              "Highly extensible",
+              "Clear data model"
+            ],
+            "cons": [
+              "Build effort",
+              "Needs governance"
+            ],
+            "effort": "xl",
+            "decision": {
+              "status": "proposed"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-006",
+          "note": "Approval notifications may use the email template standards."
+        }
+      ],
+      "tags": [
+        "finance",
+        "ap",
+        "approvals"
+      ],
+      "createdAt": "2024-12-06T10:00:00Z",
+      "updatedAt": "2026-02-07T12:15:00Z",
+      "process_taxonomy": "procure_to_pay"
+    },
+    {
+      "id": "REQ-004",
+      "title": "Assembly Build at Specific Locations",
+      "description": "System shall support assembly builds occurring at designated locations and consuming components from that location's inventory.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "final",
+      "provenance": [
+        {
+          "requestedBy": "Ops Lead",
+          "requestDate": "2024-12-01",
+          "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+          "sourceType": "meeting_summary",
+          "sourceLocator": {
+            "docId": "DOC-INV-0007",
+            "page": 5,
+            "quote": "We assemble kits in Mesquite, but sometimes Livonia does small runs. Components should come from the right warehouse."
+          },
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "Do you require work orders or simple assembly builds?",
+        "Do you need labor/overhead costing captured?",
+        "Are builds backflushed or manually issued?",
+        "Do you need build-to-order on sales orders?"
+      ],
+      "designProposal": [
+        "Confirm assembly item list and component BOM accuracy",
+        "Enable appropriate manufacturing/assembly features",
+        "Configure default build location rules",
+        "Train operations on build transactions and reversals"
+      ],
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-001",
+          "note": "Assembly build requires location inventory accuracy."
+        },
+        {
+          "type": "dependency-for",
+          "target": "REQ-002",
+          "note": "Availability sync must account for assemblies at each location."
+        }
+      ],
+      "tags": [
+        "assembly",
+        "bom",
+        "operations"
+      ],
+      "createdAt": "2024-12-02T08:30:00Z",
+      "updatedAt": "2025-01-20T14:00:00Z",
+      "process_taxonomy": "manufacturing_assembly"
+    },
+    {
+      "id": "REQ-005",
+      "title": "Role-Based Access for Inventory Transactions",
+      "description": "System shall restrict inventory adjustments and transfers to authorized roles and maintain an audit trail of changes.",
+      "type": "technical",
+      "priority": "high",
+      "status": "implemented",
+      "provenance": [
+        {
+          "requestedBy": "Security",
+          "requestDate": "2024-12-12",
+          "sourceRef": "Customer Security Questionnaire v2",
+          "sourceType": "customer_doc",
+          "sourceLocator": {
+            "docId": "SECQ-0002",
+            "url": "https://customer.example.com/security/questionnaire#inventory",
+            "quote": "Inventory adjustments must be limited to supervisors; all changes must be auditable."
+          },
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "Which roles can create adjustments vs. approve adjustments?",
+        "Are there segregation-of-duties constraints (create vs. post)?",
+        "Do you need alerts for high-value adjustments?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define least-privilege roles for adjustments, transfers, and receipts",
+          "Implement custom roles + permissions",
+          "Enable system notes/audit reporting",
+          "Create saved searches for adjustment monitoring"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-008",
+            "title": "Native permissions + monitoring searches",
+            "description": "Use NetSuite roles/permissions and enable monitoring via saved searches and system notes.",
+            "approachType": "native_config",
+            "pros": [
+              "Straightforward",
+              "Auditable"
+            ],
+            "cons": [
+              "Alerts may require additional scripting or workflow"
+            ],
+            "effort": "s",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "Security",
+              "decidedAt": "2025-01-03T16:00:00Z",
+              "rationale": "Prefer native controls where possible."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-002",
+            "requirementId": "REQ-005",
+            "optionId": "OPT-008",
+            "implementedAt": "2025-01-21T19:40:00Z",
+            "implementedBy": "Admin Team",
+            "implementation": {
+              "system": "netsuite",
+              "notes": "Created Inventory Supervisor role; restricted Inventory Adjustment and Transfer Order permissions; deployed monitoring saved searches.",
+              "artifacts": [
+                {
+                  "type": "saved_search",
+                  "ref": "Saved Search: High-Value Inventory Adjustments",
+                  "version": "rev:3"
+                },
+                {
+                  "type": "doc",
+                  "ref": "/docs/security/inventory-access-controls.md",
+                  "version": "rev:5"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-001",
+          "note": "Location processes must align with role controls."
+        }
+      ],
+      "tags": [
+        "security",
+        "roles",
+        "audit"
+      ],
+      "createdAt": "2024-12-13T11:00:00Z",
+      "updatedAt": "2025-01-21T19:40:00Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-006",
+      "title": "Standardized Email Templates for Operational Notifications",
+      "description": "System shall use standardized email templates for approvals, shipment notices, and exception alerts.",
+      "type": "other",
+      "priority": "medium",
+      "status": "superseded",
+      "provenance": [
+        {
+          "requestedBy": "PMO",
+          "requestDate": "2024-10-15",
+          "sourceRef": "Project Kickoff Deck - Communications",
+          "sourceType": "asset",
+          "sourceLocator": {
+            "filePath": "/assets/kickoff/communications-slide.pptx",
+            "page": 7,
+            "quote": "Consistent emails reduce confusion. We want standard templates for key operational messages."
+          },
+          "confidence": 0.7
+        }
+      ],
+      "followUpQuestions": [
+        "Which events need notifications (approvals, fulfillment, billing, exceptions)?",
+        "Who are recipients (internal, customer, vendor)?",
+        "Do templates need branding per subsidiary?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Inventory current templates in use",
+          "Define template catalog and ownership",
+          "Implement templates and governance process"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-009",
+            "title": "Central template catalog + governance",
+            "description": "Maintain a controlled set of templates and require change review before edits.",
+            "approachType": "process_only",
+            "effort": "m",
+            "decision": {
+              "status": "deprecated",
+              "rationale": "Replaced by customer's corporate comms system standard."
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-003",
+          "note": "Approval notifications should follow template standards."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-010",
+          "note": "Incident alerts may share template components."
+        }
+      ],
+      "tags": [
+        "comms",
+        "templates"
+      ],
+      "createdAt": "2024-10-15T13:00:00Z",
+      "updatedAt": "2025-03-01T09:30:00Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-007",
+      "title": "Near-Zero Downtime Cutover Plan",
+      "description": "Project shall deliver a cutover plan that minimizes operational downtime to under 4 hours during go-live weekend.",
+      "type": "process",
+      "priority": "high",
+      "status": "final",
+      "provenance": [
+        {
+          "requestedBy": "Program Sponsor",
+          "requestDate": "2025-01-09",
+          "sourceRef": "Executive Meeting Summary - Go-Live Strategy",
+          "sourceType": "meeting_summary",
+          "sourceLocator": {
+            "docId": "EXEC-GL-0001",
+            "page": 1,
+            "quote": "We can't stop shipping for a full day. Plan for a cutover that keeps downtime under four hours."
+          },
+          "confidence": 0.86
+        }
+      ],
+      "followUpQuestions": [
+        "What is the shipping blackout window that is acceptable?",
+        "Are there integrations that can lag behind cutover?",
+        "Do you need parallel run for financials?"
+      ],
+      "designProposal": [
+        "Define cutover tasks and owners",
+        "Define freeze windows per function (AP, AR, shipping, purchasing)",
+        "Pre-stage roles, items, and configurations",
+        "Execute mock cutovers and measure duration",
+        "Create rollback plan and data reconciliation checklist"
+      ],
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-008",
+          "note": "Data migration sequence impacts cutover timeline."
+        }
+      ],
+      "tags": [
+        "cutover",
+        "go-live",
+        "operations"
+      ],
+      "createdAt": "2025-01-09T18:00:00Z",
+      "updatedAt": "2025-02-01T12:00:00Z",
+      "process_taxonomy": "project_to_profit"
+    },
+    {
+      "id": "REQ-008",
+      "title": "Historical Transaction Migration Scope",
+      "description": "System shall migrate 24 months of historical transactions for reporting, including orders, fulfillments, invoices, and payments.",
+      "type": "technical",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Data Lead",
+          "requestDate": "2024-12-18",
+          "sourceRef": "Data Migration Workshop Transcript - Scope",
+          "sourceType": "transcript",
+          "sourceLocator": {
+            "docId": "TRX-DM-0021",
+            "timecodeStart": "00:41:10",
+            "timecodeEnd": "00:45:02",
+            "quote": "We don't need 10 years, but we want two years of transactions in NetSuite so reports don't look empty."
+          },
+          "confidence": 0.84
+        }
+      ],
+      "followUpQuestions": [
+        "Which transaction types are required (SO, IF, INV, CM, PAY)?",
+        "Is the requirement for analytics only or operational drill-through?",
+        "What are acceptable data quality thresholds and reconciliation rules?",
+        "Do you require source-system document images migrated?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Confirm transaction scope and cutover date",
+          "Define mapping and transformation rules",
+          "Build migration pipelines and reconciliation reports",
+          "Run trial loads and validation",
+          "Execute final load during cutover"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-010",
+            "title": "Full operational migration (24 months)",
+            "description": "Load full transactions with links (SO→IF→INV→PAY) to support drill-down and operational queries.",
+            "approachType": "other",
+            "pros": [
+              "Complete history",
+              "Better user trust"
+            ],
+            "cons": [
+              "More load time",
+              "More reconciliation complexity"
+            ],
+            "effort": "xl",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-011",
+            "title": "Summarized historical GL + open transactions only",
+            "description": "Load summarized GL balances and only open operational transactions; keep historical operational detail in a reporting warehouse.",
+            "approachType": "integration",
+            "pros": [
+              "Fast cutover",
+              "Lower risk"
+            ],
+            "cons": [
+              "Limited operational history in NetSuite"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "proposed"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-007",
+          "note": "Migration plan and duration directly affect cutover downtime."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-010",
+          "note": "Migration monitoring may generate incident alerts."
+        }
+      ],
+      "tags": [
+        "data-migration",
+        "history"
+      ],
+      "createdAt": "2024-12-18T20:00:00Z",
+      "updatedAt": "2026-02-07T12:20:00Z",
+      "process_taxonomy": "data_migration"
+    },
+    {
+      "id": "REQ-009",
+      "title": "Consignment Stock Visibility",
+      "description": "System shall track consigned inventory separately from owned inventory and report consignment balances by location.",
+      "type": "functional",
+      "priority": "low",
+      "status": "cancelled",
+      "provenance": [
+        {
+          "requestedBy": "Ron",
+          "requestDate": "2024-12-01",
+          "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+          "sourceType": "meeting_summary",
+          "sourceLocator": {
+            "docId": "DOC-INV-0007",
+            "page": 8,
+            "quote": "We might do consignment in the future, but it's not in the next six months."
+          },
+          "confidence": 0.6
+        }
+      ],
+      "followUpQuestions": [
+        "Is consignment currently active or future-state only?",
+        "Do you need ownership tracking at the lot/serial level?",
+        "How will settlement and billing work for consigned goods?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Defer until consignment program is approved by business"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-012",
+            "title": "Virtual location for consignment",
+            "description": "Model consignment as a separate location and use process controls to prevent commingling with owned stock.",
+            "approachType": "process_only",
+            "effort": "s",
+            "decision": {
+              "status": "rejected",
+              "decidedBy": "Ron",
+              "decidedAt": "2025-01-15T10:00:00Z",
+              "rationale": "Program postponed; requirement cancelled."
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-001",
+          "note": "Consignment would likely be modeled as an additional location."
+        }
+      ],
+      "tags": [
+        "inventory",
+        "consignment"
+      ],
+      "createdAt": "2024-12-02T10:15:00Z",
+      "updatedAt": "2025-01-15T10:00:00Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-010",
+      "title": "Automated Incident Alerts for Integration Failures",
+      "description": "System shall notify IT within 5 minutes of integration failures and provide a diagnostic payload for triage.",
+      "type": "integration",
+      "priority": "medium",
+      "status": "implemented",
+      "provenance": [
+        {
+          "requestedBy": "IT Manager",
+          "requestDate": "2025-02-12",
+          "sourceRef": "Customer Documentation - Integration Operations Handbook",
+          "sourceType": "customer_doc",
+          "sourceLocator": {
+            "docId": "OPS-INT-0004",
+            "url": "https://customer.example.com/ops/integrations/handbook",
+            "quote": "We require alerts for failed jobs within 5 minutes and want the payload/stack trace attached or linkable."
+          },
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What alert channels are required (email, SMS, Slack, PagerDuty)?",
+        "What constitutes a failure (HTTP 5xx, retries exhausted, schema mismatch)?",
+        "Do you need correlation IDs to trace across systems?",
+        "What is the on-call schedule and escalation policy?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define failure conditions and alert routing",
+          "Implement dead-letter queue / error store",
+          "Implement alert dispatcher with throttling",
+          "Add correlation IDs and link to logs",
+          "Create weekly integration health report"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-013",
+            "title": "PagerDuty + structured event payload",
+            "description": "Publish failures to PagerDuty with structured details and a link to the raw payload in the error store.",
+            "approachType": "third_party_connector",
+            "pros": [
+              "On-call friendly",
+              "Escalations built-in"
+            ],
+            "cons": [
+              "Requires PagerDuty subscription/config"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "IT Manager",
+              "decidedAt": "2025-02-20T14:45:00Z",
+              "rationale": "Already used for other systems."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-003",
+            "requirementId": "REQ-010",
+            "optionId": "OPT-013",
+            "implementedAt": "2025-03-05T21:00:00Z",
+            "implementedBy": "IT/Integration",
+            "implementation": {
+              "system": "other",
+              "notes": "Alert dispatcher posts to PagerDuty; error store retains last 30 days; correlation IDs included.",
+              "artifacts": [
+                {
+                  "type": "repo",
+                  "ref": "git@github.com:example/integration-alerting.git",
+                  "version": "tag:v0.9.2"
+                },
+                {
+                  "type": "doc",
+                  "ref": "/docs/ops/integration-alerting.md",
+                  "version": "rev:7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-002",
+          "note": "Alerts must be wired into the chosen integration approach."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-006",
+          "note": "Alerts may share standardized template components."
+        }
+      ],
+      "tags": [
+        "integration",
+        "ops",
+        "alerting"
+      ],
+      "createdAt": "2025-02-12T11:30:00Z",
+      "updatedAt": "2025-03-05T21:00:00Z",
+      "process_taxonomy": "integrations_and_middleware"
+    },
+    {
+      "id": "REQ-011",
+      "title": "Single Customer View Across All Touchpoints",
+      "description": "System shall provide unified customer profile visibility across retail stores, e-commerce, and mobile channels, supporting omnichannel customer management.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-001.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What specific customer data attributes must be shared across channels?",
+        "Are there privacy or consent considerations for cross-channel data sharing?",
+        "How should conflicting customer data between channels be resolved?"
+      ],
+      "tags": [
+        "customer-management",
+        "omnichannel",
+        "crm"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-012",
+      "title": "Real-time Inventory Availability Checks",
+      "description": "System shall provide real-time inventory availability checks to support order placement across all sales channels.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-002.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What is the acceptable latency for availability checks (milliseconds, seconds)?",
+        "How should reserved inventory for fraud review orders be handled in availability calculations?",
+        "Should availability checks consider pending inbound stock?"
+      ],
+      "tags": [
+        "inventory",
+        "availability",
+        "integration",
+        "conflict"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-041",
+          "note": "Need integration plan for reserved inventory calculations in fraud review status vs. real-time availability."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-013",
+      "title": "Automated Reorder Point Calculations",
+      "description": "System shall calculate reorder points automatically and generate purchase orders for inventory replenishment based on configurable rules.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-003.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What factors should drive reorder point calculations (lead time, sales velocity, seasonality)?",
+        "Should reorder points vary by location?",
+        "What approval process is needed for auto-generated purchase orders?"
+      ],
+      "tags": [
+        "inventory",
+        "procurement",
+        "automation"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "supply_planning"
+    },
+    {
+      "id": "REQ-014",
+      "title": "Offline Mode for POS System",
+      "description": "System shall maintain point-of-sale transaction capability when network connectivity is lost, with automatic synchronization upon reconnection.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-004.5",
+          "sourceType": "customer_doc",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "What is the maximum acceptable offline duration?",
+        "How should payment processing work in offline mode?",
+        "What conflict resolution rules are needed for inventory when syncing offline transactions?"
+      ],
+      "tags": [
+        "pos",
+        "retail",
+        "offline",
+        "resilience"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-015",
+      "title": "Virtual Try-on Using AR Technology",
+      "description": "System shall support augmented reality virtual try-on capability for sunglasses and eyewear products on the e-commerce platform.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-005.3",
+          "sourceType": "customer_doc",
+          "confidence": 0.85
+        }
+      ],
+      "followUpQuestions": [
+        "What AR platform or SDK should be used?",
+        "Are there specific device/browser compatibility requirements?",
+        "Should AR try-on data be stored in NetSuite or an external system?"
+      ],
+      "tags": [
+        "ecommerce",
+        "ar",
+        "innovation"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-016",
+      "title": "Flexible Promotional Engine",
+      "description": "System shall support multiple promotion types including percentage discounts, dollar-off, BOGO, tiered pricing, coupon management, and customer segmentation.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-006",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What promotion stacking rules should be enforced?",
+        "How should promotion conflicts be resolved?",
+        "Are there channel-specific promotions (online only, in-store only)?"
+      ],
+      "tags": [
+        "promotions",
+        "pricing",
+        "marketing"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "pricing_and_promotions"
+    },
+    {
+      "id": "REQ-017",
+      "title": "Real-time Reporting and Analytics",
+      "description": "System shall provide real-time reporting and analytics with data refresh less than 5 minutes and a custom report builder for business users.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-007",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What are the top 10 critical reports needed?",
+        "Should analytics be built in NetSuite or a separate BI tool?",
+        "What user roles need report building capability?"
+      ],
+      "tags": [
+        "reporting",
+        "analytics",
+        "bi"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-018",
+      "title": "Sales Commission Calculation",
+      "description": "System shall automatically calculate and track sales commissions for store employees based on configurable commission rules.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-008.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.87
+        }
+      ],
+      "followUpQuestions": [
+        "What events trigger commission (sale, fulfillment, payment)?",
+        "How are returns and exchanges handled?",
+        "Are there tiered commission rates or team-based splits?"
+      ],
+      "tags": [
+        "commission",
+        "compensation",
+        "sales"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-019",
+      "title": "Automated Vendor Reordering",
+      "description": "System shall support automated vendor reordering processes integrated with vendor management and purchase order workflows.",
+      "type": "process",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-009.5",
+          "sourceType": "customer_doc",
+          "confidence": 0.85
+        }
+      ],
+      "followUpQuestions": [
+        "Which vendors support automated ordering (EDI, API, email)?",
+        "What approval thresholds are needed for auto-generated POs?",
+        "How should minimum order quantities and case packs be handled?"
+      ],
+      "tags": [
+        "procurement",
+        "vendor-management",
+        "automation"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "procure_to_pay"
+    },
+    {
+      "id": "REQ-020",
+      "title": "Multi-channel Customer Support",
+      "description": "System shall support customer service interactions across phone, email, chat, and social media channels with intelligent ticket routing.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Business Requirements Document BR-010",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What case management system will be used (native NetSuite or third-party)?",
+        "What SLAs are required for different support tiers?",
+        "How should social media interactions be captured and tracked?"
+      ],
+      "tags": [
+        "customer-service",
+        "support",
+        "case-management"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "case_to_resolution"
+    },
+    {
+      "id": "REQ-021",
+      "title": "Multi-region Deployment for High Availability",
+      "description": "System shall deploy across multiple cloud regions (primary: us-west1, secondary: us-east1) with automatic failover capability under 60 seconds.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Technical Requirements Document AR-001.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "Is NetSuite's native high availability sufficient or is additional infrastructure required?",
+        "What is the RPO/RTO target?",
+        "How should data residency requirements be addressed?"
+      ],
+      "tags": [
+        "infrastructure",
+        "high-availability",
+        "disaster-recovery"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-022",
+      "title": "Database Encryption at Rest and in Transit",
+      "description": "System shall encrypt all data at rest using AES-256 and all data in transit using TLS 1.3 or higher.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Technical Requirements AR-002.4, Security Requirements SR-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "Are there specific key management requirements?",
+        "Is NetSuite's native encryption sufficient or are additional controls needed?",
+        "What encryption standards are required for integrations?"
+      ],
+      "tags": [
+        "security",
+        "encryption",
+        "compliance"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-023",
+      "title": "API Rate Limiting Enforcement",
+      "description": "System shall enforce API rate limits of 1000 requests per minute per client to protect system performance and availability.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Technical Requirements Document AR-003.4",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "Should rate limits vary by client type or integration?",
+        "What response should be provided when limits are exceeded?",
+        "Are there burst allowances for specific use cases?"
+      ],
+      "tags": [
+        "api",
+        "performance",
+        "governance"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "integrations_and_middleware"
+    },
+    {
+      "id": "REQ-024",
+      "title": "Web Application Performance Targets",
+      "description": "System shall meet performance targets: page load under 2 seconds, time to interactive under 3 seconds, Google Lighthouse score above 90.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Performance Requirements Document PR-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "Are these targets for all pages or specific high-traffic pages?",
+        "What network conditions should be tested (3G, 4G, WiFi)?",
+        "How should performance be monitored in production?"
+      ],
+      "tags": [
+        "performance",
+        "web",
+        "user-experience"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-025",
+      "title": "Multi-factor Authentication for Admin Users",
+      "description": "System shall require multi-factor authentication for all users with privileged administrative access.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Security Requirements Document SR-001.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "What MFA methods are acceptable (SMS, authenticator app, hardware token)?",
+        "Should MFA be required for all roles or specific privileges?",
+        "What is the MFA bypass/recovery process?"
+      ],
+      "tags": [
+        "security",
+        "authentication",
+        "access-control"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-026",
+      "title": "PCI-DSS Compliance",
+      "description": "System shall comply with PCI-DSS requirements including payment card data tokenization and prohibition of full PAN storage.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Security Requirements Document SR-002.3",
+          "sourceType": "customer_doc",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "What payment processors are in scope?",
+        "Is PCI compliance required for NetSuite or handled by payment gateway?",
+        "What is the target compliance level (Level 1-4)?"
+      ],
+      "tags": [
+        "compliance",
+        "pci-dss",
+        "payments",
+        "security"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "compliance_and_audit"
+    },
+    {
+      "id": "REQ-027",
+      "title": "OWASP Top 10 Vulnerability Protection",
+      "description": "System shall implement protections against OWASP Top 10 vulnerabilities including input validation, XSS prevention, SQL injection prevention, and CSRF protection.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Security Requirements Document SR-003",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What security testing tools and processes will be used?",
+        "How frequently should security scans be performed?",
+        "What is the vulnerability remediation SLA?"
+      ],
+      "tags": [
+        "security",
+        "vulnerabilities",
+        "owasp"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-028",
+      "title": "GDPR and CCPA Compliance",
+      "description": "System shall comply with GDPR and CCPA requirements including right to erasure, data portability, and consent management.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Security Requirements Document SR-004",
+          "sourceType": "customer_doc",
+          "confidence": 0.93
+        }
+      ],
+      "followUpQuestions": [
+        "What customer data must be included in portability exports?",
+        "How should data deletion requests be processed across integrated systems?",
+        "What consent tracking and audit trail is required?"
+      ],
+      "tags": [
+        "compliance",
+        "privacy",
+        "gdpr",
+        "ccpa"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "compliance_and_audit"
+    },
+    {
+      "id": "REQ-029",
+      "title": "99.9% System Uptime SLA",
+      "description": "System shall maintain 99.9% uptime SLA with maximum 8.76 hours of downtime per year.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Reliability Requirements Document RR-001.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "Does this SLA apply to all systems or specific components?",
+        "How is planned maintenance handled in uptime calculations?",
+        "What penalties or remediation apply for SLA breaches?"
+      ],
+      "tags": [
+        "reliability",
+        "sla",
+        "uptime"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-030",
+      "title": "Disaster Recovery Targets",
+      "description": "System shall meet disaster recovery targets: RTO of 4 hours, RPO of 1 hour, with geo-redundant backups.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Reliability Requirements Document RR-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "How frequently should DR testing occur?",
+        "What systems are in scope for DR (NetSuite only or all integrations)?",
+        "What is the backup retention policy?"
+      ],
+      "tags": [
+        "disaster-recovery",
+        "backup",
+        "resilience"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-031",
+      "title": "Real-time Monitoring and Alerting",
+      "description": "System shall provide real-time monitoring with application performance monitoring, infrastructure monitoring, mean time to detect under 5 minutes, and mean time to repair under 30 minutes.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Reliability Requirements Document RR-003",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What monitoring tools will be used (Datadog, New Relic, native NetSuite)?",
+        "What specific metrics should trigger alerts?",
+        "Who is the on-call team and what is the escalation policy?"
+      ],
+      "tags": [
+        "monitoring",
+        "alerting",
+        "observability"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-032",
+      "title": "Message Queue for Asynchronous Processing",
+      "description": "System shall implement message queue infrastructure (Cloud Pub/Sub or equivalent) with throughput capacity exceeding 10,000 messages per second.",
+      "type": "technical",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Integration Requirements Document IR-002.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.85
+        }
+      ],
+      "followUpQuestions": [
+        "What use cases require message queuing?",
+        "What message ordering and exactly-once delivery guarantees are needed?",
+        "How should dead letter queues and retry policies be configured?"
+      ],
+      "tags": [
+        "integration",
+        "messaging",
+        "async"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "integrations_and_middleware"
+    },
+    {
+      "id": "REQ-033",
+      "title": "Audit Logging for Critical Operations",
+      "description": "System shall maintain comprehensive audit logs for authentication events, data access, configuration changes, and security events.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Compliance and Governance Document CG-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.93
+        }
+      ],
+      "followUpQuestions": [
+        "What is the audit log retention period?",
+        "Should audit logs be stored in NetSuite or a separate SIEM?",
+        "What specific events must be audited for compliance?"
+      ],
+      "tags": [
+        "audit",
+        "logging",
+        "compliance",
+        "security"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "compliance_and_audit"
+    },
+    {
+      "id": "REQ-034",
+      "title": "Customer Profile Merging and Duplicate Detection",
+      "description": "System shall detect duplicate customer profiles and support merging with conflict resolution workflows.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-CMS-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What matching rules should be used for duplicate detection?",
+        "Should duplicate detection be automatic or manual?",
+        "How should transaction history be handled during merge?"
+      ],
+      "tags": [
+        "customer-management",
+        "data-quality",
+        "deduplication"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-035",
+      "title": "Loyalty Program with Tier Management",
+      "description": "System shall support loyalty program with points accrual (1 point per $1 spent), tier tracking (Silver/Gold/Platinum), and 24-month expiration.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-CMS-003",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "How should points be earned on returns/exchanges?",
+        "Are there tier-specific benefits or pricing?",
+        "How should points redemption work across channels?"
+      ],
+      "tags": [
+        "loyalty",
+        "customer-management",
+        "promotions"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-036",
+      "title": "Prescription Order Verification Workflow",
+      "description": "System shall support prescription order workflow including upload, optometrist approval, and verification within 4 hours.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-OMS-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What format should prescriptions be uploaded (image, PDF, structured data)?",
+        "How should rejected prescriptions be handled?",
+        "What system stores the verified prescription data?"
+      ],
+      "tags": [
+        "orders",
+        "prescription",
+        "workflow",
+        "healthcare"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-037",
+      "title": "Fraud Detection Screening for Orders",
+      "description": "System shall implement fraud detection screening to flag high-risk orders during order validation workflow.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-OMS-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What fraud signals should be evaluated?",
+        "Should fraud screening be real-time or asynchronous?",
+        "What is the review process for flagged orders?"
+      ],
+      "tags": [
+        "fraud",
+        "orders",
+        "risk-management"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-052",
+          "note": "This requirement relates to the native e-commerce fraud detection system detailed in REQ-052."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-038",
+      "title": "Intelligent Fulfillment Routing",
+      "description": "System shall determine optimal fulfillment location based on inventory availability, shipping cost, and delivery time.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-OMS-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What is the priority order for routing factors (cost vs. speed)?",
+        "Should routing support split shipments?",
+        "Can fulfillment location be manually overridden?"
+      ],
+      "tags": [
+        "fulfillment",
+        "optimization",
+        "shipping"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-039",
+      "title": "Real-time Order Status Tracking with Multi-channel Notifications",
+      "description": "System shall provide real-time order status tracking with email, SMS, and push notifications with status lag under 5 minutes.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-OMS-003",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What order milestones trigger notifications?",
+        "Should notification preferences be customer-configurable?",
+        "What notification platform will be used?"
+      ],
+      "tags": [
+        "orders",
+        "notifications",
+        "customer-experience"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-040",
+      "title": "Self-service Return Portal with RMA",
+      "description": "System shall provide self-service return portal with 30-day return window, prepaid shipping labels, and refund processing within 3 business days.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-OMS-004",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What return reasons should be captured?",
+        "How should restocking fees be calculated?",
+        "Should returns support exchange in addition to refund?"
+      ],
+      "tags": [
+        "returns",
+        "rma",
+        "customer-service"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "returns_and_rma"
+    },
+    {
+      "id": "REQ-041",
+      "title": "Reserved Inventory Management",
+      "description": "System shall reserve inventory for active orders, release on cancellation, and display available versus reserved quantities.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-IMS-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "How long should reservations be held before automatic release?",
+        "Should reservations support backorders?",
+        "How should reserved inventory for fraud review orders be handled differently?"
+      ],
+      "tags": [
+        "inventory",
+        "reservation",
+        "conflict"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-012",
+          "note": "Need clarification on reserved vs available calculations for real-time availability."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-053",
+          "note": "Special inventory reservation handling needed for fraud review status."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-042",
+      "title": "Demand Forecasting and Automated Replenishment",
+      "description": "System shall forecast demand based on sales velocity, lead time, safety stock, and economic order quantity calculations to drive automated replenishment.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-IMS-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What historical period should inform forecasting?",
+        "How should seasonality be factored into forecasts?",
+        "What approval workflow is needed for replenishment orders?"
+      ],
+      "tags": [
+        "inventory",
+        "forecasting",
+        "replenishment",
+        "demand-planning"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "demand_planning"
+    },
+    {
+      "id": "REQ-043",
+      "title": "Cycle Counting with ABC Analysis",
+      "description": "System shall support cycle counting with ABC classification, mobile counting app, blind counts, and variance resolution workflow.",
+      "type": "process",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-IMS-004",
+          "sourceType": "customer_doc",
+          "confidence": 0.87
+        }
+      ],
+      "followUpQuestions": [
+        "What criteria define ABC classification?",
+        "How frequently should each class be counted?",
+        "What variance thresholds trigger investigation?"
+      ],
+      "tags": [
+        "inventory",
+        "cycle-count",
+        "warehouse"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-044",
+      "title": "POS Offline Mode",
+      "description": "System shall allow point-of-sale transactions to continue during network connectivity issues with automatic sync upon reconnection.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-POS-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What data must be cached locally for offline operation?",
+        "How should payment processing work offline?",
+        "What conflict resolution is needed for inventory when syncing?"
+      ],
+      "tags": [
+        "pos",
+        "offline",
+        "resilience"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-014",
+          "note": "Duplicate of REQ-014. Consider consolidating these requirements."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-045",
+      "title": "AR-based Virtual Try-on",
+      "description": "System shall provide augmented reality virtual try-on with face detection, real-time overlay, photo capture, and social sharing capabilities.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-ECM-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.85
+        }
+      ],
+      "followUpQuestions": [
+        "What AR platform or SDK should be integrated?",
+        "What device/browser compatibility is required?",
+        "Should try-on sessions be stored or tracked?"
+      ],
+      "tags": [
+        "ecommerce",
+        "ar",
+        "innovation"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-015",
+          "note": "Duplicate of REQ-015. Consider consolidating these requirements."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-046",
+      "title": "Shopping Cart Persistence and Abandonment Recovery",
+      "description": "System shall persist shopping carts for 30 days and send abandonment recovery emails at 24 hours and 3 days.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-ECM-003",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "Should cart recovery emails include discount incentives?",
+        "How should inventory availability be handled for aged carts?",
+        "Should carts sync across devices for logged-in users?"
+      ],
+      "tags": [
+        "ecommerce",
+        "cart",
+        "marketing"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-047",
+      "title": "Express Checkout with Tokenized Payment",
+      "description": "System shall support express checkout with saved addresses, PCI-compliant tokenized payment methods, and checkout completion under 2 minutes.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-ECM-004",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "What payment methods should be supported?",
+        "Should guest checkout be available or login required?",
+        "How should address validation be performed?"
+      ],
+      "tags": [
+        "ecommerce",
+        "checkout",
+        "payments"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-048",
+      "title": "Product Review System with Moderation",
+      "description": "System shall support product reviews with 5-star ratings, photo uploads, verified purchase badges, and automated profanity filtering.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-ECM-005",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "Should reviews be moderated pre-publication or post-publication?",
+        "How should review helpfulness voting work?",
+        "Should reviews sync to product catalog in real-time?"
+      ],
+      "tags": [
+        "ecommerce",
+        "reviews",
+        "ugc"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-049",
+      "title": "Fixed Asset Management by Location",
+      "description": "System shall track fixed assets including store fixtures and equipment by location, with depreciation tracking, transfer management, and maintenance scheduling.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-FAM-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What depreciation methods are required?",
+        "Should maintenance scheduling integrate with work order system?",
+        "What level of detail is needed for asset tagging and identification?"
+      ],
+      "tags": [
+        "fixed-assets",
+        "asset-management",
+        "depreciation"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "fixed_assets"
+    },
+    {
+      "id": "REQ-050",
+      "title": "Flexible Promotion Engine with Stacking Rules",
+      "description": "System shall support multiple promotion types, customer segmentation, usage limits, and configurable stacking control.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-MKT-001",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What specific stacking rules are needed?",
+        "How should promotion priority be determined?",
+        "Should promotions be channel-specific?"
+      ],
+      "tags": [
+        "promotions",
+        "marketing",
+        "pricing"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-016",
+          "note": "This requirement expands on the flexible promotional engine from REQ-016."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "pricing_and_promotions"
+    },
+    {
+      "id": "REQ-051",
+      "title": "Email Marketing with Segmentation and A/B Testing",
+      "description": "System shall support email marketing campaigns with template editor, audience segmentation, triggered campaigns, and A/B testing analytics.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "sourceRef": "Functional Requirements Document FR-MKT-002",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What email service provider will be integrated?",
+        "What customer data should be available for segmentation?",
+        "What metrics should be tracked for campaign performance?"
+      ],
+      "tags": [
+        "marketing",
+        "email",
+        "campaigns"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-052",
+      "title": "E-commerce Fraud Detection System (Native)",
+      "description": "System shall implement native fraud detection to reduce fraudulent losses by 90% and eliminate third-party fraud detection costs ($10,000 annually). Stripe does NOT provide fraud signals, requiring custom NetSuite solution.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Operations",
+          "requestDate": "2026-02-04",
+          "sourceRef": "Fraud Screening Voice Note 2026-02-04",
+          "sourceType": "note",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "What specific fraud signals will replace third-party detection (velocity checks, address verification, device fingerprinting)?",
+        "What is the target false positive rate?",
+        "Should machine learning models be incorporated for fraud scoring?"
+      ],
+      "tags": [
+        "fraud",
+        "ecommerce",
+        "risk-management"
+      ],
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-037",
+          "note": "This is the detailed native fraud detection solution that fulfills REQ-037."
+        },
+        {
+          "type": "depends-on",
+          "target": "REQ-053",
+          "note": "Requires custom inventory reservation for fraud review orders."
+        },
+        {
+          "type": "depends-on",
+          "target": "REQ-054",
+          "note": "Requires fraud reviewer role for manual review workflow."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "order_to_cash"
+    },
+    {
+      "id": "REQ-053",
+      "title": "Custom Inventory Reservation for Fraud Review Orders",
+      "description": "System shall implement custom inventory reservation pattern for orders in fraud review status, separate from standard unapproved/approved order flow.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Operations",
+          "requestDate": "2026-02-04",
+          "sourceRef": "Fraud Screening Voice Note 2026-02-04",
+          "sourceType": "note",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "How long can orders remain in fraud review before inventory is released?",
+        "Should reserved inventory for fraud review be visible to customers checking availability?",
+        "What happens to inventory reservations if fraud review exceeds the time limit?"
+      ],
+      "tags": [
+        "fraud",
+        "inventory",
+        "reservation"
+      ],
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-052",
+          "note": "Enables fraud detection system to hold inventory during review."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-041",
+          "note": "Extends reserved inventory management with fraud review status."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-054",
+      "title": "Fraud Reviewer Custom Role",
+      "description": "System shall provide custom NetSuite role for fraud review staff with appropriate permissions to review flagged orders and approve/reject transactions.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Operations",
+          "requestDate": "2026-02-04",
+          "sourceRef": "Fraud Screening Voice Note 2026-02-04",
+          "sourceType": "note",
+          "confidence": 0.93
+        }
+      ],
+      "followUpQuestions": [
+        "What approval workflow is needed for fraud reviewer role provisioning?",
+        "Should fraud reviewers have access to customer PII or limited view?",
+        "What audit trail is required for fraud review decisions?"
+      ],
+      "tags": [
+        "fraud",
+        "security",
+        "roles"
+      ],
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-052",
+          "note": "Enables fraud detection system with manual review capability."
+        }
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-055",
+      "title": "Sales Tax Nexus in All 50 US States",
+      "description": "System shall calculate and collect sales tax for all 50 US states. HST for Canada is not currently required.",
+      "type": "technical",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 8.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.95
+        }
+      ],
+      "followUpQuestions": [
+        "Will a tax calculation service (Avalara, TaxJar) be used or native NetSuite tax engine?",
+        "What is the process for maintaining nexus registration and rate updates?",
+        "Are there specific product tax categories or exemptions?"
+      ],
+      "tags": [
+        "tax",
+        "compliance",
+        "sales-tax"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-056",
+      "title": "5-Business-Day Month-End Close Timeline",
+      "description": "System shall support month-end close process completion within 5 business days through automated processes and workflows.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 7.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What specific close tasks must be automated to achieve 5-day target?",
+        "What are the current manual bottlenecks in month-end close?",
+        "What close checklist and task tracking is needed?"
+      ],
+      "tags": [
+        "finance",
+        "close",
+        "automation"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-057",
+      "title": "Journal Entry Approval Workflow",
+      "description": "System shall require CFO approval for journal entries exceeding $5,000.",
+      "type": "process",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 7.3",
+          "sourceType": "customer_doc",
+          "confidence": 0.93
+        }
+      ],
+      "followUpQuestions": [
+        "Should approval be required before posting or can entries post pending approval?",
+        "Are there different approval thresholds by department or GL account?",
+        "What delegation process is needed when CFO is unavailable?"
+      ],
+      "tags": [
+        "finance",
+        "approvals",
+        "journal-entries"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-058",
+      "title": "Store-level P&L Reporting",
+      "description": "System shall provide profit and loss reporting at the store level using Class dimension as the primary performance view.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 6.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.92
+        }
+      ],
+      "followUpQuestions": [
+        "How should shared costs be allocated to stores?",
+        "What drill-down detail is needed below store level?",
+        "Should store P&L be available in real-time or monthly?"
+      ],
+      "tags": [
+        "reporting",
+        "finance",
+        "store-operations"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-059",
+      "title": "Payment Processor Settlement Reconciliation",
+      "description": "System shall reconcile Stripe and PayPal settlements with proper tracking of processor fees and settlement timing.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 3.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "Should reconciliation be automated or manual?",
+        "How should chargebacks and refunds be handled in reconciliation?",
+        "What is the acceptable variance threshold before investigation?"
+      ],
+      "tags": [
+        "payments",
+        "reconciliation",
+        "finance"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    },
+    {
+      "id": "REQ-060",
+      "title": "Multi-currency Support for Vendors",
+      "description": "System shall support multi-currency vendor transactions for international vendors in China, Italy, and other countries.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 10.2",
+          "sourceType": "customer_doc",
+          "confidence": 0.88
+        }
+      ],
+      "followUpQuestions": [
+        "What currencies are in scope?",
+        "How should foreign exchange gains/losses be recorded?",
+        "Is currency hedging required?"
+      ],
+      "tags": [
+        "multi-currency",
+        "vendors",
+        "international"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "procure_to_pay"
+    },
+    {
+      "id": "REQ-061",
+      "title": "Deferred Revenue Management",
+      "description": "System shall manage deferred revenue for gift cards, loyalty points, and extended warranties with appropriate recognition timing.",
+      "type": "functional",
+      "priority": "high",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 2.3",
+          "sourceType": "customer_doc",
+          "confidence": 0.9
+        }
+      ],
+      "followUpQuestions": [
+        "What revenue recognition rules apply to each deferred revenue type?",
+        "How should breakage/escheatment be estimated and recorded?",
+        "What reporting is needed for deferred revenue balances?"
+      ],
+      "tags": [
+        "revenue",
+        "deferred-revenue",
+        "finance"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "revenue_recognition"
+    },
+    {
+      "id": "REQ-062",
+      "title": "Expense Accruals Automation",
+      "description": "System shall automate expense accruals for utilities, rent, marketing, and commissions to streamline month-end close.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": [
+        {
+          "requestedBy": "Finance",
+          "requestDate": "2026-02-05",
+          "sourceRef": "Record-to-Report Questionnaire 5.1",
+          "sourceType": "customer_doc",
+          "confidence": 0.87
+        }
+      ],
+      "followUpQuestions": [
+        "What accrual calculation methods should be used for each expense type?",
+        "Should accruals be automatically reversed in the following period?",
+        "What approval or review is needed for accrual entries?"
+      ],
+      "tags": [
+        "accruals",
+        "automation",
+        "finance"
+      ],
+      "createdAt": "2026-02-07T23:45:00.000Z",
+      "updatedAt": "2026-02-07T23:45:00.000Z",
+      "process_taxonomy": "record_to_report"
+    }
+  ]
+}

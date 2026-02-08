@@ -1,0 +1,880 @@
+{
+  "meta": {
+    "datasetId": "RTM-EXAMPLE-001",
+    "generatedAt": "2026-02-07T20:32:10.223Z",
+    "schema": "requirements-jsonrpc.schema.json",
+    "notes": "Example dataset with 10 requirements demonstrating all requirement fields, edge types, enums, solutionOptions, and solvedBy solutions."
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "Multi-Location Inventory Management",
+      "description": "System shall manage inventory across multiple warehouse locations including Mesquite, TX and Livonia, GA.",
+      "type": "process",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": {
+        "requestedBy": "Ron",
+        "requestDate": "2024-12-01",
+        "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+        "sourceType": "meeting_summary",
+        "sourceLocator": {
+          "docId": "DOC-INV-0007",
+          "filePath": "/docs/meetings/2024-12-01-inventory-review.md",
+          "page": 2,
+          "quote": "We have two warehouses: Mesquite and Livonia. We need NetSuite to show what's where and to move stock between them."
+        },
+        "confidence": 0.92
+      },
+      "followUpQuestions": [
+        "Do you need bin-level tracking within each warehouse?",
+        "What is the transfer order process between locations?",
+        "Are there location-specific costs or pricing rules?",
+        "How should fulfillment location be determined (closest, primary, manual)?",
+        "Are any locations third-party logistics (3PL)?",
+        "This is a question add."
+      ],
+      "designProposal": {
+        "steps": [
+          "Configure Mesquite, TX and Livonia, GA as inventory locations",
+          "Enable Multi-Location Inventory feature",
+          "Set up Transfer Order process for inter-location moves",
+          "Configure location assignment rules on sales orders",
+          "Implement location-based inventory reports"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-001",
+            "title": "Native locations + Transfer Orders",
+            "description": "Use standard NetSuite inventory locations with Transfer Orders for inter-location moves; optionally use allocation rules for fulfillment location selection.",
+            "approachType": "native_config",
+            "assumptions": [
+              "Locations represent physical warehouses",
+              "Transfers are always recorded"
+            ],
+            "pros": [
+              "Standard reporting",
+              "Low maintenance"
+            ],
+            "cons": [
+              "May require process discipline for transfers"
+            ],
+            "risks": [
+              "If users bypass transfers, on-hand by location will drift"
+            ],
+            "constraints": [
+              {
+                "type": "feature",
+                "value": "Multi-Location Inventory"
+              },
+              {
+                "type": "license",
+                "value": "Inventory Management"
+              }
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "proposed",
+              "rationale": "Baseline option pending confirmation of bin requirements."
+            },
+            "followUpQuestions": [
+              "Do you require wave picking or directed picking?",
+              "Do you need location-specific reorder points?"
+            ],
+            "references": [
+              "Help Center: Multi-Location Inventory",
+              "Internal: UYB Inventory SOP draft v0.3"
+            ]
+          },
+          {
+            "id": "OPT-002",
+            "title": "Locations + 3PL as virtual location",
+            "description": "Represent the 3PL as a virtual location and use transfer/ownership process controls to track stock at the provider.",
+            "approachType": "process_only",
+            "pros": [
+              "Simple modeling for outsourced stock"
+            ],
+            "cons": [
+              "Virtual location can hide operational nuance"
+            ],
+            "effort": "s",
+            "decision": {
+              "status": "proposed"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-002",
+          "note": "Website inventory sync needs location-level ATP."
+        },
+        {
+          "type": "dependency-for",
+          "target": "REQ-004",
+          "note": "Assemblies occur at specific locations."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-009",
+          "note": "Consignment may be tracked as a virtual location."
+        }
+      ],
+      "tags": [
+        "inventory",
+        "locations",
+        "warehousing"
+      ],
+      "createdAt": "2025-01-05T15:12:00Z",
+      "updatedAt": "2026-02-07T20:32:10.223Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-002",
+      "title": "E-commerce Inventory Availability Sync",
+      "description": "System shall expose real-time or near-real-time inventory availability to the e-commerce storefront by location and overall.",
+      "type": "integration",
+      "priority": "high",
+      "status": "final",
+      "provenance": {
+        "requestedBy": "Maya",
+        "requestDate": "2024-11-20",
+        "sourceRef": "Call Transcript - Storefront Integration Discovery",
+        "sourceType": "transcript",
+        "sourceLocator": {
+          "docId": "TRX-ECOM-0012",
+          "timecodeStart": "00:17:42",
+          "timecodeEnd": "00:19:08",
+          "quote": "If the website says it's in stock and then we can't fulfill, it blows up CS. We need accurate availability—ideally by warehouse."
+        },
+        "confidence": 0.88
+      },
+      "followUpQuestions": [
+        "Which storefront platform(s) are in scope?",
+        "Do you need location-level availability on the product page?",
+        "What is the acceptable latency (seconds, minutes, hourly)?",
+        "Should backorders be allowed when availability is zero?",
+        "Are there allocation or reservation rules to apply?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define availability rules (ATP vs. on-hand vs. available-to-promise)",
+          "Select integration pattern (webhooks, scheduled sync, middleware)",
+          "Expose availability endpoint or feed",
+          "Map item identifiers and location identifiers",
+          "Implement monitoring + reconciliation report"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-003",
+            "title": "Middleware-driven near-real-time sync",
+            "description": "Use middleware to consume NetSuite item/location availability changes and push updates to storefront APIs.",
+            "approachType": "third_party_connector",
+            "pros": [
+              "Decouples storefront from NetSuite",
+              "Good observability"
+            ],
+            "cons": [
+              "Additional platform cost",
+              "More moving parts"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "Maya",
+              "decidedAt": "2025-02-02T17:30:00Z",
+              "rationale": "Need monitoring and retries; internal team already runs middleware."
+            }
+          },
+          {
+            "id": "OPT-004",
+            "title": "Scheduled availability export (batch)",
+            "description": "Export availability to SFTP/HTTP feed every N minutes; storefront ingests feed.",
+            "approachType": "integration",
+            "pros": [
+              "Simple",
+              "Predictable load"
+            ],
+            "cons": [
+              "Stale data risk",
+              "Reconciliation burden"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "rejected",
+              "decidedBy": "Maya",
+              "decidedAt": "2025-02-02T17:30:00Z",
+              "rationale": "Latency risk during promos."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-001",
+            "requirementId": "REQ-002",
+            "optionId": "OPT-003",
+            "implementedAt": "2025-04-10T22:15:00Z",
+            "implementedBy": "Integration Team",
+            "implementation": {
+              "system": "netsuite",
+              "notes": "Availability computed as On Hand - Committed; pushed to storefront every 60s with retries + dead-letter queue.",
+              "artifacts": [
+                {
+                  "type": "suitescript",
+                  "ref": "SuiteScript: customscript_availability_publisher",
+                  "version": "1.3.0"
+                },
+                {
+                  "type": "repo",
+                  "ref": "git@github.com:example/uyb-integration.git",
+                  "version": "tag:v1.3.0"
+                },
+                {
+                  "type": "doc",
+                  "ref": "Runbook: /docs/runbooks/availability-sync.md",
+                  "version": "rev:12"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-001",
+          "note": "Location-level inventory must exist before syncing."
+        }
+      ],
+      "tags": [
+        "integration",
+        "ecommerce",
+        "availability"
+      ],
+      "createdAt": "2024-11-21T09:00:00Z",
+      "updatedAt": "2025-04-10T22:15:00Z",
+      "process_taxonomy": "integrations_and_middleware"
+    },
+    {
+      "id": "REQ-003",
+      "title": "Vendor Bill Approval Controls",
+      "description": "System shall support approval of vendor bills prior to posting/payment based on amount thresholds and approver roles.",
+      "type": "process",
+      "priority": "high",
+      "status": "draft",
+      "provenance": {
+        "requestedBy": "CFO Team",
+        "requestDate": "2024-12-05",
+        "sourceRef": "Finance Notes - AP Controls",
+        "sourceType": "note",
+        "sourceLocator": {
+          "filePath": "/docs/finance/ap-controls-notes.txt",
+          "quote": "We need approval on vendor bills over $5k, and some invoices need 2 people to sign off."
+        },
+        "confidence": 0.8
+      },
+      "followUpQuestions": [
+        "What are the approval thresholds (by amount, vendor, subsidiary, department)?",
+        "Do approvals need to be sequential or can they be concurrent?",
+        "Do you need delegation, out-of-office rules, or reassignments?",
+        "Should approvals be required before GL impact or only before payment?",
+        "Do approvers need visibility into supporting documents?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Confirm approval policy and thresholds",
+          "Select approval mechanism (custom fields, SuiteFlow workflow, custom records + script)",
+          "Implement UI and notifications",
+          "Implement audit trail + reporting",
+          "Train AP on exception handling"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-005",
+            "title": "Custom fields + task queue",
+            "description": "Add custom approval status/approver fields and route approvals through a controlled task queue (e.g., custom record or task assignments).",
+            "approachType": "suitescript_customization",
+            "pros": [
+              "Flexible",
+              "Can support complex routing"
+            ],
+            "cons": [
+              "More code + maintenance"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-006",
+            "title": "SuiteFlow multi-stage workflow with concurrent approvers",
+            "description": "Use a workflow to manage states (Pending, Approved, Rejected) with parallel approvals and threshold-based routing.",
+            "approachType": "suiteflow_workflow",
+            "pros": [
+              "Low code",
+              "Native audit trail"
+            ],
+            "cons": [
+              "Complex parallel logic can get hard to reason about"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-007",
+            "title": "Custom approval metadata records",
+            "description": "Create custom records to store approval routing rules and history; use script to evaluate and update transactions.",
+            "approachType": "custom_records",
+            "pros": [
+              "Highly extensible",
+              "Clear data model"
+            ],
+            "cons": [
+              "Build effort",
+              "Needs governance"
+            ],
+            "effort": "xl",
+            "decision": {
+              "status": "proposed"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-006",
+          "note": "Approval notifications may use the email template standards."
+        }
+      ],
+      "tags": [
+        "finance",
+        "ap",
+        "approvals"
+      ],
+      "createdAt": "2024-12-06T10:00:00Z",
+      "updatedAt": "2026-02-07T12:15:00Z",
+      "process_taxonomy": "procure_to_pay"
+    },
+    {
+      "id": "REQ-004",
+      "title": "Assembly Build at Specific Locations",
+      "description": "System shall support assembly builds occurring at designated locations and consuming components from that location’s inventory.",
+      "type": "functional",
+      "priority": "medium",
+      "status": "final",
+      "provenance": {
+        "requestedBy": "Ops Lead",
+        "requestDate": "2024-12-01",
+        "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+        "sourceType": "meeting_summary",
+        "sourceLocator": {
+          "docId": "DOC-INV-0007",
+          "page": 5,
+          "quote": "We assemble kits in Mesquite, but sometimes Livonia does small runs. Components should come from the right warehouse."
+        },
+        "confidence": 0.9
+      },
+      "followUpQuestions": [
+        "Do you require work orders or simple assembly builds?",
+        "Do you need labor/overhead costing captured?",
+        "Are builds backflushed or manually issued?",
+        "Do you need build-to-order on sales orders?"
+      ],
+      "designProposal": [
+        "Confirm assembly item list and component BOM accuracy",
+        "Enable appropriate manufacturing/assembly features",
+        "Configure default build location rules",
+        "Train operations on build transactions and reversals"
+      ],
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-001",
+          "note": "Assembly build requires location inventory accuracy."
+        },
+        {
+          "type": "dependency-for",
+          "target": "REQ-002",
+          "note": "Availability sync must account for assemblies at each location."
+        }
+      ],
+      "tags": [
+        "assembly",
+        "bom",
+        "operations"
+      ],
+      "createdAt": "2024-12-02T08:30:00Z",
+      "updatedAt": "2025-01-20T14:00:00Z",
+      "process_taxonomy": "manufacturing_assembly"
+    },
+    {
+      "id": "REQ-005",
+      "title": "Role-Based Access for Inventory Transactions",
+      "description": "System shall restrict inventory adjustments and transfers to authorized roles and maintain an audit trail of changes.",
+      "type": "technical",
+      "priority": "high",
+      "status": "implemented",
+      "provenance": {
+        "requestedBy": "Security",
+        "requestDate": "2024-12-12",
+        "sourceRef": "Customer Security Questionnaire v2",
+        "sourceType": "customer_doc",
+        "sourceLocator": {
+          "docId": "SECQ-0002",
+          "url": "https://customer.example.com/security/questionnaire#inventory",
+          "quote": "Inventory adjustments must be limited to supervisors; all changes must be auditable."
+        },
+        "confidence": 0.95
+      },
+      "followUpQuestions": [
+        "Which roles can create adjustments vs. approve adjustments?",
+        "Are there segregation-of-duties constraints (create vs. post)?",
+        "Do you need alerts for high-value adjustments?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define least-privilege roles for adjustments, transfers, and receipts",
+          "Implement custom roles + permissions",
+          "Enable system notes/audit reporting",
+          "Create saved searches for adjustment monitoring"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-008",
+            "title": "Native permissions + monitoring searches",
+            "description": "Use NetSuite roles/permissions and enable monitoring via saved searches and system notes.",
+            "approachType": "native_config",
+            "pros": [
+              "Straightforward",
+              "Auditable"
+            ],
+            "cons": [
+              "Alerts may require additional scripting or workflow"
+            ],
+            "effort": "s",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "Security",
+              "decidedAt": "2025-01-03T16:00:00Z",
+              "rationale": "Prefer native controls where possible."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-002",
+            "requirementId": "REQ-005",
+            "optionId": "OPT-008",
+            "implementedAt": "2025-01-21T19:40:00Z",
+            "implementedBy": "Admin Team",
+            "implementation": {
+              "system": "netsuite",
+              "notes": "Created Inventory Supervisor role; restricted Inventory Adjustment and Transfer Order permissions; deployed monitoring saved searches.",
+              "artifacts": [
+                {
+                  "type": "saved_search",
+                  "ref": "Saved Search: High-Value Inventory Adjustments",
+                  "version": "rev:3"
+                },
+                {
+                  "type": "doc",
+                  "ref": "/docs/security/inventory-access-controls.md",
+                  "version": "rev:5"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-001",
+          "note": "Location processes must align with role controls."
+        }
+      ],
+      "tags": [
+        "security",
+        "roles",
+        "audit"
+      ],
+      "createdAt": "2024-12-13T11:00:00Z",
+      "updatedAt": "2025-01-21T19:40:00Z",
+      "process_taxonomy": "security_and_access_control"
+    },
+    {
+      "id": "REQ-006",
+      "title": "Standardized Email Templates for Operational Notifications",
+      "description": "System shall use standardized email templates for approvals, shipment notices, and exception alerts.",
+      "type": "other",
+      "priority": "medium",
+      "status": "superseded",
+      "provenance": {
+        "requestedBy": "PMO",
+        "requestDate": "2024-10-15",
+        "sourceRef": "Project Kickoff Deck - Communications",
+        "sourceType": "asset",
+        "sourceLocator": {
+          "filePath": "/assets/kickoff/communications-slide.pptx",
+          "page": 7,
+          "quote": "Consistent emails reduce confusion. We want standard templates for key operational messages."
+        },
+        "confidence": 0.7
+      },
+      "followUpQuestions": [
+        "Which events need notifications (approvals, fulfillment, billing, exceptions)?",
+        "Who are recipients (internal, customer, vendor)?",
+        "Do templates need branding per subsidiary?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Inventory current templates in use",
+          "Define template catalog and ownership",
+          "Implement templates and governance process"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-009",
+            "title": "Central template catalog + governance",
+            "description": "Maintain a controlled set of templates and require change review before edits.",
+            "approachType": "process_only",
+            "effort": "m",
+            "decision": {
+              "status": "deprecated",
+              "rationale": "Replaced by customer’s corporate comms system standard."
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-003",
+          "note": "Approval notifications should follow template standards."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-010",
+          "note": "Incident alerts may share template components."
+        }
+      ],
+      "tags": [
+        "comms",
+        "templates"
+      ],
+      "createdAt": "2024-10-15T13:00:00Z",
+      "updatedAt": "2025-03-01T09:30:00Z",
+      "process_taxonomy": "system_administration"
+    },
+    {
+      "id": "REQ-007",
+      "title": "Near-Zero Downtime Cutover Plan",
+      "description": "Project shall deliver a cutover plan that minimizes operational downtime to under 4 hours during go-live weekend.",
+      "type": "process",
+      "priority": "high",
+      "status": "final",
+      "provenance": {
+        "requestedBy": "Program Sponsor",
+        "requestDate": "2025-01-09",
+        "sourceRef": "Executive Meeting Summary - Go-Live Strategy",
+        "sourceType": "meeting_summary",
+        "sourceLocator": {
+          "docId": "EXEC-GL-0001",
+          "page": 1,
+          "quote": "We can't stop shipping for a full day. Plan for a cutover that keeps downtime under four hours."
+        },
+        "confidence": 0.86
+      },
+      "followUpQuestions": [
+        "What is the shipping blackout window that is acceptable?",
+        "Are there integrations that can lag behind cutover?",
+        "Do you need parallel run for financials?"
+      ],
+      "designProposal": [
+        "Define cutover tasks and owners",
+        "Define freeze windows per function (AP, AR, shipping, purchasing)",
+        "Pre-stage roles, items, and configurations",
+        "Execute mock cutovers and measure duration",
+        "Create rollback plan and data reconciliation checklist"
+      ],
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-008",
+          "note": "Data migration sequence impacts cutover timeline."
+        }
+      ],
+      "tags": [
+        "cutover",
+        "go-live",
+        "operations"
+      ],
+      "createdAt": "2025-01-09T18:00:00Z",
+      "updatedAt": "2025-02-01T12:00:00Z",
+      "process_taxonomy": "project_to_profit"
+    },
+    {
+      "id": "REQ-008",
+      "title": "Historical Transaction Migration Scope",
+      "description": "System shall migrate 24 months of historical transactions for reporting, including orders, fulfillments, invoices, and payments.",
+      "type": "technical",
+      "priority": "medium",
+      "status": "draft",
+      "provenance": {
+        "requestedBy": "Data Lead",
+        "requestDate": "2024-12-18",
+        "sourceRef": "Data Migration Workshop Transcript - Scope",
+        "sourceType": "transcript",
+        "sourceLocator": {
+          "docId": "TRX-DM-0021",
+          "timecodeStart": "00:41:10",
+          "timecodeEnd": "00:45:02",
+          "quote": "We don't need 10 years, but we want two years of transactions in NetSuite so reports don't look empty."
+        },
+        "confidence": 0.84
+      },
+      "followUpQuestions": [
+        "Which transaction types are required (SO, IF, INV, CM, PAY)?",
+        "Is the requirement for analytics only or operational drill-through?",
+        "What are acceptable data quality thresholds and reconciliation rules?",
+        "Do you require source-system document images migrated?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Confirm transaction scope and cutover date",
+          "Define mapping and transformation rules",
+          "Build migration pipelines and reconciliation reports",
+          "Run trial loads and validation",
+          "Execute final load during cutover"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-010",
+            "title": "Full operational migration (24 months)",
+            "description": "Load full transactions with links (SO→IF→INV→PAY) to support drill-down and operational queries.",
+            "approachType": "other",
+            "pros": [
+              "Complete history",
+              "Better user trust"
+            ],
+            "cons": [
+              "More load time",
+              "More reconciliation complexity"
+            ],
+            "effort": "xl",
+            "decision": {
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "OPT-011",
+            "title": "Summarized historical GL + open transactions only",
+            "description": "Load summarized GL balances and only open operational transactions; keep historical operational detail in a reporting warehouse.",
+            "approachType": "integration",
+            "pros": [
+              "Fast cutover",
+              "Lower risk"
+            ],
+            "cons": [
+              "Limited operational history in NetSuite"
+            ],
+            "effort": "l",
+            "decision": {
+              "status": "proposed"
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "dependency-for",
+          "target": "REQ-007",
+          "note": "Migration plan and duration directly affect cutover downtime."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-010",
+          "note": "Migration monitoring may generate incident alerts."
+        }
+      ],
+      "tags": [
+        "data-migration",
+        "history"
+      ],
+      "createdAt": "2024-12-18T20:00:00Z",
+      "updatedAt": "2026-02-07T12:20:00Z",
+      "process_taxonomy": "data_migration"
+    },
+    {
+      "id": "REQ-009",
+      "title": "Consignment Stock Visibility",
+      "description": "System shall track consigned inventory separately from owned inventory and report consignment balances by location.",
+      "type": "functional",
+      "priority": "low",
+      "status": "cancelled",
+      "provenance": {
+        "requestedBy": "Ron",
+        "requestDate": "2024-12-01",
+        "sourceRef": "UYB Meeting Notes - Inventory and Assembly Process Review",
+        "sourceType": "meeting_summary",
+        "sourceLocator": {
+          "docId": "DOC-INV-0007",
+          "page": 8,
+          "quote": "We might do consignment in the future, but it's not in the next six months."
+        },
+        "confidence": 0.6
+      },
+      "followUpQuestions": [
+        "Is consignment currently active or future-state only?",
+        "Do you need ownership tracking at the lot/serial level?",
+        "How will settlement and billing work for consigned goods?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Defer until consignment program is approved by business"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-012",
+            "title": "Virtual location for consignment",
+            "description": "Model consignment as a separate location and use process controls to prevent commingling with owned stock.",
+            "approachType": "process_only",
+            "effort": "s",
+            "decision": {
+              "status": "rejected",
+              "decidedBy": "Ron",
+              "decidedAt": "2025-01-15T10:00:00Z",
+              "rationale": "Program postponed; requirement cancelled."
+            }
+          }
+        ],
+        "solvedBy": []
+      },
+      "edges": [
+        {
+          "type": "related-to",
+          "target": "REQ-001",
+          "note": "Consignment would likely be modeled as an additional location."
+        }
+      ],
+      "tags": [
+        "inventory",
+        "consignment"
+      ],
+      "createdAt": "2024-12-02T10:15:00Z",
+      "updatedAt": "2025-01-15T10:00:00Z",
+      "process_taxonomy": "inventory_management"
+    },
+    {
+      "id": "REQ-010",
+      "title": "Automated Incident Alerts for Integration Failures",
+      "description": "System shall notify IT within 5 minutes of integration failures and provide a diagnostic payload for triage.",
+      "type": "integration",
+      "priority": "medium",
+      "status": "implemented",
+      "provenance": {
+        "requestedBy": "IT Manager",
+        "requestDate": "2025-02-12",
+        "sourceRef": "Customer Documentation - Integration Operations Handbook",
+        "sourceType": "customer_doc",
+        "sourceLocator": {
+          "docId": "OPS-INT-0004",
+          "url": "https://customer.example.com/ops/integrations/handbook",
+          "quote": "We require alerts for failed jobs within 5 minutes and want the payload/stack trace attached or linkable."
+        },
+        "confidence": 0.9
+      },
+      "followUpQuestions": [
+        "What alert channels are required (email, SMS, Slack, PagerDuty)?",
+        "What constitutes a failure (HTTP 5xx, retries exhausted, schema mismatch)?",
+        "Do you need correlation IDs to trace across systems?",
+        "What is the on-call schedule and escalation policy?"
+      ],
+      "designProposal": {
+        "steps": [
+          "Define failure conditions and alert routing",
+          "Implement dead-letter queue / error store",
+          "Implement alert dispatcher with throttling",
+          "Add correlation IDs and link to logs",
+          "Create weekly integration health report"
+        ],
+        "solutionOptions": [
+          {
+            "id": "OPT-013",
+            "title": "PagerDuty + structured event payload",
+            "description": "Publish failures to PagerDuty with structured details and a link to the raw payload in the error store.",
+            "approachType": "third_party_connector",
+            "pros": [
+              "On-call friendly",
+              "Escalations built-in"
+            ],
+            "cons": [
+              "Requires PagerDuty subscription/config"
+            ],
+            "effort": "m",
+            "decision": {
+              "status": "selected",
+              "decidedBy": "IT Manager",
+              "decidedAt": "2025-02-20T14:45:00Z",
+              "rationale": "Already used for other systems."
+            }
+          }
+        ],
+        "solvedBy": [
+          {
+            "id": "SOL-003",
+            "requirementId": "REQ-010",
+            "optionId": "OPT-013",
+            "implementedAt": "2025-03-05T21:00:00Z",
+            "implementedBy": "IT/Integration",
+            "implementation": {
+              "system": "other",
+              "notes": "Alert dispatcher posts to PagerDuty; error store retains last 30 days; correlation IDs included.",
+              "artifacts": [
+                {
+                  "type": "repo",
+                  "ref": "git@github.com:example/integration-alerting.git",
+                  "version": "tag:v0.9.2"
+                },
+                {
+                  "type": "doc",
+                  "ref": "/docs/ops/integration-alerting.md",
+                  "version": "rev:7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "edges": [
+        {
+          "type": "depends-on",
+          "target": "REQ-002",
+          "note": "Alerts must be wired into the chosen integration approach."
+        },
+        {
+          "type": "related-to",
+          "target": "REQ-006",
+          "note": "Alerts may share standardized template components."
+        }
+      ],
+      "tags": [
+        "integration",
+        "ops",
+        "alerting"
+      ],
+      "createdAt": "2025-02-12T11:30:00Z",
+      "updatedAt": "2025-03-05T21:00:00Z",
+      "process_taxonomy": "integrations_and_middleware"
+    }
+  ]
+}

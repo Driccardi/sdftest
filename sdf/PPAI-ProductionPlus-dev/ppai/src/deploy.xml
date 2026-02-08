@@ -1,0 +1,181 @@
+<deploy>
+    <configuration>
+        <path>~/AccountConfiguration/*</path>
+    </configuration>
+    <files>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_cs_ppai.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_ue_link_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_ue_create_button.js</path>
+
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_wo_completion.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_wo_build.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_update_prod_dates_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_ppai.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_mass_production_plus.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_inventory_detail.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_complete_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_sl_build_wo.js</path>
+
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_build_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_complete_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_ppai.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_process_build_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_process_mass_production_plus.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_process_wo_completion.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_process_wo_linked_to_so.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_update_prod_dates_wo.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/ns_mr_update_wo_ot.js</path>
+        <path>~/FileCabinet/SuiteScripts/_nscs/ppai/NSUtilvSS2.js</path>
+        <!--<path>~/FileCabinet/SuiteScripts/_nscs/ppai/*</path>-->
+        
+
+        
+    </files>
+    <objects>
+        <path>~/Objects/custtab_ns_ppai_imptmgmt_subtab.xml</path>
+        <path>~/Objects/custcentertab_ns_ppai_promopack_tab.xml</path>
+        
+        
+
+        
+
+        <path>~/Objects/custitem_ns_ppai_artwork_file.xml</path>
+        <path>~/Objects/custitem_ns_ppai_artwork_item.xml</path>
+        
+
+        
+
+        <path>~/Objects/custevent_ns_ppai_assembly.xml</path>
+        
+
+        <path>~/Objects/custbody_ns_ppai_parent.xml</path>
+        <path>~/Objects/custbody_ns_ppai_requiredate.xml</path>
+        <path>~/Objects/custbody_nsps_sales_order_notes.xml</path>
+        
+
+        
+        <path>~/Objects/custcol_nsps_assemblyitem.xml</path>
+        
+
+        
+        <path>~/Objects/customlist_nsra_ppr_event_machines.xml</path>
+        <path>~/Objects/customlist_ns_ppai_design.xml</path>
+        <path>~/Objects/customlist_ns_ppai_imprint_numcolor.xml</path>
+        <path>~/Objects/customlist_ns_ppai_imprintloclist.xml</path>
+        <path>~/Objects/customlist_ns_ppai_prod_plus_status.xml</path>
+        <path>~/Objects/customlist_ns_ppai_scheduling_method.xml</path>
+       
+        <!--final-->
+        <path>~/Objects/customrole_ss_wd_prm_cust_svs.xml</path>
+        <path>~/Objects/customrole1907.xml</path>
+        <path>~/Objects/customrole_ss_wd_prm_sales.xml</path>
+        <!--./final-->
+
+        
+        <path>~/Objects/customrecord_ns_ppai_imprtconfig_tmpl.xml</path>
+        <path>~/Objects/customrecord_ns_ppai_item_prog_deco.xml</path>
+        <path>~/Objects/customrecord_ns_ppai_stored_art_list.xml</path>
+        
+
+        
+        
+        <!--final-->
+        
+        
+        <path>~/Objects/custitem_ns_ppai_defaultimprinttemplat.xml</path>
+        
+        <path>~/Objects/customrecord_ns_ppai_imprintdetails.xml</path>
+        
+        <!--./final-->
+
+        
+        <!--final-->
+        
+        
+        <path>~/Objects/customrecord_nsra_ppr.xml</path>
+
+        <path>~/Objects/customrecord_ns_ppai_imprnt_orderdetails.xml</path>
+        <path>~/Objects/customsearch_ns_ppai_iod_prodplus.xml</path>
+        <path>~/Objects/customrecord_nscs_ppai_imprint_link.xml</path>
+        <path>~/Objects/custevent_ns_ppai_prod_plus_record.xml</path>
+        <path>~/Objects/custbody_nsra_linkedprodrec_so_head.xml</path>
+        <path>~/Objects/customsearch_ns_ppai_wo_prodplus.xml</path>
+
+        <!--final-->
+        <path>~/Objects/customrecord_nsra_pp_prodevent.xml</path>
+        <path>~/Objects/custcol_nsps_prod_event.xml</path>
+        <path>~/Objects/customsearch_nsps_prod_event_time.xml</path>
+        <!--./final-->
+        <!--./final-->
+        
+        
+        
+        
+        
+        <!--final-->
+        <path>~/Objects/custcol_ns_ppai_imprint_orderdetail.xml</path>
+        <path>~/Objects/customsearch_ns_ppai_create_prodplus_r_2.xml</path>
+        <path>~/Objects/customscript_ns_sl_mass_production_plus.xml</path>
+        <path>~/Objects/custcentercategory_ns_ppai_prod_plus.xml</path>
+        <!--./final-->
+
+
+
+        <path>~/Objects/customsearch_ns_script_check_routing.xml</path>
+        <path>~/Objects/customsearch_ns_script_get_wo_ot.xml</path>
+        <path>~/Objects/customsearch_ns_script_manufacturing_ot.xml</path>
+        <path>~/Objects/customsearch_ns_script_mot_group.xml</path>
+        <path>~/Objects/customsearch_ns_script_wo_get_back_order.xml</path>
+        <path>~/Objects/customsearch_ns_script_wo_sublist.xml</path>
+        
+        <path>~/Objects/customsearch_script_so_imprint_details.xml</path>
+        <path>~/Objects/customsearch_ns_script_imprint_details.xml</path>
+        <path>~/Objects/customsearch_ns_script_imprint_summary.xml</path>
+        
+        <path>~/Objects/customsearch_ns_script_inventory_status.xml</path>
+        <path>~/Objects/customsearch_ns_script_bin.xml</path>
+        <path>~/Objects/customsearch_ns_script_for_build_wo.xml</path>
+        <path>~/Objects/customsearch_ns_script_wo_of_sales_order.xml</path>
+        <path>~/Objects/customsearch_ns_script_for_build_wo_2.xml</path>
+        <path>~/Objects/customsearch_ns_script_sales_order.xml</path>
+        <path>~/Objects/customsearch_ns_script_for_complete_wo.xml</path>
+        
+        
+
+        <path>~/Objects/custform_ns_ppai_prod_plus.xml</path>
+        
+        
+
+
+        <path>~/Objects/customscript_ns_cs_ppai.xml</path>
+        <path>~/Objects/customscript_ns_ue_create_button.xml</path>
+        <path>~/Objects/customscript_ns_ue_link_wo.xml</path>
+        <path>~/Objects/customscript_ns_sl_wo_completion.xml</path>
+        <path>~/Objects/customscript_ns_sl_wo_build.xml</path>
+        <path>~/Objects/customscript_ns_sl_update_prod_dates_wo.xml</path>
+        <path>~/Objects/customscript_ns_sl_ppai.xml</path>
+        
+        <path>~/Objects/customscript_ns_sl_inventory_detail.xml</path>
+        <path>~/Objects/customscript_ns_sl_complete_wo.xml</path>
+        <path>~/Objects/customscript_ns_sl_build_wo.xml</path>
+        <path>~/Objects/customscript_ns_mr_update_wo_ot.xml</path>
+        <path>~/Objects/customscript_ns_mr_update_prod_dates_wo.xml</path>
+        <path>~/Objects/customscript_ns_mr_process_wo_link_to_wo.xml</path>
+        <path>~/Objects/customscript_ns_mr_process_wo_completion.xml</path>
+        <path>~/Objects/customscript_ns_mr_process_mass_pp.xml</path>
+        <path>~/Objects/customscript_ns_mr_build_wo.xml</path>
+        <path>~/Objects/customscript_ns_mr_ppai.xml</path>
+        <path>~/Objects/customscript_ns_mr_complete_wo.xml</path>
+        <path>~/Objects/customscript_ns_mr_process_build_wo.xml</path>
+        
+        <path>~/Objects/customworkflow_nsps_default_assembly_wo.xml</path>
+        <path>~/Objects/customworkflow_nsps_default_assembly_wo.xml</path>
+        
+        
+        <!--<path>~/Objects/*</path>-->
+        
+    </objects>
+    <translationimports>
+        <path>~/Translations/*</path>
+    </translationimports>
+</deploy>

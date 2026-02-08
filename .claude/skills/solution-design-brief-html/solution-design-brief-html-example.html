@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time-of-Day Dynamic Pricing Enforcement for Sales Orders - Solution Design Brief</title>
+  <style>
+    :root {
+      --redwood-red: #C74634;
+      --teal-primary: #1A5A6E;
+      --teal-light: #4A8A9E;
+      --dark-brown: #312D2A;
+      --off-white: #FAF9F8;
+      --white: #FFFFFF;
+      --text-primary: #161513;
+      --text-secondary: #6B6560;
+      --border: #D4D1CD;
+      --gold: #C4A456;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--off-white); color: var(--text-primary); line-height: 1.6; font-size: 14px; }
+    .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    header { padding: 0; }
+    .logo-bar { background: var(--white); padding: 20px 40px; }
+    .logo { height: 50px; }
+    .title-bar { background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-light) 100%); color: white; padding: 25px 40px; }
+    .doc-title { font-size: 26px; font-weight: 300; margin-bottom: 20px; }
+    .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 13px; }
+    .meta-item label { opacity: 0.7; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+    .meta-item .value { font-weight: 500; }
+    main { padding: 40px; }
+    section { margin-bottom: 30px; }
+    h2 { color: var(--teal-primary); font-size: 16px; font-weight: 600; padding-bottom: 6px; border-bottom: 2px solid var(--redwood-red); margin-bottom: 12px; }
+    h3 { color: var(--dark-brown); font-size: 14px; font-weight: 600; margin: 15px 0 8px 0; }
+    p { margin-bottom: 10px; color: var(--text-secondary); }
+    ul { margin: 8px 0 8px 20px; color: var(--text-secondary); }
+    li { margin-bottom: 5px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+    th { background: var(--teal-primary); color: white; padding: 8px 10px; text-align: left; font-weight: 500; font-size: 11px; text-transform: uppercase; }
+    td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--off-white); }
+    code { background: var(--off-white); padding: 1px 4px; border-radius: 3px; font-family: Consolas, monospace; font-size: 11px; color: var(--teal-primary); }
+    .subsection { background: var(--off-white); padding: 15px; border-radius: 4px; margin: 12px 0; border-left: 3px solid var(--teal-primary); }
+    .priority-high { color: var(--redwood-red); font-weight: 600; }
+    .priority-med { color: var(--gold); font-weight: 600; }
+    .priority-low { color: #1E8E3E; font-weight: 600; }
+    footer { background: var(--dark-brown); color: rgba(255,255,255,0.6); padding: 20px 40px; font-size: 11px; text-align: center; }
+    .footer-logo { height: 30px; margin-bottom: 10px; opacity: 0.8; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo-bar">
+      <img class="logo" src="https://system.netsuite.com/authentication/ui/loginpage/assets/logo/NetSuite-logo-mobius.svg" alt="Oracle NetSuite">
+    </div>
+    <div class="title-bar">
+      <div class="doc-title">Solution Design Brief</div>
+      <div class="meta-grid">
+        <div class="meta-item"><label>Customer</label><div class="value">Acme Corp</div></div>
+        <div class="meta-item"><label>Solution</label><div class="value">Time-of-Day Dynamic Pricing Enforcement for Sales Orders</div></div>
+        <div class="meta-item"><label>Solution Code</label><div class="value">TDP-2026-001</div></div>
+        <div class="meta-item"><label>Date</label><div class="value">2026-01-22</div></div>
+        <div class="meta-item"><label>Revision</label><div class="value">1.0</div></div>
+        <div class="meta-item"><label>Prepared By</label><div class="value">Riccardi via LLM</div></div>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <section id="summary">
+      <h2>1. Summary</h2>
+      <p>Acme Corp requires a consistent and auditable time-of-day pricing policy on Sales Orders. The business rule is that item prices depend on the local time at the customer’s billing address: orders saved between 11:00 and 12:59:59 local time use base price, while orders saved before 11:00 and at or after 13:00 receive a 10% discount. This policy applies only to items flagged as time dependent and must be determined and locked at the time the Sales Order is first saved. Quotes should not reflect time-of-day pricing; the discount is applied automatically upon conversion to a Sales Order. Downstream Invoices must reflect and preserve the Sales Order’s pricing.</p>
+      <p>The solution calculates the applicable time band from the Sales Order billing address time zone (with daylight saving adjustments), falling back to the subsidiary time zone if necessary. It records the exact time-of-day (localized), the derived time zone, and the time band to ensure auditability. When eligible, it applies a single header-level Discount Item representing either “Morning Discount” or “Afternoon Discount.” Because header discounts apply across all lines, the solution computes an “effective discount percent” so that only the subtotal of flagged items is discounted while non-flagged items remain at their original price impact.</p>
+      <p>To protect pricing integrity, time-of-day discounting is exclusive: if any line uses a non-base Price Level, the time-of-day discount will not apply. Once the pricing is set on the initial save, all subsequent edits retain the original time band and discount configuration. This approach eliminates manual effort, reduces pricing errors, and ensures compliance with Acme’s policy while preserving traceability and tax calculation order.</p>
+    </section>
+
+    <section id="benefits">
+      <h2>2. Solution Goals</h2>
+      <ul>
+        <li>Enforce time-of-day pricing on Sales Orders with zero manual intervention, ensuring 100% compliance to policy.</li>
+        <li>Reduce manual pricing adjustments by at least 80% by auto-applying the appropriate discount item on first save.</li>
+        <li>Improve auditability by recording the localized first-save timestamp, derived time zone, and time band on 100% of Sales Orders.</li>
+        <li>Preserve downstream financial integrity by ensuring Invoices mirror Sales Order prices without recalculation.</li>
+        <li>Avoid discount stacking by making time-of-day discounts exclusive when applied, eliminating conflicting price treatments.</li>
+      </ul>
+    </section>
+
+    <section id="business-fit">
+      <h2>3. Business Process &amp; Industry Fit</h2>
+      <h3>Customer Industry</h3>
+      <table>
+        <tr><th>Industry</th></tr>
+        <tr><td>Retail &amp; Wholesale Distribution</td></tr>
+        <tr><td>—</td></tr>
+      </table>
+      <h3>Applicable Business Process Areas</h3>
+      <table>
+        <tr><th>Business Process Area</th></tr>
+        <tr><td>Order to Cash</td></tr>
+        <tr><td>Pricing and Promotions</td></tr>
+        <tr><td>Billing to Cash</td></tr>
+      </table>
+    </section>
+
+    <section id="exceptions">
+      <h2>4. Exception from Standard Functionality</h2>
+      <ul>
+        <li><strong>Sales Order Discounting:</strong> Standard header Discount Items apply across all lines and cannot selectively exclude items. The solution introduces an effective discount calculation so that only items flagged as time dependent drive the header discount percent.</li>
+        <li><strong>Time Zone–Aware Pricing Windows:</strong> NetSuite does not natively evaluate localized time-of-day pricing windows based on billing address time zone with DST handling. The solution derives a time zone from the billing address and applies DST-aware rules, falling back to subsidiary time zone.</li>
+        <li><strong>Price Integrity Controls:</strong> Out of the box, NetSuite does not enforce exclusivity between time-of-day discounts and alternate price levels or other discount mechanisms. The solution detects non-base price usage and suppresses time-of-day discounting, and prevents stacking with other discounts.</li>
+      </ul>
+    </section>
+
+    <section id="requirements">
+      <h2>5. Functional Requirements</h2>
+      <table>
+        <tr><th>ID</th><th>Requirement</th><th>Priority</th><th>Source</th></tr>
+        <tr><td>FR1</td><td>On Sales Order CREATE (including transform from Quote), the system will determine the local time zone from the billing address; if not available, it will fall back to the subsidiary time zone, with DST observed.</td><td class="priority-high">High</td><td>Consultant notes</td></tr>
+        <tr><td>FR2</td><td>The system will record the first-save localized timestamp, derived time zone ID, and time band on the Sales Order and lock these values for the transaction’s lifetime.</td><td class="priority-high">High</td><td>Consultant notes</td></tr>
+        <tr><td>FR3</td><td>Pricing rule: If the first-save local time is between 11:00:00 and 12:59:59, apply base price (no time-of-day discount). If before 11:00:00 or at/after 13:00:00, apply a 10% discount.</td><td class="priority-high">High</td><td>Consultant notes; client confirmation</td></tr>
+        <tr><td>FR4</td><td>Time-of-day pricing applies only to items flagged as “time dependent” via an item-level checkbox; non-flagged items will not influence the discount.</td><td class="priority-high">High</td><td>Client confirmation</td></tr>
+        <tr><td>FR5</td><td>If any line uses a non-base Price Level on the Sales Order, time-of-day discounting will be skipped entirely.</td><td class="priority-high">High</td><td>Consultant notes; client confirmation</td></tr>
+        <tr><td>FR6</td><td>When time-of-day discounting applies, it will be exclusive: the solution will prevent other discounts/promotions from stacking on the Sales Order.</td><td class="priority-high">High</td><td>Consultant notes</td></tr>
+        <tr><td>FR7</td><td>The solution will apply a single header-level Discount Item for “Morning Discount” or “Afternoon Discount,” selected via script parameters; each represents 10% off.</td><td class="priority-high">High</td><td>Consultant notes; client confirmation</td></tr>
+        <tr><td>FR8</td><td>Because header discounts affect all lines, the solution will compute and set an effective discount percent equal to 10% multiplied by (sum of eligible flagged items amounts / sum of all discountable amounts), so that only flagged items receive an effective 10% discount.</td><td class="priority-high">High</td><td>Design necessity</td></tr>
+        <tr><td>FR9</td><td>Quotes will not display time-of-day discounts; the discount will auto-apply only upon transform to Sales Order and first save.</td><td class="priority-med">Medium</td><td>Client confirmation</td></tr>
+        <tr><td>FR10</td><td>Invoices created from Sales Orders will inherit the established discount and pricing without recalculation, reflecting the Sales Order costs.</td><td class="priority-high">High</td><td>Consultant notes</td></tr>
+        <tr><td>FR11</td><td>The system will retain the original pricing decision on all subsequent Sales Order edits; the time band and discount will not be recalculated after initial save.</td><td class="priority-high">High</td><td>Consultant notes</td></tr>
+        <tr><td>FR12</td><td>The solution will log system and validation errors and notify users if discount enforcement fails, providing clear remediation steps.</td><td class="priority-med">Medium</td><td>Best practice</td></tr>
+      </table>
+    </section>
+
+    <section id="assumptions">
+      <h2>6. Assumptions</h2>
+      <ul>
+        <li>Time band interpretation: Base price applies from 11:00:00 to 12:59:59 local time; a 10% discount applies before 11:00:00 and at/after 13:00:00 local time. (Material; risk if policy differs.)</li>
+        <li>Daylight Saving Time is honored per the derived time zone. Mapping accuracy depends on maintained configuration.</li>
+        <li>Item eligibility is controlled by a single checkbox field on item records; data quality is sufficient to mark applicable items correctly.</li>
+        <li>Exclusive discounting: When time-of-day discount applies, other discounts/promotions/coupons are not used; if any non-base price level is detected, time-of-day discount is skipped.</li>
+        <li>Quotes never apply the discount; only the first Sales Order save (CREATE context) determines and locks pricing.</li>
+        <li>Invoices will be created from Sales Orders using standard transformation and will inherit pricing as set on the SO.</li>
+        <li>Rounding and tax calculation order follow NetSuite standard behavior (tax after discount).</li>
+        <li>Configuration (discount items, windows, mapping) will be provided/maintained by admins before go-live.</li>
+        <li>Performance/volume expectations will be provided separately by the project team; current design targets standard governance constraints.</li>
+      </ul>
+    </section>
+
+    <section id="use-cases">
+      <h2>7. Use Cases</h2>
+      <table>
+        <tr><th>ID</th><th>Req</th><th>Role</th><th>Use Case</th></tr>
+        <tr><td>UC1</td><td>FR1, FR2, FR3, FR7, FR8, FR11</td><td>Order Entry Clerk</td><td>As an Order Entry Clerk, I want the Sales Order to automatically set the correct discount based on the first-save local time so that pricing is accurate and locked.</td></tr>
+        <tr><td>UC2</td><td>FR4, FR8</td><td>Pricing Manager</td><td>As a Pricing Manager, I want only items flagged as time dependent to influence the discount so that ineligible items do not receive unintended discounts.</td></tr>
+        <tr><td>UC3</td><td>FR5, FR6</td><td>Sales Operations</td><td>As Sales Operations, I want time-of-day discounts to be exclusive and suppressed when non-base price levels are used so that discounts don’t stack.</td></tr>
+        <tr><td>UC4</td><td>FR9</td><td>Sales Rep</td><td>As a Sales Rep, I want quotes to show standard pricing without time-of-day discounts so that customers aren’t confused before order placement.</td></tr>
+        <tr><td>UC5</td><td>FR10</td><td>AR/Billing</td><td>As AR/Billing, I want invoices to mirror Sales Order pricing so that downstream billing is consistent and reconciles.</td></tr>
+        <tr><td>UC6</td><td>FR12</td><td>Administrator</td><td>As an Administrator, I want errors logged with user-friendly messages so that issues can be diagnosed and resolved quickly.</td></tr>
+      </table>
+    </section>
+
+    <section id="technical">
+      <h2>8. Technical Design</h2>
+
+      <h3>8.1 Technical Design Summary</h3>
+      <p>A User Event (UE) script on Sales Order enforces time-of-day pricing at creation. On CREATE (including Quote→SO transforms), the UE derives the local time zone from the Sales Order billing address via a configurable mapping table and falls back to the subsidiary time zone if no mapping exists. Using the derived time zone (with DST), it converts the server timestamp to local time, assigns the time band, and records the localized timestamp, time zone, and band on body fields. These values are locked for the transaction’s lifetime and not recalculated on EDIT.</p>
+      <p>If within the discount windows, the UE computes the eligible subtotal (sum of lines where the item is flagged time dependent and price level is base). To avoid affecting non-eligible items when applying a single header Discount Item, it calculates an effective discount percent: 10% × (eligible subtotal / total discountable subtotal). The script sets either the Morning or Afternoon Discount Item (configured via parameters) and sets the computed percent. If the order uses any non-base Price Level on any line, the UE skips time-of-day discounting entirely. When time-of-day discount applies, the UE clears other discounts/promos to prevent stacking.</p>
+      <p>Invoices inherit pricing from the Sales Order through standard transformation; no additional scripting is required on Invoice. The solution provides admin-configurable parameters for discount items, window boundaries, and time zone mappings on a custom settings record, enabling maintenance without code changes.</p>
+
+      <h3>8.2 Objects</h3>
+      <table>
+        <tr><th>Name</th><th>ID</th><th>Type</th><th>Description</th><th>Dependencies</th><th>Usage</th></tr>
+        <tr><td>Time-of-Day Config</td><td><code>customrecord_ns_tod_config</code></td><td>Custom Record</td><td>Stores global settings (window times, exclusivity flags) and parent for region mappings.</td><td><code>customrecord_ns_tod_tzmap</code></td><td>Read by UE for parameters not in script deployment.</td></tr>
+        <tr><td>Time Zone Mapping</td><td><code>customrecord_ns_tod_tzmap</code></td><td>Custom Record</td><td>Child lines mapping Country/State (and optional City/Postal) to Olson time zone ID.</td><td>—</td><td>Used to derive local time zone from billing address.</td></tr>
+        <tr><td>Time Dependent (Item)</td><td><code>custitem_ns_time_dependent</code></td><td>Item Field (Checkbox)</td><td>Flags items eligible for time-of-day discount.</td><td>—</td><td>Filter for eligible subtotal.</td></tr>
+        <tr><td>TOD Applied</td><td><code>custbody_ns_tod_applied</code></td><td>Transaction Body Field (Checkbox)</td><td>Indicates whether TOD discount logic was applied on first save.</td><td>—</td><td>Locking and reporting.</td></tr>
+        <tr><td>TOD Locked</td><td><code>custbody_ns_tod_locked</code></td><td>Transaction Body Field (Checkbox)</td><td>Prevents recalculation on EDIT after initial save.</td><td><code>custbody_ns_tod_applied</code></td><td>Checked after CREATE.</td></tr>
+        <tr><td>TOD Local Timestamp</td><td><code>custbody_ns_tod_local_ts</code></td><td>Transaction Body Field (Datetime)</td><td>Localized first-save timestamp used for pricing decision.</td><td>—</td><td>Audit trail.</td></tr>
+        <tr><td>TOD Time Zone</td><td><code>custbody_ns_tod_tz</code></td><td>Transaction Body Field (Free-Form Text)</td><td>Olson time zone ID (e.g., America/New_York).</td><td>—</td><td>Audit and conversion.</td></tr>
+        <tr><td>TOD Band</td><td><code>custbody_ns_tod_band</code></td><td>Transaction Body Field (List/Record)</td><td>Values: Morning, Midday, Afternoon; identifies pricing band.</td><td>—</td><td>Reporting and logic.</td></tr>
+        <tr><td>TOD Discount Rate</td><td><code>custbody_ns_tod_rate</code></td><td>Transaction Body Field (Decimal Percent)</td><td>Effective discount percent applied at header.</td><td>—</td><td>Stores computed percent for reference.</td></tr>
+        <tr><td>TOD Reason</td><td><code>custbody_ns_tod_reason</code></td><td>Transaction Body Field (Free-Form Text)</td><td>Notes (e.g., “Non-base price level present; TOD skipped”).</td><td>—</td><td>Troubleshooting.</td></tr>
+        <tr><td>Sales Order Form (Extended)</td><td>—</td><td>Custom Form</td><td>Optional form to display TOD fields prominently.</td><td>Above fields</td><td>Improves visibility.</td></tr>
+      </table>
+
+      <h3>8.3 Configuration Parameters</h3>
+      <table>
+        <tr><th>Parameter Name</th><th>Location</th><th>Type</th><th>Data Type</th><th>Default</th><th>Description</th></tr>
+        <tr><td>Morning Discount Item</td><td>Script Parameter</td><td>Script Parameter</td><td>List (Item: Discount)</td><td>—</td><td>Discount item used when discount applies before 11:00.</td></tr>
+        <tr><td>Afternoon Discount Item</td><td>Script Parameter</td><td>Script Parameter</td><td>List (Item: Discount)</td><td>—</td><td>Discount item used when discount applies at/after 13:00.</td></tr>
+        <tr><td>Base Price Level</td><td>Script Parameter</td><td>Script Parameter</td><td>List (Price Level)</td><td>Base Price</td><td>Price level that indicates eligibility; if any line ≠ Base, TOD is skipped.</td></tr>
+        <tr><td>Start of Midday Window</td><td>Settings Record (<code>customrecord_ns_tod_config</code>)</td><td>Settings Record</td><td>Time (HH:MM)</td><td>11:00</td><td>Local start of base-price window.</td></tr>
+        <tr><td>End of Midday Window</td><td>Settings Record (<code>customrecord_ns_tod_config</code>)</td><td>Settings Record</td><td>Time (HH:MM)</td><td>13:00</td><td>Local end of base-price window.</td></tr>
+        <tr><td>Enforce Exclusivity</td><td>Settings Record (<code>customrecord_ns_tod_config</code>)</td><td>Settings Record</td><td>Checkbox</td><td>Checked</td><td>If true, clears other discounts/promos when TOD applies.</td></tr>
+        <tr><td>DST Observed</td><td>Settings Record (<code>customrecord_ns_tod_config</code>)</td><td>Settings Record</td><td>Checkbox</td><td>Checked</td><td>Treat local time using DST rules of derived time zone.</td></tr>
+        <tr><td>TZ Mapping Table</td><td>Settings Record (<code>customrecord_ns_tod_tzmap</code>)</td><td>Settings Record</td><td>List/Child Lines</td><td>—</td><td>Country/State-to-time zone mapping.</td></tr>
+        <tr><td>Allow Manual Override (Admin Only)</td><td>Settings Record</td><td>Settings Record</td><td>Checkbox</td><td>Unchecked</td><td>If checked, admins can unlock TOD once with reason.</td></tr>
+      </table>
+
+      <h3>8.4 Required Features</h3>
+      <table>
+        <tr><th>Feature Name</th><th>Feature ID</th><th>Required Setting</th><th>Purpose</th></tr>
+        <tr><td>Multiple Price Levels</td><td><code>PRICELEVEL</code></td><td>Enabled</td><td>Detect non-base price levels and use Base Price baseline.</td></tr>
+        <tr><td>Discounts</td><td><code>DISC</code></td><td>Enabled</td><td>Apply header Discount Item with computed percent.</td></tr>
+        <tr><td>Advanced Taxes or SuiteTax</td><td><code>TAX</code></td><td>Enabled</td><td>Ensure tax is computed after discount per standard.</td></tr>
+        <tr><td>Subsidiaries (OneWorld, if applicable)</td><td><code>SUBS</code></td><td>Enabled (if OneWorld)</td><td>Use subsidiary time zone fallback.</td></tr>
+      </table>
+
+      <h3>8.5 Scripts</h3>
+      <table>
+        <tr><th>Script Name</th><th>Script ID</th><th>Script Type</th><th>Libraries</th><th>Description</th><th>Entry Points</th></tr>
+        <tr><td>NS TOD Pricing UE</td><td><code>customscript_ns_tod_pricing_ue</code></td><td>User Event</td><td><code>customscript_ns_tod_lib</code></td><td>Enforces TOD logic on SO: derive time zone, compute band, lock fields, compute effective discount, set header discount item/percent, enforce exclusivity, and skip if non-base price used.</td><td>beforeSubmit(create), beforeSubmit(copy), beforeSubmit(transform), beforeSubmit(edit) [edit path only sets lock/no-op], afterSubmit(create) [optional logging]</td></tr>
+        <tr><td>NS TOD Library</td><td><code>customscript_ns_tod_lib</code></td><td>Library</td><td>—</td><td>Shared helpers: time zone derivation, local time conversion (DST), eligibility subtotal calc, effective percent calc, exclusivity checks, logging.</td><td>N/A</td></tr>
+      </table>
+
+      <h3>8.6 Error Handling</h3>
+      <ul>
+        <li><strong>Validation Errors:</strong> If required configuration (discount items, mapping, base price level) is missing, the UE will throw a user-friendly error preventing save, indicating which setting to fix.</li>
+        <li><strong>System Errors:</strong> Unexpected exceptions are logged with full context (SO id, subsidiary, derived TZ) and surfaced as a generic error to users, with an internal ID for support.</li>
+        <li><strong>Data Errors:</strong> If time zone cannot be derived and no subsidiary fallback exists, the script will default to subsidiary time zone when available; otherwise it will block save with guidance.</li>
+        <li><strong>Logging:</strong> Use NetSuite script logs (audit/error) and optionally write a brief entry to a custom record or the SO “TOD Reason” field for visibility.</li>
+        <li><strong>User Notification:</strong> Clear inline error messages on save; where exclusivity clears other discounts, populate “TOD Reason” to explain actions taken.</li>
+        <li><strong>Recovery:</strong> On recoverable failures (e.g., missing mapping but subsidiary available), proceed with fallback; otherwise block save until configuration is corrected. Admin override (if enabled) allows one-time unlock/edit with a required reason.</li>
+      </ul>
+
+      <h3>8.7 Performance Considerations &amp; Expected Volumes</h3>
+      <p>The logic executes once on CREATE and is locked thereafter, minimizing runtime impact. Calculations are simple arithmetic over SO lines, with a single pass to determine eligibility and totals. Governance usage is minimal and bounded; no asynchronous processing is required. Volume metrics will be finalized by the project team.</p>
+      <table>
+        <tr><th>Volume Metric</th><th>Expected Value</th><th>Frequency</th><th>Notes</th></tr>
+        <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </table>
+    </section>
+
+    <section id="test-cases">
+      <h2>9. Test Cases</h2>
+      <table>
+        <tr><th>ID</th><th>Req</th><th>UC</th><th>Description</th><th>Expected Result</th></tr>
+        <tr><td>TC1</td><td>FR1, FR2, FR3, FR7, FR8</td><td>UC1</td><td>Apply 10% discount before 11:00 local time with mixed eligible/non-eligible items.</td><td>Header Discount Item set to Morning; Effective rate = 10% × (100/150)=6.6667%; <code>custbody_ns_tod_applied</code>/<code>custbody_ns_tod_locked</code> set; local TS/time zone/band recorded.</td></tr>
+        <tr><td>TC2</td><td>FR3, FR7, FR8</td><td>UC1</td><td>No discount between 11:00 and 12:59:59 local time.</td><td>No header discount applied; band=Midday; fields recorded; TOD Applied=false (or Applied=true with 0%).</td></tr>
+        <tr><td>TC3</td><td>FR3, FR7, FR8</td><td>UC1</td><td>Apply 10% discount at/after 13:00 local time.</td><td>Header Discount Item set to Afternoon; effective percent = 10% × (eligible subtotal/total); fields recorded.</td></tr>
+        <tr><td>TC4</td><td>FR5, FR6</td><td>UC3</td><td>Skip TOD when any line uses non-base price level.</td><td>TOD skipped; no header discount set; <code>custbody_ns_tod_reason</code> notes non-base price level; band/time fields still recorded and locked.</td></tr>
+        <tr><td>TC5</td><td>FR4, FR8</td><td>UC2</td><td>Only flagged items influence discount.</td><td>Effective % = 10% × (100/150); discount amount equals $10.00; non-flagged items unaffected in effect.</td></tr>
+        <tr><td>TC6</td><td>FR2, FR11</td><td>UC1</td><td>Lock after first save; edits do not recalc.</td><td>Discount remains unchanged; timestamp/time zone/band unchanged; lock enforced.</td></tr>
+        <tr><td>TC7</td><td>FR1</td><td>UC1</td><td>Fallback to subsidiary time zone when mapping missing.</td><td>Derived TZ = subsidiary; band computed from that TZ; fields recorded.</td></tr>
+        <tr><td>TC8</td><td>FR9</td><td>UC4</td><td>Quote shows no TOD, applied on transform.</td><td>Quote has no discount; SO applies discount based on SO first-save time.</td></tr>
+        <tr><td>TC9</td><td>FR12</td><td>UC6</td><td>Missing discount item config blocks save with clear error.</td><td>Save blocked; error message indicates which parameter is missing.</td></tr>
+      </table>
+    </section>
+
+    <section id="ai-opportunities">
+      <h2>10. AI Use Opportunities</h2>
+      <p>This solution is deterministic, but future enhancements could leverage AI to improve pricing operations and monitoring.</p>
+      <ul>
+        <li><strong>Automated time zone inference quality checks:</strong> Use anomaly detection on address-to-TZ outcomes.</li>
+        <li><strong>Predictive analytics:</strong> Forecast order submission times by customer segment to assess discount impact on margin.</li>
+        <li><strong>NLP-based admin assistant:</strong> Validate or auto-build the time zone mapping table from address datasets.</li>
+      </ul>
+      <p><strong>Implementation considerations:</strong> Requires historical order data (timestamps, addresses, derived time zones) and item eligibility flags for model training/validation; potential integration with Oracle Analytics or internal platforms; ensure compliance with Oracle security, privacy, and data governance policies; insights should be presented as dashboards and non-blocking recommendations.</p>
+    </section>
+  </main>
+
+  <footer>
+    <img class="footer-logo" src="https://system.netsuite.com/authentication/ui/loginpage/assets/logo/NetSuite-logo-mobius.svg" alt="Oracle NetSuite">
+    <div>© 2026 Oracle | NetSuite</div>
+    <div style="margin-top: 8px;">Document generated via LLM-assisted authoring • Human review recommended before finalization</div>
+  </footer>
+</div>
+</body>
+</html>

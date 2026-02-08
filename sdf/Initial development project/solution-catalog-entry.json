@@ -1,0 +1,46 @@
+{
+  "name": "SunStyle Retail Enterprise ERP Suite",
+  "description": "Comprehensive, production-grade NetSuite customization suite for fashion retail operations spanning customer service, inventory management, financial operations, and supply chain automation. Includes 177 SuiteScript files and 2,016 custom objects supporting Customer Service Hub, Production Plus manufacturing, equity pickup processing, landed cost management, and multi-channel sales workflows. Designed specifically for sunglasses/eyewear retail with extensive automation across finance, supply chain, and customer operations domains.",
+  "uses": [
+    "Customer Service Hub with Case Management",
+    "Production Plus Work Order Automation",
+    "Equity Pickup Financial Processing",
+    "Automated Transfer Order Creation",
+    "Landed Cost Analysis & Allocation",
+    "Standard & Average Cost Management",
+    "Bin Barcoding System",
+    "Sales Order Line-Level Approval",
+    "Federal Firearms License (FFL) Compliance",
+    "Master Data Management with AI Integration",
+    "RFM Customer Segmentation",
+    "Multi-Channel Promotion Tracking"
+  ],
+  "constraints": [
+    {
+      "type": "netsuite_version",
+      "value": "2021.1+"
+    },
+    {
+      "type": "edition",
+      "value": "OneWorld"
+    },
+    {
+      "type": "feature",
+      "value": "Work Orders, Assemblies, Multi-Location Inventory, Custom Records, Server-Side Scripting, Advanced Manufacturing"
+    }
+  ],
+  "git_repo_link": null,
+  "industry": [
+    "Retail",
+    "Manufacturing",
+    "Wholesale Distribution"
+  ],
+  "depends_on": [
+    "NetSuite Fixed Asset Management (FAM)",
+    "Production Plus (PPAI)",
+    "Customer Service Hub (CSHUB)"
+  ],
+  "solution_type": "Financial Management",
+  "manager": "SunStyle Retail IT Department",
+  "documents": []
+}

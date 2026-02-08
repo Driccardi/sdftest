@@ -1,0 +1,382 @@
+{
+  "solution_id": "psw-addons",
+  "solution_name": "Add-Ons Manager for Cross-Sell and Upsell",
+  "version": "1.0",
+  "vendor": "NetSuite Custom Solution",
+  "solution_type": "Sales Enablement and Merchandising",
+  "marketing_description": "Add-Ons Manager enhances sales transactions by automatically presenting contextually relevant accessory items and cross-sell opportunities through an intelligent pop-up interface. Sales representatives can quickly add complementary products during order entry, increasing average order value while improving customer experience through intelligent product recommendations.",
+  "technical_summary": "Add-Ons Manager uses a custom record structure to define parent-child item relationships with price-based and class-based filtering. A client script intercepts line item addition on sales orders, triggering a Suitelet pop-up window that displays eligible add-on items based on parent item, item class, price range, and price level. The solution maintains parent-child line relationships using unique keys for proper association across the entire order-to-cash workflow.",
+  "industries": [
+    "Retail - General Merchandise",
+    "Wholesale Distribution",
+    "E-commerce",
+    "Consumer Products",
+    "Fashion and Apparel",
+    "Electronics and Technology",
+    "Sporting Goods"
+  ],
+  "target_company_size": [
+    "Small Business (10-100 employees)",
+    "Mid-Market (100-1000 employees)",
+    "Enterprise (1000+ employees)"
+  ],
+  "key_features": [
+    {
+      "feature": "Automatic Add-On Pop-Up",
+      "description": "When sales representatives add items flagged for add-on suggestions to a sales order, a pop-up window automatically appears displaying contextually relevant accessory items, enabling instant cross-sell and upsell opportunities without leaving the transaction."
+    },
+    {
+      "feature": "Price-Based Filtering",
+      "description": "Add-on items can be configured to appear only when the parent item falls within specified price ranges (minimum and maximum), ensuring accessories are appropriate to the customer's purchase level and avoiding irrelevant suggestions."
+    },
+    {
+      "feature": "Class-Based Targeting",
+      "description": "Define add-on relationships based on item classification rather than individual items, allowing accessories to be suggested for entire product categories. For example, all items in 'Laptops' class can trigger suggestions for laptop bags, mice, and software."
+    },
+    {
+      "feature": "Price Level Integration",
+      "description": "Associates add-on items with specific NetSuite price levels, ensuring customers see pricing appropriate to their customer type, contract, or negotiated rates. Each add-on configuration can target a specific price level for accurate pricing display."
+    },
+    {
+      "feature": "Flexible Parent-Child Relationships",
+      "description": "Maintains explicit relationships between parent items and their associated add-ons throughout the order lifecycle. Parent-child linking prevents accidental deletion of parent items when child add-ons exist and maintains associations through fulfillment."
+    },
+    {
+      "feature": "Quantity Selection Interface",
+      "description": "Pop-up window includes inline quantity fields for each add-on item, allowing sales reps to specify quantities for multiple accessories simultaneously and add them all with a single action, improving efficiency."
+    },
+    {
+      "feature": "Pop-Once Preference",
+      "description": "Optional script parameter allows administrators to control whether the add-on pop-up appears every time a line is edited or only when initially added, accommodating different sales workflows and preventing repetitive pop-ups during order adjustments."
+    },
+    {
+      "feature": "Line Key Tracking",
+      "description": "Generates unique timestamp-based keys for each transaction line, ensuring parent-child relationships persist accurately across transaction types (sales order, item fulfillment) and enabling precise tracking of which accessories belong to which parent items."
+    }
+  ],
+  "technical_components": {
+    "custom_records": [
+      {
+        "script_id": "customrecord_drss_accessories",
+        "name": "Add Ons",
+        "description": "Defines relationships between parent items/classes and their associated add-on/accessory items, with price-based filtering rules.",
+        "key_fields": [
+          "Add On Item (custrecord_drss_accessoryitem): The accessory/add-on item to suggest",
+          "Parent Item (custrecord_drss_parentitem): The parent item that triggers this add-on suggestion",
+          "Parent Class (custrecord_drss_parentclass): Alternative to Parent Item - triggers add-on for entire class",
+          "Price Level (custrecord_drss_accessoryprice): NetSuite price level to use for pricing this add-on",
+          "Minimum Price (custrecord_drss_minprice): Parent item minimum price threshold",
+          "Maximum Price (custrecord_drss_maxprice): Parent item maximum price threshold"
+        ],
+        "relationships": [
+          "Parent Item: Must specify either Parent Item OR Parent Class, not both (enforced by workflow)",
+          "Add On Item links to Item master records",
+          "Price Level links to NetSuite Price Level records",
+          "Class-based relationships use multiselect for Parent Class field"
+        ]
+      }
+    ],
+    "scripts": [
+      {
+        "script_id": "customscript_ns_cu_accpop",
+        "type": "Client Script",
+        "name": "NS | CS | Add-On Pop-up",
+        "description": "Monitors sales order line item entry, generates unique line keys, maintains parent-child relationships, and triggers pop-up window for eligible items. Prevents deletion of parent items with associated add-ons and maintains data integrity.",
+        "entry_points": [
+          "pageInit: Initializes window context, retrieves previously popped lines from hidden field",
+          "validateLine: Generates line keys, checks for add-on pop-up flag, opens pop-up window",
+          "fieldChanged: Manages parent-child field synchronization when users manually edit relationships",
+          "validateDelete: Prevents deletion of parent items that have associated add-on children",
+          "saveRecord: Persists popped lines array to hidden field before save"
+        ],
+        "key_functions": [
+          "validateLine(): Core logic - assigns unique parent key to lines, checks if item has add-on flag, opens pop-up window",
+          "openAccessoryWindow(): Constructs Suitelet URL with item, linekey, and price parameters, opens pop-up",
+          "addLine(): Called by pop-up window to add selected add-on items with parent associations to transaction",
+          "getItemData(): Performs field lookup to check if item has 'Add On Pop-up' checkbox enabled"
+        ]
+      },
+      {
+        "script_id": "customscript_ns_su_accessories",
+        "type": "Suitelet",
+        "name": "NS | SU | Add-Ons Suitelet",
+        "description": "Renders pop-up interface displaying eligible add-on items based on parent item, class, price, and price level. Uses SuiteQL queries to retrieve matching add-ons with pricing information and generates interactive HTML interface.",
+        "functionality": [
+          "Accepts parameters: item (parent item ID), linekey (unique line identifier), price (parent item price)",
+          "Queries Add Ons custom record for matches on parent item with price range filtering",
+          "Retrieves item class and queries for class-based add-on matches",
+          "Joins to Item, Price Level, and Pricing tables for complete product and pricing data",
+          "Generates interactive form with sublist of eligible add-ons",
+          "Each add-on displays: checkbox/add button, item ID, display name, unit price, quantity field",
+          "Uses inline JavaScript to call parent window's addLine() function with selected items"
+        ],
+        "key_functions": [
+          "getItemData(): SuiteQL query for item-specific add-ons with price range filtering",
+          "getClass(): Retrieves class assignment for parent item",
+          "getClassData(): SuiteQL query for class-based add-ons applicable to parent item's class",
+          "checkbox(): Generates HTML button and quantity input that calls parent window to add item"
+        ]
+      }
+    ],
+    "custom_fields": {
+      "item_fields": [
+        {
+          "script_id": "custitem_ns_accessorypopup",
+          "label": "Add On Pop-up",
+          "field_type": "Checkbox",
+          "applies_to": "Inventory, Inventory Assembly, Kit/Package, Non-Inventory",
+          "description": "When checked, adding this item to a sales order triggers the add-on pop-up window to suggest accessories"
+        }
+      ],
+      "transaction_body_fields": [
+        {
+          "script_id": "custbody_ns_acc_poppedlines",
+          "label": "Popped Line Array",
+          "field_type": "Long Text (CLOBTEXT)",
+          "applies_to": "Sales Orders",
+          "display_type": "Hidden",
+          "description": "Stores JSON array of line keys that have already triggered pop-ups (respects Pop Once preference)"
+        }
+      ],
+      "transaction_column_fields": [
+        {
+          "script_id": "custcol_ns_addonparent",
+          "label": "Add On Parent",
+          "field_type": "List/Record (Item)",
+          "applies_to": "Sales Orders, Item Fulfillments",
+          "description": "For add-on items, references the parent item that triggered this accessory suggestion"
+        },
+        {
+          "script_id": "custcol_ns_lineparentkey",
+          "label": "Line Parent Key",
+          "field_type": "Text",
+          "applies_to": "Sales Orders, Item Fulfillments",
+          "display_type": "Locked",
+          "description": "Unique timestamp-based key generated for each transaction line, used to link parent items with their add-on children"
+        },
+        {
+          "script_id": "custcol_ns_linechildkey",
+          "label": "Line Child Key",
+          "field_type": "Text",
+          "applies_to": "Sales Orders, Item Fulfillments",
+          "display_type": "Locked",
+          "description": "For add-on items, stores the parent line's key to maintain explicit parent-child relationship"
+        }
+      ]
+    },
+    "workflows": [
+      {
+        "script_id": "customworkflow_nsps_addonmanager",
+        "name": "NSPS | Manage Add-On Record",
+        "record_type": "Add Ons (customrecord_drss_accessories)",
+        "description": "Enforces business rules on Add Ons configuration records, ensuring data integrity and user-friendly form behavior.",
+        "workflow_states": [
+          {
+            "state": "Manage Defaults and Fields",
+            "actions": [
+              "OnEntry: Sets default Price Level if blank on create",
+              "BeforeLoad: Makes Price Level field mandatory",
+              "BeforeLoad: Disables Parent Item field if Parent Class is populated",
+              "BeforeLoad: Disables Parent Class field if Parent Item is populated",
+              "BeforeFieldEdit: Shows warning if user tries to edit Parent Item when Parent Class is set",
+              "AfterFieldEdit: Clears Parent Class when Parent Item is selected",
+              "AfterFieldEdit: Disables/enables fields based on mutual exclusivity"
+            ]
+          }
+        ],
+        "business_rules": [
+          "Mutual exclusivity: Cannot specify both Parent Item and Parent Class",
+          "Price Level is mandatory for all add-on configurations",
+          "Dynamic field disabling prevents invalid configurations",
+          "User-friendly warnings guide proper configuration"
+        ]
+      }
+    ],
+    "saved_searches": [
+      {
+        "script_id": "customsearch_ns_addonsublist",
+        "name": "Add-On Sublist",
+        "type": "Add Ons (customrecord_drss_accessories)",
+        "description": "Search used to display and manage add-on configurations. Shows add-on item, parent relationships, price level, and price thresholds."
+      }
+    ]
+  },
+  "dependencies": {
+    "netsuite_features": [
+      {
+        "feature": "CUSTOMRECORDS",
+        "required": true,
+        "description": "Custom records for add-on relationship definitions"
+      },
+      {
+        "feature": "SERVERSIDESCRIPTING",
+        "required": true,
+        "description": "Suitelet for pop-up interface"
+      },
+      {
+        "feature": "CLIENTSIDESCRIPTING",
+        "required": true,
+        "description": "Client script for transaction interception and pop-up triggering"
+      },
+      {
+        "feature": "WORKFLOW",
+        "required": true,
+        "description": "Workflow for add-on record validation and field management"
+      },
+      {
+        "feature": "CLASSES",
+        "required": false,
+        "description": "Required only if using class-based add-on targeting"
+      },
+      {
+        "feature": "ADVANCEDPRICING",
+        "required": false,
+        "description": "Beneficial for complex price level configurations"
+      }
+    ],
+    "external_dependencies": [],
+    "bundles": []
+  },
+  "deployment_complexity": "Low to Medium",
+  "deployment_notes": "Straightforward deployment requiring custom record, scripts, fields, and workflow. Primary configuration effort involves defining add-on relationships in the Add Ons custom record. No external dependencies. Script deployment to Sales Order transaction type required. Recommend testing pop-up behavior across different browsers and NetSuite form customizations.",
+  "business_processes": [
+    {
+      "process": "Item-Based Add-On Configuration",
+      "description": "Administrator creates Add Ons records specifying individual parent items and their associated accessories. For each relationship, specifies price level, and optionally minimum/maximum price thresholds. Flags parent items with 'Add On Pop-up' checkbox to enable pop-up behavior."
+    },
+    {
+      "process": "Class-Based Add-On Configuration",
+      "description": "Administrator creates Add Ons records using Parent Class field (multiselect) instead of Parent Item, enabling accessories to be suggested for all items within specified classes. Useful for broad categories like 'Laptops', 'Cameras', 'Smartphones' where common accessories apply to many items."
+    },
+    {
+      "process": "Sales Order Entry with Add-Ons",
+      "description": "Sales representative creates sales order and adds item flagged for add-ons. Upon line validation, pop-up window appears showing eligible accessories filtered by price range and class. Rep selects desired add-ons, specifies quantities, clicks Add buttons. Selected items added to order with parent-child relationships maintained."
+    },
+    {
+      "process": "Parent-Child Relationship Management",
+      "description": "If sales rep attempts to delete a parent item that has associated add-on children, system prevents deletion and displays warning message. Rep must first remove add-on items, then remove parent. This ensures order integrity and prevents orphaned accessories."
+    },
+    {
+      "process": "Order Fulfillment with Add-Ons",
+      "description": "When sales order is fulfilled, parent-child relationships carry forward via Line Parent Key and Line Child Key fields. Fulfillment accurately reflects which accessories are associated with which parent items, supporting proper picking, packing, and shipping workflows."
+    }
+  ],
+  "user_roles": [
+    {
+      "role": "Sales Administrator / Merchandising Manager",
+      "responsibilities": "Configures add-on relationships in Add Ons custom record. Determines which items trigger pop-ups by setting 'Add On Pop-up' flag. Defines price thresholds and class-based targeting. Maintains add-on catalog as product offerings evolve."
+    },
+    {
+      "role": "Sales Representative",
+      "responsibilities": "Creates sales orders and responds to add-on pop-up suggestions. Selects appropriate accessories for customer orders. Adjusts quantities as needed. Benefits from increased order value through intelligent cross-sell prompts."
+    },
+    {
+      "role": "E-Commerce / Order Entry Clerk",
+      "responsibilities": "Enters orders from various channels (phone, email, web). Uses add-on pop-ups to ensure customers receive appropriate accessory suggestions, improving order completeness and customer satisfaction."
+    }
+  ],
+  "integration_points": [
+    {
+      "integration": "Sales Order Line Item Entry → Client Script",
+      "method": "validateLine event interception",
+      "description": "Client script monitors line validation, generates unique keys, checks for add-on flag"
+    },
+    {
+      "integration": "Client Script → Suitelet Pop-Up",
+      "method": "window.open() with URL parameters",
+      "description": "Opens pop-up window with Suitelet displaying filtered add-on items"
+    },
+    {
+      "integration": "Pop-Up Window → Parent Transaction",
+      "method": "opener.addLine() JavaScript function call",
+      "description": "Pop-up calls function in parent window to add selected items to transaction"
+    },
+    {
+      "integration": "Suitelet → Add Ons Custom Record",
+      "method": "SuiteQL queries",
+      "description": "Retrieves add-on configurations with joins to Item, Pricing, Price Level tables"
+    },
+    {
+      "integration": "Sales Order → Item Fulfillment",
+      "method": "Standard NetSuite transaction flow",
+      "description": "Parent-child keys persist to fulfillment via column fields on both transaction types"
+    }
+  ],
+  "reporting_capabilities": [
+    "Add-on attachment rate (% of eligible parent items that result in add-on sales)",
+    "Most frequently purchased add-on items",
+    "Average order value increase from add-ons",
+    "Parent items with highest add-on conversion",
+    "Add-on items by parent item or class",
+    "Price level effectiveness for add-on suggestions",
+    "Sales rep utilization of add-on pop-ups"
+  ],
+  "configuration_requirements": [
+    "Enable Custom Records, Server-Side Scripting, Client-Side Scripting, Workflow features",
+    "Deploy client script to Sales Order transaction type with appropriate roles",
+    "Deploy Suitelet with appropriate role access",
+    "Create Add Ons custom records for each parent-child item relationship",
+    "Set 'Add On Pop-up' checkbox on parent items that should trigger pop-ups",
+    "Configure script parameter 'Pop Up only on add' based on desired behavior",
+    "Test pop-up functionality across different sales order forms and user roles",
+    "Train sales team on responding to pop-up prompts"
+  ],
+  "scalability_considerations": "Solution scales well for hundreds of parent items and thousands of add-on relationships. SuiteQL queries are efficient with proper indexing on custom record fields. Pop-up window is lightweight and responsive. For extremely large product catalogs (10,000+ items with add-ons), consider indexed fields on Add Ons custom record for parent item and class. Client script uses field lookups sparingly to minimize governance impact.",
+  "maintenance_requirements": "Regular review and update of add-on relationships as product catalog evolves. Archive or inactivate Add Ons records for discontinued products. Monitor add-on attachment rates to identify underperforming suggestions. Adjust price thresholds based on pricing changes. Update class-based configurations when item classifications change. Minimal ongoing script maintenance required.",
+  "licensing_implications": "Requires full NetSuite account with customization capabilities. Each user accessing sales orders with add-on pop-ups needs appropriate role with script execution permissions. No additional licensing beyond standard NetSuite. Client script execution counts against account governance limits (minimal impact).",
+  "training_requirements": [
+    "Sales administrators: 2-3 hours on creating and managing Add Ons records, understanding parent-child relationships, configuring price thresholds and class-based targeting",
+    "Sales representatives: 30 minutes on recognizing and responding to add-on pop-ups, selecting accessories, adjusting quantities",
+    "IT/NetSuite administrators: 1-2 hours on deployment, script parameters, troubleshooting pop-up behavior"
+  ],
+  "support_model": "Custom solution - requires internal NetSuite developer support for enhancements and troubleshooting. No vendor support available. Code comments and structure are clear for maintainability.",
+  "upgrade_considerations": "Custom solution requires testing with each NetSuite release. Monitor changes to Sales Order form rendering, client script execution context, and pop-up window behavior. SuiteQL syntax and query API may require updates with major NetSuite versions. Workflow actions generally stable across releases.",
+  "use_cases": [
+    {
+      "use_case": "Consumer Electronics Retail",
+      "scenario": "When customer purchases a laptop, pop-up suggests laptop bag, wireless mouse, external hard drive, and software packages based on laptop price tier (consumer vs. professional vs. gaming)."
+    },
+    {
+      "use_case": "Sporting Goods",
+      "scenario": "When tennis racket is added to order, pop-up offers tennis balls, racket bags, grip tape, and string. Price-based filtering ensures premium accessories appear only with professional-grade rackets."
+    },
+    {
+      "use_case": "Fashion and Apparel",
+      "scenario": "Class-based configuration shows matching accessories: belts, ties, and cufflinks for dress shirts; insoles and socks for shoes; scarves and jewelry for dresses."
+    },
+    {
+      "use_case": "Camera Equipment",
+      "scenario": "When DSLR camera body is added, pop-up displays compatible lenses, memory cards, camera bags, tripods, and lens filters appropriate to camera tier."
+    },
+    {
+      "use_case": "Software and Services",
+      "scenario": "When software license is ordered, pop-up suggests training courses, implementation services, extended support contracts, and complementary software modules."
+    }
+  ],
+  "business_benefits": [
+    "Increased Average Order Value: Automatic prompts drive accessory sales without rep having to remember every cross-sell opportunity",
+    "Improved Customer Experience: Customers receive suggestions for compatible and complementary products, reducing post-sale issues",
+    "Sales Efficiency: Reps spend less time searching for accessories, more time closing deals",
+    "Reduced Order Incompleteness: Fewer callbacks and follow-up orders for forgotten accessories",
+    "Consistent Cross-Sell: Every eligible transaction receives add-on prompts regardless of rep experience level",
+    "Data-Driven Merchandising: Track which add-ons convert to inform inventory and pricing decisions"
+  ],
+  "technical_highlights": [
+    "Unique line key generation using timestamps ensures parent-child relationships never conflict",
+    "SuiteQL joins provide efficient retrieval of add-on data with pricing in single query",
+    "Pop-once tracking prevents annoying repetitive pop-ups during order adjustments",
+    "Mutual exclusivity enforcement (item vs. class) prevents configuration errors",
+    "Inline quantity fields enable multi-item selection in single pop-up interaction",
+    "Price-based filtering delivers context-appropriate suggestions",
+    "Workflow-based validation provides user-friendly configuration experience"
+  ],
+  "documentation": {
+    "design_document": "Not available",
+    "technical_documentation": "This catalog entry",
+    "user_guide": "Not available",
+    "admin_guide": "Not available"
+  },
+  "created_date": "2026-02-04",
+  "last_updated": "2026-02-04",
+  "catalog_version": "1.0"
+}

@@ -1,0 +1,13 @@
+<centercategory scriptid="custcentercategory_ns_ppai_ltm_cen_cat">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ns_ppai_promopack_tab]</centertab>
+  <label>Less-Than-Minimum</label>
+  <links>
+    <link>
+      <linklabel>LTM Setup</linklabel>
+      <linkobject>[scriptid=customrecord_ns_ppai_ltm_setup]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

@@ -1,0 +1,93 @@
+<savedcsvimport scriptid="custimport_1_8272468_427">
+  <charencoding>windows-1252</charencoding>
+  <columndelimiter>COMMA</columndelimiter>
+  <customrecord>[scriptid=customrecord_drss_accessories]</customrecord>
+  <datahandling>ADDUPDATE</datahandling>
+  <decimaldelimiter>PERIOD</decimaldelimiter>
+  <ignorereadonly>T</ignorereadonly>
+  <importname>Add On/Accessory Item Import</importname>
+  <logsystemnotescustfields>F</logsystemnotescustfields>
+  <multiselectdelimiter>|</multiselectdelimiter>
+  <overwritemissingfields>F</overwritemissingfields>
+  <overwritesublists>F</overwritesublists>
+  <recordtype>CUSTOMRECORD</recordtype>
+  <runserversuitescript>F</runserversuitescript>
+  <usemultithread>F</usemultithread>
+  <validatemandatorycustfields>T</validatemandatorycustfields>
+  <audience>
+    <allemployees>F</allemployees>
+    <allpartners>F</allpartners>
+    <allroles>F</allroles>
+    <globaledit>F</globaledit>
+    <ispublic>F</ispublic>
+    <roles></roles>
+  </audience>
+  <filemappings>
+    <filemapping>
+      <file>CUSTOMRECORD</file>
+    </filemapping>
+  </filemappings>
+  <recordmappings>
+    <recordmapping>
+      <record>CUSTOMRECORD</record>
+      <fieldmappings>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_accessoryitem]</field>
+          <columnreference>
+            <column>Add On Item</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_accessoryprice]</field>
+          <columnreference>
+            <column>Price Level</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_maxprice]</field>
+          <columnreference>
+            <column>Maximum Price</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_minprice]</field>
+          <columnreference>
+            <column>Minimum Price</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentclass]</field>
+          <columnreference>
+            <column>Parent Class</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>[scriptid=customrecord_drss_accessories.custrecord_drss_parentitem]</field>
+          <columnreference>
+            <column>Parent Item</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+        <fieldmapping>
+          <field>EXTERNALID</field>
+          <columnreference>
+            <column>External ID</column>
+            <file>CUSTOMRECORD</file>
+            <type>NAME</type>
+          </columnreference>
+        </fieldmapping>
+      </fieldmappings>
+    </recordmapping>
+  </recordmappings>
+</savedcsvimport>

@@ -1,0 +1,523 @@
+{
+  "solution_id": "ppai-production-plus",
+  "solution_name": "Production Plus for Promotional Products",
+  "version": "1.0",
+  "vendor": "NetSuite Custom Solution",
+  "solution_type": "Manufacturing Execution System",
+  "marketing_description": "Production Plus streamlines manufacturing operations for promotional product companies by automating work order generation, managing complex imprint and decoration workflows, and tracking production events from sales order through completion. Designed specifically for businesses that customize items with logos, artwork, and branding.",
+  "technical_summary": "Production Plus extends NetSuite's Work Order Assembly functionality with specialized custom records for managing promotional product manufacturing. The solution creates a Production Plus Record from sales orders containing imprint details, automatically generates and manages work orders, tracks production events with machine assignments, and handles multi-location, multi-design imprinting workflows.",
+  "industries": [
+    "Manufacturing - Promotional Products",
+    "Manufacturing - Apparel Decoration",
+    "Distribution - Branded Merchandise",
+    "Contract Manufacturing"
+  ],
+  "target_company_size": [
+    "Small Business (10-100 employees)",
+    "Mid-Market (100-1000 employees)"
+  ],
+  "key_features": [
+    {
+      "feature": "Automated Production Record Creation",
+      "description": "Automatically generates Production Plus Records from sales orders with imprint requirements, consolidating order details, artwork specifications, and production requirements into a centralized manufacturing record."
+    },
+    {
+      "feature": "Imprint Details Management",
+      "description": "Captures and tracks complex decoration specifications including artwork items, imprint locations, design variations, color counts, and decoration methods across multiple items and order lines."
+    },
+    {
+      "feature": "Work Order Orchestration",
+      "description": "Automatically creates, links, and manages work orders based on production requirements. Supports both forward and backward scheduling with routing templates. Handles assembly builds and completion workflows."
+    },
+    {
+      "feature": "Production Event Tracking",
+      "description": "Tracks granular production activities with machine assignments, setup time, run time, assigned personnel, and completion status for each manufacturing operation."
+    },
+    {
+      "feature": "Artwork and Template Management",
+      "description": "Maintains library of stored artwork items and imprint configuration templates. Links artwork files to production events and work orders for consistent decoration across production runs."
+    },
+    {
+      "feature": "Production Scheduling",
+      "description": "Supports forward scheduling (from start date) and backward scheduling (to required date) methodologies. Automatically propagates production dates to linked work orders based on selected scheduling method."
+    },
+    {
+      "feature": "Real-Time Production Status",
+      "description": "Provides visibility into production status with automated updates to work order states. Tracks total quantities, imprints, designs, and locations across all production events."
+    },
+    {
+      "feature": "Mass Production Processing",
+      "description": "Bulk processes multiple work orders for building and completion. Validates inventory availability and routing requirements before executing assembly builds in batch."
+    }
+  ],
+  "technical_components": {
+    "custom_records": [
+      {
+        "script_id": "customrecord_nsra_ppr",
+        "name": "Production Plus Record",
+        "description": "Primary production record linking sales orders to work orders, tracking production dates, quantities, imprint totals, and routing templates.",
+        "key_fields": [
+          "Customer Order (Sales Order link)",
+          "Production Start Date",
+          "Production End Date",
+          "Total Quantity",
+          "Total Imprints",
+          "Total Designs",
+          "Total Locations",
+          "Routing Template",
+          "Scheduling Method (Forward/Backward)",
+          "Status"
+        ]
+      },
+      {
+        "script_id": "customrecord_nsra_pp_prodevent",
+        "name": "Production Event",
+        "description": "Tracks individual production operations with machine assignment, time tracking, and artwork linkage.",
+        "key_fields": [
+          "Production Record (parent)",
+          "Date",
+          "Machine",
+          "Production Event Imprint Method",
+          "Total Run Time",
+          "Total Setup Time",
+          "Assigned To",
+          "Total to Build",
+          "Production Event Item",
+          "Artwork Item"
+        ]
+      },
+      {
+        "script_id": "customrecord_ns_ppai_imprnt_orderdetails",
+        "name": "Imprint Order Details",
+        "description": "Master record for imprint specifications linked to sales orders and production records.",
+        "key_fields": [
+          "Sales Order",
+          "Production Record",
+          "Item",
+          "Quantity",
+          "Line Number"
+        ]
+      },
+      {
+        "script_id": "customrecord_ns_ppai_imprintdetails",
+        "name": "Imprint Details",
+        "description": "Detailed decoration specifications including artwork, location, colors, and design information.",
+        "key_fields": [
+          "Imprint Order Details (parent)",
+          "Imprint Configuration Template",
+          "Artwork Item",
+          "Location",
+          "Design",
+          "Number of Colors",
+          "Art Height/Width"
+        ]
+      },
+      {
+        "script_id": "customrecord_ns_ppai_imprtconfig_tmpl",
+        "name": "Imprint Configuration Template",
+        "description": "Reusable templates for imprint methods and decoration processes."
+      },
+      {
+        "script_id": "customrecord_ns_ppai_stored_art_list",
+        "name": "Stored Art List",
+        "description": "Library of artwork files and design assets available for production use."
+      }
+    ],
+    "scripts": [
+      {
+        "script_id": "customscript_ns_sl_ppai",
+        "type": "Suitelet",
+        "name": "NS | SL | PPAI",
+        "description": "Primary interface for creating Production Plus Records from sales orders. Displays confirmation dialog, aggregates imprint details, creates production record, and initiates work order processing."
+      },
+      {
+        "script_id": "customscript_ns_mr_ppai",
+        "type": "Map/Reduce",
+        "name": "NS | MR | PPAI",
+        "description": "Creates Production Plus Records from sales order imprint data in batch."
+      },
+      {
+        "script_id": "customscript_ns_mr_process_wo_link_to_wo",
+        "type": "Map/Reduce",
+        "name": "Process WO Linked to SO",
+        "description": "Links existing work orders to newly created Production Plus Records."
+      },
+      {
+        "script_id": "customscript_ns_mr_build_wo",
+        "type": "Map/Reduce",
+        "name": "Build Work Orders",
+        "description": "Automatically transforms work orders to assembly builds when inventory is available and routing requirements are met."
+      },
+      {
+        "script_id": "customscript_ns_mr_complete_wo",
+        "type": "Map/Reduce",
+        "name": "Complete Work Orders",
+        "description": "Batch processes work order completions for finished production."
+      },
+      {
+        "script_id": "customscript_ns_mr_update_prod_dates_wo",
+        "type": "Map/Reduce",
+        "name": "Update Production Dates on Work Orders",
+        "description": "Propagates production start/end dates from Production Plus Records to linked work orders based on scheduling method."
+      },
+      {
+        "script_id": "customscript_ns_ue_create_button",
+        "type": "User Event",
+        "name": "NS | UE | Create Button",
+        "description": "Adds custom buttons to sales order and production records for initiating production workflows."
+      },
+      {
+        "script_id": "customscript_ns_cs_ppai",
+        "type": "Client Script",
+        "name": "NS | CS | PPAI",
+        "description": "Client-side validation and UI enhancements for Production Plus forms."
+      },
+      {
+        "script_id": "customscript_ns_sl_mass_production_plus",
+        "type": "Suitelet",
+        "name": "Mass Production Plus",
+        "description": "Bulk interface for processing multiple production records simultaneously."
+      },
+      {
+        "script_id": "customscript_ns_sl_build_wo",
+        "type": "Suitelet",
+        "name": "Build Work Orders Interface",
+        "description": "User interface for selecting and building multiple work orders."
+      },
+      {
+        "script_id": "customscript_ns_sl_complete_wo",
+        "type": "Suitelet",
+        "name": "Complete Work Orders Interface",
+        "description": "User interface for selecting and completing multiple work orders."
+      },
+      {
+        "script_id": "customscript_ns_sl_update_prod_dates_wo",
+        "type": "Suitelet",
+        "name": "Update Production Dates Interface",
+        "description": "Interface for updating production dates across multiple work orders."
+      }
+    ],
+    "custom_fields": {
+      "transaction_body_fields": [
+        {
+          "script_id": "custbody_nsra_linkedprodrec_so_head",
+          "label": "Linked Production Record",
+          "record_type": "Sales Order",
+          "description": "Links sales order to its Production Plus Record"
+        },
+        {
+          "script_id": "custbody_ns_ppai_parent",
+          "label": "PPAI Parent",
+          "record_type": "Work Order",
+          "description": "Links work order to parent production record"
+        },
+        {
+          "script_id": "custbody_ns_ppai_requiredate",
+          "label": "Required Date",
+          "record_type": "Sales Order",
+          "description": "In-hands date required by customer"
+        },
+        {
+          "script_id": "custbody_nsps_sales_order_notes",
+          "label": "Sales Order Notes",
+          "record_type": "Transaction",
+          "description": "Special production notes from sales order"
+        }
+      ],
+      "transaction_column_fields": [
+        {
+          "script_id": "custcol_ns_ppai_imprint_orderdetail",
+          "label": "Imprint Order Details",
+          "description": "Links transaction line to Imprint Order Details record"
+        },
+        {
+          "script_id": "custcol_nsps_assemblyitem",
+          "label": "Assembly Item",
+          "description": "Assembly item for production"
+        },
+        {
+          "script_id": "custcol_nsps_prod_event",
+          "label": "Production Event",
+          "description": "Links to production event record"
+        }
+      ],
+      "item_fields": [
+        {
+          "script_id": "custitem_ns_ppai_artwork_item",
+          "label": "Artwork Item Flag",
+          "description": "Identifies items used for artwork storage"
+        },
+        {
+          "script_id": "custitem_ns_ppai_artwork_file",
+          "label": "Artwork File",
+          "description": "Stored artwork file reference"
+        },
+        {
+          "script_id": "custitem_ns_ppai_defaultimprinttemplat",
+          "label": "Default Imprint Template",
+          "description": "Default imprint configuration for item"
+        }
+      ],
+      "custom_lists": [
+        {
+          "script_id": "customlist_ns_ppai_prod_plus_status",
+          "name": "Production Plus Status",
+          "values": "Planning, In Production, Completed, Cancelled"
+        },
+        {
+          "script_id": "customlist_ns_ppai_scheduling_method",
+          "name": "Scheduling Method",
+          "values": "Forward Scheduling, Backward Scheduling"
+        },
+        {
+          "script_id": "customlist_ns_ppai_design",
+          "name": "Design List",
+          "values": "Available designs for imprinting"
+        },
+        {
+          "script_id": "customlist_ns_ppai_imprintloclist",
+          "name": "Imprint Location List",
+          "values": "Available imprint locations (front, back, sleeve, etc.)"
+        },
+        {
+          "script_id": "customlist_ns_ppai_imprint_numcolor",
+          "name": "Number of Colors",
+          "values": "1 Color, 2 Colors, 3 Colors, etc."
+        },
+        {
+          "script_id": "customlist_nsra_ppr_event_machines",
+          "name": "Production Event Machines",
+          "values": "Available production machines/equipment"
+        }
+      ]
+    },
+    "custom_forms": [
+      {
+        "script_id": "custform_ns_ppai_prod_plus",
+        "name": "Production Plus Form",
+        "description": "Custom entry form for Production Plus Records with work order and imprint detail sublists"
+      }
+    ],
+    "center_categories": [
+      {
+        "script_id": "custcentercategory_ns_ppai_prod_plus",
+        "name": "Production Plus",
+        "description": "Custom center category for production management"
+      }
+    ],
+    "center_tabs": [
+      {
+        "script_id": "custcentertab_ns_ppai_promopack_tab",
+        "name": "Promo Pack Tab",
+        "description": "Custom center tab for promotional product features"
+      }
+    ]
+  },
+  "dependencies": {
+    "netsuite_features": [
+      {
+        "feature": "WORKORDERS",
+        "required": true,
+        "description": "Work Order functionality is core to solution"
+      },
+      {
+        "feature": "ASSEMBLIES",
+        "required": true,
+        "description": "Assembly/Build functionality for work orders"
+      },
+      {
+        "feature": "MFGROUTING",
+        "required": true,
+        "description": "Manufacturing routing for production operations"
+      },
+      {
+        "feature": "CUSTOMRECORDS",
+        "required": true,
+        "description": "Custom records for production data structures"
+      },
+      {
+        "feature": "ACCOUNTING",
+        "required": true,
+        "description": "Base accounting functionality"
+      },
+      {
+        "feature": "CLASSES",
+        "required": true,
+        "description": "Classification tracking"
+      },
+      {
+        "feature": "SERVERSIDESCRIPTING",
+        "required": true,
+        "description": "Server-side scripts (Suitelets, Map/Reduce)"
+      },
+      {
+        "feature": "WORKFLOW",
+        "required": true,
+        "description": "Workflow automation support"
+      },
+      {
+        "feature": "INVENTORY",
+        "required": false,
+        "description": "Inventory management"
+      },
+      {
+        "feature": "MULTILOCINVT",
+        "required": false,
+        "description": "Multi-location inventory"
+      },
+      {
+        "feature": "ADVRECEIVING",
+        "required": false,
+        "description": "Advanced receiving"
+      }
+    ],
+    "external_dependencies": [
+      {
+        "dependency": "customrecord_scm_item_substitute",
+        "type": "Custom Record",
+        "description": "Item substitute record (possibly from Supply Chain Management bundle)"
+      },
+      {
+        "dependency": "customrecord_scm_customerpartnumber",
+        "type": "Custom Record",
+        "description": "Customer part number tracking"
+      },
+      {
+        "dependency": "customrecord_scm_preferences",
+        "type": "Custom Record",
+        "description": "Supply chain preferences"
+      },
+      {
+        "dependency": "customrecord_nav_shortcut",
+        "type": "Custom Record",
+        "description": "Navigation shortcuts"
+      },
+      {
+        "dependency": "customrecord_2663_entity_bank_details",
+        "type": "Custom Record",
+        "description": "Bank details for entities"
+      },
+      {
+        "dependency": "customrecord_atlas_inv_adj_reasn",
+        "type": "Custom Record",
+        "source": "com.suitesuccess.erpcore",
+        "description": "Inventory adjustment reasons from ERP Core bundle"
+      }
+    ],
+    "bundles": [
+      {
+        "bundle_id": "com.suitesuccess.erpcore",
+        "bundle_name": "SuiteSuccess ERP Core",
+        "required": false,
+        "description": "Referenced for inventory adjustment functionality"
+      }
+    ]
+  },
+  "deployment_complexity": "High",
+  "deployment_notes": "Requires Manufacturing and Work Order features enabled. Dependent on multiple external custom records (SCM, navigation, banking). Extensive configuration of custom lists, routing templates, and imprint templates needed for customer-specific decoration methods. Map/Reduce scripts require adequate governance limits for batch processing.",
+  "business_processes": [
+    {
+      "process": "Sales Order to Production Record",
+      "description": "Sales order with imprint requirements triggers Production Plus Record creation via Suitelet, consolidating all decoration details and initializing production workflow."
+    },
+    {
+      "process": "Work Order Generation",
+      "description": "Production Plus Record automatically creates work orders based on sales order line items, assembly requirements, and routing templates. Links work orders to production record for centralized management."
+    },
+    {
+      "process": "Production Event Tracking",
+      "description": "Shop floor personnel create Production Events for each manufacturing operation, recording machine usage, time spent, assigned operators, and artwork utilized."
+    },
+    {
+      "process": "Work Order Building",
+      "description": "When inventory and routing requirements are satisfied, work orders are automatically transformed to assembly builds via Map/Reduce script, consuming components and creating finished goods."
+    },
+    {
+      "process": "Production Scheduling",
+      "description": "Production managers set scheduling method (forward or backward) and dates on Production Plus Record, which automatically propagates to all linked work orders with appropriate start/end dates."
+    },
+    {
+      "process": "Mass Production Processing",
+      "description": "Production managers use Mass Production interfaces to build, complete, or update dates across multiple work orders simultaneously, improving efficiency for high-volume operations."
+    }
+  ],
+  "user_roles": [
+    {
+      "role": "Production Manager",
+      "responsibilities": "Creates Production Plus Records, manages production scheduling, oversees work order completion, runs batch processing operations"
+    },
+    {
+      "role": "Shop Floor Operator",
+      "responsibilities": "Records production events, tracks machine time, completes assigned production tasks, updates work order status"
+    },
+    {
+      "role": "Sales Representative",
+      "responsibilities": "Enters sales orders with imprint details, specifies artwork and decoration requirements, sets customer required dates"
+    },
+    {
+      "role": "Art Department",
+      "responsibilities": "Manages stored artwork library, creates and assigns artwork items to production events, maintains imprint configuration templates"
+    }
+  ],
+  "integration_points": [
+    {
+      "integration": "Sales Order → Production Plus Record",
+      "method": "Suitelet trigger from custom button",
+      "description": "One-click creation of production record from approved sales order"
+    },
+    {
+      "integration": "Production Plus Record → Work Orders",
+      "method": "Map/Reduce script automation",
+      "description": "Automatic work order creation and linking"
+    },
+    {
+      "integration": "Work Order → Assembly Build",
+      "method": "Record transformation via Map/Reduce",
+      "description": "Automated assembly build generation when ready"
+    },
+    {
+      "integration": "Production Dates → Work Orders",
+      "method": "Mass update via Map/Reduce",
+      "description": "Scheduling date propagation to all linked WOs"
+    }
+  ],
+  "reporting_capabilities": [
+    "Production status by customer order",
+    "Work order completion tracking",
+    "Production event history by machine",
+    "Imprint details by design and location",
+    "Production throughput and cycle time",
+    "Machine utilization and setup time",
+    "Artwork usage by item and customer"
+  ],
+  "configuration_requirements": [
+    "Custom lists populated with machines, designs, locations, colors",
+    "Imprint configuration templates created for decoration methods",
+    "Routing templates defined for production operations",
+    "Item records configured with default imprint templates",
+    "Artwork items created and stored in library",
+    "Custom forms assigned to appropriate roles",
+    "Saved searches configured for Suitelet parameters",
+    "Map/Reduce script deployments scheduled appropriately"
+  ],
+  "scalability_considerations": "Map/Reduce scripts handle high-volume batch processing. Custom record structure supports thousands of production records and events. Sublists use saved searches for efficient loading. Consider governance limits for customers processing 100+ work orders simultaneously.",
+  "maintenance_requirements": "Regular review of custom list values as new machines/designs/methods are added. Periodic cleanup of completed production records. Monitor Map/Reduce script failures and retry. Update saved search filters as business requirements evolve.",
+  "licensing_implications": "Requires full NetSuite Manufacturing license. Each production user needs appropriate role permissions for custom records. Map/Reduce script consumption counts against account governance limits.",
+  "training_requirements": [
+    "Production managers: 4-8 hours on record creation, scheduling, batch operations",
+    "Shop floor operators: 2-4 hours on production event entry and work order management",
+    "Sales team: 1-2 hours on imprint detail entry and artwork selection",
+    "Art department: 2-3 hours on artwork library and template management"
+  ],
+  "support_model": "Custom solution - requires NetSuite developer support for enhancements and troubleshooting. No vendor support available.",
+  "upgrade_considerations": "Custom solution requires testing with each NetSuite release. Work Order and Assembly Build API changes may impact functionality. Review release notes for changes to WORKORDERS, ASSEMBLIES, and MFGROUTING features.",
+  "documentation": {
+    "design_document": "Production Plus Design Doc V2.pdf",
+    "technical_documentation": "This catalog entry",
+    "user_guide": "Not available",
+    "admin_guide": "Not available"
+  },
+  "created_date": "2026-02-04",
+  "last_updated": "2026-02-04",
+  "catalog_version": "1.0"
+}

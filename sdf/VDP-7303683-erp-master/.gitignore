@@ -1,0 +1,74 @@
+# Begin whitelist structure by ignoring everything
+*
+# Now, whitelist directories so that we can access all levels
+!*/
+# Lastly, define what to keep
+
+!*.gitignore
+!*.gitkeep
+
+# Data file extensions
+!*.json
+!*.xml
+!*.sql
+!*.ss
+!*.ssp
+
+# Document file extensions
+!*.md
+!*.txt
+!*.yml
+!*.properties
+
+# Image file extensions
+!*.png
+!*.jpeg
+!*.jpg
+
+# Font file extensions
+!*.fnt
+!*.fon
+!*.otf
+!*.ttf
+
+# Template file extensions
+!*.tmpl
+
+# Internet related file extensions
+!*.js
+!*.html
+!*.xhtml
+!*.htm
+!*.css
+!*.xsl
+!*.xslt
+!*.rss
+!*.jsp
+!*.php
+!*.rest
+
+# Programming file extensions
+!*.c
+!*.class
+!*.cpp
+!*.cs
+!*.h
+!*.java
+!*.sh
+!*.py
+!*.cgi
+!*.pl
+
+#sdf webstorm local file
+*project.json*
+
+#dev files
+.eslintignore
+.git-hooks
+
+*.idea*
+*.attributes*
+*.code-workspace*
+*package-lock.json*
+*node_modules*
+*.scannerwork*
